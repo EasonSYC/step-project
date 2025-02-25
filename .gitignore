@@ -1,6 +1,7 @@
 # LaTeX Files
 *.class
 *.html
+*.css
 *.svg
 *.pdf
 
