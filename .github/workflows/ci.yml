@@ -11,15 +11,22 @@ on:
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
-    
+    name: Build PDF
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install TeX Live
-        runs: |
-          sudo apt update
-          sudo apt install -y biber texlive-base texlive-latex-recommended texlive-latex-extra texlive-science
+      - name: Install TeX Environment
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: |
+            biber
+            texlive-base
+            texlive-latex-recommended
+            texlive-latex-extra
+            texlive-science
+            latexmk
+            ghostscript
       
       - name: Restore Cache Files
         uses: actions/cache/restore@v4
@@ -34,7 +41,7 @@ jobs:
             main.toc
 
       - name: Compile PDF File
-        runs: latexmk -pdflatex -interaction=nonstopmode -file-line-error main.tex
+        run: latexmk -pdflatex -interaction=nonstopmode -file-line-error main.tex
 
       - name: Store Cache Files
         uses: actions/cache/save@v4
