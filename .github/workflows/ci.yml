@@ -9,9 +9,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-pdf:
+  build:
     runs-on: ubuntu-latest
-    name: Build PDF
+    name: Build PDF and Webpage
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,7 +19,7 @@ jobs:
       - name: Install TeX Live Base
         run: |
           sudo apt update
-          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extra
+          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extratexlive-extra-utils
 
       - name: Install TeX Extras
         uses: awalsh128/cache-apt-pkgs-action@latest
@@ -27,33 +27,9 @@ jobs:
           packages: |
             latexmk
           execute_install_scripts: true
-      
-      - name: Restore Cache Files
-        uses: actions/cache/restore@v4
-        with:
-          key: pdflatex-cache
-          path: |
-            **/*.aux
-            main.aux
-            main.fdb_latexmk
-            main.fls
-            main.out
-            main.toc
 
       - name: Compile PDF File
         run: latexmk -pdflatex -interaction=nonstopmode -file-line-error main.tex
-
-      - name: Store Cache Files
-        uses: actions/cache/save@v4
-        with:
-          key: pdflatex-cache
-          path: |
-            **/*.aux
-            main.aux
-            main.fdb_latexmk
-            main.fls
-            main.out
-            main.toc
       
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
@@ -61,54 +37,25 @@ jobs:
           name: PDF
           path: main.pdf
 
-  build-webpage:
-    runs-on: ubuntu-latest
-    name: Build Webpage
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install TeX Live
-        run: |
-          sudo apt update
-          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extra texlive-extra-utils
-      
-      - name: Restore Cache Files
-        uses: actions/cache/restore@v4
-        with:
-          key: make4ht-cache
-          path: |
-            **/*.aux
-            main.aux
-            main.4ct
-            main.4tc
-            main.dvi
-            main.idv
-            main.lg
-            main.tmp
-            main.xref
-            
-
       - name: Compile Webpage File
         run: make4ht -u -d webpage main.tex "mathml"
 
-      - name: Store Cache Files
-        uses: actions/cache/save@v4
-        with:
-          key: make4ht-cache
-          path: |
-            **/*.aux
-            main.aux
-            main.4ct
-            main.4tc
-            main.dvi
-            main.idv
-            main.lg
-            main.tmp
-            main.xref
+      - name: Build Webpage Folder
+        run:
+          cp main.pdf webpage/latest.pdf
       
-      - name: Upload Webpage file
-        uses: actions/upload-artifact@v4
+      - name: Upload static files as artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: Webpage
           path: webpage/
+  
+  deploy-pages:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
