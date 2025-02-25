@@ -14,14 +14,17 @@ jobs:
     name: Build PDF and Webpage
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v4
 
-      - name: Install TeX Live Base
+      - name: Install TeX Live
+        id: install-tex-live
         run: |
           sudo apt update
           sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extra texlive-extra-utils
 
       - name: Install TeX Extras
+        id: install-tex-extras
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: |
@@ -29,34 +32,42 @@ jobs:
           execute_install_scripts: true
 
       - name: Compile PDF File
+        id: compile-pdflatex
         run: latexmk -pdflatex -interaction=nonstopmode -file-line-error main.tex
       
       - name: Upload PDF file
+        id: upload-pdf
         uses: actions/upload-artifact@v4
         with:
           name: PDF
           path: main.pdf
 
       - name: Compile Webpage File
+        id: compile-make4ht
         run: make4ht -u -d webpage main.tex "mathml"
 
       - name: Build Webpage Folder
+        id: create-webpage-folder
         run:
           cp main.pdf webpage/latest.pdf
       
       - name: Upload static files as artifact
+        id: upload-webpage
         uses: actions/upload-pages-artifact@v3
         with:
           path: webpage/
   
   deploy-pages:
     name: Deploy GitHub Pages
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy-page.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: deploy-page
         uses: actions/deploy-pages@v4
