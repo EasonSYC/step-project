@@ -27,6 +27,11 @@ jobs:
           packages: |
             latexmk
       
+      - name: Install TeX Packages
+        run: |
+          sudo tlmgr install extarrows
+          sudo tlmgr install fontawesome5
+      
       - name: Restore Cache Files
         uses: actions/cache/restore@v4
         with:
@@ -77,6 +82,11 @@ jobs:
         with:
           packages: |
             latexmk
+      
+      - name: Install TeX Packages
+        run: |
+          sudo tlmgr install extarrows
+          sudo tlmgr install fontawesome5
       
       - name: Restore Cache Files
         uses: actions/cache/restore@v4
