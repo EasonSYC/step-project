@@ -70,13 +70,7 @@ jobs:
       - name: Install TeX Live
         run: |
           sudo apt update
-          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extra
-
-      - name: Install TeX Extras
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: |
-            latexmk
+          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extra texlive-extra-utils
       
       - name: Restore Cache Files
         uses: actions/cache/restore@v4
