@@ -54,3 +54,56 @@ jobs:
         with:
           name: PDF
           path: main.pdf
+
+  build-webpage:
+    runs-on: ubuntu-latest
+    name: Build Webpage
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install TeX Environment
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: |
+            texlive-full
+      
+      - name: Restore Cache Files
+        uses: actions/cache/restore@v4
+        with:
+          key: make4ht-cache
+          path: |
+            **/*.aux
+            main.aux
+            main.4ct
+            main.4tc
+            main.dvi
+            main.idv
+            main.lg
+            main.tmp
+            main.xref
+            
+
+      - name: Compile Webpage File
+        run: make4ht -u -d webpage main.tex "mathml"
+
+      - name: Store Cache Files
+        uses: actions/cache/save@v4
+        with:
+          key: make4ht-cache
+          path: |
+            **/*.aux
+            main.aux
+            main.4ct
+            main.4tc
+            main.dvi
+            main.idv
+            main.lg
+            main.tmp
+            main.xref
+      
+      - name: Upload Webpage file
+        uses: actions/upload-artifact@v4
+        with:
+          name: Webpage
+          path: webpage/
