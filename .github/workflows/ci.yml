@@ -16,10 +16,37 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Github Action for LaTeX
-        uses: xu-cheng/latex-action@3.2.0
+      - name: Install TeX Live
+        runs: |
+          sudo apt update
+          sudo apt install -y biber texlive-base texlive-latex-recommended texlive-latex-extra texlive-science
+      
+      - name: Restore Cache Files
+        uses: actions/cache/restore@v4
         with:
-          root_file: main.tex
+          key: pdflatex-cache
+          path: |
+            **/*.aux
+            main.aux
+            main.fdb_latexmk
+            main.fls
+            main.out
+            main.toc
+
+      - name: Compile PDF File
+        runs: latexmk -pdflatex -interaction=nonstopmode -file-line-error main.tex
+
+      - name: Store Cache Files
+        uses: actions/cache/save@v4
+        with:
+          key: pdflatex-cache
+          path: |
+            **/*.aux
+            main.aux
+            main.fdb_latexmk
+            main.fls
+            main.out
+            main.toc
       
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
