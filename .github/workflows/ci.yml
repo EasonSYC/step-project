@@ -29,6 +29,7 @@ jobs:
             texlive-latex-extra
             texlive-science
             texlive-fonts-extra
+          execute_install_scripts: true
       
       - name: Restore Cache Files
         uses: actions/cache/restore@v4
