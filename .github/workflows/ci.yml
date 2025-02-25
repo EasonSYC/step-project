@@ -19,7 +19,7 @@ jobs:
       - name: Install TeX Live Base
         run: |
           sudo apt update
-          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extratexlive-extra-utils
+          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extra texlive-extra-utils
 
       - name: Install TeX Extras
         uses: awalsh128/cache-apt-pkgs-action@latest
@@ -50,6 +50,7 @@ jobs:
           path: webpage/
   
   deploy-pages:
+    name: Deploy GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
