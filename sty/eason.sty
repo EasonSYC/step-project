@@ -1,0 +1,97 @@
+% Packages
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usetikzlibrary{calc}
+% \usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{extarrows}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fontawesome5}
+\usepackage{textcomp}
+
+\usepackage{hyperref}
+
+\usepackage{currfile}
+\usepackage{etoc}
+
+\usepackage{etoolbox}
+
+% Differentiation
+% https://tex.stackexchange.com/a/60546/
+\newcommand{\Diff}{\mathop{}\!\mathrm{d}}
+\newcommand{\DiffFrac}[2]{\frac{\Diff #1}{\Diff #2}}
+\newcommand{\DiffOp}[1]{\frac{\Diff}{\Diff #1}}
+
+\newcommand{\Ndiff}[1]{\mathop{}\!\mathrm{d}^{#1}}
+\newcommand{\NdiffFrac}[3]{\frac{\Ndiff{#1} #2}{\Ndiff{#1} #3}}
+\newcommand{\NdiffOp}[2]{\frac{\Ndiff{#1}}{\Ndiff{#1} #2}}
+
+% Evaluation
+\newcommand{\LEvalAt}[2]{\left.#1\right\vert_{#2}}
+\newcommand{\SqEvalAt}[2]{\left[#1\right]_{#2}}
+
+% Epsilon & Phi
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+% Number Sets
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+% Probabililty
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Expt}{E}
+
+% UK Notation
+\DeclareMathOperator{\Prob}{P}
+\DeclareMathOperator{\Cosec}{cosec}
+
+% Other Math Symbols
+\newcommand{\Abs}[1]{\left\vert#1\right\vert}
+
+% Text Symbols
+\newcommand{\GitHubHref}[2]{
+    \href{https://github.com/#1/#2}{\faGithub\space #1/#2}
+}
+
+% Title Page
+\newcommand{\MakeTitlePage}[4]{
+    \begin{titlepage}
+        \begin{center}
+            \LARGE #1
+    
+            \bigskip
+            \bigskip
+    
+            \Large #2
+    
+            \bigskip
+            \bigskip
+    
+            \large #3
+    
+            \bigskip
+    
+            \large #4
+        \end{center}
+    \end{titlepage}
+}
+
+% Headers
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+% Chapter Headers
+\patchcmd{\chapter}{\thispagestyle{plain}}{}{}{}

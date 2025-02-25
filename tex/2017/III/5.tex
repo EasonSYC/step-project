@@ -1,0 +1,74 @@
+\Question{\currfilebase}
+
+Since we have \(x = r \cos \theta\) and \(y = r \sin \theta\), and \(r = f(\theta)\), we have
+\begin{align*}
+    \DiffFrac{x}{\theta} &= \DiffFrac{r}{\theta} \cdot \cos \theta + r \cdot \DiffFrac{\cos \theta}{\theta}\\
+    &= f'(\theta) \cos \theta - f(\theta) \sin \theta,
+\end{align*}
+and
+\begin{align*}
+    \DiffFrac{y}{\theta} &= \DiffFrac{r}{\theta} \cdot \sin \theta + r \cdot \DiffFrac{\sin \theta}{\theta}\\
+    &= f'(\theta) \sin \theta + f(\theta) \cos \theta,
+\end{align*}
+
+Therefore,
+\begin{align*}
+    \DiffFrac{y}{x} &= \frac{\DiffFrac{y}{\theta}}{\DiffFrac{x}{\theta}}\\
+    &= \frac{f'(\theta) \sin \theta + f(\theta) \cos \theta}{f'(\theta) \cos \theta - f(\theta) \sin \theta}\\
+    &= \frac{f'(\theta) \tan \theta + f(\theta)}{f'(\theta) - f(\theta) \tan \theta}.
+\end{align*}
+
+For the two curves, we must have
+\[
+    \LEvalAt{\DiffFrac{y}{x}}{f} \cdot \LEvalAt{\DiffFrac{y}{x}}{g} = -1
+\]
+for them to meet at right angles. Therefore,
+\begin{align*}
+    \frac{f'(\theta) \tan \theta + f(\theta)}{f'(\theta) - f(\theta) \tan \theta} \cdot
+    \frac{g'(\theta) \tan \theta + g(\theta)}{g'(\theta) - g(\theta) \tan \theta} &= -1\\
+    \left(f'(\theta) \tan \theta + f(\theta)\right) \cdot \left(g'(\theta) \tan \theta + g(\theta)\right) &= -\left(f'(\theta) - f(\theta) \tan \theta\right) \cdot \left(g'(\theta) - g(\theta) \tan \theta\right)\\
+    f'(\theta) g'(\theta) (1 + \tan^2\theta) + f(\theta) g(\theta) (1 + \tan^2\theta) &= 0\\
+    f'(\theta) g'(\theta) + f(\theta) g(\theta) &= 0.
+\end{align*}
+
+We have \(f\left(-\frac{\pi}{2}\right) = 4\). Let
+\[
+    g_a(\theta) = a(1 + \sin \theta).
+\]
+
+Therefore,
+\[
+    g_a'(\theta) = a \cos \theta,
+\]
+and we have
+\[
+    f'(\theta) (a \cos \theta) + f(\theta) a (1 + \sin \theta) = 0,
+\]
+and therefore
+\[
+    \DiffFrac{f(\theta)}{\theta} \cos \theta = - f(\theta) (1 + \sin \theta).
+\]
+
+By separating variables we have
+\[
+    \frac{\Diff f(\theta)}{f(\theta)} = - \frac{\Diff \theta (1 + \sin \theta)}{\cos \theta}.
+\]
+
+Notice that
+\[
+    -\frac{1 + \sin \theta}{\cos \theta} = - \frac{(1 - \sin \theta) (1 + \sin \theta)}{(1 - \sin \theta) \cos \theta} = - \frac{\cos \theta}{1 - \sin \theta} = \frac{\cos \theta}{\sin \theta - 1},
+\]
+integrating both sides gives us
+\[
+    \ln f(\theta) = \ln \Abs{\sin \theta - 1} + C = \ln \left(1 - \sin \theta\right) + C,
+\]
+which gives
+\[
+    f(\theta) = A (1 - \sin \theta).
+\]
+
+Since \(f\left(-\frac{\pi}{2}\right) = 4\), we have \(2A = 4\) and \(A = 2\), therefore \(f(\theta) = 2 (1 - \sin \theta)\).
+
+\begin{center}
+    \input{\currfiledir 5-diag}
+\end{center}

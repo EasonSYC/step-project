@@ -1,0 +1,70 @@
+\Question{\currfilebase}
+
+\begin{enumerate}
+    \item Notice that \(a = e^{\ln a}\) and hence \(a^x = e^{x \ln a}\), \(a^{\frac{x}{\ln a}} = e^x\)we have
+    \begin{align*}
+        F(y) &= \exp \left(\frac{1}{y} \int_0^y \ln f(x) \Diff x\right)\\
+        &= a^{\frac{1}{y \ln a} \cdot \int_0^y \ln f(x) \Diff x}\\
+        &= a^{\frac{1}{y} \cdot \int_0^y \frac{\ln f(x)}{\ln a} \Diff x}\\
+        &= a^{\frac{1}{y} \cdot \int_0^y \log_a f(x) \Diff x}
+    \end{align*}
+    as desired.
+
+    \item We have
+    \begin{align*}
+        H(y) &= \exp \left(\frac{1}{y} \int_0^y \ln f(x) g(x) \Diff x\right)\\
+        &= \exp \left[\frac{1}{y} \int_0^y \left(\ln f(x) + \ln g(x)\right) \Diff x\right]\\
+        &= \exp \left[\frac{1}{y} \left(\int_0^y \ln f(x) \Diff x + \int_0^y \ln g(x) \Diff x\right)\right]\\
+        &= \exp \left(\frac{1}{y} \int_0^y \ln f(x) \Diff x\right) \cdot \exp \left(\frac{1}{y} \int_0^y \ln g(x) \Diff x\right)\\
+        &= F(y) \cdot G(y).
+    \end{align*}
+
+    \item Let \(f(x) = b^x\).
+    \begin{align*}
+        F(y) &= \exp \left(\frac{1}{y} \int_0^y \ln f(x) \Diff x\right)\\
+        &= b^{\frac{1}{y} \int_0^y \log_b f(x) \Diff x}\\
+        &= b^{\frac{1}{y} \int_0^y \log_b b^x \Diff x}\\
+        &= b^{\frac{1}{y} \int_0^y x \Diff x}\\
+        &= b^{\frac{1}{y} \cdot \frac{y^2}{2}}\\
+        &= b^{\frac{y}{2}}\\
+        &= \sqrt{b^y}.
+    \end{align*}
+
+    \item Since \(F(y) = \sqrt{f(y)}\), we notice that \(f(y) = F(y)^2 = \exp \left(\frac{2}{y} \int_0^y \ln f(x) \Diff x\right)\), and therefore \(\ln f(y) = \frac{2}{y} \int_0^y \ln f(x) \Diff x\).
+    
+    We substitute \(g(y) = \ln f(y)\), and therefore
+    \[
+        y g(y) = 2 \int_0^y g(y) \Diff x.
+    \]
+
+    Therefore, differentiating both sides with respect to \(y\) gives us
+    \[
+        yg'(y) + g(y) = 2 g(y),
+    \]
+    and therefore
+    \[
+        -g(y) + y g'(y) = 0.
+    \]
+
+    Multiplying \(y^{-2}\) on both sides gives us
+    \[
+        -y^{-2}g(y) + y^{-1} g'(y) = 0,
+    \]
+    and therefore
+    \[
+        \frac{\Diff}{\Diff y} \frac{g(y)}{y} = 0,
+    \]
+    and therefore
+    \[
+        \frac{g(y)}{y} = C \implies g(y) = Cy.
+    \]
+
+    Therefore, we have
+    \begin{align*}
+        f(y) &= \exp g(y)\\
+        &= \exp (Cy)\\
+        &= b^y
+    \end{align*}
+    if we substitute \(b = \exp(C) > 0\), and therefore \(f(x) = b^y\) as desired.
+
+\end{enumerate}

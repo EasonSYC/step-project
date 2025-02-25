@@ -1,0 +1,93 @@
+\Question{\currfilebase}
+
+\begin{align*}
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} &= \left(\frac{1-t^2}{1+t^2}\right)^2 + \left(\frac{2t}{1+t^2}\right)^2\\
+    &= \frac{\left(1 - t^2\right)^2 + \left(2t\right)^2}{\left(1 + t^2\right)^2}\\
+    &= \frac{1 - 2t^2 + t^4 + 4t^2}{\left(1 + t^2\right)^2}\\
+    &= \frac{1 + 2t^2 + t^4}{\left(1 + t^2\right)^2}\\
+    &= \frac{\left(1 + t^2\right)^2}{\left(1 + t^2\right)^2}\\
+    &= 1
+\end{align*}
+as desired, so \(T\) lies on the ellipse \(\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\).
+
+\begin{enumerate}
+    \item The gradient of \(L\) must satisfy that
+    \begin{align*}
+        \frac{\Diff y}{\Diff x} &= \frac{\Diff y / \Diff t}{\Diff x / \Diff t}\\
+        &= \frac{b}{a} \cdot \frac{\Diff \left(2t/(1+t^2)\right) / \Diff t}{\Diff \left((1-t^2)/(1+t^2)\right) / \Diff t}\\
+        &= \frac{b}{a} \cdot \frac{2 \cdot (1+t^2) - 2t \cdot 2t}{-2t \cdot (1+t^2) - (1-t^2) \cdot 2t}\\
+        &= \frac{b}{a} \cdot \frac{2 + 2t^2 - 4t^2}{-2t - 2t^3 - 2t + 2t^3}\\
+        &= \frac{b}{a} \cdot \frac{1 - t^2}{-2t}.
+    \end{align*}
+
+    Therefore, we have a general point \((X, Y) \in L\) satisfy that
+    \begin{align*}
+        Y - \frac{2bt}{1+t^2} &= \frac{b}{a} \cdot \frac{1 - t^2}{-2t} \cdot \left(X - \frac{a(1-t^2)}{1+t^2}\right)\\
+        (1+t^2)Y - 2bt &= \frac{b}{a} \cdot \frac{1-t^2}{-2t} \cdot \left((1+t^2)X - a(1-t^2)\right)\\
+        (-2at)(1+t^2)Y - (-2at)(2bt) &= b \cdot (1-t^2) \cdot \left((1+t^2)X - a(1-t^2)\right)\\
+        (-2at)(1+t^2)Y &= b(1-t^2)(1+t^2)X - ab(1-t^2)^2 - 4abt^2\\
+        (-2at)(1+t^2)Y &= b(1-t^2)(1+t^2)X - ab(1+t^2)^2\\
+        -2atY &= b(1-t^2)X - ab(1+t^2)\\
+        ab(1+t^2) -2atY - b(1-t^2)X &= 0\\
+        (a + X)bt^2 - 2aYt + b(a-X) &= 0
+    \end{align*}
+    as desired.
+
+    Now if we fix \(X, Y\) and solve for \(t\), there are two solutions to this quadratic equation exactly when
+    \begin{align*}
+        (2aY)^2 - 4(a+X)b \cdot b(a-X) &>0\\
+        (aY)^2 - (a+X)(a-X)b^2 &>0\\
+        a^2Y^2 &> (a^2-X^2)b^2,
+    \end{align*}
+    which corresponds to two distinct points on the ellipse.
+
+    Since \(a^2 Y^2 > (a^2 - X^2) b^2\), we have \(\frac{Y^2}{b^2} > 1 - \frac{X^2}{a^2}\) by dividing through \(a^2 b^2\) on both sides, i.e.
+    \[
+        \frac{X^2}{a^2} + \frac{Y^2}{b^2} > 1,
+    \]
+    which means when the point \((X, Y)\) lies outside the ellipse.
+
+    This also holds when \(X^2 = a^2\), i.e. when the point \((X, Y)\) lies on the pair of lines \(X = \pm A\). Here, the condition is simply \(a^2 Y^2 > 0\), which gives \(Y \neq 0\). One of the tangents will be the vertical line \(X = \pm A\) (whichever one the point lies on), and the other one as a non-vertical (as shown when \(X = a\), the tangents being \(L_1\) and \(L_2\)).
+
+    \begin{center}
+        \input{\currfiledir 7-diag}
+    \end{center}
+
+    \item By Vieta's Theorem, we have
+    \[
+        pq = \frac{b(a-X)}{b(a+X)} \implies (a+X) pq = a-X,
+    \]
+    as desired, and
+    \[
+        p + q = -\frac{-2aY}{(a+X)b} = \frac{2aY}{(a+X)b}.
+    \]
+
+    Let \(X = 0\) for the equation in \(L\),
+    \begin{align*}
+        abt^2 - 2aYt + ba &= 0\\
+        bt^2 - 2Yt + b &= 0\\
+        Y &= \frac{b(1+t^2)}{2t}.
+    \end{align*}
+
+    Therefore,
+    \begin{align*}
+        y_1 + y_2 &= \frac{b(1+p^2)}{2p} + \frac{b(1+q^2)}{2q}\\
+        &= \frac{b\left[(1+p^2)q + (1+q^2)p\right]}{2pq}\\
+        &= 2b,
+    \end{align*}
+    therefore we have
+    \[
+        4pq = (1+p^2)q + (1+q^2)p = (p+q)(1 + pq).
+    \]
+
+    Therefore,
+    \begin{align*}
+        4 \cdot \frac{a-X}{a+X} &= \frac{2aY}{(a+X)b} \cdot \frac{2a}{a+X}\\
+        a-X &= \frac{a^2 Y}{b(a+X)}\\
+        (a-X)(a+X)b &= a^2Y\\
+        (a^2 - X^2) b &= a^2 Y\\
+        1 - \frac{X^2}{a^2} &= \frac{Y}{b}\\
+        \frac{X^2}{a^2} + \frac{Y}{b} &= 1,
+    \end{align*}
+    as desired.
+\end{enumerate}

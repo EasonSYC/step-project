@@ -1,0 +1,61 @@
+\Question{\currfilebase}
+
+We have
+\begin{align*}
+    \sum_{m = 1}^{n} a_m (b_{m + 1} - b_m) &= \sum_{m = 1}^{n} a_m b_{m + 1} - \sum_{m = 1}^{n} a_m b_m\\
+    &= -\sum_{m = 0}^{n - 1} b_{m + 1} a_{m + 1} + \sum_{m = 1}^{n} b_{m + 1} a_m\\
+    &= -\sum_{m = 1}^{n} b_{m + 1} a_{m + 1} + \sum_{m = 1}^{n} b_{m + 1} a_m + a_{n + 1} b_{n + 1} - a_1 b_1\\
+    &= a_{n + 1} b_{n + 1} - a_1 b_1 - \sum_{m = 1}^{n} b_{m + 1}(a_{m + 1} - a_m),
+\end{align*}
+as desired.
+
+\begin{enumerate}
+    \item Let \(a_m = 1\). On one hand, we have
+    \begin{align*}
+        \sum_{m = 1}^{n} a_m (b_{m + 1} - b_m) &= \sum_{m = 1}^{n} \left[\sin(m + 1) x - \sin mx\right]\\
+        &= \sum_{m = 1}^{n} 2 \cos \left(\frac{(m + 1)x + mx}{2}\right) \sin \left(\frac{(m + 1)x - mx}{2}\right)\\
+        &= 2 \sum_{m = 1}^{n} \cos \left(m + \frac{1}{2}\right)x \sin \frac{x}{2}\\
+        &= 2 \sin \frac{x}{2} \sum_{m = 1}^{n} \cos \left(m + \frac{1}{2}\right)x.
+    \end{align*}
+
+    On the other hand, we have
+    \begin{align*}
+        \sum_{m = 1}^{n} a_m (b_{m + 1} - b_m) &= a_{n + 1} b_{n + 1} - a_1 b_1 - \sum_{m = 1}^{n} b_{m + 1} (a_{m + 1} - a_m)\\
+        &= \sin (n + 1) x - \sin x.
+    \end{align*}
+
+    Therefore, by rearranging, we have
+    \[
+        \sum_{m = 1}^{n} \cos \left(m + \frac{1}{2}\right)x = \frac{1}{2} \left[\sin(n + 1)x - \sin x\right] \Cosec \frac{1}{2} x
+    \]
+    as desired.
+
+    \item Let \(a_m = m\), and let \(b_m = \cos \left(m - \frac{1}{2}\right)x\). We have the identity
+    \[
+        \cos A - \cos B = - 2 \sin\left(\frac{A + B}{2}\right) \sin \left(\frac{A - B}{2}\right).
+    \]
+    Therefore, we have
+    \begin{align*}
+        \sum_{m = 1}^{n} a_m (b_{m + 1} - b_m) &= \sum_{m = 1}^{n} m \cdot \left[\cos \left(m + \frac{1}{2}\right)x - \cos \left(m - \frac{1}{2}\right)x\right]\\
+        &= \sum_{m = 1}^{n} -2m \sin mx \sin \frac{1}{2}x\\
+        &= -2 \sin \frac{1}{2} x \sum_{m = 1}^{n} m \sin mx, 
+    \end{align*}
+    and
+    \begin{align*}
+        &\phantom{=} \sum_{m = 1}^{n} a_m (b_{m + 1} - b_m)\\
+        &= a_{n + 1} b_{n + 1} - a_1 b_1 - \sum_{m = 1}^{n} b_{m + 1} (a_{m + 1} - a_m)\\
+        &= (n + 1) \cos \left(n + \frac{1}{2}\right)x - 1 \cdot \cos \frac{1}{2} x - \sum_{m = 1}^{n} \cos\left(m + \frac{1}{2}\right)x \cdot 1\\
+        &= (n + 1) \cos \left(n + \frac{1}{2}\right)x - \cos \frac{1}{2} x - \sum_{m = 1}^{n} \cos\left(m + \frac{1}{2}\right)x\\
+        &= (n + 1) \cos \left(n + \frac{1}{2}\right)x - \cos \frac{1}{2} x - \frac{1}{2}\left(\sin (n + 1)x - \sin x\right)\Cosec \frac{1}{2}x\\
+        &= \frac{1}{2} \Cosec \frac{1}{2}x \left[2(n + 1) \cos \left(n + \frac{1}{2}\right)x \sin \frac{1}{2}x - 2 \cos \frac{1}{2}x \sin \frac{1}{2}x - \left(\sin (n + 1)x - \sin x\right)\right]\\
+        &= \frac{1}{2} \Cosec \frac{1}{2}x \left[(n + 1) \left(\sin(n + 1)x - \sin nx\right) - (\sin x - \sin 0) - \left(\sin (n + 1)x - \sin x\right)\right]\\
+        &= \frac{1}{2} \Cosec \frac{1}{2}x \left[n \sin(n + 1)x - (n + 1) \sin nx\right].
+    \end{align*}
+
+    Therefore, we have
+    \begin{align*}
+        -2 \sin \frac{1}{2} x \sum_{m = 1}^{n} m \sin mx &= \frac{1}{2} \Cosec \frac{1}{2}x \left[n \sin(n + 1)x - (n + 1) \sin nx\right]\\
+        \sum_{m = 1}^{n} m \sin mx &= - \frac{1}{4} \Cosec^2 \frac{1}{2}x \left[n \sin(n + 1)x - (n + 1) \sin nx\right],
+    \end{align*}
+    and therefore, \(p = -\frac{1}{4}n\), \(q = \frac{1}{4}(n + 1)\).
+\end{enumerate}

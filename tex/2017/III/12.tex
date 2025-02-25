@@ -1,0 +1,71 @@
+\Question{\currfilebase}
+
+\begin{enumerate}
+    \item First, note that
+    \begin{align*}
+        1 &= \sum_{x, y = 1}^{x = n} \Prob(X = x, Y = y)\\
+        &= \sum_{x = 1}^{n} \sum_{y = 1}^{n} k(x + y)\\
+        &= \sum_{x = 1}^{n} \sum_{y = 1}^{n} (kx + ky)\\
+        &= \sum_{x = 1}^{n} \left(n \cdot kx + k\sum_{y = 1}^{n} y\right)\\
+        &= nk\sum_{x = 1}^{n} x + nk\sum_{y = 1}^{n} y\\
+        &= n^2 (n+1) k
+    \end{align*}
+    
+    Therefore, \(k = \frac{1}{n^2(n+1)}\)
+
+    \begin{align*}
+        \Prob(X = x) &= \sum_{y = 1}^{n} \Prob(X = x, Y = y)\\
+        &= \sum_{y = 1}^{n} k(x + y)\\
+        &= nkx + k\sum_{y = 1}^{n} y\\
+        &= nkx + \frac{kn(n+1)}{2}\\
+        &= \frac{x}{n(n+1)} + \frac{1}{2n}\\
+        &= \frac{2x + n+1}{2n(n+1)},
+    \end{align*}
+    as desired.
+
+    By symmetry, \(\Prob(Y = y) = \frac{2y + n+1}{2n(n+1)}\).
+    
+    We have
+    \[
+    \Prob(X = x) \cdot \Prob(Y = y) = \frac{(2x+n+1)(2y+n+1)}{4n^2(n+1)^2}.
+    \]
+    
+    But \(\Prob(X = x, Y = y) = \frac{x+y}{n^2(n+1)}\) is not equal to this. So \(X\) and \(Y\) are not independent.
+
+    \item By definition,
+    \[
+        \Cov(X, Y) = \Expt(XY) - \Expt(X)\Expt(Y).
+    \]
+    
+    We have
+    \begin{align*}
+        \Expt(X) = \Expt(Y) &= \sum_{t = 1}^{n} t \cdot \Prob(X = t)\\
+        &= \sum_{t = 1}^{n} \frac{t \cdot (2t + n + 1)}{2n(n+1)}\\
+        &= \frac{1}{n(n+1)} \sum_{t = 1}^{n} t^2 + \frac{1}{2n} \sum_{t = 1}^{n} t\\
+        &= \frac{n(n+1)(2n+1)}{6n(n+1)} + \frac{n(n+1)}{4n}\\
+        &= \frac{2n+1}{6} + \frac{n+1}{4}\\
+        &= \frac{4n+2+3n+3}{12}\\
+        &= \frac{7n+5}{12},
+    \end{align*}
+    and
+    \begin{align*}
+        \Expt(XY) &= \sum_{x, y = 1}^{n} xy \cdot \Prob(X = x, Y = y)\\
+        &= \sum_{x = 1}^{n} \sum_{y = 1}^{n} \frac{xy(x + y)}{n^2(n+1)}\\
+        &= \frac{1}{n^2(n+1)} \sum_{x = 1}^{n} \sum_{y = 1}^{n} xy(x + y)\\
+        &= \frac{1}{n^2(n+1)} \sum_{x = 1}^{n} \sum_{y = 1}^{n} (x^2y + xy^2)\\
+        &= \frac{1}{n^2(n+1)} \left[\sum_{x = 1}^{n} x^2 \sum_{y = 1}^{n} y + \sum_{x = 1}^{n} x \sum_{y = 1}^{n} y^2\right]\\
+        &= \frac{1}{n^2(n+1)} \cdot 2 \cdot \frac{n(n+1)(2n+1)}{6} \cdot \frac{n(n+1)}{2}\\
+        &= \frac{(2n+1)(n+1)}{6}.
+    \end{align*}
+
+    Therefore,
+    \begin{align*}
+        \Cov(X, Y) &= \Expt(XY) - \Expt(X)\Expt(Y)\\
+        &= \frac{(2n+1)(n+1)}{6} - \frac{(7n+5)^2}{144}\\
+        &= \frac{48n^2 + 72n + 24}{144} - \frac{49n^2 + 70n + 25}{144}\\
+        &= \frac{-n^2 + 2n - 1}{144}\\
+        &= -\frac{(n-1)^2}{144}
+        &< 0,
+    \end{align*}
+    as desired.
+\end{enumerate}

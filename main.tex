@@ -1,0 +1,26 @@
+\documentclass{report}
+\usepackage{sty/eason}
+
+\newcommand{\TexPath}{tex}
+\input{\TexPath/premeable}
+
+\begin{document}
+
+\begin{titlepage}
+    \MakeTitlePage{\Title}{\SubTitle}{\Author}{\Date}
+\end{titlepage}
+
+\pagestyle{footerOnly}
+\include{\TexPath/copyright}
+\include{\TexPath/preface}
+\include{\TexPath/progress}
+
+\thispagestyle{footerOnly}
+\tableofcontents
+
+\pagestyle{fancy}
+\Year{2017}
+\include{\TexPath/2017/I/I}
+\include{\TexPath/2017/II/II}
+\include{\TexPath/2017/III/III}
+\end{document}

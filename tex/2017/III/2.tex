@@ -1,0 +1,46 @@
+\Question{\currfilebase}
+
+\begin{enumerate}
+    \item Let the complex number representing \(R(P)\) be \(z'\). Therefore,
+    \begin{align*}
+        z' - a &= \exp(i\theta) (z - a),\\
+        z' &= z \exp(i\theta) + a (1 - \exp(i\theta)),
+    \end{align*}
+    as desired.
+
+    \item Let the complex number representing \(SR(P)\) be \(z''\). Therefore,
+    \begin{align*}
+        z'' - b &= \exp(i\phi) (z' - b),\\
+        z'' &= z' \exp(i\phi) + b(1 - \exp(i\phi)),\\
+        z'' &= \left[z \exp(i\theta) + a (1 - \exp(i\theta))\right] \exp(i\phi) + b(1 - \exp(i\phi)),\\
+        z'' &= z\exp(i\left(\theta + \phi\right)) + a (1 - \exp(i \theta)) \exp(i \phi) + b (1 - \exp(i \phi)).\\
+    \end{align*}
+
+    This will be an anti-clockwise rotation around \(c\) over an angle of \((\theta + \phi)\), where
+    \[
+        c \left[1 - \exp(i (\theta + \phi))\right] = a \exp(i \phi) - a\exp(i \left(\theta + \phi\right)) + b - b \exp(i \phi),\\
+    \]
+
+    If \(\theta + \phi = 2n\pi\) for some integer \(n \in \ZZ\), \(1 - \exp(i (\theta + \phi)) = 0\), therefore \(c\) cannot be determined.
+
+    Multiplying both sides by \(\exp\left(-\frac{i(\theta + \phi)}{2}\right)\), we have
+    \begin{align*}
+        &c \left[\exp\left(-\frac{i(\theta + \phi)}{2}\right) - \exp\left(\frac{i (\theta + \phi)}{2}\right)\right]\\
+        &= a \left[\exp\left(\frac{i(\phi - \theta)}{2}\right) - \exp\left(\frac{i(\theta + \phi)}{2}\right)\right]\\
+        &+ b\left[\exp\left(-\frac{i(\theta + \phi)}{2}\right) - \exp\left(\frac{i(\phi - \theta)}{2}\right)\right],\\
+        -2ci\sin\left(\frac{\theta + \phi}{2}\right) &= - 2 ai \exp\left(\frac{i\phi}{2}\right) \sin \left(\frac{\theta}{2}\right) - 2 bi \exp\left(-\frac{i\theta}{2}\right) \sin \left(\frac{\phi}{2}\right),\\
+        c \sin\left(\frac{\theta + \phi}{2}\right) &= a \exp\left(\frac{i\phi}{2}\right) \sin \left(\frac{\theta}{2}\right) + b \exp\left(-\frac{i\theta}{2}\right) \sin \left(\frac{\phi}{2}\right).
+    \end{align*}
+
+    If \(\theta + \phi = 2\pi\), we will have \(z'' = z + a \exp(i\phi) - a + b (1 - \exp(i\phi)) = z + (b-a) (1 - \exp(i\phi))\), which is a translation by \((b-a) (1 - \exp(i\phi))\).
+
+    \item If \(RS = SR\), then we have
+    \begin{align*}
+        a (1 - \exp(i \theta)) \exp(i \phi) + b (1 - \exp(i \phi)) &=
+        b (1 - \exp(i \phi)) \exp(i \theta) + a (1 - \exp(i \theta)),\\
+        a (-1 + \exp(i \phi) + \exp(i \theta) - \exp(i (\theta + \phi))) &= b (-1 + \exp(i \phi) + \exp(i \theta) - \exp(i (\theta + \phi))),\\
+        (a-b) (1 - \exp(i \phi)) (1 - \exp(i \theta)) &= 0.
+    \end{align*}
+
+    Therefore, \(a = b\), or \(\phi = 2 n \pi\), or \(\theta = 2 n \pi\), for some integer \(n \in \ZZ\).
+\end{enumerate}
