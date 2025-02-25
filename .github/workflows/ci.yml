@@ -16,11 +16,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install TeX Environment
+      - name: Install TeX Live
+        run: |
+          sudo apt update
+          sudo apt install -y texlive-latex-extra
+
+      - name: Install TeX Extras
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: |
-            texlive-full
+            latexmk
       
       - name: Restore Cache Files
         uses: actions/cache/restore@v4
@@ -62,11 +67,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install TeX Environment
+      - name: Install TeX Live
+        run: |
+          sudo apt update
+          sudo apt install -y texlive-latex-extra
+
+      - name: Install TeX Extras
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: |
-            texlive-full
+            latexmk
       
       - name: Restore Cache Files
         uses: actions/cache/restore@v4
