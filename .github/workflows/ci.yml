@@ -19,14 +19,13 @@ jobs:
       - name: Install TeX Live Base
         run: |
           sudo apt update
-          sudo apt install -y texlive-latex-extra texlive-science
+          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extra
 
       - name: Install TeX Extras
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: |
             latexmk
-            texlive-fonts-extra
           execute_install_scripts: true
       
       - name: Restore Cache Files
@@ -72,15 +71,7 @@ jobs:
       - name: Install TeX Live
         run: |
           sudo apt update
-          sudo apt install -y texlive-latex-extra texlive-science
-
-      - name: Install TeX Extras
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: |
-            texlive-fonts-extra
-            texlive-extra-utils
-          execute_install_scripts: true
+          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extra texlive-extra-utils
       
       - name: Restore Cache Files
         uses: actions/cache/restore@v4
