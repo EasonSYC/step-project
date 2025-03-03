@@ -55,7 +55,7 @@ jobs:
       - name: Build Webpage Folder
         id: create-webpage-folder
         run: |
-          cp latest.pdf webpage/latest.pdf
+          cp pdf/latest.pdf webpage/latest.pdf
           cd pdf
           tree -H '.' -s -D --filesfirst -T "STEP Project: All Generated Files (PDF)" -o "index.html"
           cd ..
