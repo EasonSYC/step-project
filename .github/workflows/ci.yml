@@ -50,6 +50,7 @@ jobs:
       - name: Compile Webpage File
         id: compile-make4ht
         run: make4ht -a info -u -d webpage -j index main.tex "mathml,4"
+        continue-on-error: true
 
       - name: Build Webpage Folder
         id: create-webpage-folder
