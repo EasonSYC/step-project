@@ -1,0 +1,102 @@
+\Question{\currfilebase}
+
+Notice that
+\[
+I_n = \int_{-\infty}^{+\infty} \frac{\Diff x}{(x^2 + 2ax + b)^n} = \int_{-\infty}^{+\infty} \frac{\Diff x}{((x+a)^2 + (b - a^2))^n}.
+\]
+
+\begin{enumerate}
+    \item Let \(x + a = \sqrt{b - a^2} \tan u\). When \(x \to -\infty\), \(u \to -\frac{\pi}{2}\), and when \(x \to +\infty\), \(u \to \frac{\pi}{2}\). We have also
+    \begin{align*}
+        \Diff x = \Diff (x+a) &= \Diff \sqrt{b - a^2} \tan u\\
+        &= \sqrt{b - a^2} \Diff \tan u\\
+        &= \sqrt{b - a^2} \sec^2 u \Diff u.
+    \end{align*}
+
+    Therefore, we have
+    \begin{align*}
+        I_1 &= \int_{-\infty}^{+\infty} \frac{\Diff x}{(x+a)^2 + (b - a^2)}\\
+        &= \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\sqrt{b - a^2} \sec^2 u \Diff u}{\left(\sqrt{b - a^2} \tan u\right)^2 + (b - a^2)}\\
+        &= \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\sqrt{b - a^2} \sec^2 u \Diff u}{(b - a^2)(\tan^2 u + 1)}\\
+        &= \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\sec^2 u \Diff u}{\sqrt{b - a^2}\sec^2 u}\\
+        &= \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\sqrt{b - a^2}}\\
+        &= \frac{\pi}{\sqrt{b - a^2}},
+    \end{align*}
+    as desired.
+
+    \item Using the same substitution, we have
+    \begin{align*}
+        I_n &= \int_{-\infty}^{+\infty} \frac{\Diff x}{[(x+a)^2 + (b - a^2)]^n}\\
+        &= \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\sqrt{b - a^2} \sec^2 u \Diff u}{\left[(b - a^2) \sec^2 u\right]^n}\\
+        &= \frac{1}{\sqrt{b - a^2}} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\left[(b - a^2) \sec^2 u\right]^{n - 1}}.
+    \end{align*}
+
+    Therefore,
+    \[
+        2n(b - a^2) I_{n + 1} = (2n - 1) I_n,
+    \]
+    is equivalent to
+    \[
+        2n \sqrt{b - a^2} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\left[(b - a^2) \sec^2 u\right]^{n}} = (2n-1) \frac{1}{\sqrt{b - a^2}} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\left[(b - a^2) \sec^2 u\right]^{n - 1}}
+    \]
+    is equivalent to
+    \[
+        2n (b - a^2) \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\left[(b - a^2) \sec^2 u\right]^{n}} = (2n-1) \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\left[(b - a^2) \sec^2 u\right]^{n - 1}}
+    \]
+    is equivalent to
+    \[
+        2n \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\sec^{2n} u} = (2n - 1) \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\sec^{2n - 2} u}.
+    \]
+
+    Notice that
+    \begin{align*}
+        \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\sec^{2n - 2} u} &= \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\sec^2 u \Diff u}{\sec^{2n} u}\\
+        &= \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff \tan u}{\sec^{2n} u}\\
+        &= \lim_{\substack{a \to \frac{\pi}{2}\\b \to -\frac{\pi}{2}}}\left[\frac{\tan u}{\sec^{2n}u}\right]^{a}_{b} - \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \tan u \Diff \sec^{-2n}u\\
+        &= \lim_{\substack{a \to \frac{\pi}{2}\\b \to -\frac{\pi}{2}}}\left[\sin u \cos^{2n - 1} u\right]^{a}_{b} - \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} -2n \sec u \tan u \sec^{-2n - 1}u \tan u \Diff u\\
+        &= 2n \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\tan^2 u \Diff u}{\sec^{2n} u}\\
+        &= 2n \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{(\sec^2 u - 1) \Diff u}{\sec^{2n} u}\\
+        &= 2n \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\sec^{2n - 2} u} - 2n \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\sec^{2n} u}.\\
+    \end{align*}
+
+    This means
+    \[
+        (2n - 1) \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\sec^{2n - 2} u} = 2n \int_{- \frac{\pi}{2}}^{\frac{\pi}{2}} \frac{\Diff u}{\sec^{2n} u},
+    \]
+    which is exactly what was desired.
+
+    \item Proof by induction:
+    \begin{itemize}
+        \item \textbf{Base Case.} When \(n = 1\),
+        \[
+            \LHS = I_1 = \frac{\pi}{\sqrt{b - a^2}},
+        \]
+        \[
+            \RHS = \frac{\pi}{2^{2 \cdot 1 - 2} (b - a^2)^{1 - \frac{1}{2}}} \binom{2 \cdot 1 - 2}{1 - 1}
+            = \frac{\pi}{\sqrt{b - a^2}} \binom{0}{0}
+            = \frac{\pi}{\sqrt{b - a^2}}.
+        \]
+
+        \item \textbf{Induction Hypothesis.} Assume for some \(n = k \in \NN\), we have
+        \[
+            I_n = \frac{\pi}{2^{2n - 2} (b - a^2)^{n - \frac{1}{2}}} \binom{2n - 2}{n - 1}.
+        \]
+
+        \item \textbf{Induction Step.} When \(n = k + 1\),
+        \begin{align*}
+            I_n &= I_{k + 1}\\
+            &= \frac{2k + 1}{2(k + 1)(b - a^2)} I_k\\
+            &= \frac{2k + 1}{2(k + 1)(b - a^2)} \cdot \frac{\pi}{2^{2k - 2} (b - a^2)^{k - \frac{1}{2}}} \binom{2k - 2}{k - 1}\\
+            &= \frac{\pi}{2^{2k} (b - a^2)^{k + \frac{1}{2}}} \frac{(2k-2)!}{(k-1)!(k-1)!} \frac{(2k + 1)(2k + 2)}{(k + 1)^2}\\
+            &= \frac{\pi}{2^{2k} (b - a^2)^{k + \frac{1}{2}}} \frac{2k!}{k!k!}\\
+            &= \frac{\pi}{2^{2k} (b - a^2)^{k + \frac{1}{2}}} \binom{2k}{k}\\
+            &= \frac{\pi}{2^{2n - 2} (b - a^2)^{n - \frac{1}{2}}} \binom{2n - 2}{n - 1}.
+        \end{align*}
+    \end{itemize}
+
+    Therefore, by the principle of mathematical induction, for \(n \in \NN\),
+    \[
+        I_n = \frac{\pi}{2^{2n - 2} (b - a^2)^{n - \frac{1}{2}}} \binom{2n - 2}{n - 1},
+    \]
+    as desired.
+\end{enumerate}
