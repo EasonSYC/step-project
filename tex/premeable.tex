@@ -1,4 +1,15 @@
+\renewcommand{\cftchapnumwidth}{3em}
+\renewcommand{\cftsecnumwidth}{4em}
+\renewcommand{\cftsubsecnumwidth}{5em}
+
+\titleformat{\chapter}[display]{\bfseries\Huge}{}{0em}{}
+\titleformat{\section}[block]{\bfseries\Large}{\thechapter}{1em}{}
+\titleformat{\subsection}[block]{\bfseries\large}{\thesection}{1em}{}
+
+\newcommand{\SubOne}[1]{\numexpr#1-1}
+
 \newcommand{\Year}[1]{
+    \setcounter{chapter}{\SubOne{#1}}
     \chapter{Year #1}
     \etocsetnexttocdepth{1}
     \localtableofcontents
@@ -6,12 +17,14 @@
 }
 \newcommand{\Paper}[1]{
     \clearpage
+    \setcounter{section}{\SubOne{#1}}
     \section{Paper #1}
     \etocsetnexttocdepth{2}
     \localtableofcontents
 }
 \newcommand{\Question}[1]{
     \clearpage
+    \setcounter{subsection}{\SubOne{#1}}
     \subsection{Question #1}
 }
 
@@ -24,7 +37,7 @@
 \newcommand{\Author}{Eason Shao}
 \newcommand{\Date}{\today}
 
-\setcounter{tocdepth}{0}
+\setcounter{tocdepth}{1}
 
 % Page Layout
 \newcommand{\SetFooter}{
