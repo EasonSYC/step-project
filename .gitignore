@@ -4,6 +4,7 @@
 *.css
 *.svg
 *.pdf
+*.mtc
 
 # Gradle files
 .gradle/

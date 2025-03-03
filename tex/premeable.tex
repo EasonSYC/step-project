@@ -1,3 +1,4 @@
+\usepackage{tocloft}
 \renewcommand{\cftchapnumwidth}{3em}
 \renewcommand{\cftsecnumwidth}{4em}
 \renewcommand{\cftsubsecnumwidth}{5em}
@@ -6,21 +7,29 @@
 \titleformat{\section}[block]{\bfseries\Large}{\thechapter}{1em}{}
 \titleformat{\subsection}[block]{\bfseries\large}{\thesection}{1em}{}
 
+\usepackage[tight]{minitoc}
+\nomtcrule
+
+\setcounter{tocdepth}{1}
+
+\renewcommand{\mtctitle}{}
+
 \newcommand{\SubOne}[1]{\numexpr#1-1}
 
 \newcommand{\Year}[1]{
     \setcounter{chapter}{\SubOne{#1}}
     \chapter{Year #1}
-    \etocsetnexttocdepth{1}
-    \localtableofcontents
+    % \etocsetnexttocdepth{1}
+    % \localtableofcontents
     \thispagestyle{chapterOnly}
+    \minitoc
 }
 \newcommand{\Paper}[1]{
     \clearpage
     \setcounter{section}{\SubOne{#1}}
     \section{Paper #1}
-    \etocsetnexttocdepth{2}
-    \localtableofcontents
+    % \etocsetnexttocdepth{2}
+    % \localtableofcontents
 }
 \newcommand{\Question}[1]{
     \clearpage
@@ -36,8 +45,6 @@
 \newcommand{\SubTitle}{A Solution Booklet to STEP questions}
 \newcommand{\Author}{Eason Shao}
 \newcommand{\Date}{\today}
-
-\setcounter{tocdepth}{1}
 
 % Page Layout
 \newcommand{\SetFooter}{
