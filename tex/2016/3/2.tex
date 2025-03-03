@@ -1,2 +1,72 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item For \(y^2 = 4ax\), we have \(x = \frac{y^2}{4a}\), and therefore
+          \[
+              \DiffFrac{x}{y} = \frac{2y}{4a}.
+          \]
+
+          Therefore, the normal through \(Q\), \(l_Q\) satisfies that
+          \[
+              l_Q: x - aq^2 = - \frac{4a}{2 \cdot 2aq} \cdot \left(y - 2aq\right),
+          \]
+          i.e.
+          \[
+              l_Q: q(x - aq^2) =  -\left(y - 2aq\right).
+          \]
+
+          Since \(P \in l_Q\), we must have
+          \begin{align*}
+              q(ap^2 - aq^2) & =  -\left(2ap - 2aq\right) \\
+              aq(p+q)(p-q)   & = -2a (p-q)                \\
+              pq + q^2       & = -2                       \\
+              q^2 + pq + 2   & = 0
+          \end{align*}
+          as desired.
+
+    \item We also have
+          \[
+              r^2 + pr + 2 = 0.
+          \]
+          Since \(q \neq r\), \(q, r\) are the solutions to the equation
+          \[
+              x^2 + px + 2 = 0,
+          \]
+          and therefore \(q + r = -p, qr = 2\).
+
+          Note that the equation for \(QR\) satisfies that
+          \[
+              m_{QR} = \frac{2ar - 2aq}{ar^2 - aq^2} = \frac{2}{r + q}.
+          \]
+
+          Therefore, \(l_{QR}\) satisfies that
+          \begin{align*}
+              l_{QR}: y - 2aq & = \frac{2}{r + q} (x - aq^2)                                      \\
+              y               & = \frac{2}{r + q} \left(x - aq^2 + \frac{r + q}{2}\cdot2aq\right) \\
+              y               & = \frac{2}{r + q} \left(x - aq^2 + aq^2 + aqr\right)              \\
+              y               & = \frac{2}{r + q} \left(x + aqr\right)                            \\
+              y               & = -\frac{2}{p} (x + 2a).
+          \end{align*}
+
+          This passes through a fixed point \((-2a, 0)\).
+
+    \item \(OP\) has equation \(y = \frac{2ap}{ap^2}x\), which is \(y = \frac{2x}{p}\).
+          Therefore, since \(T = OP \cap QR\), \(x_T\) must satisfy that
+          \begin{align*}
+              -\frac{2}{p} (x + 2a) & = \frac{2x}{p}, \\
+              -(x + 2a)             & = x             \\
+              x                     & = -a.
+          \end{align*}
+
+          Therefore, \(y_T = -\frac{2a}{p}\), \(T\left(-a, -\frac{2a}{p}\right)\) lies on the line \(x = -a\) which is independent of \(p\).
+
+          The distance from the \(x\)-axis to \(T\) is \(\Abs{\frac{2a}{p}} = \frac{2a}{\Abs{p}}\).
+
+          Notice that since \(qr = 2\), \(q\) and \(r\) must take the same parity, and therefore \(\Abs{p} = \Abs{q} + \Abs{r}\). By the AM-GM inequality, we have
+          \[
+              \Abs{q} + \Abs{r} \geq 2 \sqrt{\Abs{q} \cdot \Abs{r}} = 2\sqrt{2},
+          \]
+          with the equal sign holding if and only if \(\Abs{q} = \Abs{r}\), \(q = r\), which is impossible.
+
+          Therefore, \(\Abs{p} > 2\sqrt{2}\) and therefore \(\frac{2a}{\Abs{p}} < \sqrt{2}\) as desired.
+\end{enumerate}
