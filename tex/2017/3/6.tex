@@ -2,85 +2,85 @@
 
 \begin{enumerate}
     \item We have
-    \begin{align*}
-        T(x) &= \int_0^x \frac{\Diff u}{1 + u^2}\\
-        &\xlongequal[\substack{u=0^+, v=+\infty\\
-        u=x, v=\frac{1}{x}}]{\substack{u = \frac{1}{v}\\
-        \Diff u = - \frac{1}{v^2} \Diff v}} \int_{+\infty}^{\frac{1}{x}} -\frac{1}{v^2} \cdot \frac{1}{1 + \frac{1}{v^2}} \Diff v\\
-        &= \int_{\frac{1}{x}}^{+\infty} \frac{\Diff v}{1 + v^2}\\
-        &= \int_{0}^{+\infty} \frac{\Diff v}{1 + v^2} - \int_{0}^{\frac{1}{x}} \frac{\Diff v}{1 + v^2}\\
-        &= T_{\infty} - T(x^{-1}),
-    \end{align*}
-    as desired.
+          \begin{align*}
+              T(x) & = \int_0^x \frac{\Diff u}{1 + u^2}                                                                                 \\
+                   & \xlongequal[\substack{u=0^+, v=+\infty                                                                             \\
+              u=x, v=\frac{1}{x}}]{\substack{u = \frac{1}{v}                                                                            \\
+              \Diff u = - \frac{1}{v^2} \Diff v}} \int_{+\infty}^{\frac{1}{x}} -\frac{1}{v^2} \cdot \frac{1}{1 + \frac{1}{v^2}} \Diff v \\
+                   & = \int_{\frac{1}{x}}^{+\infty} \frac{\Diff v}{1 + v^2}                                                             \\
+                   & = \int_{0}^{+\infty} \frac{\Diff v}{1 + v^2} - \int_{0}^{\frac{1}{x}} \frac{\Diff v}{1 + v^2}                      \\
+                   & = T_{\infty} - T(x^{-1}),
+          \end{align*}
+          as desired.
 
     \item When \(u \neq a^{-1}\), we have
-    \begin{align*}
-        \frac{\Diff v}{\Diff u} &= \frac{\Diff}{\Diff u} \frac{u+a}{1-au}\\
-        &= \frac{1 \cdot (1-au) + a \cdot (u+a)}{(1-au)^2}\\
-        &= \frac{1 - au + au + a^2}{(1-au)^2}\\
-        &= \frac{1 + a^2}{(1-au)^2}.
-    \end{align*}
+          \begin{align*}
+              \frac{\Diff v}{\Diff u} & = \frac{\Diff}{\Diff u} \frac{u+a}{1-au}          \\
+                                      & = \frac{1 \cdot (1-au) + a \cdot (u+a)}{(1-au)^2} \\
+                                      & = \frac{1 - au + au + a^2}{(1-au)^2}              \\
+                                      & = \frac{1 + a^2}{(1-au)^2}.
+          \end{align*}
 
-    Also, notice that
-    \begin{align*}
-        \frac{1 + v^2}{1 + u^2} &= \frac{1 + \left(\frac{u + a}{1 - au}\right)^2}{1 + u^2}\\
-        &= \frac{(1-au)^2 + (u+a)^2}{(1+u^2) (1-au)^2}\\
-        &= \frac{1 - 2au + a^2u^2 + u^2 + 2au + a^2}{(1+u^2) (1-au)^2}\\
-        &= \frac{(1 + a^2) (1 + u^2)}{(1 - au)^2 (1 + u^2)}\\
-        &= \frac{1 + a^2}{(1 - au)^2}.
-    \end{align*}
+          Also, notice that
+          \begin{align*}
+              \frac{1 + v^2}{1 + u^2} & = \frac{1 + \left(\frac{u + a}{1 - au}\right)^2}{1 + u^2}     \\
+                                      & = \frac{(1-au)^2 + (u+a)^2}{(1+u^2) (1-au)^2}                 \\
+                                      & = \frac{1 - 2au + a^2u^2 + u^2 + 2au + a^2}{(1+u^2) (1-au)^2} \\
+                                      & = \frac{(1 + a^2) (1 + u^2)}{(1 - au)^2 (1 + u^2)}            \\
+                                      & = \frac{1 + a^2}{(1 - au)^2}.
+          \end{align*}
 
-    Therefore, \(\frac{\Diff v}{\Diff u} = \frac{1 + v^2}{1 + u^2}\) as desired.
+          Therefore, \(\frac{\Diff v}{\Diff u} = \frac{1 + v^2}{1 + u^2}\) as desired.
 
-    Consider the substitution \(v = \frac{u + a}{1 - au}\). When \(u = 0\), \(v = a\). When \(u = x, v = \frac{x + a}{1 - ax}\). Therefore,
-    \begin{align*}
-        T(x) &= \int_0^x \frac{\Diff u}{1 + u^2}\\
-        &= \int_a^{\frac{x+a}{1-ax}} \frac{1+u^2}{1+v^2} \cdot \frac{\Diff v}{1 + u^2}\\
-        &= \int_a^{\frac{x+a}{1-ax}} \frac{\Diff v}{1 + v^2}\\
-        &= \int_0^{\frac{x+a}{1-ax}} \frac{\Diff v}{1 + v^2} - \int_0^a \frac{\Diff v}{1 + v^2}\\
-        &= T\left(\frac{x+a}{1-ax}\right) - T(a),
-    \end{align*}
-    as desired.
+          Consider the substitution \(v = \frac{u + a}{1 - au}\). When \(u = 0\), \(v = a\). When \(u = x, v = \frac{x + a}{1 - ax}\). Therefore,
+          \begin{align*}
+              T(x) & = \int_0^x \frac{\Diff u}{1 + u^2}                                                     \\
+                   & = \int_a^{\frac{x+a}{1-ax}} \frac{1+u^2}{1+v^2} \cdot \frac{\Diff v}{1 + u^2}          \\
+                   & = \int_a^{\frac{x+a}{1-ax}} \frac{\Diff v}{1 + v^2}                                    \\
+                   & = \int_0^{\frac{x+a}{1-ax}} \frac{\Diff v}{1 + v^2} - \int_0^a \frac{\Diff v}{1 + v^2} \\
+                   & = T\left(\frac{x+a}{1-ax}\right) - T(a),
+          \end{align*}
+          as desired.
 
-    If we substitute \(T(x) = T_{\infty} - T(x^{-1})\) and \(T(a) = T_{\infty} - T(a^{-1})\), we can see that
-    \begin{align*}
-        T(x) &= T\left(\frac{x+a}{1-ax}\right) - T(a)\\
-        T_{\infty} - T(x^{-1}) &= T\left(\frac{x+a}{1-ax}\right) - \left[T_{\infty} - T(a^{-1})\right]\\
-        T(x^{-1}) &= 2T_{\infty} - T\left(\frac{x+a}{1-ax}\right) - T(a^{-1}),
-    \end{align*}
-    as desired.
+          If we substitute \(T(x) = T_{\infty} - T(x^{-1})\) and \(T(a) = T_{\infty} - T(a^{-1})\), we can see that
+          \begin{align*}
+              T(x)                   & = T\left(\frac{x+a}{1-ax}\right) - T(a)                                \\
+              T_{\infty} - T(x^{-1}) & = T\left(\frac{x+a}{1-ax}\right) - \left[T_{\infty} - T(a^{-1})\right] \\
+              T(x^{-1})              & = 2T_{\infty} - T\left(\frac{x+a}{1-ax}\right) - T(a^{-1}),
+          \end{align*}
+          as desired.
 
-    Now, let \(y = x^{-1}\) and \(b = a^{-1}\). Then
-    \begin{align*}
-        \frac{x + a}{1 - ax} &= \frac{y^{-1} + b^{-1}}{1 - b^{-1} y^{-1}}\\
-        &= \frac{b + y}{by - 1}.
-    \end{align*}
+          Now, let \(y = x^{-1}\) and \(b = a^{-1}\). Then
+          \begin{align*}
+              \frac{x + a}{1 - ax} & = \frac{y^{-1} + b^{-1}}{1 - b^{-1} y^{-1}} \\
+                                   & = \frac{b + y}{by - 1}.
+          \end{align*}
 
-    This gives us
-    \[
-        T(y) = 2T_{\infty} - T\left(\frac{b + y}{by - 1}\right) - T(b),
-    \]
-    as desired.
+          This gives us
+          \[
+              T(y) = 2T_{\infty} - T\left(\frac{b + y}{by - 1}\right) - T(b),
+          \]
+          as desired.
 
     \item Let \(y = b = \sqrt{3}\). We can easily verify that \(b > 0\) and \(y > \frac{1}{b}\). Therefore,
-    \[
-        T(\sqrt{3}) = 2 T_{\infty} - T\left(\frac{\sqrt 3 + \sqrt 3}{3 - 1}\right) - T(\sqrt{3}),
-    \]
-    which simplified, gives us \(T(\sqrt{3}) = \frac{2}{3} T_{\infty}\) as desired.
+          \[
+              T(\sqrt{3}) = 2 T_{\infty} - T\left(\frac{\sqrt 3 + \sqrt 3}{3 - 1}\right) - T(\sqrt{3}),
+          \]
+          which simplified, gives us \(T(\sqrt{3}) = \frac{2}{3} T_{\infty}\) as desired.
 
-    In \(T(x) = T\left(\frac{x + a}{1 - ax}\right) - T(a)\), let \(x = a = \sqrt{2} - 1\), we can verify that \(a > 0\) and \(x < \frac{1}{a}\), therefore we have
-    \begin{align*}
-        T(\sqrt{2} - 1) &= T\left(\frac{(\sqrt{2} - 1) + (\sqrt{2} - 1)}{1 - (\sqrt{2} - 1) \cdot (\sqrt{2} - 1)}\right) - T(\sqrt{2} - 1),\\
-        T(\sqrt{2} - 1) &= T\left(\frac{2\sqrt{2} - 2}{1 - \left(2 + 1 - 2\sqrt{2}\right)}\right) - T(\sqrt{2} - 1),\\
-        T(\sqrt{2} - 1) &= T\left(\frac{2\sqrt{2} - 2}{2\sqrt{2} - 2}\right) - T(\sqrt{2} - 1),\\
-        2T(\sqrt{2} - 1) &= T(1).
-    \end{align*}
+          In \(T(x) = T\left(\frac{x + a}{1 - ax}\right) - T(a)\), let \(x = a = \sqrt{2} - 1\), we can verify that \(a > 0\) and \(x < \frac{1}{a}\), therefore we have
+          \begin{align*}
+              T(\sqrt{2} - 1)  & = T\left(\frac{(\sqrt{2} - 1) + (\sqrt{2} - 1)}{1 - (\sqrt{2} - 1) \cdot (\sqrt{2} - 1)}\right) - T(\sqrt{2} - 1), \\
+              T(\sqrt{2} - 1)  & = T\left(\frac{2\sqrt{2} - 2}{1 - \left(2 + 1 - 2\sqrt{2}\right)}\right) - T(\sqrt{2} - 1),                        \\
+              T(\sqrt{2} - 1)  & = T\left(\frac{2\sqrt{2} - 2}{2\sqrt{2} - 2}\right) - T(\sqrt{2} - 1),                                             \\
+              2T(\sqrt{2} - 1) & = T(1).
+          \end{align*}
 
-    In \(T(x) = T_{\infty} - T(x^{-1})\), let \(x = 1\). We have
-    \begin{align*}
-        T(1) &= T_{\infty} - T(1),\\
-        2T(1) &= T_{\infty}.
-    \end{align*}
+          In \(T(x) = T_{\infty} - T(x^{-1})\), let \(x = 1\). We have
+          \begin{align*}
+              T(1)  & = T_{\infty} - T(1), \\
+              2T(1) & = T_{\infty}.
+          \end{align*}
 
-    Therefore, \(T(\sqrt{2} - 1) = \frac{1}{4} T_{\infty}\), as desired.
+          Therefore, \(T(\sqrt{2} - 1) = \frac{1}{4} T_{\infty}\), as desired.
 \end{enumerate}

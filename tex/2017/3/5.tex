@@ -2,20 +2,20 @@
 
 Since we have \(x = r \cos \theta\) and \(y = r \sin \theta\), and \(r = f(\theta)\), we have
 \begin{align*}
-    \DiffFrac{x}{\theta} &= \DiffFrac{r}{\theta} \cdot \cos \theta + r \cdot \DiffFrac{\cos \theta}{\theta}\\
-    &= f'(\theta) \cos \theta - f(\theta) \sin \theta,
+    \DiffFrac{x}{\theta} & = \DiffFrac{r}{\theta} \cdot \cos \theta + r \cdot \DiffFrac{\cos \theta}{\theta} \\
+                         & = f'(\theta) \cos \theta - f(\theta) \sin \theta,
 \end{align*}
 and
 \begin{align*}
-    \DiffFrac{y}{\theta} &= \DiffFrac{r}{\theta} \cdot \sin \theta + r \cdot \DiffFrac{\sin \theta}{\theta}\\
-    &= f'(\theta) \sin \theta + f(\theta) \cos \theta,
+    \DiffFrac{y}{\theta} & = \DiffFrac{r}{\theta} \cdot \sin \theta + r \cdot \DiffFrac{\sin \theta}{\theta} \\
+                         & = f'(\theta) \sin \theta + f(\theta) \cos \theta,
 \end{align*}
 
 Therefore,
 \begin{align*}
-    \DiffFrac{y}{x} &= \frac{\DiffFrac{y}{\theta}}{\DiffFrac{x}{\theta}}\\
-    &= \frac{f'(\theta) \sin \theta + f(\theta) \cos \theta}{f'(\theta) \cos \theta - f(\theta) \sin \theta}\\
-    &= \frac{f'(\theta) \tan \theta + f(\theta)}{f'(\theta) - f(\theta) \tan \theta}.
+    \DiffFrac{y}{x} & = \frac{\DiffFrac{y}{\theta}}{\DiffFrac{x}{\theta}}                                                     \\
+                    & = \frac{f'(\theta) \sin \theta + f(\theta) \cos \theta}{f'(\theta) \cos \theta - f(\theta) \sin \theta} \\
+                    & = \frac{f'(\theta) \tan \theta + f(\theta)}{f'(\theta) - f(\theta) \tan \theta}.
 \end{align*}
 
 For the two curves, we must have
@@ -25,10 +25,10 @@ For the two curves, we must have
 for them to meet at right angles. Therefore,
 \begin{align*}
     \frac{f'(\theta) \tan \theta + f(\theta)}{f'(\theta) - f(\theta) \tan \theta} \cdot
-    \frac{g'(\theta) \tan \theta + g(\theta)}{g'(\theta) - g(\theta) \tan \theta} &= -1\\
-    \left(f'(\theta) \tan \theta + f(\theta)\right) \cdot \left(g'(\theta) \tan \theta + g(\theta)\right) &= -\left(f'(\theta) - f(\theta) \tan \theta\right) \cdot \left(g'(\theta) - g(\theta) \tan \theta\right)\\
-    f'(\theta) g'(\theta) (1 + \tan^2\theta) + f(\theta) g(\theta) (1 + \tan^2\theta) &= 0\\
-    f'(\theta) g'(\theta) + f(\theta) g(\theta) &= 0.
+    \frac{g'(\theta) \tan \theta + g(\theta)}{g'(\theta) - g(\theta) \tan \theta}                         & = -1                                                                                                     \\
+    \left(f'(\theta) \tan \theta + f(\theta)\right) \cdot \left(g'(\theta) \tan \theta + g(\theta)\right) & = -\left(f'(\theta) - f(\theta) \tan \theta\right) \cdot \left(g'(\theta) - g(\theta) \tan \theta\right) \\
+    f'(\theta) g'(\theta) (1 + \tan^2\theta) + f(\theta) g(\theta) (1 + \tan^2\theta)                     & = 0                                                                                                      \\
+    f'(\theta) g'(\theta) + f(\theta) g(\theta)                                                           & = 0.
 \end{align*}
 
 We have \(f\left(-\frac{\pi}{2}\right) = 4\). Let
