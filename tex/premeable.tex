@@ -5,6 +5,7 @@
     \thispagestyle{chapterOnly}
 }
 \newcommand{\Paper}[1]{
+    \clearpage
     \section{Paper #1}
     \etocsetnexttocdepth{2}
     \localtableofcontents
@@ -22,6 +23,8 @@
 \newcommand{\SubTitle}{A Solution Booklet to STEP questions}
 \newcommand{\Author}{Eason Shao}
 \newcommand{\Date}{\today}
+
+\setcounter{tocdepth}{0}
 
 % Page Layout
 \newcommand{\SetFooter}{
