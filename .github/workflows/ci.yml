@@ -34,7 +34,7 @@ jobs:
       - name: Create Output Folder
         id: create-output-folder
         run: |
-          mkdir -p pdf
+          mkdir -p pdf/tex
 
       - name: Compile PDF File
         id: compile-pdflatex
@@ -55,10 +55,10 @@ jobs:
         id: create-webpage-folder
         run: |
           cp latest.pdf webpage/latest.pdf
-          cd latest
-          tree -H '.' -s -D --filesfirst -T "STEP Project PDF: All Generated Files" -o "latest.html"
+          cd pdf
+          tree -H '.' -s -D --filesfirst -T "STEP Project: All Generated Files (PDF)" -o "index.html"
           cd ..
-          cp -R latest webpage/latext
+          cp -R pdf webpage/generated/pdf
       
       - name: Upload static files as artifact
         id: upload-webpage
