@@ -10,8 +10,9 @@ def InclusiveRange(start: int, end: int) -> list[int]:
     return list(range(start, end + 1))
 
 def Years() -> list[Year] :
-    yearList: list[Year] = [SPEC] + [y for y in InclusiveRange(1987, 2024)]
-    return yearList
+    # yearList: list[Year] = [SPEC] + [y for y in InclusiveRange(1987, 2024)]
+    # return yearList
+    return [2016, 2017]
 
 def Papers(year: Year) -> list[Paper]:
     if year == SPEC or year <= 2019:
