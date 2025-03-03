@@ -59,7 +59,8 @@ jobs:
           cd pdf
           tree -H '.' -s -D --filesfirst -T "STEP Project: All Generated Files (PDF)" -o "index.html"
           cd ..
-          cp -R pdf webpage/generated/pdf
+          mkdir -p webpage/generated/pdf
+          cp -R pdf webpage/generated/pdf/
       
       - name: Upload static files as artifact
         id: upload-webpage
