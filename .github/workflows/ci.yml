@@ -33,7 +33,7 @@ jobs:
 
       - name: Compile PDF File
         id: compile-pdflatex
-        run: latexmk -pdflatex -interaction=nonstopmode -file-line-error -jobname=pdf/latest main.tex
+        run: latexmk -pdflatex -interaction=nonstopmode -file-line-error -output-directory=pdf -jobname=latest main.tex
       
       - name: Upload PDF file
         id: upload-pdf
@@ -48,8 +48,12 @@ jobs:
 
       - name: Build Webpage Folder
         id: create-webpage-folder
-        run:
+        run: |
           cp latest.pdf webpage/latest.pdf
+          cd latest
+          tree -H '.' -s -D --filesfirst -T "STEP Project PDF: All Generated Files" -o "latest.html"
+          cd ..
+          cp -R latest webpage/latext
       
       - name: Upload static files as artifact
         id: upload-webpage
