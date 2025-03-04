@@ -52,15 +52,15 @@ jobs:
         run: make4ht -a info -u -d webpage -j index main.tex "mathml,4"
         continue-on-error: true
 
-      - name: Build Webpage Folder
+      - name: Create Webpage Folder
         id: create-webpage-folder
         run: |
           cp pdf/latest.pdf webpage/latest.pdf
           cd pdf
           tree -H '.' -s -D --filesfirst -T "STEP Project: All Generated Files (PDF)" -o "index.html"
           cd ..
-          mkdir -p webpage/generated/pdf
-          cp -R pdf webpage/generated/pdf/
+          mkdir -p webpage/generated/
+          cp -R pdf webpage/generated/
       
       - name: Upload static files as artifact
         id: upload-webpage
