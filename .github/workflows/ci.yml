@@ -57,7 +57,7 @@ jobs:
         run: |
           cp pdf/latest.pdf webpage/latest.pdf
           cd pdf
-          tree -I "intex.html" -H '.' -s -D --filesfirst -T "STEP Project: All Generated Files (PDF)" -o "index.html"
+          tree -I "index.html" -H '.' -s -D --filesfirst -T "STEP Project: All Generated Files (PDF)" -o "index.html"
           cd ..
           mkdir -p webpage/generated/
           cp -R pdf webpage/generated/
