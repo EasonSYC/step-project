@@ -1,5 +1,4 @@
 % Packages
-\usepackage[a4paper,margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
@@ -18,7 +17,6 @@
 
 \usepackage{hyperref}
 \usepackage{currfile}
-\usepackage{titlesec}
 
 % Differentiation
 % https://tex.stackexchange.com/a/60546/
@@ -107,10 +105,3 @@
         \end{center}
     \end{titlepage}
 }
-
-% Headers
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{#1}{}}
-
-% Chapter Headers
-\patchcmd{\chapter}{\thispagestyle{plain}}{}{}{}
