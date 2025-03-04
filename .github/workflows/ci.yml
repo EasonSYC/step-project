@@ -47,6 +47,34 @@ jobs:
           name: PDF
           path: pdf/latest.pdf
 
+      - name: Set up Python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+      
+      - name: Install Dependencies
+        id: install-dependencies
+        run: pip install pymupdf
+
+      - name: Split Up PDF Files
+        id: split-pdf
+        run: |
+          python3 src/split-pdf.py -o pdf/years -l 1 pdf/latest.pdf
+          python3 src/split-pdf.py -o pdf/papers -l 2 pdf/latest.pdf
+          python3 src/split-pdf.py -o pdf/questions -l 3 pdf/latest.pdf
+
+      - name: Index Generated Files
+        id: index-generated-files
+        run: |
+          cd pdf
+          (cd years && tree -I "*.html" -H '.' -s -D --filesfirst -T "STEP Project: PDF By Years (PDF)" -o "index.html")
+          (cd papers && tree -I "*.html" -H '.' -s -D --filesfirst -T "STEP Project: PDF By Papers (PDF)" -o "index.html")
+          (cd questions && tree -I "*.html" -H '.' -s -D --filesfirst -T "STEP Project: PDF By Years (PDF)" -o "index.html")
+          tree -I "*.html" -H '.' -s -D --filesfirst -T "STEP Project: All Generated Files (PDF)" -o "index.html"
+          cd ..
+
       - name: Compile Webpage File
         id: compile-make4ht
         run: make4ht -a info -u -d webpage -j index -c config.cfg main.tex
@@ -56,9 +84,6 @@ jobs:
         id: create-webpage-folder
         run: |
           cp pdf/latest.pdf webpage/latest.pdf
-          cd pdf
-          tree -I "index.html" -H '.' -s -D --filesfirst -T "STEP Project: All Generated Files (PDF)" -o "index.html"
-          cd ..
           mkdir -p webpage/generated/
           cp -R pdf webpage/generated/
       
