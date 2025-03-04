@@ -1,2 +1,63 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Notice that
+          \[
+              \frac{1}{1 + x^r} - \frac{1}{1 + x^{r + 1}} = \frac{x^{r + 1} - x^r}{(1 + x^r)(1 + x^{r + 1})} = \frac{x^r (x - 1)}{(1 + x^r)(1 + x^{r + 1})}.
+          \]
+
+          Therefore, we have
+          \begin{align*}
+              \sum_{r = 1}^{N} \frac{x^r}{(1 + x^r)(1 + x^{r + 1})} & = \sum_{r = 1}^{N} \frac{1}{x - 1} \left[\frac{1}{1 + x^r} - \frac{1}{1 + x^{r + 1}}\right] \\
+                                                                    & = \frac{1}{x - 1} \sum_{r = 1}^{N}\left[\frac{1}{1 + x^r} - \frac{1}{1 + x^{r + 1}}\right]  \\
+                                                                    & = \frac{1}{x - 1} \left[\frac{1}{1 + x} - \frac{1}{1 + x^{n + 1}}\right].
+          \end{align*}
+
+          For \(|x| < 1\), as \(n \to \infty\), \(x^{n + 1} \to 0\). Therefore,
+          \begin{align*}
+              \sum_{r = 1}^{\infty} \frac{x^r}{(1 + x^r)(1 + x^{r + 1})} & = \frac{1}{x - 1} \left[\frac{1}{1 + x} - 1\right] \\
+                                                                         & = \frac{1}{x - 1} \cdot \frac{-x}{1 + x}           \\
+                                                                         & = \frac{x}{1 - x^2}
+          \end{align*}
+          as desired.
+
+    \item Notice that
+          \begin{align*}
+              \sech (ry) \sech((r + 1)y) & = \frac{2}{e^{ry} + e^{-ry}} \cdot \frac{2}{e^{(r + 1)y} + e^{-(r + 1)y}}             \\
+                                         & = \frac{4e^{-ry - (r + 1)y}}{\left(1 + e^{-2ry}\right) \left(1 + e^{-2(r+1)y}\right)} \\
+                                         & = 4 e^{-y} \frac{e^{-2ry}}{\left(1 + e^{-2ry}\right) \left(1 + e^{-2(r+1)y}\right)}.
+          \end{align*}
+
+          Let \(x = e^{-2y}\). We have
+          \[
+              \sech (ry) \sech((r + 1)y) = 4e^{-y} \frac{x^r}{\left(1 + x^r\right)\left(1 + x^{r + 1}\right)}.
+          \]
+
+          When \(y > 0\), \(x = e^{-2y} \in (0, 1)\). Therefore,
+          \begin{align*}
+              \sum_{r = 1}^{\infty} \sech (ry) \sech((r + 1)y) & = 4 e^{-y} \frac{e^{-2y}}{1 - e^{-4y}} \\
+                                                               & = 2e^{-y} \frac{2}{e^{2y} - e^{-2y}}   \\
+                                                               & = 2e^{-y} \cosech(2y)
+          \end{align*}
+          as desired.
+
+          Notice that for all \(x \in \RR\), \(\cosh x = \cosh (-x)\), therefore \(\sech x = \sech (-x)\).
+
+          Therefore,
+          \begin{align*}
+               & \phantom{=} \sum_{r = -\infty}^{\infty} \sech (ry) \sech((r + 1)y)                                                                            \\
+               & = \sum_{r = 1}^{\infty} \sech (ry) \sech((r + 1)y) + \sum_{r = -\infty}^{0} \sech (ry) \sech((r + 1)y)                                        \\
+               & = \sum_{r = 1}^{\infty} \sech (ry) \sech((r + 1)y) + \sum_{r = 0}^{+\infty} \sech (-ry) \sech((-r+1)y)                                        \\
+               & = \sum_{r = 1}^{\infty} \sech (ry) \sech((r + 1)y) + \sum_{r = 0}^{+\infty} \sech (ry) \sech((r-1)y)                                          \\
+               & = \sum_{r = 1}^{\infty} \sech (ry) \sech((r + 1)y) + \sum_{r = 2}^{+\infty} \sech (ry) \sech((r-1)y) + \sech(y) \sech(0) + \sech(0) \sech(-y) \\
+               & = \sum_{r = 1}^{\infty} \sech (ry) \sech((r + 1)y) + \sum_{r = 1}^{+\infty} \sech ((r + 1)y) \sech(ry) + 2\sech y                             \\
+               & = 4e^{-y} \cosech (2y) + 2 \sech y                                                                                                            \\
+               & = \frac{4e^{-y}}{\sinh 2y} + \frac{2}{\cosh y}                                                                                                \\
+               & = \frac{2e^{-y}}{\sinh y \cosh y} + \frac{2}{\cosh y}                                                                                         \\
+               & = \frac{2e^{-y} + 2 \sinh y}{\sinh y \cosh y}                                                                                                 \\
+               & = \frac{2 e^{-y} + e^{y} - e^{-y}} {\sinh y \cosh y}                                                                                          \\
+               & = \frac{e^y - e^{-y}}{\sinh y \cosh y}                                                                                                        \\
+               & = \frac{2 \cosh y}{\sinh y \cosh y}                                                                                                           \\
+               & = 2 \cosech y.
+          \end{align*}
+\end{enumerate}
