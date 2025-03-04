@@ -13,13 +13,9 @@
 \titleformat{\section}[block]{\bfseries\Large}{\thechapter}{1em}{}
 \titleformat{\subsection}[block]{\bfseries\large}{\thesection}{1em}{}
 
-% Mini TOC
-\usepackage[tight]{minitoc}
-\nomtcrule
-
-\setcounter{tocdepth}{1}
-
-\renewcommand{\mtctitle}{}
+% TOC
+\usepackage{etoc}
+\etocsettocdepth{3}
 
 % Headers
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
@@ -31,12 +27,13 @@
     \setcounter{chapter}{\SubOne{#1}}
     \chapter{Year #1}
     \thispagestyle{chapterOnly}
-    \minitoc
+    \localtableofcontents
 }
 \newcommand{\Paper}[1]{
     \clearpage
     \setcounter{section}{\SubOne{#1}}
     \section{Paper #1}
+    \localtableofcontents
 }
 \newcommand{\Question}[1]{
     \clearpage
@@ -52,7 +49,6 @@
 \newcommand{\SubTitle}{A Solution Booklet to STEP questions}
 \newcommand{\Author}{Eason Shao}
 \newcommand{\Date}{\today}
-
 
 % Title & Subtitle
 \title{\Title}

@@ -5,7 +5,6 @@
 \input{\TexPath/premeable}
 
 \begin{document}
-\dominitoc
 \begin{titlepage}
     \MakeTitlePage{\Title}{\SubTitle}{\Author}{\Date}
 \end{titlepage}
@@ -16,7 +15,9 @@
 \include{\TexPath/progress}
 
 \thispagestyle{footerOnly}
+\etocsetnexttocdepth{1}
 \tableofcontents
+\etocsettocstyle{}{}
 
 \pagestyle{fancy}
 \include{\TexPath/2016}
