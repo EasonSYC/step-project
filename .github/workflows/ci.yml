@@ -56,7 +56,7 @@ jobs:
       
       - name: Install Dependencies
         id: install-dependencies
-        run: pip install pymupdf
+        run: pip install -r src/requirements.txt
 
       - name: Split Up PDF Files
         id: split-pdf
@@ -71,7 +71,7 @@ jobs:
           cd pdf
           (cd years && tree -I "*.html" -H '.' -s -D --filesfirst -T "STEP Project: PDF By Years (PDF)" -o "index.html")
           (cd papers && tree -I "*.html" -H '.' -s -D --filesfirst -T "STEP Project: PDF By Papers (PDF)" -o "index.html")
-          (cd questions && tree -I "*.html" -H '.' -s -D --filesfirst -T "STEP Project: PDF By Years (PDF)" -o "index.html")
+          (cd questions && tree -I "*.html" -H '.' -s -D --filesfirst -T "STEP Project: PDF By Questions (PDF)" -o "index.html")
           tree -I "*.html" -H '.' -s -D --filesfirst -T "STEP Project: All Generated Files (PDF)" -o "index.html"
           cd ..
 
