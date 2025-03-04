@@ -21,7 +21,7 @@ jobs:
         id: install-tex-live
         run: |
           sudo apt update
-          sudo apt install -y texlive-latex-extra texlive-science texlive-fonts-extra texlive-extra-utils
+          sudo apt install -y texlive-latex-extra texlive-fonts-extra texlive-extra-utils
 
       - name: Install TeX Extras
         id: install-tex-extras
