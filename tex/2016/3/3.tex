@@ -1,2 +1,121 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item We have that
+          \begin{align*}
+              \DiffOp{x} \frac{e^x P(x)}{Q(x)} & = \frac{Q(x) \left[e^x P'(x) + e^x P(x)\right] - Q'(x) e^x P(x)}{Q(x)^2} \\
+                                               & = e^x \frac{\left[Q(x)P'(x) + Q(x)P(x) - Q'(x)P(x)\right]}{Q(x)^2}       \\
+                                               & = e^x \frac{x^3 - 2}{(x + 1)^2}.
+          \end{align*}
+
+          Therefore, we have
+          \begin{align*}
+              \frac{\left[Q(x)P'(x) + Q(x)P(x) - Q'(x)P(x)\right]}{Q(x)^2} & = \frac{x^3 - 2}{(x + 1)^2}    \\
+              (x+1)^2 \left[Q(x)P'(x) + Q(x)P(x) - Q'(x)P(x)\right]        & = Q(x)^2 \left(x^3 - 2\right).
+          \end{align*}
+
+          If we plug in \(x = -1\) on both sides, we have \(\LHS = 0\) and \(\RHS = Q(-1)^2 \cdot (-3)\).
+
+          Therefore, \(Q(-1)^2 = 0\), \(Q(-1) = 0\).
+
+          Since \(Q(x) \in \PP[x]\), we must have
+          \[
+              (x + 1) | Q(x)
+          \]
+          as desired.
+
+          Therefore, \(\deg Q \geq 1\), \(\deg \RHS = 3 + 2 \deg Q\).
+
+          If \(\deg P = -\infty\), \(P(x) = 0\),\(\LHS = 0\) which is impossible.
+
+          If \(\deg P = 0\), \(P(x) = C \in \RR \setminus \{0\}\), \(\LHS = C(x + 1)^2 Q(x)\), \(\deg \LHS = \deg q + 2\), which is impossible.
+
+          Therefore, we have \(\deg P' = \deg P - 1\).
+          Hence,
+          \[
+              \deg Q(x) P'(x) = \deg P'(x) Q(x) = \deg P + \deg Q - 1,
+          \]
+          and
+          \[
+              \deg Q(x) P(x) = \deg P + \deg Q.
+          \]
+
+          Therefore,
+          \[
+              \deg \LHS = 2 + \deg P + \deg Q = \deg \RHS,
+          \]
+          which gives
+          \[
+              \deg P = \deg Q + 1,
+          \]
+          as desired.
+
+          When \(Q(x) = x + 1\), let \(P(x) = ax^2 + bx + c\) where \(a \neq 0\). We have \(P'(x) = 2ax + b\). Therefore,
+          \begin{align*}
+              (x+1)^2 \left[Q(x)P'(x) + Q(x)P(x) - Q'(x)P(x)\right]       & = Q(x)^2 \left(x^3 - 2\right) \\
+              Q(x)P'(x) + Q(x)P(x) - Q'(x)P(x)                            & = x^3 - 2                     \\
+              (x + 1)(2ax + b) + (x + 1)(ax^2 + bx + c) - (ax^2 + bx + c) & = x^3 - 2                     \\
+              (x + 1)(2ax + b) + x(ax^2 + bx + c)                         & = x^3 - 2                     \\
+              ax^3 + (2a + b)x^2 + (2a + b + c)x + b                      & = x^3 - 2.
+          \end{align*}
+
+          This solves to \((a, b, c) = (1, -2, 0)\). Therefore, \(P(x) = x^2 - 2x\).
+
+    \item In this case, we must have that
+          \[
+              (x + 1) \left[Q(x)P'(x) + Q(x)P(x) - Q'(x)P(x)\right] = Q(x)^2.
+          \]
+
+          Therefore, \(Q(x) = (x+1)R(x)\) for some \(R(x) \in \PP[x]\). We may assume \(P(-1) \neq 0\).
+
+          Hence, \(Q'(x) = (x+1) R'(x) + R(x)\)
+
+          Plugging this in gives us
+          \[
+              (x + 1)R(x) P'(x) + (x + 1)R(x) P(x) - \left[(x + 1) R'(x) + R(x)\right] P(x) = (x+1) R(x)^2,
+          \]
+          which simplifies to
+          \[
+              (x + 1)\left[R(x) P'(x) + R(x) P(x) - R'(x) P(x)\right] - R(x) P(x) = (x+1)R(x)^2.
+          \]
+
+          Let \(x = -1\), and we can see \(x + 1\) divides \(R(x)\), since \(x + 1\) can't divide \(P(x)\).
+
+          Therefore, let \(R(x) = (x + 1) S(x)\), therefore \(R'(x) = S(x) + (x + 1) S'(x)\).
+
+          This gives
+          \[
+              (x + 1) S(x) \left[P'(x) + P(x)\right] - \left[S(x) + (x + 1) S'(x)\right]P(x) - S(x) P(x) = (x + 1)^2 S(x)^2,
+          \]
+          which simplifies to
+          \[
+              (x + 1)\left[S(x) P'(x) + S(x) P(x) - S'(x) P(x)\right] - 2 S(x) P(x) = (x + 1)^2 S(x)^2.
+          \]
+
+          Therefore, we can see that \(x + 1\) divides \(S(x)\) by similar reasons.
+
+          Repeating this, we can conclude that there are arbitrarily many factors of \(x + 1\) in \(Q(x)\) (proof by infinite descent), which is impossible.
+
+          Formally speaking, let \(Q(x) = (x + 1)^n T(x)\) where \(T(-1) \neq 0\), \(n \in \NN\). Therefore, we have
+          \begin{align*}
+              Q'(x) & = n (x+1)^{n - 1} T(x) + (x+1)^n T'(x)              \\
+                    & = (x+1)^{n - 1} \left[n T(x) + (x + 1)T'(x)\right].
+          \end{align*}
+
+          Therefore,
+          \[
+              (x + 1) \left[Q(x)P'(x) + Q(x)P(x) - Q'(x)P(x)\right] = Q(x)^2
+          \]
+          simplifies to
+          \[
+              (x+1)^{n + 1}T(x)\left[P'(x) + P(x)\right] - (x + 1)^{n} \left[nT(x) + (x + 1)T'(x)\right]P(x) = (x + 1)^{2n}T(x)^2,
+          \]
+          which further simplifies to
+          \[
+              (x + 1)\left[T(x)P'(x) + T(x)P(x) - T'(x) P(x)\right] - n T(x) P(x) = (x + 1)^{n}T(x)^2.
+          \]
+
+          Now, let \(x = -1\), we have that \(n T(-1) P(-1) = 0\). But \(n \neq 0\), \(T(-1) \neq 0\), \(P(-1) \neq 0\), which gives a contradiction.
+
+          Therefore, such \(P\) and \(Q\) do not exist.
+\end{enumerate}
