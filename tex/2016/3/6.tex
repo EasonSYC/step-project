@@ -1,2 +1,132 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{itemize}
+    \item In the case where \(B > A > 0\) or \(-B < -A < 0\), notice that
+          \[
+              R \cosh(x + \gamma) = R \cosh x \cosh \gamma + R \sinh x \sinh\gamma.
+          \]
+
+          Therefore, we would like \(R \sinh \gamma = A\) and \(R \cosh \gamma = B\).
+
+          Since \(\cosh \gamma^2 - \sinh \gamma^2 = 1\), we have \(R^2 = B^2 - A^2\).
+
+          We also have \(\tanh \gamma = \frac{A}{B}\), and therefore \(\gamma = \artanh \frac{A}{B}\).
+
+          Notice that \(\cosh \gamma > 0\), so \(R\) must have the same sign as \(B\).
+
+          \begin{itemize}
+              \item If \(B > A > 0\), \(R = \sqrt{B^2 - A^2}\).
+
+              \item If \(B < -A < 0\), \(R = - \sqrt{B^2 - A^2}\).
+          \end{itemize}
+
+    \item In the case where \(-A < B < A\), notice that
+          \[
+              R \sinh (x + \gamma) = R \sinh \gamma \cosh x + R \cosh \gamma \sinh x.
+          \]
+
+          Therefore, we would like \(R \cosh \gamma = A\) and \(R \sinh \gamma = B\).
+
+          Since \(\cosh \gamma^2 - \sinh \gamma^2 = 1\), we have \(R^2 = B^2 - A^2\).
+
+          We also have \(\tanh \gamma = \frac{B}{A}\), and therefore \(\gamma = \artanh \frac{B}{A}\).
+
+          Notice that \(\cosh \gamma > 0\), so \(R\) will have the same sign as \(A\), and hence \(R = \sqrt{A^2 - B^2}\).
+
+    \item When \(B = A\), we have
+          \begin{align*}
+              A \sinh x + B \cosh x & = A \frac{e^x - e^{-x}}{2} + A \frac{e^x + e^{-x}}{2} \\
+                                    & = A e^x.
+          \end{align*}
+
+    \item When \(B = -A\), we have
+          \begin{align*}
+              A \sinh x + B \cosh x & = A \frac{e^x - e^{-x}}{2} - A \frac{e^x + e^{-x}}{2} \\
+                                    & = A e^{-x}.
+          \end{align*}
+\end{itemize}
+
+Therefore, in conclusion,
+\[
+    A \sinh x + B \cosh x =
+    \begin{cases}
+        \sqrt{B^2 - A^2} \cosh \left(x + \artanh \frac{A}{B}\right),  & 0 < A < B,   \\
+        Ae^x,                                                         & 0 < B = A,   \\
+        \sqrt{A^2 - B^2} \sinh \left(x + \artanh \frac{B}{A}\right),  & -A < B < A,  \\
+        -Ae^{-x},                                                     & B = -A < 0,  \\
+        -\sqrt{B^2 - A^2} \cosh \left(x + \artanh \frac{A}{B}\right), & -B < -A < 0. \\
+    \end{cases}
+\]
+
+\begin{enumerate}
+    \item We have \(\sech x = a \tanh x + b\), and hence \(1 = a \sinh x + b \cosh x\).
+          If \(b > a > 0\), we have
+          \[
+              \sqrt{b^2 - a^2} \cosh \left(x + \artanh \frac{a}{b}\right) = 1.
+          \]
+
+          Therefore,
+          \begin{align*}
+              \cosh \left(x + \artanh \frac{a}{b}\right) & = \frac{1}{\sqrt{b^2 - a^2}}                                    \\
+              x + \artanh \frac{a}{b}                    & = \pm \arcosh \frac{1}{\sqrt{b^2 - a^2}}                        \\
+              x                                          & = \pm \arcosh \frac{1}{\sqrt{b^2 - a^2}} - \artanh \frac{a}{b},
+          \end{align*}
+          as desired.
+
+    \item When \(a > b > 0\),
+          \[
+              \sqrt{a^2 - b^2} \sinh \left(x + \artanh \frac{b}{a}\right) = 1.
+          \]
+
+          Therefore,
+          \begin{align*}
+              \sinh \left(x + \artanh \frac{b}{a}\right) & = \frac{1}{\sqrt{a^2 - b^2}}                                \\
+              x + \artanh \frac{b}{a}                    & = \arsinh \frac{1}{\sqrt{a^2 - b^2}}                        \\
+              x                                          & = \arsinh \frac{1}{\sqrt{a^2 - b^2}} - \artanh \frac{b}{a}.
+          \end{align*}
+
+    \item We would like to have two solutions to the equation \(1 = a \sinh x + b \cosh x\).
+
+          \begin{itemize}
+              \item \(0 < a < b\), this gives
+                    \[
+                        x = \pm \arcosh \frac{1}{\sqrt{b^2 - a^2}} - \artanh \frac{a}{b},
+                    \]
+
+                    For this to make sense, we must have \(\frac{1}{\sqrt{b^2 - a^2}} \geq 1\), and therefore \(0 < \sqrt{b^2 - a^2} \leq 1\), which is \(0 < b^2 - a^2 \leq 1\).
+
+                    For this to have two distinct points, we would like to have \(\arcosh \frac{1}{\sqrt{b^2 - a^2}} \neq 0\) as well. This means \(b^2 - a^2 \neq 1\).
+
+                    Therefore, in this case, this means that \(a < b < \sqrt{a^2 + 1}\).
+
+              \item \(b = a\), this gives \(a e^x = 1\), which gives a unique solution \(x = - \ln a\).
+              \item \(-a < b < a\), this gives
+                    \[
+                        \sqrt{A^2 - B^2} \sinh \left(x + \artanh \frac{B}{A}\right) = 1,
+                    \]
+                    which can only give the solution \(x = \arsinh \frac{1}{\sqrt{A^2 - B^2}} - \artanh \frac{B}{A}\).
+              \item \(b = -a\), this gives \(-a e^{-x} = 1\), which does not have a solution.
+              \item \(-b < -a < 0\), this gives
+                    \[
+                        -\sqrt{b^2 - a^2} \cosh \left(x + \artanh \frac{a}{b}\right) = 1,
+                    \]
+                    but this is impossible, since both square root and \(\cosh\) are always positive.
+          \end{itemize}
+
+          Therefore, the only possibility is when \(a < b < \sqrt{a^2 + 1}\).
+
+    \item When they touch at a point, this will mean at this value, the number of solutions will change on both sides. This is only possible when \(b = \sqrt{a^2 + 1}\).
+
+          Therefore,
+          \[
+              x = - \artanh \frac{a}{\sqrt{a^2 + 1}}.
+          \]
+
+          Hence,
+          \begin{align*}
+              y & = a \tanh x + b                                       \\
+                & = - a \cdot \frac{a}{\sqrt{a^2 + 1}} + \sqrt{a^2 + 1} \\
+                & = \frac{-a^2 + a^2 + 1}{\sqrt{a^2 + 1}}               \\
+                & = \frac{1}{\sqrt{a^2 + 1}}.
+          \end{align*}
+\end{enumerate}
