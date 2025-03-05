@@ -1,2 +1,139 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item If we replace \(x\) with \(-x\) in the original equation, we get
+          \[
+              f(-x) + (1 - (-x))f(-(-x)) = (-x)^2,
+          \]
+          which simplifies to
+          \[
+              f(-x) + (1 + x)f(x) = x^2
+          \]
+          as desired.
+
+          Therefore, we have a pair of equations in terms of \(f(x)\) and \(f(-x)\):
+          \[
+              \begin{cases}
+                  f(x) + (1-x) f(-x) & = x^2  \\
+                  (1+x) f(x) + f(-x) & = x^2.
+              \end{cases}
+          \]
+
+          Multiplying the second equation by \((1-x)\) gives us
+          \[
+              (1-x^2)f(x) + (1-x)f(-x) = x^2(1-x),
+          \]
+          and subtracting the first equation from this
+          \[
+              -x^2 f(x) = -x^3,
+          \]
+          which gives \(f(x) = x\).
+
+          Plugging this back, we have
+          \begin{align*}
+              \LHS & = f(x) + (1-x) f(-x) \\
+                   & = x + (1-x) (-x)     \\
+                   & = x - x + x^2        \\
+                   & = x^2                \\
+                   & = \RHS
+          \end{align*}
+          which holds. Therefore, \(f(x) = x\) is the solution to the functional equation.
+
+    \item For \(x \neq 1\), we have
+          \begin{align*}
+              K(K(x)) & = \frac{\frac{x + 1}{x - 1} + 1}{\frac{x + 1}{x - 1} - 1} \\
+                      & = \frac{(x + 1) + (x - 1)}{(x + 1) - (x - 1)}             \\
+                      & = \frac{2x}{2}                                            \\
+                      & = x,
+          \end{align*}
+          for \(x \neq 1\), as desired.
+
+          The equation on \(g\) is
+          \[
+              g(x) + x g(K(x)) = x,
+          \]
+          and if we substitute \(x\) as \(K(x)\), we have
+          \[
+              g(K(x)) + K(x) g(K(K(x))) = K(x),
+          \]
+          which simplifies to
+          \[
+              g(K(x)) + K(x) g(x) = K(x).
+          \]
+
+          Multiplying the second equation by \(x\), we have
+          \[
+              xK(x) g(X) + x g(K(x)) = x K(x),
+          \]
+          and subtracting the first equation from this gives
+          \[
+              (x K(x) - 1) g(x) = x (K(x) - 1),
+          \]
+          which gives
+          \begin{align*}
+              g(x) & = \frac{x \left(K(x) - 1\right)}{x K(x) - 1}                                     \\
+                   & = \frac{x \left(\frac{x + 1}{x - 1} - 1\right)}{x \cdot \frac{x + 1}{x - 1} - 1} \\
+                   & = \frac{x \left[(x + 1) - (x - 1)\right]}{x (x + 1) - (x - 1)}                   \\
+                   & = \frac{2x}{x^2 + 1},
+          \end{align*}
+          for \(x \neq 1\).
+
+          If we plug this back to the original equation, we have
+          \begin{align*}
+              \LHS & = \frac{2x}{x^2 + 1} + x \frac{2 \cdot \frac{x + 1}{x - 1}}{\left(\frac{x + 1}{x - 1}\right)^2 + 1} \\
+                   & = \frac{2x}{x^2 + 1} + \frac{2x \cdot (x + 1) \cdot (x - 1)}{(x + 1)^2 + (x - 1)^2}                 \\
+                   & = \frac{2x}{x^2 + 1} + \frac{2x(x^2 - 1)}{2x^2 + 2}                                                 \\
+                   & = \frac{2x}{x^2 + 1} + \frac{x(x^2 - 1)}{x^2 + 1}                                                   \\
+                   & = \frac{x^3 - x + 2x}{x^2 + 1}                                                                      \\
+                   & = \frac{x(x^2 + 1)}{x^2 + 1}                                                                        \\
+                   & = x                                                                                                 \\
+                   & = \RHS,
+          \end{align*}
+          so \[g(x) = \frac{2x}{x^2 + 1}\] is the solution to the original functional equation.
+
+    \item Let \(H(x) = \frac{1}{1 - x}\). Notice that
+          \begin{align*}
+              H(H(x)) & = \frac{1}{1 - \frac{1}{1 - x}} \\
+                      & = \frac{1 - x}{1 - x - 1}       \\
+                      & = \frac{x - 1}{x}               \\
+                      & = 1 - \frac{1}{x}
+          \end{align*}
+          and
+          \begin{align*}
+              H(H(H(x))) & = \frac{1}{1 - \left(1 - \frac{1}{x}\right)} \\
+                         & = \frac{x}{1}                                \\
+                         & = x.
+          \end{align*}
+
+          Now, if we replace all the \(x\) with \(\frac{1}{1 - x}\), we will get
+          \[
+              h\left(\frac{1}{1 - x}\right) + h\left(1 - \frac{1}{x}\right) = 1 - \frac{1}{1 - x} - \left(1 - \frac{1}{x}\right),
+          \]
+          and doing the same replacement again gives us
+          \[
+              h\left(1 - \frac{1}{x}\right) + h(x) = 1 - \left(1 - \frac{1}{x}\right) - x.
+          \]
+
+          Summing these two equations, together with the original equation, gives us that
+          \[
+              2 \cdot \left[h\left(\frac{1}{1 - x}\right) + h\left(1 - \frac{1}{x}\right) + h(x)\right] = 3 - 2 \cdot \left[x + \frac{1}{1 - x} + \left(1 - \frac{1}{x}\right)\right],
+          \]
+          and therefore
+          \[
+              h\left(\frac{1}{1 - x}\right) + h\left(1 - \frac{1}{x}\right) + h(x) = \frac{3}{2} - \left[x + \frac{1}{1 - x} + \left(1 - \frac{1}{x}\right)\right].
+          \]
+
+          Subtracting the second equation from this, gives that
+          \begin{align*}
+              h(x) & = \left(\frac{3}{2} - \left[x + \frac{1}{1 - x} + \left(1 - \frac{1}{x}\right)\right]\right) - \left[1 - \frac{1}{1 - x} - \left(1 - \frac{1}{x}\right)\right] \\
+                   & =\frac{1}{2} - x.
+          \end{align*}
+
+          Plugging this back to the original equation, we have
+          \begin{align*}
+              \LHS & = \frac{1}{2} - x + \frac{1}{2} - \frac{1}{1 - x} \\
+                   & = 1 - x - \frac{1}{1 - x}                         \\
+                   & = \RHS,
+          \end{align*}
+          which satisfies the original functional equation. Therefore, the original equation solves to \[h(x) = \frac{1}{2} - x.\]
+\end{enumerate}
