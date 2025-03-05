@@ -1,2 +1,68 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item By the binomial theorem, we have
+          \[
+              (1 + x)^{2m + 1} = \sum_{k = 0}^{2m + 1} \binom{2m + 1}{k} x^k.
+          \]
+
+          If we let \(x = 1\), we have
+          \[
+              2^{2m + 1} = \sum_{k = 0}^{2m + 1} \binom{2m + 1}{k}.
+          \]
+
+          Since \(\binom{2m + 1}{m}\) is a part of the sum, and all the other terms are positive, and there are other terms which are not \(\binom{2m + 1}{m}\) (e.g. \(\binom{2m + 1}{0} = 1\)), we therefore must have
+          \[
+              \binom{2m + 1}{m} < 2^{2m + 1}.
+          \]
+
+    \item Notice that
+          \begin{align*}
+              \binom{2m + 1}{m} & = \frac{(2m + 1)!}{m! (m + 1)!}                  \\
+                                & = \frac{(2m + 1)(2m)(2m - 1) \cdots (m + 2)}{m!} \\
+          \end{align*}
+
+          A number theory argument follows. First, notice that all terms in the product \(P_{m + 1, 2m + 1}\) are within the numerator. Therefore, we must have
+          \[
+              P_{m + 1, 2m + 1} \divides (2m + 1)(2m)(2m - 1) \cdots (m + 2).
+          \]
+
+          Next, since all the terms in the product are primes, none of the terms will therefore have factors between \(1\) and \(m\). This means that
+          \[
+              \gcd\left(P_{m + 1, 2m + 1}, m!\right) = 1,
+          \]
+          i.e. \(P_{m + 1, 2m + 1}\) are coprime.
+
+          Therefore, given that \(\binom{2m + 1}{m} = \frac{(2m + 1)(2m)(2m - 1) \cdots (m + 2)}{m!}\) is an integer, we must therefore have
+          \[
+              P_{m + 1, 2m + 1} \divides \binom{2m + 1}{m},
+          \]
+          and hence
+          \[
+              P_{m + 1, 2m + 1} \leq \binom{2m + 1}{m} < 2^{2m},
+          \]
+          as desired.
+
+    \item Notice that
+          \begin{align*}
+              P_{1, 2m + 1} & = P_{1, m + 1} \cdot P_{m + 1, 2m + 1} \\
+                            & < 4^{m + 1} \cdot 2^{2m}               \\
+                            & = 4^{m + 1} \cdot 4^m                  \\
+                            & = 4^{2m + 1},
+          \end{align*}
+          as desired.
+
+    \item First we look at the base case when \(n = 2\).
+
+          \(P_{1, 2} = 2\), \(4^2 = 16\), the original statement holds when \(n = 2\).
+
+          Now, we use strong induction. Suppose the statement holds up to some \(n = k \geq 2\).
+
+          If \(k = 2m\) is even, the induction step for \(2m \to 2m + 1\) is already shown in the previous part.
+
+          If \(k = 2m + 1\) is odd, we must have that \(k + 1\) is even. The only even prime is \(2\), but since \(k \geq 2\), \(k + 1 \neq 2\), and \(k + 1\) must be composite.
+
+          Therefore, \(P_{1, k + 1} = P_{1, k} < 4^{k} < 4^{k + 1}\). This completes the induction step.
+
+          Therefore, by strong induction, the statement \(P_{1, n} < 4^n\) holds for all \(n \geq 2\).
+\end{enumerate}
