@@ -1,0 +1,44 @@
+\Question{\currfilebase}
+
+\begin{enumerate}
+    \item Let \(m = 1000\). Notice for all \(n \geq m\),
+          \[
+              n^2 = n \cdot n \geq m \cdot n \geq 1000n.
+          \]
+
+    \item This statement is false. Let \(s_n = (-1)^n\) and \(t_n = -(-1)^n\). Then \(s_n = 1\) and \(t_n = -1\) for even \(n\)s, and \(s_n = -1\) and \(t_n = 1\) for odd \(n\)s.
+
+          So \(s_n \geq t_n\) for even \(n\)s, and \(t_n \geq s_n\) for odd \(n\)s. Since there can be arbitrarily big even and odd numbers, neither of the statements are true for these sequences.
+
+    \item Let \(m_1\) be the \(m\) for \((s_n) \leq (t_n)\) and \(m_2\) be the \(m\) for \((t_n) \leq (u_n)\). Let \(m = \max\{m_1, m_2\}\).
+
+          Notice that for all \(n \geq m\), we have \(n \geq m_1\) and therefore \(s_n leq t_n\), and \(n \geq m_2\) amd therefore \(t_n \leq u_n\).
+
+          By the transitivity of the \(\leq\) relation, we have therefore \(s_n \leq u_n\), for all \(n \geq m\). Therefore, this statement is true.
+
+    \item This statement is true. Let \(m = 4\), we aim to prove that \(2^n \geq n^2\) for all \(n \geq m\).
+
+          We first wish to prove the lemma: for all \(n \geq 4\), we have \(n^2 \geq 2n + 1\).
+
+          This is equivalent to proving that \(n^2 - 2n + 1 \geq 2\) for all \(n \geq 4\).
+
+          Notice that \(n^2 - 2n + 1 = (n - 1)^2 \geq (4 - 1)^2 = 9 \geq 2\) is true.
+
+          This finishes our proof for the lemma.
+
+          We show the original statement by mathematical induction.
+
+          \begin{enumerate}
+              \item \textbf{Base case.} For \(n = 4\), we have \(2^4 = 16 \geq 4^2 = 16\).
+              \item \textbf{Inductive step.} Assume that \(2^k \geq k^2\) for some \(n = k \geq 4\). We aim to show that \(2^{k+1} \geq (k+1)^2\).
+                    \begin{align*}
+                        2^{k+1} & = 2 \cdot 2^k     \\
+                                & \geq 2 \cdot k^2  \\
+                                & = k^2 + k^2       \\
+                                & \geq k^2 + 2k + 1 \\
+                                & = (k + 1)^2.
+                    \end{align*}
+          \end{enumerate}
+
+          Therefore, by the principle of mathematical induction, we have \(2^n \geq n^2\) for all \(n \geq 4\), and this finishes our proof.
+\end{enumerate}
