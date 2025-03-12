@@ -1,2 +1,121 @@
 \Question{\currfilebase}
 
+\begin{enumerate}
+    \item We have
+          \begin{align*}
+              I_n - I_{n + 1} & = \int_0^{+\infty} \frac{1}{(1 + u^2)^n} \Diff{x} - \int_0^{+\infty} \frac{1}{(1 + u^2)^{n + 1}} \Diff x \\
+                              & = \int_0^{+\infty} \frac{(1 + u^2) - 1}{(1 + u^2)^{n + 1}} \Diff{x}                                      \\
+                              & = \int_0^{+\infty} \frac{u^2}{(1 + u^2)^{n + 1}} \Diff{x}.
+          \end{align*}
+
+          Notice that
+          \[
+              \DiffFrac{(1 + u^2)^{-n}}{x} = - \frac{2un}{(1 + u^2)^{n + 1}},
+          \]
+          and therefore,
+          \[
+              \frac{u\Diff{x}}{(1 + u^2)^{n + 1}} = - \frac{\Diff{(1 + u^2)^{-n}}}{2n}.
+          \]
+
+          Using integration by parts, we have
+          \begin{align*}
+              I_n - I_{n + 1} & = \int_0^{+\infty} \frac{u^2}{(1 + u^2)^{n + 1}} \Diff{x}                                                                  \\
+                              & = \int_0^{+\infty} \left[ - \frac{u\Diff{(1 + u^2)^{-n}}}{2n}\right]                                                       \\
+                              & = \frac{1}{2n}\left[\int_0^{+\infty} \frac{\Diff{u}}{(1 + u^2)^n} - \left[u \cdot (1 + u^2)^{-n}\right]^{+\infty}_0\right] \\
+                              & = \frac{1}{2n} \left[I_n - (0 - 0)\right]                                                                                  \\
+                              & = \frac{1}{2n} I_n,
+          \end{align*}
+          as desired.
+
+          Hence, we have
+          \[
+              I_{n + 1} = \left(1 - \frac{1}{2n}\right) I_n = \frac{2n - 1}{2n} I_n.
+          \]
+
+          Notice that
+          \[
+              I_1 = \int_0^{+\infty} \frac{\Diff u}{1 + u^2} = \left[\arctan u\right]^{+\infty}_0 = \frac{\pi}{2},
+          \]
+          and therefore, we have
+          \begin{align*}
+              I_{n + 1} & = \frac{2n - 1}{2n} I_n                                                                                                      \\
+                        & = \frac{2n - 1}{2n} \cdot \frac{2n - 3}{2n - 2} \cdot I_{n - 1}                                                              \\
+                        & = \frac{2n - 1}{2n} \cdot \frac{2n - 3}{2n - 2} \cdot \frac{2n - 5}{2n - 4} \cdot I_{n - 2}                                  \\
+                        & \phantom{=} \vdots                                                                                                           \\
+                        & = \frac{2n - 1}{2n} \cdot \frac{2n - 3}{2n - 2} \cdot \frac{2n - 5}{2n - 4} \cdots \frac{2 \cdot 1 - 1}{2 \cdot 1} \cdot I_1 \\
+                        & = \frac{(2n - 1)(2n - 3)(2n - 5) \cdots 3 \cdot 1}{(2n) \cdot (2n - 2) \cdot (2n - 4) \cdots 4 \cdot 2} \cdot \frac{\pi}{2}.
+          \end{align*}
+
+          Let
+          \begin{align*}
+              A & = (2n - 1)(2n - 3)(2n - 5) \cdots 3 \cdot 1,           \\
+              B & = (2n) \cdot (2n - 2) \cdot (2n - 4) \cdots 4 \cdot 2.
+          \end{align*}
+
+          Notice that
+          \[
+              AB = (2n)!, B = 2^n \cdot n!,
+          \]
+          and therefore
+          \[
+              A = \frac{(2n)!}{2^n \cdot n!},
+          \]
+          and hence
+          \begin{align*}
+              I_{n + 1} & = \frac{(2n - 1)(2n - 3)(2n - 5) \cdots 3 \cdot 1}{(2n) \cdot (2n - 2) \cdot (2n - 4) \cdots 4 \cdot 2} \cdot \frac{\pi}{2} \\
+                        & = \frac{(2n)! / (2^n \cdot n!)}{2^n \cdot n!} \cdot \frac{\pi}{2}                                                           \\
+                        & = \frac{(2n)! \pi}{2^{2n + 1} (n!)^2},
+          \end{align*}
+          as desired.
+
+    \item If we do the substitution \(u = \frac{1}{x}\), we will have \(u \to 0^{+}\) as \(x \to +\infty\), and \(u \to +\infty\) as \(x \to 0^{+}\). We have \(\Diff u = - \frac{1}{x^2} \Diff x\). Therefore,
+          \begin{align*}
+              J & = \int_{0}^{+\infty} f((x - x^{-1})^2) \Diff x                    \\
+                & = \int_{+\infty}^{0} f((u^{-1} - u)^2) \left(- x^2 \Diff u\right) \\
+                & = \int_{0}^{+\infty} u^{-2} f((u - u^{-1})^2) \Diff u,
+          \end{align*}
+          which is exactly the first equal sign as desired (since \(u\) is just an arbitrary variable).
+
+          For the second equal sign, notice that
+          \begin{align*}
+              2J & = J + J                                                                                              \\
+                 & = \int_{0}^{+\infty} f((x - x^{-1})^2) \Diff x + \int_{0}^{+\infty} x^{-2} f((x - x^{-1})^2) \Diff x \\
+                 & = \int_{0}^{+\infty} \left(1 + x^{-2}\right) f((x - x^{-1})^2) \Diff x,
+          \end{align*}
+          and therefore
+          \[
+              J = \frac{1}{2} \int_{0}^{+\infty} \left(1 + x^{-2}\right) f((x - x^{-1})^2) \Diff x.
+          \]
+
+          For the final equal sign, consider the substitution \(u = x - x^{-1}\). Note \(\Diff u = \left(1 + x^{-2}\right) \Diff x\), and when \(x \to 0^{+}\), \(u \to -\infty\), when \(x \to +\infty\), \(u \to +\infty\). Therefore,
+          \begin{align*}
+              J & = \frac{1}{2} \int_{0}^{+\infty} \left(1 + x^{-2}\right) f((x - x^{-1})^2) \Diff x \\
+                & = \frac{1}{2} \int_{-\infty}^{+\infty} f(u^2) \Diff u.
+          \end{align*}
+
+          Since \(f(u^2) = f((-u)^2)\) for all \(u \in \RR\), we therefore have
+          \[
+              \int_{-\infty}^{0} f(u^2) \Diff u = \int_{0}^{+\infty} f(u^2) \Diff u,
+          \]
+          and hence
+          \[
+              J = \int_{0}^{+\infty} f(u^2) \Diff u,
+          \]
+          as desired.
+
+    \item Notice that the integrand satisfies
+          \begin{align*}
+              \frac{x^{2n - 2}}{(x^4 - x^2 + 1)^n} & = \frac{1}{x^2} \cdot \frac{(x^2)^{n}}{(x^4 - x^2 + 1)^n} \\
+                                                   & = \frac{1}{x^2} \cdot \frac{1}{(x^2 - 1 + x^{-2})^n}      \\
+                                                   & = \frac{1}{x^2} \cdot \frac{1}{[(x - x^{-1})^2 + 1]^n}.
+          \end{align*}
+
+          Therefore, consider the function \(f_n(x) = \frac{1}{(x + 1)^n}\), we have
+          \begin{align*}
+              \int_{0}^{+\infty} \frac{x^{2n - 2}}{(x^4 - x^2 + 1)^n} \Diff x & = \int_{0}^{+\infty} \frac{1}{x^2} \cdot \frac{1}{[(x - x^{-1})^2 + 1]^n} \cdot \Diff x \\
+                                                                              & = \int_0^{+\infty} x^{-2} f_n((x - x^{-1})^2) \Diff x                                   \\
+                                                                              & = \int_0^{+\infty} f_n(u^2) \Diff u                                                     \\
+                                                                              & = \int_0^{+\infty} \frac{\Diff u}{(u^2 + 1)^n}                                          \\
+                                                                              & = \frac{(2n - 2)! \pi}{2^{2n - 1} ((n - 1)!)^2}.
+          \end{align*}
+\end{enumerate}
