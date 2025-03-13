@@ -1,2 +1,72 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item \begin{itemize}
+              \item \textbf{Step 3.} Since \(\sqrt{2} \in \QQ\) is rational, there must exist positive integers \(p, q \in \NN\), such that
+                    \[
+                        \sqrt{2} = \frac{p}{q}.
+                    \]
+
+                    Therefore, \(q \cdot \sqrt{2} = p \in \ZZ\), and therefore \(q \in S\).
+
+              \item \textbf{Step 5.} Since \(k \in S\), \(k\sqrt{2}\) is a positive integer and \(k \in \NN\) is a positive integer, and hence
+                    \[
+                        (\sqrt{2} - 1) \cdot k \cdot \sqrt{2} = 2k - \sqrt{2}k
+                    \]
+                    must be an integer, since \(2k\) is an integer and \(k \sqrt{2}\) is an integer. At the same time, it must be positive, since \(\sqrt{2} > \sqrt{1} = 1\).
+
+                    Also, \((\sqrt{2} - 1) \cdot k = \sqrt{2} k - k\) is an integer due to \(\sqrt{2}k\) being an integer and \(k\) being an integer, and it is positive.
+
+                    So \((\sqrt{2} - 1) \cdot k \in S\) as desired.
+
+              \item \textbf{Step 6.} Notice that \(\sqrt{2} < \sqrt{4} = 2\), and hence \(\sqrt{2} - 1 < \sqrt{4} - 1 = 1\). This means that
+                    \[
+                        0 < (\sqrt{2} - 1)k < k,
+                    \]
+                    which implies that \(k\) is not the smallest positive integer in \(S\), as defined in Step 4.
+
+                    This leads to a contradiction, which means our initial assumption \(\sqrt{2}\) is rational is not true, and hence \(\sqrt{2}\) is irrational.
+          \end{itemize}
+
+    \item \begin{itemize}
+              \item \textbf{Only-if direction.} Since \(2^{\frac{1}{3}} \in \QQ\) is rational, we must have \(\left(2^{\frac{1}{3}}\right)^2 \in \QQ\) is rational as well, which finishes our proof.
+              \item \textbf{If direction.} Since \(2^{\frac{2}{3}} \in \QQ\) is rational, we must have \(2^{\frac{2}{3}} / 2 = 2^{-\frac{1}{3}} \in \QQ\) is rational, which then implies \(2^{\frac{1}{3}}\) is rational, which finishes our proof.
+          \end{itemize}
+
+          \begin{enumerate}
+              \item Assume that \(2^{\frac{1}{3}}\) and \(2^{\frac{2}{3}}\) are rational.
+              \item Define the set \(T\) to be the set of positive integers with the following property:
+                    \[
+                        t \text{ is in } T \text{ if and only if } t 2^{\frac{1}{3}} \text{ and } t2^{\frac{2}{3}} \text{ are integers},
+                    \]
+                    i.e.
+                    \[
+                        T = \left\{t \in \NN \mid t 2^{\frac{1}{3}} \in \NN, t 2^{\frac{2}{3}} \in \NN \right\}.
+                    \]
+
+              \item Set \(T\) contains at least one positive integer, since there must exist \(a, b, c, d \in \NN\) by Step 1 such that \(2^{\frac{1}{3}} = \frac{a}{b}\) and \(2^{\frac{2}{3}} = \frac{c}{d}\), and \(bd \in T\).
+              \item Let \(k\) be the smallest positive integer in \(T\).
+              \item Consider the number \(\left(2^{\frac{1}{3}} - 1\right)k\).
+
+                    Notice that since \(k \in T\), we must have \(k \in \NN\) and \(2^{\frac{1}{3}} k \in \NN\). Hence, \(\left(2^{\frac{1}{3}} - 1\right)k \in \ZZ\)
+
+                    Since \(2 > 1\), we also have \(2^{\frac{1}{3}} > 1^{\frac{1}{3}} = 1\), and hence \(\left(2^{\frac{1}{3}} - 1\right)k \in \NN\).
+
+                    Also, notice that
+                    \[
+                        \left(2^{\frac{1}{3}} - 1\right)k \cdot 2^{\frac{1}{3}} = 2^{\frac{2}{3}} \cdot k - 2^{\frac{1}{3}} \cdot k
+                    \]
+                    and
+                    \[
+                        \left(2^{\frac{1}{3}} - 1\right)k \cdot 2^{\frac{2}{3}} = k - 2^{\frac{2}{3}} \cdot k
+                    \]
+                    must also both be integers since \(k \in T\).
+
+                    This means that \(\left(2^{\frac{1}{3}} - 1\right)k \in T.\)
+              \item But notice that \(1 = 1^{\frac{1}{3}} < 2^{\frac{1}{3}} < 8^{\frac{1}{3}} = 2\), which means \(0 < 2^{\frac{1}{3}} - 1 < 1\), and \(0 < \left(2^{\frac{1}{3}} - 1\right)k < k.\)
+
+                    This contradicts with Step 4 where \(k\) is the smallest positive integer in \(T\). This means our assumption that \(2^{\frac{1}{3}}\) and \(2^{\frac{2}{3}}\) are rational, is false.
+
+                    So either of them is not rational. By the statement we proved earlier, both of them must be simultaneously rational or irrational, hence both of them must be irrational, which finishes our proof.
+          \end{enumerate}
+\end{enumerate}
