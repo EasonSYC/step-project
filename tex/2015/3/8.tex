@@ -1,2 +1,169 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item First, notice that
+          \[
+              \DiffFrac{y}{x} = \frac{\Diff{y} / \Diff{\theta}}{\Diff{x} / \Diff{\theta}} = \frac{\Diff{r} / \Diff{\theta} \cdot \sin \theta + r \cdot \cos \theta}{\Diff{r} / \Diff{\theta} \cdot \cos \theta - r \cdot \sin \theta}.
+          \]
+
+          Therefore, the original differential equation reduces to
+          \[
+              (r \sin \theta + r \cos \theta) \frac{\Diff{r} / \Diff{\theta} \cdot \sin \theta + r \cdot \cos \theta}{\Diff{r} / \Diff{\theta} \cdot \cos \theta - r \cdot \sin \theta} = r \sin \theta - r \cos \theta
+          \]
+          which further reduces to (since \(r \neq 0\))
+          \[
+              (\sin \theta + \cos \theta) \left[\DiffFrac{r}{\theta} \cdot \sin \theta + r \cos \theta\right] = (\sin \theta - \cos \theta) \left[\DiffFrac{r}{\theta} \cdot \cos \theta - r \sin \theta\right].
+          \]
+
+          Expanding the brackets and cancelling the equivalent terms gives us
+          \[
+              r \cos^2 \theta + \DiffFrac{r}{\theta}\sin^2\theta = - \DiffFrac{r}{\theta} \cos^2 \theta - r \sin^2 \theta,
+          \]
+          which reduces to (due to the Pythagoras Theorem \(\sin^2 \theta + \cos^2 \theta = 1\)),
+          \[
+              \DiffFrac{r}{\theta} + r = 0,
+          \]
+          as desired.
+
+          The rearrangement (since \(r \neq 0\))
+          \[
+              \frac{\Diff{r}}{r} = - \Diff{\theta}
+          \]
+          shows that the solution to this differential equation must satisfy that (since \(r > 0\))
+          \[
+              \ln r = - \theta + C,
+          \]
+          i.e.
+          \[
+              r = A \exp (- \theta),
+          \]
+          where \(A > 0\).
+
+          For critical values, notice that when \(\theta = 0\), \(r = A\), and when \(\theta = 2\pi\), \(r = \frac{A}{\exp 2\pi}\), and that \(r\) is decreasing with \(\theta\). The graph will look like a spiral
+
+          A sketch is shown below, for \(\theta \in [0, 2\pi)\).
+
+          \begin{center}
+              \input{\currfiledir 8-diag1.tex}
+          \end{center}
+
+    \item Similar to the previous part, the equation reduces to
+          \[
+              \left(\sin \theta + \cos \theta - \cos \theta \cdot r^2\right) \left[\DiffFrac{r}{\theta} \cdot \sin \theta + r \cos \theta\right] = \left(\sin \theta - \cos \theta - \sin \theta \cdot r^2\right) \left[\DiffFrac{r}{\theta} \cdot \cos \theta - r \sin \theta\right],
+          \]
+          and hence, by expanding brackets and eliminating terms,
+          \[
+              \DiffFrac{r}{\theta} \sin^2 \theta + r \cos^2 \theta - r^3 \cos^2 \theta = -r \sin^2 \theta - \DiffFrac{r}{\theta} \cos^2\theta + r^3 \sin^2 \theta,
+          \]
+          which then simplifies to
+          \[
+              \DiffFrac{r}{\theta} + r - r^3 = 0.
+          \]
+
+          Notice that \(r = 1\) is a solution to this differential equation. Therefore, rearranging terms, we have
+          \[
+              \frac{\Diff{r}}{r^3 - r} = \Diff{\theta}.
+          \]
+
+          By partial fractions
+          \[
+              \frac{1}{r^3 - r} = -\frac{1}{r} + \frac{1}{2(r + 1)} + \frac{1}{2(r - 1)},
+          \]
+          we therefore must have
+          \[
+              \left[-\frac{1}{r} + \frac{1}{2(r + 1)} + \frac{1}{2(r - 1)}\right] \cdot \Diff{r} = \Diff \theta.
+          \]
+
+          This therefore means that
+          \[
+              \frac{1}{2} \ln \abs{r + 1} + \frac{1}{2} \ln \abs{r - 1} - \ln \abs{r} = \theta + C,
+          \]
+          for some constant \(C \in \RR\).
+
+          Combining logarithms and absolute values gives us
+          \[
+              \ln \abs{\frac{r^2 - 1}{r^2}} = 2\theta + C,
+          \]
+          and therefore,
+          \[
+              \frac{r^2 - 1}{r^2} = \pm \exp C \cdot \exp(2\theta),
+          \]
+          and this can be simplified to
+          \[
+              1 - \frac{1}{r^2} = \pm \exp C \cdot \exp(2\theta),
+          \]
+          and therefore
+          \[
+              r^2 = \frac{1}{1 \mp \exp C \cdot \exp(2\theta)}.
+          \]
+
+          Let \(A = \mp \exp C \neq 0\), and therefore
+          \[
+              r^2 = \frac{1}{1 + A \exp(2 \theta)}.
+          \]
+
+          Notice when \(r = 1\), \(r\) satisfies that
+          \[
+              r^2 = 1,
+          \]
+          so the general solution will be
+          \[
+              r^2 = \frac{1}{1 + A \exp(2 \theta)}
+          \]
+          for \(A \in \RR\) which this equation makes sense.
+
+          We restrict ourselves to \(\theta \in [0, 2\pi)\).
+
+          Notice that, this equation makes sense for all \(A \geq 0\), since the denominator is obviously non-negative.
+
+          For \(A < 0\), the denominator is decreasing in \(\theta\), and we would like it to be greater than zero for some \(\theta \in [0, 2\pi)\). Therefore, we would like the maximum possible value of the denominator to be greater than, that is when \(\theta = 0\):
+          \[
+              1 + A \exp 0 > 0,
+          \]
+          which gives \(A > -1\).
+
+          We consider three cases where \(r > 0\), i.e.,
+          \[
+              r = \frac{1}{\sqrt{1 + A \exp(2\theta)}}.
+          \]
+
+          Notice this always passes through \(\left(\frac{1}{\sqrt{1 + A}}, 0\right)\).
+
+          \begin{itemize}
+              \item When \(-1 < A < 0\), the curve is not defined for
+                    \[
+                        1 + A \exp (2\theta) \leq 0,
+                    \]
+                    and this is precisely when
+                    \[
+                        \exp 2\theta \geq -\frac{1}{A},
+                    \]
+                    which is
+                    \[
+                        \theta \geq \frac{1}{2} \cdot \ln\left(-\frac{1}{A}\right).
+                    \]
+
+                    This means the curve will have an asymptote of line
+                    \[
+                        \theta = \frac{1}{2} \cdot \ln\left(-\frac{1}{A}\right).
+                    \]
+
+                    Also note that \(r\) is increasing in \(\theta\) in this case, and \(r \to +\infty\) as \(\theta \to\) the asymptote.
+
+                    \begin{center}
+                        \input{\currfiledir 8-diag2.tex}
+                    \end{center}
+
+              \item When \(A = 0\), notice this just gives \(r = 1\), which is a circle with radius 1 centred at the origin.
+
+                    \begin{center}
+                        \input{\currfiledir 8-diag3.tex}
+                    \end{center}
+
+              \item In the final case where \(A > 0\), the following case arises.
+
+                    \begin{center}
+                        \input{\currfiledir 8-diag4.tex}
+                    \end{center}
+          \end{itemize}
+\end{enumerate}

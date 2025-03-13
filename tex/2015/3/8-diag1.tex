@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+    \draw[->] (-1.2, 0) -- (5.2, 0) node [right] {\(x\)};
+    \draw[->] (0, -0.2) -- (0, 3.2) node [above] {\(y\)};
+
+    \draw[color=black, domain=0:2*pi, smooth] plot ({\x r}:{5*exp(-\x)}) node at (2, 2) [above right] {\(r = A \exp (-\theta), \theta \in [0, 2\pi)\)};
+
+    \draw (0, {5*exp(-2*pi)}) circle (0.5pt);
+    \draw[fill=black] (5, 0) circle (0.5pt) node [below] {\((A, 0)\)};
+\end{tikzpicture}

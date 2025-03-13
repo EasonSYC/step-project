@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+    \draw[->] (-0.2, 0) -- (5.2, 0) node [right] {\(x\)};
+    \draw[->] (0, -0.2) -- (0, 3.2) node [above] {\(y\)};
+
+    \draw[color=black, domain=0:{0.5*ln(2)-0.02}, smooth] plot ({\x r}:{1/sqrt(1-0.5*exp(2*\x))}) node at (2, 2) [above right] {\(r = \frac{1}{\sqrt{1 + A \exp(2\theta)}}\)};
+
+    \draw[color=black, dashed, domain=0:5] plot (\x,{0.5*ln(2)*\x}) node [above right] {\(\theta = \frac{1}{2} \cdot \ln\left(-\frac{1}{A}\right)\)};
+
+    \draw[fill=black] ({1/sqrt(0.5)}, 0) circle (0.5pt) node [below] {\(\left(\frac{1}{\sqrt{1 + A}}, 0\right)\)};
+\end{tikzpicture}
