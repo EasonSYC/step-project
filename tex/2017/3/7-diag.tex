@@ -1,18 +1,18 @@
 \begin{tikzpicture}
-    \draw[->] (-5.2, 0) -- (5.2, 0) node at (5.2, 0) [right] {\(x\)};
-    \draw[->] (0, -4.2) -- (0, 4.2) node at (0, 4.2) [above] {\(y\)};
+    \draw[->] (-5.2, 0) -- (5.2, 0) node [right] {\(x\)};
+    \draw[->] (0, -4.2) -- (0, 4.2) node [above] {\(y\)};
 
-    \draw[color=black, domain=-pi:pi, smooth] plot ({4 * sin(deg(\x))},{3 * cos(deg(\x))});
+    \draw[color=black, domain=-pi:pi, smooth] plot ({4 * sin(\x r)},{3 * cos(\x r)});
 
-    \draw[dashed] (4, -4) -- (4, 4) node at (4, 4) [above] {\(x = a, L_2\)};
-    \draw[dashed] (-4, -4) -- (-4, 4) node at (-4, 4)[above] {\(x = -a\)};
+    \draw[dashed] (4, -4) -- (4, 4) node [above] {\(x = a, L_2\)};
+    \draw[dashed] (-4, -4) -- (-4, 4) node [above] {\(x = -a\)};
 
     \coordinate (P) at (4, 2);
-    \filldraw (P) circle[radius=1.5pt];
+    \filldraw (P) circle [radius=1.5pt];
     \draw (P) node[above right] {\((X, Y)\)};
 
     \coordinate (Q) at (1.5, 2.8);
-    \filldraw (Q) circle[radius=1.5pt];
+    \filldraw (Q) circle [radius=1.5pt];
 
-    \draw[shorten <= -1cm, shorten >= -1cm] (P) -- (Q) node[above right] {\(L_1\)};
+    \draw[shorten <= -1cm, shorten >= -1cm] (P) -- (Q) node [above right] {\(L_1\)};
 \end{tikzpicture}
