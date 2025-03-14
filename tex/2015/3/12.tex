@@ -1,2 +1,110 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Let \(X\) be the random variable for the outcome of one die roll. It has probability distribution \(\Prob(X = x) = \frac{1}{6}\) for \(x = 1, 2, \ldots, 6\).
+
+          Therefore, \(R_1\) follows the probability distribution \(\Prob(R_1 = x) = \frac{1}{6}\) fir \(x = 0, 1, \ldots, 5\), since \(R_1 = X \modulo 6\).
+
+          This means that
+          \[
+              G(x) = \frac{1}{6} \left(1 + x + x^2 + x^3 + x^4 + x^5\right).
+          \]
+
+          \(R_2 = (X_1 + X_2) \modulo 6 = ((R_1)_a + (R_1)_b) \modulo 6\), and notice that,
+          \[
+              G(x)^2  = \frac{1}{36} \left(1 + 2x + 3x^2 + 4x^3 + 5x^4 + 6x^5 + 5x^6 + 4x^7 + 3x^8 + 2x^9 + x^{10}\right).
+          \]
+
+          Therefore, combining the terms with the same powers modulo 6, we get
+          \[
+              G_{R_2}(x) = \frac{1}{36} \left((1 + 5) + (2 + 4)x + (3 + 3)x^2 + (4 + 2)x^3 + (5 + 1)x^4 + 6 x^5\right)
+          \]
+          which simplifies gives \(G(x)\), as desired.
+
+          Therefore, since \(R_{n} = (X_1 + X_2 + \ldots + X_n) \modulo 6 = (R_{n - 1} + R_1) \modulo 6\), by mathematical induction, we can conclude that the probability generating function for \(R_n\) is always \(G(x)\).
+
+          This means that the probability of \(R_n\) being a multiple of 6, is
+          \[
+              \Prob\left(6 \divides R_n\right) = \frac{1}{6}.
+          \]
+
+    \item Notice that \(G_1(x)\), the probability generating function for \(T_1\) must be
+          \[
+              G_1(x) = \frac{1}{6} \left(1 + 2x + x^2 + x^3 + x^4\right).
+          \]
+
+          Therefore, notice that
+          \[
+              G_1(x)^2 = \frac{1}{36} \left(1 + 4x + 6x^2 + 6x^3 + 7x^4 + 6x^5 + 3x^6 + 2x^7 + x^8 \right),
+          \]
+          and combining the powers with the same remainder modulo 5, we have
+          \[
+              G_2(x) = \frac{1}{36} \left(7 + 7x + 8x^2 + 7x^3 + 7x^4\right) = \frac{1}{36} \left(x^2 + 7y\right)
+          \]
+          where \(y = 1 + x + x^2 + x^3 + x^4\), as desired.
+
+          Expressing \(G_1\) in terms of \(y\), we have
+          \[
+              G_1(x) = \frac{1}{6} (x + y).
+          \]
+
+          Experimenting with \(G_3\), we notice
+          \begin{align*}
+              G_1(x) \cdot G_2(x) & = \frac{1}{6^3} (x + y)(x^2 + 7y)          \\
+                                  & = \frac{1}{6^3} (x^3 + 7xy + x^2y + 7y^2).
+          \end{align*}
+
+          But notice that up to the congruence of the powers modulo \(5\), we have \(x^n y\) will simplify to simply \(y\), and
+          \[
+              (x + y)^2 = x^2 + y^2 + 2xy = x^2 + 7y
+          \]
+          from \(G_1(x)^2 = G_2(x)\) implies that \(y^2\) simplifies to \(5y\).
+
+          Therefore,
+          \[
+              G_3(x) = \frac{1}{6^3} (x^3 + 7y + y + 7 \cdot 5y) = \frac{1}{6^3} (x^3 + 43y).
+          \]
+
+          Now, we assert that
+          \[
+              G_n(x) = \frac{1}{6^n} (x^{n \modulo 5} + \frac{6^n - 1}{5}y).
+          \]
+
+          The base case is shown in \(G_1\), and now we do the inductive step. Assume that
+          \[
+              G_k(x) = \frac{1}{6^k} (x^{k \modulo 5} + \frac{6^k - 1}{5}y)
+          \]
+          for some \(k \in \NN\).
+
+          \begin{align*}
+              G_{k + 1}(x) & = G_k(x) \cdot G_1(x)                                                                                                                               \\
+                           & = \frac{1}{6^k} \cdot \left(x^{k \modulo 5} + \frac{6^k - 1}{5}y\right) \cdot \frac{1}{6} \cdot (x + y)                                             \\
+                           & = \frac{1}{6^{k + 1}} \cdot \left(x^{k \modulo 5} \cdot x^{1} + x^{k \modulo 5} \cdot y + x \cdot \frac{6^k - 1}{5}y + \frac{6^k - 1}{5} y^2\right) \\
+                           & = \frac{1}{6^{k + 1}} \cdot \left(x^{(k + 1) \modulo 5} + y + \frac{6^k - 1}{5}y + \frac{6^k - 1}{5} \cdot 5 y\right)                               \\
+                           & = \frac{1}{6^{k + 1}} \cdot \left(x^{(k + 1) \modulo 5} + \left(\frac{6^k - 1}{5} + 6^k\right)y\right).
+          \end{align*}
+
+          What remains to prove is that
+          \[
+              \frac{6^k - 1}{5} + 6^k = \frac{6^{k + 1} - 1}{5},
+          \]
+          but this is straightforward since this is just trivial algebra.
+
+          So our assertion is true, and
+          \[
+              G_n(x) = \frac{1}{6^n} (x^{n \modulo 5} + \frac{6^n - 1}{5}y).
+          \]
+
+          Now, the probability of \(5 \divides S_n\) is the coefficient of \(x^0\) (the constant term) in \(G_n(x)\).
+
+          If \(5 \notdivides n\), \(x^{n \modulo 5}\) is not \(x^0\), and therefore the only term that contributes to the constant term comes from \(y\), therefore
+          \[
+              \Prob\left(5 \divides S_n\right) = \frac{1}{6^n} \cdot \frac{6^n - 1}{5} = \frac{1}{5} \left(1 - \frac{1}{6^n}\right),
+          \]
+          as required.
+
+          If \(5 \divides n\), then \(x^{n \modulo 5}\) will be \(x^0 = 1\) contributing to the probability, hence
+          \[
+              \Prob\left(5 \divides S_n\right) = \frac{1}{6^n} \cdot \left(1 + \frac{6^n - 1}{5}\right) = \frac{1}{5} \left(1 + \frac{4}{6^n}\right).
+          \]
+\end{enumerate}
