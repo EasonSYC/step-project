@@ -1,2 +1,73 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item \begin{itemize}
+              \item \textbf{Only-if direction.} If \(w, z\) are real, then \(u = w + z\) and \(v = w^2 + z^2\) are real. Also,
+                    \begin{align*}
+                        2v - u^2 & = 2(w^2 + z^2) - (w + z)^2 \\
+                                 & = w^2 - 2wz + z^2          \\
+                                 & = (w - z)^2                \\
+                                 & \geq 0,
+                    \end{align*}
+                    which implies \(u^2 \leq 2v\) as desired.
+
+              \item \textbf{If direction.} If \(u, v \in \RR\) and \(u^2 \leq 2v\), we notice that
+                    \[
+                        wz = \frac{u^2 - v}{2} \in \RR.
+                    \]
+
+                    Hence, \(w, z\) are solutions to the quadratic equation
+                    \[
+                        x^2 - ux + \frac{u^2 - v}{2} = 0.
+                    \]
+
+                    Notice all coefficients in this equation is real. The discriminant satisfies
+                    \begin{align*}
+                        \Delta & = (-u)^2 - 4 \cdot 1 \cdot \frac{u^2 - v}{2} \\
+                               & = u^2 - 2(u^2 - v)                           \\
+                               & = 2v - u^2                                   \\
+                               & \geq 0,
+                    \end{align*}
+                    which implies both solutions must be real, i.e. \(w, z\) are real, as desired.
+          \end{itemize}
+
+    \item By simplification, we notice that letting \(u = w + z\) and \(v = w^2 + z^2\), we have
+          \begin{align*}
+              w^3 + z^3 & = (w + z)(w^2 + z^2) - wz (w + z)                                   \\
+                        & = (w + z)(w^2 + z^2) - \frac{1}{2} ((w + z)^2 - (w^2 + z^2))(w + z) \\
+                        & = uv - \frac{u(u^2 - v)}{2}                                         \\
+                        & = u \left(v - \frac{u^2 - v}{2}\right)                              \\
+                        & = \frac{u}{2} \left(2v - (u^2 - v)\right)                           \\
+                        & = \frac{u (3v - u^2)}{2}.
+          \end{align*}
+
+          This means,
+          \[
+              -\lambda + \lambda u = \frac{u \left[3 \cdot \left(u^2 - \frac{2}{3}\right) - u^2\right]}{2}
+          \]
+          which simplifies to
+          \[
+              (u - 1)(u^2 + u - \lambda) = 0.
+          \]
+
+          Therefore, \(u_1 = 1\). The discriminant of the remaining quadratic is
+          \[
+              \Delta = 1 + 4\lambda > 1 > 0,
+          \]
+          since \(\lambda > 0\).
+
+          Therefore, \(u\) must always be real.
+
+          The only case where there are less than \(3\) possible values of \(u\), is when \(u_1 = 1\) is also a solution to the quadratic.
+
+          This is precisely when \(\lambda = u^2 + u = 1^2 + 1 = 2\).
+
+          Apart from this case, the two real solutions to the quadratic are distinct and must not be \(1\), and there are three real values of \(u\).
+
+          Since \(u\) is always real, \(u = w + z\) is always real and \(v = w^2 + z^2\) is always real. However, notice that
+          \[
+              2v - u^2 = 2 \cdot \left(u^2 - \frac{2}{3}\right) - u^2 = u^2 - \frac{4}{3}.
+          \]
+
+          But when \(u = 1\), \(2v - u^2 < 0\), \(2v < u^2\), and by part (i) at least one of \(w, z\) is not real.
+\end{enumerate}
