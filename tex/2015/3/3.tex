@@ -1,2 +1,67 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item We prove the first part by contradiction. Assume that \(\sec\theta \ngtr 0\), this means \(\sec \theta \leq -1\).
+
+          But in this case,
+          \[
+              r - a \sec \theta \geq r + a \geq a > b,
+          \]
+          but \(\abs{r - a \sec \theta} = b\), implies \(r - a \sec \theta \leq b\), and this leads to a contradiction.
+
+          This implies that \(\sec \theta > 0\). Hence, \(\cos \theta > 0\), and \(\theta \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)\).
+
+          We aim to show that \(\abs{r - a \sec \theta} = b\) lies on the conchoid of Nicomedes where \(L: x = a\) and \(d = b\), with \(A(0, 0)\).
+
+          Let \(O\) be the origin, \(P_{\theta}(a, a \tan \theta)\) and \(P_0(a, 0)\). All points on the half-line \(OP_{\theta}\) will have argument \(\theta\).
+
+          Let \(Q_{\theta}\) be the points on such line, satisfying the given equation \(\abs{r - a \sec \theta} = b\).
+
+          For every \(\theta \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)\), we have
+          \[
+              \abs{OP_{\theta}} = \abs{OP_0} \sec \theta = a \sec \theta.
+          \]
+
+          The given equation \(\abs{r - a \sec \theta} = b\) simplifies to \(r = a \sec \theta \pm b\).
+
+          This implies that \(Q_{\theta}\) must lie on the half-line \(OP_{\theta}\) through \(O\), and a fixed distance \(b\) away measured along \(OP_{\theta}\) from line \(L: x = a\) (which is measured from \(P_{\theta}\)).
+
+          This is precisely the definition of a conchoid of Nicomedes, and this finishes our proof.
+
+    \item When \(\sec \theta < 0\), \(\sec\theta \leq -1\). We have \(r = a \sec \theta \pm b\).
+
+          Since \(r \geq 0\), we must have \(r = a \sec \theta + b \geq 0\) (since if \(r = a \sec \theta - b\), then \(r < 0\)), and hence
+          \[
+              -1 \geq \sec\theta  \geq -\frac{b}{a}, -1 \leq \cos\theta \leq -\frac{a}{b},
+          \]
+          which means the area of the loop is given by the range of
+          \[
+              \theta \in \left(-\pi, -\arccos\left(-\frac{a}{b}\right)\right] \cup \left[\arccos\left(-\frac{a}{b}\right), \pi\right].
+          \]
+
+          Therefore, the area of the loop is given by
+          \[
+              A = \frac{1}{2}\left[\int_{-\pi}^{-\arccos\left(-\frac{a}{b}\right)} r^2 \Diff{\theta} + \int_{\arccos\left(-\frac{a}{b}\right)}^{\pi} r^2 \Diff{\theta}\right].
+          \]
+
+          Notice that
+          \begin{align*}
+              \int r^2 \Diff \theta & = \int\left(a^2 \sec^2\theta + 2ab \sec\theta + b^2\right) \Diff{\theta} \\
+                                    & = a^2 \tan\theta + 2ab \ln\abs{\sec\theta + \tan\theta} + b^2\theta + C  \\
+                                    & = \tan\theta + 4\ln\abs{\sec\theta+\tan\theta} + 4\theta + C,
+          \end{align*}
+          and \[
+              \alpha = \arccos\left(-\frac{a}{b}\right) = \arccos\left(-\frac{1}{2}\right) = \frac{2\pi}{3}.
+          \]
+
+          Therefore,
+          \begin{align*}
+              A & = \frac{1}{2}\left[\int_{-\pi}^{-\arccos\left(-\frac{a}{b}\right)} r^2 \Diff{\theta} + \int_{\arccos\left(-\frac{a}{b}\right)}^{\pi} r^2 \Diff{\theta}\right]                                                        \\
+                & = \frac{1}{2} \left[\left(\tan\theta + 4\ln\abs{\sec\theta+\tan\theta} + 4\theta\right)^{-\frac{2\pi}{3}}_{-\pi} + \left(\tan\theta + 4\ln\abs{\sec\theta+\tan\theta} + 4\theta\right)^{\pi}_{\frac{2\pi}{3}}\right] \\
+                & = \frac{1}{2} \left[\left(\sqrt{3} + 4\ln\abs{-2+\sqrt{3}} - \frac{8\pi}{3}\right) - \left(0 + 4\ln\abs{-1} - 4\pi\right)\right.                                                                                     \\
+                & \phantom{=} \left.+ \left(0 + 4\ln\abs{-1} + 4\pi\right) - \left(-\sqrt{3} + 4\ln\abs{-2-\sqrt{3}} + \frac{8\pi}{3}\right)\right]                                                                                    \\
+                & = \frac{1}{2} \left(2\sqrt{3} - \frac{16\pi}{3} + 8\pi\right) + 2\ln(2 - \sqrt{3}) - 2\ln(2 + \sqrt{3})                                                                                                              \\
+                & = \frac{4}{3}\pi + \sqrt{3} + 2\ln\left(\frac{2 - \sqrt{3}}{2 + \sqrt{3}}\right)                                                                                                                                     \\
+                & = \frac{4}{3}\pi + \sqrt{3} + 4\ln(2 - \sqrt{3}).
+          \end{align*}
+\end{enumerate}
