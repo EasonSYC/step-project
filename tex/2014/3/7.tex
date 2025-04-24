@@ -1,0 +1,84 @@
+\Question{\currfilebase}
+
+\begin{enumerate}
+    \item Since \(P_1, P_2, P_3, P_4\) are cyclic, they must satisfy that \(\angle P_1 P_2 P_4 = \angle P_1 P_3 P_4\), which means \(\angle P_1 P_2 Q = \angle Q P_3 P_4\). Also, we must have \(\angle P_1 Q P_2 = \angle P_3 Q P_4\).
+
+          This means that \(\triangle P_1 Q P_2 \sim \angle P_4 Q P_3\) (in this order). Therefore, the ratio of the side lengths satisfy that
+          \[
+              \frac{P_1 Q}{Q P_2} = \frac{P_4 Q}{Q P_3},
+          \]
+          and hence
+          \[
+              P_1 Q \cdot QP_3 = P_2 Q \cdot QP_4
+          \]
+          as desired.
+
+    \item Since \(Q\) is the intersection of \(P_1 P_3\) and \(P_2 P_4\), \(Q\) is on \(P_1 P_3\), and hence the position vector of \(Q\), \(\vect{q}\) can be expressed as a convex combination of \(\vect{p}_1\) and \(\vect{p}_3\), i.e.,
+          \[
+              \vect{q} = b_1 \vect{p}_1 + b_3 \vect{p}_3
+          \]
+          where \(b_1 + b_3 = 1\).
+
+          Similarly,
+          \[
+              \vect{q} = b_2 \vect{p}_2 + b_4 \vect{p}_4
+          \]
+          where \(b_2 + b_4 = 1\).
+
+          Hence
+          \[
+              b_1 \vect{p}_1 - b_2 \vect{p}_2 + b_3 \vect{p}_3 - b_4 \vect{p}_4 = \vect{0}
+          \]
+
+          Let \(a_1 = b_1, a_2 = -b_2, a_3 = b_3, a_4 = -b_4\), and we must have \(\sum_{i = 1}^{4} a_i = 0\), and \(\sum_{i = 1}^{4} a_i \vect{p}_i = \vect{0}\). Since \(b_1 + b_3 = 1\) they must not be both zero, and hence \(a_1, a_2, a_3, a_4\) are not all zero.
+
+    \item If we have \(a_1 + a_3 = 0\), we must also have \(a_2 + a_4 = 0\). Let \(a_1 = \lambda, a_2 = \mu, a_3 = -\lambda, a_4 = -\mu\), we have
+          \[
+              \lambda(\vect{p}_1 - \vect{p}_3) = \mu(\vect{p}_2 - \vect{p}_4).
+          \]
+
+          But since \(P_1 P_3\) and \(P_2 P_4\) intersect at one point, this means they must not be parallel, and hence one of  \(\lambda\) and \(\mu\) must be zero. But if one of them is zero the other one has to be as well, which means all of \(a_i\) are zero, which contradicts with given.
+
+          Still, let \(b_1 = a_1, b_2 = -a_2, b_3 = a_3, b_4 = -a_4\). From given, we must have \(b_1 + b_3 = b_2 + b_4 = T\). By rearrangement of the given vector equation, we have
+          \[
+              b_1 \vect{p}_1 + b_3 \vect{p}_3 = b_2 \vect{p}_2 + b_4 \vect{p}_4.
+          \]
+
+          If we divide both sides by \(T\), we have
+          \[
+              \frac{b_1}{b_1 + b_3} \vect{p}_1 + \frac{b_3}{b_1 + b_3} \vect{p}_3 = \frac{b_2}{b_2 + b_4}\vect{p}_2 + \frac{b_4}{b_2 + b_4}\vect{p}_4.
+          \]
+
+          The position vector represented on the left-hand side must be on the line \(P_1 P_3\), and on the right-hand side must be on the line \(P_2 P_4\). But they have a unique intersection at \(Q\), which means both must represent the position vector of \(Q\), which is exactly
+          \[
+              \frac{a_1 \vect{p}_1 + a_3 \vect{p}_3}{a_1 + a_3}.
+          \]
+
+          It must be true that \(a_3 : a_1 = P_1Q : QP_3\). This is because
+          \[
+              \vect{q} = \vect{p}_1 + \frac{a_3}{a_1 + a_3} (\vect{p}_3 - \vect{p}_1).
+          \]
+
+          The magnitude of \(\vect{p}_3 - \vect{p}_1\) is the length \(P_1 P_3\) and the distance \(Q\) has 'travelled' along \(P_1 P_3\) from \(P_1\) is \(\frac{a_3}{a_1 + a_3}\) of the total.
+
+          This means
+          \[
+              P_1 Q = \frac{a_3}{a_1 + a_3} P_1 P_3, P_3 Q = \frac{a_1}{a_1 + a_3} P_1 P_3.
+          \]
+
+          Similarly,
+          \[
+              P_2 Q = \frac{a_4}{a_2 + a_4} P_2 P_4, P_4 Q = \frac{a_2}{a_2 + a_4} P_2 P_4.
+          \]
+
+          From the first part of the question we have
+          \[
+              \frac{a_1 a_3}{(a_1 + a_3)^2} (P_1 P_3)^2 = \frac{a_2 a_4}{(a_2 + a_4)^2} (P_2 P_4)^2.
+          \]
+
+          But since \(a_1 + a_2 + a_3 + a_4 = 0\), \(a_1 + a_3 = -a_2 - a_4\), and hence \((a_1 + a_3)^2 = (a_2 + a_4)^2\). This means
+          \[
+              a_1 a_3 (P_1 P_3)^2 = a_2 a_4 (P_2 P_4)^2,
+          \]
+          as desired.
+\end{enumerate}
