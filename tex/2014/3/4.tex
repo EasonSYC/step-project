@@ -1,0 +1,81 @@
+\Question{\currfilebase}
+\begin{enumerate}
+    \item We have
+          \begin{align*}
+              I - I_0 & = \int_{0}^{1} \left[(y')^2 - y^2 - (y' + y \tan x)^2\right] \Diff x                 \\
+                      & = - \int_{0}^{1} \left[y^2 + y^2 \tan^2 x + 2y y' \tan x\right] \Diff x              \\
+                      & = - \int_{0}^{1} \left[y^2 (1 + \tan^2 x) + 2y y' \tan x \right] \Diff x             \\
+                      & = - \int_{0}^{1} \left(y^2 \cdot \sec^2 x + 2y \cdot y' \cdot \tan x\right) \Diff x.
+          \end{align*}
+
+          But notice that
+          \[
+              \DiffOp{x} y^2 \tan x = y^2 \cdot \sec^2 x + 2y \cdot y' \cdot \tan x,
+          \]
+          and hence
+          \begin{align*}
+              I - I_0 & = - \int_{0}^{1} \left(y^2 \cdot \sec^2 x + 2y \cdot y' \cdot \tan x\right) \Diff x \\
+                      & = - \left[y^2 \tan x\right]_{0}^{1}                                                 \\
+                      & = - (y(1)^2 \tan 1 - 0^2 \tan 0)                                                    \\
+                      & = - (0^2 \tan 1 - 0)                                                                \\
+                      & = 0,
+          \end{align*}
+          as desired.
+
+          This gives \(I = I_1\). Also, notice that the integrand of \(I_1\) is \((y' + y \tan x)^2\) is always non-negative, which means \(I_1 \geq 0\), taking \(0\) only when \(y' + y \tan x = 0\) for all \(x \in (0, 1)\).
+
+          \begin{align*}
+              y' + y \tan x     & = 0                  \\
+              \DiffFrac{y}{x}   & = -y \tan x          \\
+              \frac{\Diff y}{y} & = - \tan x \Diff x   \\
+              \ln|y|            & = - \ln |\sec x| + C \\
+              y                 & = A\cos x.           \\
+          \end{align*}
+
+          When \(x = 1\), \(y = 0\), hence \(A = 0\) since \(\cos 1 \neq 0\). This means \(I_1 = 0\) if and only if \(y = 0\) for all \(x \in [0, 1]\).
+
+          Since \(I = I_1\), we know that \(I \geq 0\), with the equal sign holding if and only if \(y = 0\) for all \(x \in [0, 1]\).
+
+    \item Let
+          \[
+              J_0 = \int_{0}^{1} (y' + ay\tan bx)^2 \Diff x,
+          \]
+          and we have
+          \begin{align*}
+              J - J_0 & = \int_{0}^{1} \left[((y')^2 - a^2 y^2) - (y' + ay\tan bx)^2\right] \Diff x                           \\
+                      & = -\int_{0}^{1} \left[a^2 y^2 + a^2 y^2 \tan^2 bx + 2y' \cdot y \cdot a \cdot \tan bx \right] \Diff x \\
+                      & = -\int_{0}^{1} \left[a^2 y^2 \sec^2 bx + 2y' \cdot y \cdot a \cdot \tan bx \right] \Diff x           \\
+                      & = -a \int_{0}^{1} \left[a y^2 \sec^2 bx + 2y' \cdot y \cdot \tan bx \right] \Diff x.
+          \end{align*}
+
+          Notice that if we let \(b = a\), we have
+          \[
+              \DiffFrac{y^2 \tan bx}{x} = 2y y' \tan bx + b y^2 \sec^2 bx = 2y y' \tan bx + a y^2 \sec^2 bx.
+          \]
+
+          This means
+          \begin{align*}
+              J - J_0 & = -a \int_{0}^{1} \left[a y^2 \sec^2 bx + 2y' \cdot y \cdot \tan bx \right] \Diff x \\
+                      & = -a \left[y^2 \tan ax\right]_{0}^{1}                                               \\
+                      & = -a (y(1)^2 \tan a - 0^2 \tan 0)                                                   \\
+                      & = 0.
+          \end{align*}
+
+          This means \(J = J_0\).
+
+          Since the integrand of \(J_0\) is a square, we know \(J_0 \geq 0\) and hence \(J \geq 0\).
+
+          This is only valid when \(ax < \frac{\pi}{2}\) for \(x \in [0, 1]\) (since otherwise this range will cross an undefined point), which means \(a < \frac{\pi}{2}\).
+
+          When \(a = \frac{\pi}{2}\), consider \(y = \cos ax\). Notice that \(y' = - a \sin ax\), and therefore
+          \begin{align*}
+              J & = \int_{0}^{1} ((-a \sin ax)^2 - a^2 \cos^2 ax) \Diff x \\
+                & = -a^2 \int_{0}^{1} (\cos^2 ax - \sin^2 ax) \Diff x     \\
+                & = -a^2 \int_{0}^{1} \cos(2ax) \Diff x                   \\
+                & = -a^2 \left[\frac{\sin 2ax}{2a}\right]_{0}^{1}         \\
+                & = -\frac{a}{2} \left[\sin \pi x\right]_{0}^{1}          \\
+                & = -\frac{a}{2} (0 - 0)                                  \\
+                & = 0,
+          \end{align*}
+          but \(y\) is not uniformly zero.
+\end{enumerate}
