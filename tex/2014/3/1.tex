@@ -1,0 +1,59 @@
+\Question{\currfilebase}
+
+Notice that
+\[
+    (1+ax)(1+bx)(1+cx) = 1 + (a + b + c) x + (ab + ac + bc) x^2 + abc x^3,
+\]
+and by comparing coefficients we have
+\[
+    q = bc + ca + ab, r = abc
+\]
+
+\begin{enumerate}
+    \item Using the identities for the logarithms, we have
+          \begin{align*}
+              \ln(1 + qx^2 + rx^3) & = \ln(1 + ax) + \ln(1 + bx) + \ln(1 + cx)                                                                                                                            \\
+                                   & = \sum_{k = 1}^{+\infty} (-1)^{k + 1} \frac{(ax)^k}{k} + \sum_{k = 1}^{+\infty} (-1)^{k + 1} \frac{(bx)^k}{k} + \sum_{k = 1}^{+\infty} (-1)^{k + 1} \frac{(cx)^k}{k} \\
+                                   & = \sum_{k = 1}^{+\infty} (-1)^{k + 1} x^k \frac{a^k + b^k + c^k}{k},
+          \end{align*}
+          and hence
+          \[
+              S_k = \frac{a^k + b^k + c^k}{k},
+          \]
+          as desired.
+
+    \item Since
+          \begin{align*}
+              S_2 & = \frac{a^2 + b^2 + c^2}{2}                 \\
+                  & = \frac{(a + b + c)^2 - 2(ab + bc + ca)}{2} \\
+                  & = \frac{0^2 - 2q}{2}                        \\
+                  & = -q,
+          \end{align*}
+          \begin{align*}
+              S_3 & = \frac{a^3 + b^3 + c^3}{3}                                    \\
+                  & = \frac{(a + b + c)(a^2 + b^2 + c^2 - ab - bc - ca) + 3abc}{3} \\
+                  & = abc                                                          \\
+                  & = r,
+          \end{align*}
+          and
+          \begin{align*}
+              S_5 & = \frac{a^5 + b^5 + c^5}{5}                                                                        \\
+                  & = \frac{(a^2 + b^2 + c^2)(a^3 + b^3 + c^3) - a^2b^2 (a + b) - a^2c^2 (a + c) - b^2 c^2 (b + c)}{5} \\
+                  & = \frac{(-2q)(3r) + a^2 b^2 c + b^2 c^2 a + a^2 c^2 b}{5}                                          \\
+                  & = \frac{-6qr + abc(ab + bc + ac)}{5}                                                               \\
+                  & = \frac{-6qr + qr}{5}                                                                              \\
+                  & = -qr.
+          \end{align*}
+
+          Therefore, \(S_2 S_3 = S_5\) as desired.
+
+    \item Notice that
+          \begin{align*}
+              S_7 & = \frac{a^7 + b^7 + c^7}{7}                                                                      \\
+                  & = \frac{(a^2 + b^2 + c^2)(a^5 + b^5 + c^5)}{7}                                                   \\
+                  & = \frac{(-2q) \cdot (-5qr) - a^2 b^2 (a^3 + b^3) - b^2 c^2 (b^3 + c^3) - a^2 c^2 (a^3 + c^3)}{7} \\
+                  & = \frac{10q^2 r - a^2 b^2 (3r - c^3) - b^2 c^2 (3r - a^3) - a^2 c^2 (3r - b^3)}{7}               \\
+                  & = \frac{10q^2 r - 3r (a^2b^2 + b^2 c^2 + a^2 c^2) + a^2 b^2 c^2 (a + b + c)}{7}                  \\
+                  & = \frac{10q^2 r - 3r(a^2b^2 + b^2c^2 + a^2c^2) + r^2 \cdot 0}{7}
+          \end{align*}
+\end{enumerate}
