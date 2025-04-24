@@ -1,0 +1,65 @@
+\Question{\currfilebase}
+
+Since \(f''(t) > 0\) for \(t \in (0, x_0)\), we must have that for all \(x \in (0, x_0)\), we have \(f''(t) > 0\) for \(t \in (0, x)\), and hence
+\[
+    \int_{0}^{x} f''(t) \Diff t = f'(x) - f'(0) > 0.
+\]
+
+But since \(f'(0) = 0\), this implies that \(f'(x) > 0\) for \(x \in (0, x_0)\).
+
+Repeating this exact step gives that \(f(x) > 0\) for \(x \in (0, x_0)\) as desired.
+
+\begin{enumerate}
+    \item We would like to show \(f(x) = 1 - \cos x \cosh x > 0\) for \(x \in \left(0, \frac{1}{2}\pi\right)\). Notice that \(f(0) = 1 - 1 \cdot 1 = 0\), and
+          \[
+              f'(x) = \sin x \cosh x - \cos x \sinh x,
+          \]
+          which means
+          \[
+              f'(0) = 0 \cdot 1 - 1 \cdot 0 = 0.
+          \]
+
+          Further differentiation gives
+          \[
+              f''(x) = \cos x \cosh x + \sin x \sinh x + \sin x \sinh x - \cos x \cosh x = 2 \sin x \sinh x.
+          \]
+
+          If \(x \in \left(0, \frac{\pi}{2}\right)\), we have \(\sin x > 0\) and \(\sinh x > 0\), which gives \(f''(x) > 0\).
+
+          From the lemma we proved we have \(f(x) > 0\) for \(x \in \left(0, \frac{\pi}{2}\right)\), which is exactly \(\cos x \cosh x < 1\) as desired.
+
+    \item What is desired is to show \(\sin x \cosh x - x > 0\) and \(x^2 - \sin x \sinh x > 0\) for \(x \in \left(0, \frac{\pi}{2}\right)\).
+
+          Let \(g(x) = \sin x \cosh x - x\) and \(h(x) = x^2 - \sin x \sinh x\). \(g(0) = 0 \cdot 1 - 0 = 0\) and \(h(0) = 0^2 - 0 \cdot 0 = 0\).
+
+          Differentiating gives
+          \[
+              g'(x) = \cos x \cosh x + \sin x \sinh x - 1,
+          \]
+          and
+          \[
+              h'(x) = 2x - \cos x \sinh x - \sin x \cosh x.
+          \]
+
+          Hence,
+          \[
+              g'(0) = 1 \cdot 1 + 0 \cdot 0 - 1 = 0,
+          \]
+          and
+          \[
+              h'(0) = 2 \cdot 0 - 1 \cdot 0 - 0 \cdot 1 = 0.
+          \]
+
+          Differentiating this again gives
+          \[
+              g''(x) = - \sin x \cosh x + \cos x \sinh x + \cos x \sinh x + \sin x \cosh x = 2 \cos x \sinh x,
+          \]
+          and
+          \[
+              h''(x) = 2 + \sin x \sinh x - \cos x \cosh x - \cos x \cosh x - \sin x \sinh x = 2 - 2 \cos x \cosh x.
+          \]
+
+          For \(x \in (0, \frac{\pi}{2})\), we notice that \(\cos x > 0\) and \(\sinh x > 0\), and so \(g''(x) > 0\). Also, notice that \(h''(x) = 2 f(x)\) so \(h''(x) > 0\).
+
+          Hence, \(g(x) > 0, h(x) > 0\) when \(x \in (0, \frac{\pi}{2})\) which proves the result as desired.
+\end{enumerate}

@@ -1,0 +1,69 @@
+\Question{\currfilebase}
+
+Notice that there are \((k^{n + 1} - 1) - k^n + 1 = k^{n + 1} - k^n = k^n (k - 1)\) items in the summation. By the monotonic condition of the sequence in the question, we know that all the elements in the sum are greater than or equal to \(f(k^n)\) and less than \(f(k^{n + 1})\). This immediately proves the inequality.
+
+\begin{enumerate}
+    \item Let \(k = 2\). Since \(f\) is decreasing, we know that for all non-negative \(n\), we have
+          \[
+              2^n \cdot (2 - 1) \cdot \frac{1}{2^{n + 1}} \leq \sum_{r = 2^n}^{2^{n + 1} - 1} \frac{1}{r} \leq 2^n \cdot (2 - 1) \cdot \frac{1}{2^{n}},
+          \]
+          which simplifies to
+          \[
+              \frac{1}{2} 1 \leq \sum_{r = 2^n}^{2^{n + 1} - 1} \frac{1}{r} \leq 1.
+          \]
+
+          Summing this from \(n = 0\) to \(n = N\) (which contains \((N + 1)\) such inequalities) yields
+          \[
+              \frac{N + 1}{2} \leq \sum_{r = 1}^{2^{N + 1 - 1}} \frac{1}{r} \leq N + 1,
+          \]
+          as desired.
+
+          We can show that this sum can be arbitrarily big by letting \(N \to \infty\), and the lower bound of the sum \(\frac{N + 1}{2} \to \infty\). This means the infinite sum must diverge.
+
+    \item Let \(k = 2\). Since \(f\) is decreasing, we know that for all non-negative \(n\), we have
+          \[
+              \sum_{r = 2^n}^{2^{n + 1} - 1} \frac{1}{r^3} \leq 2^n \cdot (2 - 1) \cdot \frac{1}{(2^{n})^3} = \frac{1}{2^{2n}} = \frac{1}{4^n}.
+          \]
+
+          Summing this from \(n = 0\) up to \(n = N\) gives
+          \[
+              \sum_{r = 1}^{2^{N + 1} - 1} \frac{1}{r^3} \leq \sum_{n = 0}^{N} \frac{1}{4^n} = \frac{1 - \frac{1}{4^N}}{1 - \frac{1}{4}} = \frac{4}{3} \cdot \left(1 - \frac{1}{4^{N + 1}}\right).
+          \]
+
+          Let \(N \to \infty\), the weak inequality remains. This gives
+          \[
+              \sum_{r = 1}^{+\infty} \frac{1}{r^3} \leq \frac{4}{3} \cdot 1 = \frac{4}{3}
+          \]
+          as desired.
+
+    \item Using a probabilistic argument, from the set of three-digit non-negative integers (allowing leading-zeros) \(\{0, 1, 2, \ldots, 999\}\), each digit has a \(\frac{1}{10}\) chance of being \(2\), and hence \(\frac{9}{10}\) chance of not being \(2\). This means that the number of elements in this set not being \(2\) is equal to
+          \[
+              10^3 \cdot \left(\frac{9}{10}\right)^n = 9^3.
+          \]
+
+          But \(0\) is counted in the \(9^3\) as well, which is not included in \(S(1000)\). Therefore, \(S(1000) = 9^3 - 1\).
+
+          This method applies in general to \(n\)-digit numbers and for \(S(10^n) = 9^n - 1\) as well.
+
+          Let \(f(i)\) be the \(i\)-th integer not having \(2\) in the decimal expansion in increasing order, and hence
+          \[
+              S(n) = \{f(i) | i \in \NN, f(i) < n\},
+          \]
+          and
+          \[
+              \sigma(n) = \sum_{i = 1}^{S(n)} \frac{1}{f(i)}.
+          \]
+
+          Let \(k = 9\). Notice that \(f(9^n) = f(S(10^n) + 1) = 10^n\) since \(10^n\) is must be the next number satisfying the condition. Also, since \(f\) must be increasing on the integers, we have \(x \mapsto \frac{1}{f(x)}\) is decreasing on the integers, and hence, for non-negative integers \(n\)
+          \[
+              \sum_{r = 9^n}^{9^{n + 1} - 1} \frac{1}{f(r)} \leq 9^n (9 - 1) \frac{1}{f(9^n)} = 8 \cdot \left(\frac{9}{10}\right)^n.
+          \]
+
+          Summing this from \(n = 0\) to \(n = N\) gives
+          \[
+              \sigma(10^{N + 1}) = \sum_{r = 0}^{9^{N + 1} - 1} \frac{1}{f(r)} \leq 8 \sum_{n = 0}^{N} \left(\frac{9}{10}\right)^n = 80 \left[1 - \left(\frac{9}{10}\right)^{N + 1} \right] < 80.
+          \]
+
+          For all \(n \in \NN\), there exists \(N \in \NN\) such that \(10^{N + 1} \geq n\), and since \(\sigma\) is increasing, we must have \(80 > \sigma(10^{N + 1}) \geq \sigma(n)\), which finishes the proof.
+
+\end{enumerate}

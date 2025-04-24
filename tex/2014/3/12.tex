@@ -1,0 +1,74 @@
+\Question{\currfilebase}
+
+\begin{enumerate}
+    \item Notice that \(x_m\) is such that
+          \[
+              \Prob(X \leq x_m) = F(x_m) = \frac{1}{2}.
+          \]
+
+          \(y_m\) is such that
+          \[
+              \Prob(Y \leq y_m) = \Prob(e^X \leq y_m) = \Prob(X \leq \ln y_m) = F(\ln y_m) = \frac{1}{2}.
+          \]
+
+          Therefore,
+          \[
+              F(x_m) = F(\ln y_m) = \frac{1}{2}.
+          \]
+
+          Therefore, \(x_m = \ln y_m\), and \(y_m = e^{x_m}\).
+
+    \item Notice that the cumulative distribution function \(G(y)\) of \(Y\) satisfies that
+          \[
+              G(y) = \Prob(Y \leq y) = \Prob(e^X \leq y) = \Prob(X \leq \ln y) = F(\ln y).
+          \]
+
+          Therefore, differentiating both sides w.r.t. \(y\) gives that the probability density function of \(Y\), \(g(y)\) satisfies
+          \[
+              g(y) = \frac{1}{y} f(\ln y),
+          \]
+          as desired.
+
+          The mode of \(Y\), \(\lambda\) must satisfy that \(g'(\lambda) = 0\). By quotient rule, we have
+          \[
+              g'(y) = \frac{f'(\ln y) \cdot \frac{1}{y} \cdot y - 1 \cdot f (\ln y)}{y^2} = \frac{f'(\ln y) - f(\ln y)}{y^2}.
+          \]
+
+          Therefore, \(g'(\lambda) = 0\) implies that \(f'(\ln \lambda) = f(\ln \lambda)\) as desired.
+
+    \item This is because it is simply a horizontal shift of \(f(x)\) in the positive \(x\) direction by \(\sigma^2\) (i.e. this is the integral of \(f(x - \sigma^2)\)), and this improper integral on \(\RR\) will evaluate to the same value as integrating \(f(x)\), which is simply \(1\).
+
+          Expanding the exponent of the integrand gives
+          \begin{align*}
+              - \frac{(x - \mu - \sigma^2)^2}{2 \sigma^2} & = - \frac{(x - \mu)^2 + \sigma^4 - 2 \sigma^2 (x - \mu)}{2 \sigma^2} \\
+                                                          & = -\frac{(x - \mu^2)}{2 \sigma^2} - \frac{1}{2}\sigma^2 + (x - \mu).
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              \Expt(Y) & = \Expt(e^x)                                                                                                                                                       \\
+                       & = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^x \cdot e^{-(x - \mu)^2 / (2\sigma^2)} \Diff x                                                            \\
+                       & = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{- (x - \mu)^2 / (2\sigma^2) + x} \Diff x                                                                 \\
+                       & = \frac{1}{\sigma\sqrt{2\pi}} \cdot e^{\mu + \frac{1}{2}\sigma^2} \int_{-\infty}^{+\infty} e^{- (x - \mu)^2 / (2\sigma^2) + x - \frac{1}{2}\sigma^2 - \mu} \Diff x \\
+                       & = e^{\mu + \frac{1}{2}\sigma^2} \cdot \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{-(x - \mu - \sigma)^2 / (2\sigma^2)} \Diff x                         \\
+                       & = e^{\mu + \frac{1}{2}\sigma^2},
+          \end{align*}
+          as desired.
+
+    \item When \(X \sim \Normal(\mu, \sigma^2)\), \(x_m = \mu\) and therefore \(y_m = e^\mu\). Differentiating the p.d.f. for \(X\) gives
+          \begin{align*}
+              f'(x) & = \frac{1}{\sigma\sqrt{2\pi}} \cdot \frac{-2(x - \mu)}{2\sigma^2} \cdot e^{-(x - \mu)^2 / (2\sigma^2)} \\
+                    & = - \frac{x - \mu}{\sigma^2 \cdot \sigma\sqrt{2\pi}} \cdot e^{-(x - \mu)^2 / (2\sigma^2)}.
+          \end{align*}
+
+          Therefore, \(f(x) = f'(x)\) when \(-\frac{x - \mu}{\sigma^2} = 1\). This is precisely when \(x = \mu - \sigma^2\), which means
+          \[
+              \lambda = e^{\mu - \sigma^2}.
+          \]
+
+          Now, since \(\Expt(Y) = e^{\mu + \frac{1}{2}\sigma^2}, y_m = e^\mu, \lambda = e^{\mu - \sigma^2}\), and \(\sigma \neq 0\) so \(\sigma^2 > 0\), this gives the result
+          \[
+              \lambda < y_m < \Expt(Y)
+          \]
+          as desired.
+\end{enumerate}
