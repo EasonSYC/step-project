@@ -1,2 +1,81 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item Let this condition be \(C_1\). Since the game ends in the first round, the score must remain to be zero, and therefore
+          \[
+              \Prob(N = 0 | C_1) = 1,
+          \]
+          and for all other \(n \in \NN\) where \(n \neq 0\),
+          \[
+              \Prob(N = n | C_1) = 0.
+          \]
+
+          This means the p.g.f. for \(N\) conditional under \(C_1\) is just simply \(G(t | C_1) = \Prob(N = 0 | C_1) \cdot t^0 = 1\).
+
+    \item Denote this condition be \(C_2\). Since in the first round, the game score does not change, and after the first round it is just as if this was a new game, so for all \(n \in \NN \cup \{0\}\), we must have
+          \[
+              \Prob(N = n | C_2) = \Prob(N = n),
+          \]
+          and hence
+          \[
+              G(t | C_2) = \sum_{n = 0}^{+\infty} \Prob(N = n | C_2) \cdot x^n = \sum_{n = 0}^{+\infty} \Prob(N = n) \cdot t^n = G(t).
+          \]
+
+    \item Denote the condition where the score is increased by \(1\) as \(C_3\). Since in the first round the game score increased by one, and after the first round it is just as if this was a new game, so for all \(n \in \NN\), we must have
+          \[
+              \Prob(N = n | C_3) = \Prob(N = n - 1),
+          \]
+          and
+          \[
+              \Prob(N = 0 | C_3) = 0.
+          \]
+
+          Hence,
+          \[
+              G(t | C_3) = \sum_{n = 0}^{+\infty} \Prob(N = n | C_3) \cdot x^n = \sum_{n = 1}^{+\infty} \Prob(N = n - 1) \cdot t^n = t \cdot \sum_{n = 0}^{+\infty} \Prob(N = n) \cdot t^n= tG(t).
+          \]
+
+          Since in the first round, one of \(C_1, C_2\) and \(C_3\) must happen, we must have that
+          \[
+              G(t) = \Prob(C_1) \cdot G(t|C_1) + \Prob(C_2) \cdot G(t|C_2) + \Prob(C_3) \cdot G(t|C_3) = a + b G(t) + ctG(t).
+          \]
+
+          Hence, rearranging gives
+          \[
+              (1 - b - ct) G(t) = a,
+          \]
+          and hence
+          \[
+              G(t) = \frac{a}{(1 - b) - ct} = \frac{a / (1 - b)}{1 - ct / (1 - b)}
+          \]
+
+          Hence, using the infinite expansion, we have
+          \begin{align*}
+              G(t) & = \frac{a}{1-b} \cdot \sum_{k = 0}^{+\infty} \left(\frac{ct}{1 - b}\right)^k   \\
+                   & = \sum_{k = 0}^{+\infty} \frac{a}{1 - b} \cdot \frac{c^k}{(1 - b)^k} \cdot t^k \\
+                   & = \sum_{k = 0}^{+\infty} \frac{ac^k}{(1 - b)^{k + 1}} \cdot t^k.
+          \end{align*}
+
+          But the coefficient before \(t^n\) is precisely the probability \(\Prob(N = n)\). This means
+          \[
+              \Prob(N = n) = \frac{ac^k}{(1 - b)^{k + 1}},
+          \]
+          as desired.
+
+    \item We know that \(\mu = G'(1)\). We can find that
+          \[
+              G'(t) = \frac{ac}{[(1 - b) - ct]^2},
+          \]
+          and evaluating this at \(t = 1\) gives
+          \[
+              \mu = G'(1) = \frac{ac}{(1 - b - c)^2} = \frac{ac}(a^2) = \frac{c}{a}.
+          \]
+
+          Therefore, we have \(c = \mu a\)
+          \begin{align*}
+              \Prob(N = n) & = \frac{a c^k}{(a + c)^{k + 1}}                   \\
+                           & = \frac{a (\mu a)^k}{(a + \mu a)^{k + 1}}         \\
+                           & = \frac{a \mu^k a^k}(a^{k + 1} (1 + \mu)^{k + 1}) \\
+                           & = \frac{\mu^k}{\mu^{k + 1}},
+          \end{align*}
+          as desired.
+\end{enumerate}
