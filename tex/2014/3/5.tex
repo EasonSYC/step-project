@@ -1,2 +1,79 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\(ABCD\) is a parallelogram if and only if \(AB\) is parallel and equal to \(DC\). This is true if and only if,
+\[
+    \bvect{AB} = \bvect{DC},
+\]
+and using complex representation (which is also equivalent)
+\[
+    b - a = c - d.
+\]
+This is equivalent to
+\[
+    a + c = b + d
+\]
+so we are done.
+
+In this case, \(ABCD\) is further a square if and only if it is both a rhombus and a rectangle. It is a rhombus if and only if the two diagonals, \(AC\) and \(BD\), are perpendicular to each other, and a rectangle if and only if the two diagonals, \(AC\) and \(BD\), have equal length.
+
+This is equivalent to \(\bvect{BD}\) being \(\bvect{AC}\) rotated \(90\) degrees anti-clockwise exactly (due to the labelling as defined), and using complex representation (which is equivalent)
+\[
+    i(c - a) = (d - b).
+\]
+
+Flipping the signs on both sides (which is reversible) gives
+\[
+    i(a - c) = (b - d)
+\]
+as desired.
+
+\begin{enumerate}
+    \item \(X\) is the centre of the square constructed externally along the edge \(PQ\) if and only if \(\bvect{PX}\) is \(\bvect{PQ}\) rotated clockwise by \(45\) degrees and scaled down by a factor of \(\sqrt{2}\). In complex notation, this is equivalent to
+          \[
+              x - p = (q - p) \cdot \frac{1}{\sqrt{2}} \cdot e^{-i\frac{\pi}{4}}.
+          \]
+
+          But notice that \(e^{-i\frac{\pi}{4}} = \cos \frac{\pi}{4} - i\sin\frac{\pi}{4} = \frac{1}{\sqrt{2}}(1 - i)\), and hence this equation is equivalent to
+          \[
+              x = \frac{1}{2} (q - p) (1 - i) + p = \frac{(1 + i)p + (1 - i)q}{2},
+          \]
+          as desired.
+    \item Similarly, we have
+          \begin{align*}
+              y & = \frac{(1 + i)q + (1 - i)r}{2},
+              z & = \frac{(1 + i)r + (1 - i)s}{2},
+              t & = \frac{(1 + i)s + (1 - i)t}{2}.
+          \end{align*}
+
+          \(XYZT\) is a square, if and only if
+          \[
+              x + z = y + t
+          \]
+          and
+          \[
+              i(x - z) = y - t.
+          \]
+
+          For the first one, this is equivalent to
+          \[
+              (1 + i)p + (1 - i)q + (1 + i)r + (1 - i)s = (1 - i)p + (1 + i)q + (1 - i)r + (1 + i)s,
+          \]
+          which is equivalent to
+          \[
+              p + r = q + s,
+          \]
+          which is equivalent to \(PQRS\) being a parallelogram.
+
+          For the second one, this is equivalent to
+          \[
+              i \cdot \left((1 + i)p + (1 - i)q - (1 + i)r - (1 - i)s\right) = -(1 - i)p + (1 + i)q + (1 - i)r - (1 + i)s,
+          \]
+          which is equivalent to
+          \[
+              -(1 + i)p + (1 + i)q + (1 - i) r -(1 + i)s = -(1 - i)p + (1 + i)q + (1 - i)r - (1 + i)s,
+          \]
+          which is trivially true.
+
+          This shows that \(XYZT\) being square is equivalent to \(PQRS\) being a parallelogram as desired.
+
+\end{enumerate}
