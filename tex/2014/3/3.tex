@@ -1,2 +1,73 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Consider the point on the curve whose gradient is equal to \(m\). Since on the curve, \(x = \frac{y^2}{4a}\), and hence
+          \[
+              \DiffFrac{x}{y} = \frac{y}{2a} = \frac{1}{m},
+          \]
+          which solves to \(y_0 = \frac{2a}{m}\), and hence \(x_0 = \frac{a}{m^2}\), the tangent to this point is \(y = mx + \frac{a}{m}\).
+
+          If \(\frac{a}{m} < c\) and \(mc > a\), this means that the line \(y = mx + c\) is above the tangent. Let \(\theta = \arctan m\), and we know the perpendicular distance between these lines will be
+          \[
+              \left(c - \frac{a}{m}\right) \cdot \cos \theta = \left(c - \frac{a}{m}\right) \cdot \frac{1}{\sqrt{m^2 + 1}} = \frac{cm - a}{m \sqrt{m^2 + 1}}.
+          \]
+
+          If \(\frac{a}{m} \geq c\) and \(mc \leq a\), this means that the line \(y = mx + c\) is the tangent (in the equal case) or below the tangent (in the less-than case), which both means the line \(y = mx + c\) intersects with the parabola.
+
+          Hence, when \(mc \leq a\), the shortest distance is always \(0\).
+
+    \item The distance \(d\) between \((p, 0)\) and \((at^2, 2at)\) can be expressed as
+          \begin{align*}
+              d^2 & = (at^2 - p)^2 + (2at)^2           \\
+                  & = a^2 t^4 - 2apt^2 + p^2 + 4a^2t^2 \\
+                  & = a^2 t^4  + 2a(2a - p)t^2 + p^2.
+          \end{align*}
+
+          We would like to minimise \(d \geq 0\), which is the same as minimising \(d^2\).
+
+          The minimum of the quadratic function
+          \[
+              f(x) = a^2 x^2 + 2a(2a-p)x + p^2
+          \]
+          occurs when
+          \[
+              x = -\frac{2a(2a - p)}{2 \cdot a^2} = \frac{p - 2a}{a} = \frac{p}{a} - 2.
+          \]
+
+          However, \(d^2 = f(t^2)\) and \(t^2\) can only be non-negative.
+
+          If \(\frac{p}{a} - 2 \geq 0, \frac{p}{a} \geq 2\), then this value can be taken, and the minimum will be
+          \[
+              d^2 = \frac{4 a^2 p^2 - \left[2a(2a - p)\right]^2}{4 a^2} = p^2 - (2a - p)^2 = - 4a^2 + 4ap = 4a(p - a)
+          \]
+          and the minimal \(d\) will be
+          \[
+              d = 2\sqrt{a(p - a)}.
+          \]
+
+          In the other case where \(\frac{p}{a} < 2\), to let the \(t^2\) value to be as close as possible to the symmetric axis, we would like \(t^2 = 0\), at which point the minimal distance will be
+          \[
+              d^2 = f(0) = p^2,
+          \]
+          and the minimal \(d\) will be
+          \[
+              d = p.
+          \]
+
+          The circle described is simply a circle centred at \((p, 0)\) with radius \(b\). Therefore, the shortest distance will be \(d - b\) if \(d > b\), and \(0\) otherwise.
+
+          To put this into cases,
+          \begin{itemize}
+              \item If \(p \geq 2a\), \(d = 2\sqrt{a(p - a)}\).
+                    \begin{itemize}
+                        \item If \(2\sqrt{a(p - a)} > b\), i.e. \(b^2 < 4a(p - a)\), the shortest distance is \(2\sqrt{a(p - a)} - b\).
+                        \item Otherwise, \(2\sqrt{a(p - a)} \leq b\), i.e. \(b^2 \geq 4a(p - a)\), the shortest distance is \(0\).
+                    \end{itemize}
+              \item Otherwise, \(p < 2a\), \(d = p\).
+                    \begin{itemize}
+                        \item If \(p > b\), the shortest distance is \(p - b\).
+                        \item Otherwise, \(p \leq b\), the shortest distance is \(0\).
+                    \end{itemize}
+          \end{itemize}
+
+\end{enumerate}
