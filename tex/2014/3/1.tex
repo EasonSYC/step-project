@@ -54,6 +54,16 @@ and by comparing coefficients we have
                   & = \frac{(-2q) \cdot (-5qr) - a^2 b^2 (a^3 + b^3) - b^2 c^2 (b^3 + c^3) - a^2 c^2 (a^3 + c^3)}{7} \\
                   & = \frac{10q^2 r - a^2 b^2 (3r - c^3) - b^2 c^2 (3r - a^3) - a^2 c^2 (3r - b^3)}{7}               \\
                   & = \frac{10q^2 r - 3r (a^2b^2 + b^2 c^2 + a^2 c^2) + a^2 b^2 c^2 (a + b + c)}{7}                  \\
-                  & = \frac{10q^2 r - 3r(a^2b^2 + b^2c^2 + a^2c^2) + r^2 \cdot 0}{7}
+                  & = \frac{10q^2 r - 3r\left[(ab + bc + ac)^2 - 2abc(a + b + c)\right] + r^2 \cdot 0}{7}            \\
+                  & = \frac{10q^2 r - 3q^2r}{7}                                                                      \\
+                  & = q^2r.
           \end{align*}
+
+          Also, \(S_2 S_5 = (-q) \cdot (-qr) = q^2 r\), so \(S_2 S_5 = S_7\) as desired.
+
+    \item Let \(a = 1, b = 1, c = -2\). \(q = bc + ca + ab = -3, r = -2\). This means \(S_2 = -q = 3, S_7 = q^2 r  = -18\). Notice that
+          \[
+              S_9 = \frac{a^9 + b^9 + c^9}{7} = \frac{1^9 + 1^9 + (-2)^9}{9} = - \frac{510}{9} = - \frac{170}{3},
+          \]
+          and this is obviously not \(S_2 S_7\) which gives a counterexample and the original statement is not true.
 \end{enumerate}
