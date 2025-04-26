@@ -1,2 +1,81 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+We notice
+\[
+    (z - \exp(i\theta)) (z - \exp(-i\theta)) = z^2 - (\exp(i\theta) + \exp(-i\theta))z + 1 = z^2 - 2z \cos \theta + 1.
+\]
+
+The \(2n\)-th roots of \(-1\) are \(z_r\), where \(r = 0, 1, \ldots, 2n - 1\),
+\[
+    z_r = \exp\left(i\left(\frac{\pi}{2n} + \frac{2r\pi}{2n}\right)\right) = \exp\left(i\pi \cdot \frac{1 + 2r}{2n}\right),
+\]
+and hence
+\begin{align*}
+    z^{2n} + 1 & = \prod_{r = 0}^{2n - 1} (z - z_r)                                                                                                                                                                                     \\
+               & = \left[\prod_{r = 0}^{n - 1} \left(z - \exp\left(i\pi \cdot \frac{1 + 2r}{2n}\right)\right)\right] \cdot \left[\prod_{r = n}^{2n - 1} \left(z - \exp\left(i\pi \cdot \frac{1 + 2r}{2n}\right)\right)\right]           \\
+               & = \left[\prod_{r = 0}^{n - 1} \left(z - \exp\left(i\pi \cdot \frac{1 + 2r}{2n}\right)\right)\right] \cdot \left[\prod_{r = 0}^{n - 1} \left(z - \exp\left(i\pi \cdot \frac{1 + 2(2n - 1 - r)}{2n}\right)\right)\right] \\
+               & = \left[\prod_{r = 0}^{n - 1} \left(z - \exp\left(i\pi \cdot \frac{1 + 2r}{2n}\right)\right)\right] \cdot \left[\prod_{r = 0}^{n - 1} \left(z - \exp\left(i\pi \cdot \frac{-1-2r}{2n}\right)\right)\right]             \\
+               & = \prod_{r = 0}^{n - 1} \left(z - \exp\left(i\pi \cdot \frac{1 + 2r}{2n}\right)\right) \left(z - \exp\left(i\pi \cdot \frac{-1-2r}{2n}\right)\right)                                                                   \\
+               & = \prod_{r = 0}^{n - 1} \left(z^2 - 2z \cos \left(\frac{2r + 1}{2n} \pi\right) + 1\right)                                                                                                                              \\
+               & = \prod_{r = 1}^{n} \left(z^2 - 2z \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right).
+\end{align*}
+
+\begin{enumerate}
+    \item Let \(z = i\), since \(n\) is even, \(z^{2n} = i^{2n} = (i^2)^n = (-1)^n = 1\).
+          \begin{align*}
+              2 & = z^{2n} + 1                                                                          \\
+                & = \prod_{r = 1}^{n} \left(i^2 - 2i \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right) \\
+                & = \prod_{r = 1}^{n} 2i \cos \left(\frac{2r - 1}{2n} \pi\right)                        \\
+                & = (2i)^n \prod_{r = 1}^{n} \cos \left(\frac{2r - 1}{2n} \pi\right)                    \\
+                & = 2^n (-1)^{\frac{n}{2}} \prod_{r = 1}^{n} \cos \left(\frac{2r - 1}{2n} \pi\right),
+          \end{align*}
+          and therefore
+          \[
+              \prod_{r = 1}^{n} \cos \left(\frac{2r - 1}{2n} \pi\right) = 2^{1 - n} (-1)^{-\frac{n}{2}} = 2^{1 - n} (-1)^{\frac{n}{2}}.
+          \]
+    \item Notice that in the product where \(n\) is odd, let \(k = \frac{n + 1}{2}\), then the term of this product will be
+          \begin{align*}
+              z^2 - 2z \cos \left(\frac{(2k - 1) \pi}{2n}\right) + 1 & = z^2 - 2z \cos \left(\frac{(n + 1 - 1)\pi}{2n}\right) + 1 \\
+                                                                     & = z^2 - 2z \cos \frac{\pi}{2} + 1                          \\
+                                                                     & = z^2 + 1.
+          \end{align*}
+
+          Therefore, we have
+          \begin{align*}
+              (z^2 + 1) \sum_{r = 0}^{n - 1} (-1)^r z^{2r} & = z^2 + 1                                                                                                                \\
+                                                           & = \prod_{r = 1}^{n} \left(z^2 - 2z \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right)                                    \\
+                                                           & = \prod_{r = 1}^{\frac{n - 1}{2}} \left(z^2 - 2z \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right) (z^2 + 1)            \\
+                                                           & \phantom{=} \prod_{r = \frac{n + 3}{2}}^{n} \left(z^2 - 2z \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right)            \\
+                                                           & = \prod_{r = 1}^{\frac{n - 1}{2}} \left(z^2 - 2z \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right) (z^2 + 1)            \\
+                                                           & \phantom{=} \prod_{r = 1}^{\frac{n - 1}{2}} \left(z^2 - 2z \cos \left(\frac{2(n + 1 - r) - 1}{2n} \pi\right) + 1\right),
+          \end{align*}
+          and hence
+          \begin{align*}
+              \sum_{r = 0}^{n - 1} (-1)^r z^{2r} & = \prod_{r = 1}^{\frac{n - 1}{2}} \left(z^2 - 2z \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right) \left(z^2 - 2z \cos \left(\frac{2(n + 1 - r) - 1}{2n} \pi\right) + 1\right) \\
+                                                 & = \prod_{r = 1}^{\frac{n - 1}{2}} \left(z^2 - 2z \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right) \left(z^2 - 2z \cos \left(\frac{2n - 2r + 1}{2n} \pi\right) + 1\right)      \\
+                                                 & = \prod_{r = 1}^{\frac{n - 1}{2}} \left(z^2 - 2z \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right) \left(z^2 + 2z \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right).
+          \end{align*}
+
+          Let \(z = i\), we have
+          \begin{align*}
+              \LHS & = \sum_{r = 0}^{n - 1} (-1)^r i^{2r}  \\
+                   & = \sum_{r = 0}^{n - 1} (-1)^r (i^2)^r \\
+                   & = \sum_{r = 0}^{n - 1} (-1)^r (-1)^r  \\
+                   & = \sum_{r = 0}^{n - 1} [(-1)(-1)]^r   \\
+                   & = \sum_{r = 0}^{n - 1} 1              \\
+                   & = n,
+          \end{align*}
+          and
+          \begin{align*}
+              \RHS & = \prod_{r = 1}^{\frac{n - 1}{2}} \left(i^2 - 2i \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right) \left(i^2 + 2i \cos \left(\frac{2r - 1}{2n} \pi\right) + 1\right) \\
+                   & = \prod_{r = 1}^{\frac{n - 1}{2}} (-2i \cos \left(\frac{2r - 1}{2n} \pi\right)) (2i \cos \left(\frac{2r - 1}{2n} \pi\right))                                          \\
+                   & = \prod_{r = 1}^{\frac{n - 1}{2}} 4 \cos^2 \left(\frac{2r - 1}{2n} \pi\right)                                                                                         \\
+                   & = 2^{n - 1} \prod_{r = 1}^{\frac{n - 1}{2}} \cos^2 \left(\frac{2r - 1}{2n} \pi\right).
+          \end{align*}
+
+          This gives
+          \[
+              \prod_{r = 1}^{\frac{n - 1}{2}} \cos^2 \left(\frac{2r - 1}{2n} \pi\right) = n 2^{1 - n},
+          \]
+          exactly as desired.
+\end{enumerate}
