@@ -1,2 +1,122 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Since \(t = \tan \frac{1}{2}x\), we have
+\[
+    \DiffFrac{t}{x} = \frac{1}{2} \sec^2 \frac{1}{2}x = \frac{1}{2} (1 + \tan^2 \frac{1}{2}x) = \frac{1}{2}(1 + t^2).
+\]
+
+By the tangent double-angle formula, we have
+\[
+    \tan x = \frac{2t}{1 - t^2},
+\]
+and hence
+\[
+    \cot x = \frac{1 - t^2}{2t}.
+\]
+
+Therefore,
+\[
+    \csc^2 x = 1 + \cot^2 x = 1 + \frac{(1 - t^2)^2}{(2t)^2} = \frac{(1 + t^2)^2}{(2t)^2},
+\]
+which means
+\[
+    \sin^2 x = \frac{(2t)^2}{(1 + t^2)^2},
+\]
+and hence
+\[
+    \abs{\sin x} = \frac{2t}{1 + t^2}.
+\]
+
+What remains is to consider the sign. Notice that \(t \geq 0\) if and only if
+\[
+    \frac{x}{2} \in \bigcup_{k \in \ZZ} \left[k\pi, k\pi + \frac{\pi}{2}\right),
+\]
+which is
+\[
+    x \in \bigcup_{k \in \ZZ} \left[2k\pi, 2k\pi + \pi\right),
+\]
+but this is also precisely if and only if \(\sin x \geq 0\).
+
+This means \(\sin x\) must take the same sign as \(t\), and hence
+\[
+    \sin x = \frac{2t}{1 + t^2}.
+\]
+
+Using this substitution, we have when \(x = 0, t = 0\) and when \(x = \frac{1}{2}\pi, t = 1\), and also
+\[
+    \Diff x = \frac{2 \Diff t}{1 + t^2}.
+\]
+
+This means
+\begin{align*}
+    I & = \int_{0}^{\frac{1}{2}\pi} \frac{\Diff x}{1 + a \sin x}                                                                                       \\
+      & = \int_{0}^{1} \frac{\frac{2 \Diff t}{1 + t^2}}{1 + a \cdot \frac{2t}{1 + t^2}}                                                                \\
+      & = \int_{0}^{1} \frac{2 \Diff t}{1 + 2at + t^2}                                                                                                 \\
+      & = \int_{0}^{1} \frac{2 \Diff t}{(t + a)^2 + (1 - a^2)}                                                                                         \\
+      & = \frac{2}{1 - a^2} \int_{0}^{1} \frac{\Diff t}{\left(\frac{t + a}{\sqrt{1 - a^2}}\right)^2 + 1}                                               \\
+      & = \frac{2}{1 - a^2} \cdot \sqrt{1 - a^2} \cdot \left[\arctan\left(\frac{t + a}{\sqrt{1 - a^2}}\right)\right]_{0}^{1}                           \\
+      & = \frac{2}{\sqrt{1 - a^2}} \cdot \left[\arctan\left(\frac{1 + a}{\sqrt{1 - a^2}}\right) - \arctan\left(\frac{a}{\sqrt{1 - a^2}}\right)\right].
+\end{align*}
+
+But notice that
+\begin{align*}
+    \arctan\left(\frac{1 + a}{\sqrt{1 - a^2}}\right) - \arctan\left(\frac{a}{\sqrt{1 - a^2}}\right) & = \arctan \left(\frac{\frac{1 + a}{\sqrt{1 - a^2}} - \frac{a}{\sqrt{1 - a^2}}}{1 + \frac{1 + a}{\sqrt{1 - a^2}} \cdot \frac{a}{\sqrt{1 - a^2}}}\right) \\
+                                                                                                    & = \arctan \left(\frac{\frac{1}{\sqrt{1 - a^2}}}{1 + \frac{a + a^2}{1 - a^2}}\right)                                                                    \\
+                                                                                                    & = \arctan \left(\frac{\sqrt{1 - a^2}}{(1 - a^2) + (a + a^2)}\right)                                                                                    \\
+                                                                                                    & = \arctan \left(\frac{\sqrt{1 - a} \cdot \sqrt{1 + a}}{1 + a}\right)                                                                                   \\
+                                                                                                    & = \arctan \left(\frac{\sqrt{1 - a}}{\sqrt{1 + a}}\right),
+\end{align*}
+and hence
+\[
+    I = \frac{2}{\sqrt{1 - a^2}} \arctan \left(\frac{\sqrt{1 - a}}{\sqrt{1 + a}}\right),
+\]
+as desired.
+
+We have
+\begin{align*}
+    I_{n + 1} + 2 I_n & = \int_{0}^{\frac{1}{2}\pi} \frac{\sin^{n + 1}x + 2 \sin^n x}{2 + \sin x} \Diff x \\
+                      & = \int_{0}^{\frac{1}{2}\pi} \sin^n x\Diff x.
+\end{align*}
+
+Therefore, we have
+\begin{align*}
+    I_3 + 2 I_2 & = \int_{0}^{\frac{1}{2}\pi} \sin^2 x \Diff x                                                                                  \\
+                & = \int_{0}^{\frac{1}{2}\pi} \frac{1 - \cos 2x}{2} \Diff x                                                                     \\
+                & = \left[\frac{1}{2} \cdot x - \frac{1}{4} \sin 2x\right]_{0}^{\frac{1}{2}\pi}                                                 \\
+                & = \left(\frac{1}{2} \cdot \frac{\pi}{2} - \frac{1}{4} \sin \pi\right) - \left(\frac{1}{4} \sin 0 - \frac{1}{2} \cdot 0\right) \\
+                & = \frac{\pi}{4},
+\end{align*}
+\begin{align*}
+    I_2 + 2 I_1 & = \int_{0}^{\frac{1}{2}\pi} \sin x \Diff x         \\
+                & = [- \cos x]_{0}^{\frac{1}{2}\pi}                  \\
+                & = \left(- \cos \frac{1}{2}\pi \right) - (- \cos 0) \\
+                & = (0) - (-1)                                       \\
+                & = 1,
+\end{align*}
+and
+\begin{align*}
+    I_1 + 2 I_0 & = \int_{0}^{\frac{1}{2}\pi} \sin^0 x \Diff x \\
+                & = [x]_{0}^{\frac{1}{2}\pi}                   \\
+                & = \frac{1}{2}\pi.
+\end{align*}
+
+Also, notice that
+\begin{align*}
+    I_0 & = \int_{0}^{\frac{1}{2}\pi} \frac{\Diff x}{2 + \sin x}                                                                                  \\
+        & = \frac{1}{2} \int_{0}^{\frac{1}{2}\pi} \frac{\Diff x}{1 + \frac{1}{2} \sin x}                                                          \\
+        & = \frac{1}{2} \cdot \frac{2}{\sqrt{1 - \left(\frac{1}{2}\right)^2}} \cdot \arctan \frac{\sqrt{1 - \frac{1}{2}}}{\sqrt{1 + \frac{1}{2}}} \\
+        & = \frac{1}{2} \cdot \frac{4}{\sqrt{3}} \cdot \arctan\frac{1}{\sqrt{3}}                                                                  \\
+        & = \frac{2}{\sqrt{3}} \cdot \frac{\pi}{6}                                                                                                \\
+        & = \frac{\pi}{3\sqrt{3}}.
+\end{align*}
+
+Hence,
+\begin{align*}
+    I_3 & = \frac{\pi}{4} - 2 I_2                                     \\
+        & = \frac{\pi}{4} - 2 \cdot \left(1 - 2 I_1\right)            \\
+        & = \frac{\pi}{4} - 2 + 4 I_1                                 \\
+        & = \frac{\pi}{4} - 2 + 4 \left(\frac{1}{2}\pi - 2 I_0\right) \\
+        & = \frac{\pi}{4} - 2 + 2\pi - 8 I_0                          \\
+        & = \frac{9\pi}{4} - 2 - \frac{8\pi}{3 \sqrt{3}}              \\
+        & = \left(\frac{9}{4} - \frac{8}{3 \sqrt{3}}\right) \pi - 2.
+\end{align*}
