@@ -1,2 +1,94 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{center}
+    \input{\currfiledir 6-diag.tex}
+\end{center}
+
+In the diagram, due to the triangular inequality, we must have \(AB \leq OA + OB\), and hence \(\abs{z - w} \leq \abs{z} + \abs{w}\) as desired.
+
+\begin{enumerate}
+    \item We have
+          \begin{align*}
+              \LHS & = \abs{z - w}^2                                 \\
+                   & = (z - w)(z - w)^*                              \\
+                   & = (z - w)(z^* - w^*)                            \\
+                   & = z z^* + w w^* - z w^* - z^* w                 \\
+                   & = \abs{z}^2 + \abs{w}^2 - (E - 2\abs{zw})       \\
+                   & = \abs{z}^2 + 2 \abs{z} \abs{w} + \abs{w}^2 - E \\
+                   & = (\abs{z} + \abs{w})^2 - E                     \\
+                   & = \RHS,
+          \end{align*}
+          exactly as desired.
+
+          Since \(\abs{z - w}\), \(\abs{z}\) and \(\abs{w}\) are all real, so must be \(\abs{z - w}^2\) and \((\abs{z} + \abs{w})^2\), and so \(E\) must be real.
+
+          Furthermore, we have
+          \[
+              E = (\abs{z} + \abs{w})^2 - \abs{z - w}^2,
+          \]
+          and by the inequality \(\abs{z} + \abs{w} \geq \abs{z - w} \geq 0\), we can conclude
+          \[
+              (\abs{z} + \abs{w})^2 \geq \abs{z - w}^2,
+          \]
+          and hence \(E\) must be non-negative.
+
+    \item We have
+          \begin{align*}
+              \LHS & = \abs{1 - z w^*}^2                 \\
+                   & = (1 - z w^*)(1 - z w^*)^*          \\
+                   & = (1 - z w^*)(1 - z^* w)            \\
+                   & = 1 - z^* w - z w^* + z w z^* w^*   \\
+                   & = 1 - (E - 2 \abs{zw}) + zw (zw)^*  \\
+                   & = 1 - (E - 2 \abs{zw}) + \abs{zw}^2 \\
+                   & = 1 + 2 \abs{zw} + \abs{zw}^2 - E   \\
+                   & = (1 + \abs{zw})^2 - E              \\
+                   & = \RHS.
+          \end{align*}
+\end{enumerate}
+
+If we square both sides of the desired inequality (since both sides are non-negative this is reversible), we have
+\[
+    \frac{\abs{z - w}^2}{\abs{1 - zw^*}^2} \leq \frac{\left(\abs{z} + \abs{w}\right)^2}{\left(1 + \abs{zw}\right)^2},
+\]
+which is equivalent to showing
+\[
+    \frac{\left(\abs{z} + \abs{w}\right)^2 - E}{\left(1 + \abs{zw}\right)^2 - E} \leq \frac{\left(\abs{z} + \abs{w}\right)^2}{\left(1 + \abs{zw}\right)^2}.
+\]
+
+We introduce a lemma. If \(a > c \geq 0\) and \(a > b\), then
+\[
+    \frac{b - c}{a - c} \leq \frac{b}{a}.
+\]
+
+The proof of this is as follows. We cross-multiply the inequality to give (since \(a \geq a - c > 0\) this is reversible)
+\[
+    a(b - c) \leq  b (a - c),
+\]
+which is equivalent to
+\[
+    ac \geq bc,
+\]
+and this must be true given \(c \geq 0\) and \(a > b\).
+
+Now, since \(\abs{z} > 1\), \(\abs{w} > 1\), we have
+\[
+    (\abs{z} - 1)(\abs{w} - 1) = 1 + \abs{zw} - \abs{z} - \abs{w} > 0,
+\]
+which means
+\[
+    1 + \abs{zw} > \abs{z} + \abs{w},
+\]
+and since both are non-negative we have
+\[
+    (1 + \abs{zw})^2 > (\abs{z} + \abs{w})^2.
+\]
+
+Now, using this lemma, let \(a = (1 + \abs{zw})^2, b = (\abs{z} + \abs{w})^2, c = E\). \(a > b\) is as shown in above, and \(c \geq 0\) is shown in part 1. \(a > c\) since \(a - c = \abs{1 - zw^*}^2 \geq 0\), and the equal sign holds if and only if \(\abs{zw^*} = \abs{zw} = 1\), which must not hold if \(\abs{z} > 1\) and \(\abs{w} > 1\) since this gives \(\abs{zw} = \abs{z} \abs{w} > 1\).
+
+Therefore, we must have
+\[
+    \frac{\left(\abs{z} + \abs{w}\right)^2 - E}{\left(1 + \abs{zw}\right)^2 - E} \leq \frac{\left(\abs{z} + \abs{w}\right)^2}{\left(1 + \abs{zw}\right)^2},
+\]
+which gives exactly what is desired.
+
+This also holds for \(\abs{z} < 1\) and \(\abs{w} < 1\) since from this \((\abs{z} - 1)(\abs{w} - 1) > 0\) still holds, so \((1 + \abs{zw})^2 > (\abs{z} + \abs{w})^2\) remains true, and \(\abs{zw} = \abs{z}\abs{w} < 1\) so \(\abs{zw} \neq 1\) remains true. The exact argument is still valid.
