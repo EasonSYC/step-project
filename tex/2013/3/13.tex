@@ -1,2 +1,89 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item \begin{enumerate}
+              \item Since \(0 \leq X \leq 1\), we must have that
+                    \[
+                        F(x) = \int_{0}^{x} f(t) \Diff t
+                    \]
+                    for \(0 \leq x \leq 1\). Hence, since \(0 \leq f(t) \leq M\) for \(0 \leq t \leq x \leq 1\), we have
+                    \[
+                        0 = \int_{0}^{x} 0 \Diff t \leq F(x) \leq \int_{0}^{x} M \Diff t = Mx,
+                    \]
+                    as desired.
+
+              \item Since \(0 \leq X \leq 1\), we must have \(F(0) = 0\) and \(F(1) = 1\). Let the desired integral be \(I\), using integration by parts, we have
+                    \begin{align*}
+                        I & = \int_{0}^{1} 2g(x) F(x) f(x) \Diff x                                                                      \\
+                          & = \int_{0}^{1} 2 g(x) F(x) \Diff F(x)                                                                       \\
+                          & = \left[2g(x) F(x)^2\right]_{0}^{1} - 2 \int_{0}^{1} F(x) \Diff (g(x) F(x))                                 \\
+                          & = 2g(1) F(1)^2 - 2g(0) F(0)^2 - 2 \int_{0}^{1} g'(x) F(x)^2 \Diff x - 2\int_{0}^{1}  g(x) F(x) f(x) \Diff x \\
+                          & = 2g(1) - 2\int_{0}^{1} g'(x) F(x)^2 \Diff x - I.
+                    \end{align*}
+
+                    This means
+                    \[
+                        2 I = 2 g(1) - 2 \int_{0}^{1} g'(x) F(x)^2 \Diff x,
+                    \]
+                    and hence
+                    \[
+                        I = g(1) - \int_{0}^{1} g'(x) F(x)^2 \Diff x.
+                    \]
+          \end{enumerate}
+
+    \item \begin{enumerate}
+              \item Since \(0 \leq Y \leq 1\), we must have
+                    \begin{align*}
+                        \int_{0}^{1} k F(y) f(y) \Diff y & = k \int_{0}^{1} F(y) \Diff F(y)                         \\
+                                                         & = k \cdot \frac{1}{2} \cdot \left[F(y)^2\right]_{0}^{1}  \\
+                                                         & = k \cdot \frac{1}{2} \cdot \left[F(1)^2 - F(0)^2\right] \\
+                                                         & = \frac{k}{2} \cdot (1^2 - 0^2)                          \\
+                                                         & = \frac{k}{2}                                            \\
+                                                         & = 1,
+                    \end{align*}
+                    and hence \(k = 2\).
+              \item Notice that
+                    \begin{align*}
+                        \Expt\left(Y^n\right) & = \int_{0}^{1} 2y^n F(y) f(y) \Diff y    \\
+                                              & \leq \int_{0}^{1} 2y^n My f(y) \Diff y   \\
+                                              & = 2M \int_{0}^{1} y^{n + 1} f(y) \Diff y \\
+                                              & = 2M \Expt\left(X^{n + 1}\right)         \\
+                                              & = 2M \mu_{n + 1},
+                    \end{align*}
+                    and that
+                    \begin{align*}
+                        \Expt\left(Y^n\right) & = \int_{0}^{1} 2y^n F(y) f(y) \Diff y                                                                                 \\
+                                              & = \LEvalAt{y^n}{y = 1} - \int_{0}^{1} (y^n)' F(y)^2 \Diff y                                                           \\
+                                              & = 1 - n \int_{0}^{1} y^{n - 1} F(y)^2 \Diff y                                                                         \\
+                                              & \geq 1 - n \int_{0}^{1} y^{n - 1} My F(y) \Diff y                                                                     \\
+                                              & = 1 - M n \int_{0}^{1} y^n F(y) \Diff y                                                                               \\
+                                              & = 1 - \frac{Mn}{n + 1} \int_{0}^{1} F(y) \Diff (y^{n + 1})                                                            \\
+                                              & = 1 - \frac{Mn}{n + 1} \left(\left[F(y) y^{n + 1}\right]_{0}^{1} - \int_{0}^{1} y^{n + 1} \Diff F(y)\right)           \\
+                                              & = 1 - \frac{Mn}{n + 1} \left(F(1) \cdot 1^{n + 1} - F(0) \cdot 0^{n + 1} - \int_{0}^{1} y^{n + 1} f(y) \Diff y\right) \\
+                                              & = 1 - \frac{Mn}{n + 1} \left(1 - \Expt\left(X^{n + 1}\right)\right)                                                   \\
+                                              & = 1 - \frac{nM}{n + 1}\mu_{n + 1} - \frac{nM}{n + 1},
+                    \end{align*}
+                    as desired.
+              \item Since we have for non-negative \(n\),
+                    \[
+                        1 + \frac{nM}{n + 1}\mu_{n + 1} - \frac{nM}{n + 1} \leq 2M \mu_{n + 1},
+                    \]
+                    and hence for \(n \geq 1\), we have
+                    \[
+                        1 + \frac{(n - 1)M}{n} \mu_n - \frac{(n - 1)M}{n} \leq 2M \mu_n,
+                    \]
+                    which multiplying both sides by \(n\) gives
+                    \[
+                        n + (n - 1)M \mu_n - (n - 1)M \leq 2Mn \mu_n,
+                    \]
+                    and rearranging gives
+                    \[
+                        n - (n - 1) M \leq M(n + 1) \mu_n,
+                    \]
+                    hence
+                    \[
+                        \mu_n \geq \frac{n - (n - 1)M}{M(n + 1)} = \frac{n}{(n + 1)M} - \frac{n - 1}{n + 1},
+                    \]
+                    as desired.
+          \end{enumerate}
+\end{enumerate}
