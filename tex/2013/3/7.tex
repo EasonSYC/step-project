@@ -1,2 +1,96 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item We notice that
+          \begin{align*}
+              \DiffFrac{E}{x} & = 2 \cdot \DiffFrac{y}{x} \cdot \NdiffFrac{2}{y}{x} + 2 y^3 \DiffFrac{y}{x} \\
+                              & = 2 \cdot \DiffFrac{y}{x} \cdot \left(\NdiffFrac{2}{y}{x} + y^3\right)      \\
+                              & = 0,
+          \end{align*}
+          and so \(E\) must be constant.
+
+          So hence
+          \begin{align*}
+              E(x) & = E(0)              \\
+                   & = 0^2 + \frac{1}{2} \\
+                   & = \frac{1}{2}.
+          \end{align*}
+
+          Therefore,
+          \[
+              y^4 = 2\left[E(x) - \left(\DiffFrac{y}{x}\right)^2\right] \leq 2 E(x) = 1,
+          \]
+          and hence
+          \[
+              |y(x)| \leq 1.
+          \]
+
+    \item We notice that
+          \begin{align*}
+              \DiffFrac{E}{x} & = 2 \cdot \DiffFrac{v}{x} \cdot \NdiffFrac{2}{v}{x} + 2 \sinh v \DiffFrac{v}{x} \\
+                              & = 2 \DiffFrac{v}{x} \cdot \left(\NdiffFrac{2}{v}{x} + \sinh v\right)            \\
+                              & = 2 \DiffFrac{v}{x} \cdot \left(-x \DiffFrac{v}{x}\right)                       \\
+                              & = -2x \left(\DiffFrac{v}{x}\right)^2,
+          \end{align*}
+          so when \(x \geq 0\), since \(\left(\DiffFrac{v}{x}\right)^2 \geq 0\), we must have
+          \[
+              \DiffFrac{E}{x} \leq 0.
+          \]
+
+          Therefore, for \(x \geq 0\), \(E(x) \leq E(0) = 0^2 + 2 \cosh \ln 3 = 3 + \frac{1}{3} = \frac{10}{3}\). Hence,
+          \begin{align*}
+              \cosh v(x) & = \frac{E(x) - \left(\DiffFrac{v}{x}\right)^2}{2} \\
+                         & \leq \frac{\frac{10}{3}}{2}                       \\
+                         & = \frac{5}{3}.
+          \end{align*}
+
+    \item Notice that
+          \begin{align*}
+              \DiffOp{x} \left(\DiffFrac{w}{x}\right)^2 & = 2 \cdot \DiffFrac{v}{x} \cdot \NdiffFrac{2}{v}{x}                                                                                               \\
+                                                        & = - 2 \cdot \DiffFrac{w}{x} \cdot \left[\left(5 \cosh x - 4 \sinh x - 3\right) \cdot \DiffFrac{w}{x} + \left(w \cosh w + 2 \sinh w\right)\right].
+          \end{align*}
+
+          We also notice that
+          \begin{align*}
+              \int (w \cosh w + 2 \sinh w) \Diff w & = \int w \cosh w \Diff w + 2 \cosh w               \\
+                                                   & = \int w \Diff \sinh w + 2 \cosh w + C             \\
+                                                   & = w \sinh w - \int \sinh w \Diff w + 2 \cosh w + C \\
+                                                   & = w \sinh w - \cosh w + 2 \cosh w + C              \\
+                                                   & = w \sinh w + \cosh w + C,
+          \end{align*}
+          so consider the function
+          \[
+              E(x) = \left(\DiffFrac{w}{x}\right)^2 + 2(w \sinh w + \cosh w),
+          \]
+          and we have
+          \begin{align*}
+              \DiffFrac{E}{x} & = - 2 \cdot \DiffFrac{w}{x} \cdot \left[\left(5 \cosh x - 4 \sinh x - 3\right) \cdot \DiffFrac{w}{x} + \left(w \cosh w + 2 \sinh w\right) - \left(w \cosh w + 2 \sinh w\right)\right] \\
+                              & = -2 \left(\DiffFrac{w}{x}\right)^2 \left(5 \cosh x - 4 \sinh x - 3\right)                                                                                                            \\
+                              & = - \left(\DiffFrac{w}{x}\right)^2 \left[5 \left(e^x + e^{-x}\right) - 4 \left(e^x - e^{-x}\right) - 6\right]                                                                         \\
+                              & = - \left(\DiffFrac{w}{x}\right)^2 \left(e^x + 9e^{-x} - 6\right)                                                                                                                     \\
+                              & = - e^{-x} \left(\DiffFrac{w}{x}\right)^2 (e^x - 3)^2                                                                                                                                 \\
+                              & \leq 0.
+          \end{align*}
+
+          Hence,
+          \[
+              E(x) \leq E(0) = \left(\frac{1}{\sqrt{2}}\right)^2 + 2 (0 \sinh 0 + \cosh 0) = \frac{1}{2} + 2 = \frac{5}{2},
+          \]
+          for \(x \geq 0\).
+
+          Therefore,
+          \[
+              \frac{5}{2} \geq \left(\DiffFrac{w}{x}\right)^2 + 2(w \sinh w + \cosh w),
+          \]
+          and hence
+          \[
+              2(w \sinh w + \cosh w) \leq \frac{5}{2}
+          \]
+          for \(x \geq 0\) since squares are always non-negative.
+
+          Hence,
+          \[
+              \cosh w \leq \frac{5}{4} - w \sinh w \leq \frac{5}{4}
+          \]
+          for \(x \geq 0\), the second inequality being true since \(w \sinh w \geq 0\) since \(\sinh w\) and \(w\) always take the same sign, as desired.
+\end{enumerate}
