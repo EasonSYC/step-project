@@ -1,2 +1,97 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+We must have
+\begin{align*}
+    \DiffFrac{y}{x} & = \DiffOp{x} \cdot \frac{\arcsin x}{\sqrt{1 - x^2}}                                                                                                                        \\
+                    & = \frac{1}{1 - x^2} \cdot \left(\frac{1}{\sqrt{1 - x^2}} \cdot \sqrt{1 - x^2} - \arcsin x \cdot (-2x) \cdot \left(\frac{1}{2}\right) \cdot \frac{1}{\sqrt{1 - x^2}}\right) \\
+                    & = \frac{1}{1 - x^2} \cdot \left(1 + x \cdot\frac{\arcsin x}{\sqrt{1 - x^2}}\right)                                                                                         \\
+                    & = \frac{1}{1 - x^2} \cdot \left(1 + xy\right),
+\end{align*}
+which gives
+\[
+    (1 - x^2) \DiffFrac{y}{x} - xy - 1 = (1 + xy) - xy - 1 = 0
+\]
+as desired.
+
+Differentiating both sides of this equation w.r.t. \(x\) gives
+\[
+    \NdiffFrac{2}{y}{x} \cdot (1 - x^2) - 2x \cdot \DiffFrac{y}{x} - y - x \DiffFrac{y}{x} = 0,
+\]
+which combined gives
+\[
+    (1 - x^2) \cdot \NdiffFrac{2}{y}{x} - 3x \cdot \DiffFrac{y}{x} - y = 0.
+\]
+
+If we extend the definition of the differentiation operator to
+\[
+    \NdiffFrac{0}{y}{x} = y,
+\]
+then this precisely proves the desired statement for the case \(n = 0\) since \(2n + 3 = 3\) and \((n + 1)^2 = 1\), and we will prove the desired statement for all non-negative integer \(n\). The base case is shown as above.
+
+Now, assume the given holds for some \(n = k\) where \(k\) is a non-negative integer, i.e.
+\[
+    (1 - x^2) \cdot \NdiffFrac{k + 2}{y}{x} - (2k + 3) x \cdot \NdiffFrac{k + 1}{y}{x} - (k + 1)^2 \cdot \NdiffFrac{k}{y}{x} = 0,
+\]
+we aim to show that the same holds for \(n = k + 1\).
+
+Differentiating both sides with respect to \(x\) gives
+\[
+    (-2x) \cdot \NdiffFrac{k + 2}{y}{x} + (1 - x^2) \cdot \NdiffFrac{k + 3}{y}{x} - (2k + 3) \cdot \NdiffFrac{k + 1}{y}{x} - (2k + 3)x \cdot \NdiffFrac{k + 2}{y}{x} - (k + 1)^2 \cdot \NdiffFrac{k + 1}{y}{x} = 0,
+\]
+which then simplifies to
+\[
+    (1 - x^2) \cdot \NdiffFrac{k + 3}{y}{x} - (2k + 5)x \cdot \NdiffFrac{k + 2}{y}{x} - (k^2 + 4k + 4) \cdot \NdiffFrac{k + 1}{y}{x} = 0.
+\]
+
+But notice that \(n + 2 = (k + 1) + 2 = k + 3\), \(n + 1 = (k + 1) + 1 = k + 2\), \((n + 1)^2 = (k + 2)^2 = k^2 + 4k + 4\), \(2n + 3 = 2(k + 1) + 3 = 2k + 5\), so this is exactly the statement when \(n = k + 1\), which finishes our inductive step.
+
+Hence, by the Principle of Mathematical Induction, we can conclude that the original statement holds for any non-negative integer \(n\), and hence for any positive integer \(n\).
+
+We have that
+\[
+    \LEvalAt{y}{x = 0} = \frac{\arcsin 0}{\sqrt{1 - 0^2}} = \frac{0}{1} = 0,
+\]
+and evaluating the equation on the first derivative at \(x = 0\) gives
+\[
+    \LEvalAt{\DiffFrac{y}{x}}{x = 0} = 1.
+\]
+
+Evaluating the proven equation at \(x = 0\) gives
+\[
+    \LEvalAt{\NdiffFrac{n + 2}{y}{x}}{x = 0} = (n + 1)^2 \LEvalAt{\NdiffFrac{n}{y}{x}}{x = 0}.
+\]
+
+Using this, we can conclude that
+\[
+    \LEvalAt{\NdiffFrac{2r}{y}{x}}{x = 0} = 0
+\]
+for all \(r \geq 0\) where \(r\) is an integer, since it is \(0\) when \(n = 0\), and that
+\[
+    \LEvalAt{\NdiffFrac{2r + 1}{y}{x}}{x = 0} = ((2r)!!)^2 = 2^{2r} \cdot (r!)^2
+\]
+for all \(r \geq 0\) where \(r\) is an integer, by mathematical induction.
+
+Hence, the MacLaurin Series for \(\frac{\arcsin x}{\sqrt{1 - x^2}}\), must be
+\begin{align*}
+    \frac{\arcsin x}{\sqrt{1 - x^2}} & = \sum_{k = 0}^{+\infty} \frac{\LEvalAt{\NdiffFrac{k}{y}{x}}{x = 0}}{k!} \cdot x^k                                                                                                              \\
+                                     & = \sum_{r = 0}^{+\infty} \frac{\LEvalAt{\NdiffFrac{2r}{y}{x}}{x = 0}}{(2r)!} \cdot x^{2r} + \sum_{r = 0}^{+\infty} \frac{\LEvalAt{\NdiffFrac{2r + 1}{y}{x}}{x = 0}}{(2r + 1)!} \cdot x^{2r + 1} \\
+                                     & = 0 + \sum_{r = 0}^{+\infty} \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot x^{2r + 1}                                                                                                             \\
+                                     & = \sum_{r = 0}^{+\infty} \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot x^{2r + 1}.
+\end{align*}
+
+This means the general term for even powers of \(x\) is zero, and the general term for odd powers of \(x\) is
+\[
+    \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot x^{2r + 1}
+\]
+where \(r\) is any non-negative integer.
+
+The infinite sum can be expressed as
+\[
+    \sum_{r = 0}^{+\infty} \frac{(r!)^2}{(2r + 1)!} = 2 \cdot \sum_{r = 0}^{+\infty} \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot \left(\frac{1}{2}\right)^{2r+1},
+\]
+which is precisely double the value of
+\[
+    \SqEvalAt{\frac{\arcsin x}{\sqrt{1 - x^2}}}{x = \frac{1}{2}} = \frac{\arcsin \frac{1}{2}}{\sqrt{1 - \left(\frac{1}{2}\right)^2}} = \frac{\pi / 6}{\sqrt{3} / 2} = \frac{\pi}{3 \sqrt{3}},
+\]
+
+Hence, the sum evaluates to \(\frac{2\pi}{3 \sqrt{3}}\).

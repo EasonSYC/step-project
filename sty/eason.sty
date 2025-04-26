@@ -26,8 +26,8 @@
 \newcommand{\DiffOp}[1]{\frac{\Diff}{\Diff #1}}
 
 \newcommand{\Ndiff}[1]{\mathop{}\!\mathrm{d}^{#1}}
-\newcommand{\NdiffFrac}[3]{\frac{\Ndiff{#1} #2}{\Ndiff{#1} #3}}
-\newcommand{\NdiffOp}[2]{\frac{\Ndiff{#1}}{\Ndiff{#1} #2}}
+\newcommand{\NdiffFrac}[3]{\frac{\Ndiff{#1} #2}{\Diff {#3}^{#1}}}
+\newcommand{\NdiffOp}[2]{\frac{\Ndiff{#1}}{\Diff {#2}^{#1}}}
 
 % Evaluation
 \newcommand{\LEvalAt}[2]{\left.#1\right\vert_{#2}}
