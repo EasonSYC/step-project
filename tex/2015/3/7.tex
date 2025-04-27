@@ -1,2 +1,71 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Note that
+\begin{align*}
+    D^2 x^a & = x \DiffOp{x} \left(x \DiffOp{x} x^a\right)   \\
+            & = x \DiffOp{x} \left(x \cdot ax^{a - 1}\right) \\
+            & = ax \DiffOp{x} x^a                            \\
+            & = ax \cdot a \cdot x^{a - 1}                   \\
+            & = a^2 x^a,
+\end{align*}
+as desired.
+
+\begin{enumerate}
+    \item Since we have that \(\Diff x^a = x \cdot x^{a - 1} \cdot a = a x^a\), and \(a\) is just a constant, then we must have
+          \[
+              D^n x^a = a^n x^a.
+          \]
+
+          If \(P(x)\) is a polynomial of degree \(r\), let
+          \[
+              P(x) = \sum_{k = 0}^{r} t_k x^k.
+          \]
+
+          Therefore,
+          \[
+              D^n P(x) = \sum_{k = 0}^{r} k^n t_k x^k.
+          \]
+
+          Notice that the highest degree term is \(r^n t_r x^r\).
+
+          Since \(P(x)\) originally has degree \(r \geq 1\), we have \(r \neq 0\) and \(t_r \neq 0\), and therefore this term is non-zero.
+
+          This implies \(D^n P(x)\) has degree \(r\) as well.
+
+    \item We show this by induction on \(n\). The base case where \(n = 0\) is trivially true if we define \(D^0\) as the identity. Now, assume this is true for some \(n = k < m - 1\), i.e.
+          \[
+              D^{k} (1 - x)^m = (1 - x)^{m - k} \cdot Q(x)
+          \]
+          for some polynomial \(Q\), we aim to show this for \(n = k + 1 < m\). We have
+          \begin{align*}
+              D^{k + 1} (1 - x)^m & = D \left[(1 - x)^{m - k} \cdot Q(x)\right]                                \\
+                                  & = x \left[-(m - k) (1 - x)^{m - k - 1} Q(x) + (1 - x)^{m - k} Q'(x)\right] \\
+                                  & = (1 - x)^{m - k - 1} x\left[- (m - k) Q(x) + (1 - x) Q'(x)\right],
+          \end{align*}
+          which shows \(D^{k + 1} (1 - x)^m\) is divisible by \((1 - x)^{m - k - 1}\) which finishes our induction step. Hence, by the principle of mathematical induction, the original statement holds for any \(n < m\).
+
+    \item Notice that
+          \[
+              (1 - x)^m = \sum_{r = 0}^{m} \binom{m}{r} (-x)^r,
+          \]
+          and hence
+          \[
+              D^n (1 - x)^m = \sum_{r = 0}^{m} (-1)^r \binom{m}{r} r^n x^r.
+          \]
+
+          Evaluate this at \(x = 1\), we can see
+          \[
+              \SqEvalAt{D^n (1 - x)^m}{x = 1} = \sum_{r = 0}^{m} (-1)^r \binom{m}{r} r^n 1^r =  \sum_{r = 0}^{m} (-1)^r \binom{m}{r} r^n.
+          \]
+
+          But for \(n < m\), \(D^n (1 - x)^m\) is divisible by \((1 - x)^{m - n}\) and hence by \((1 - x)\). This means that
+          \[
+              \SqEvalAt{D^n (1 - x)^m}{x = 1} = 0.
+          \]
+
+          Hence,
+          \[
+              \sum_{r = 0}^{m} (-1)^r \binom{m}{r} r^n = 0,
+          \]
+          as desired.
+\end{enumerate}
