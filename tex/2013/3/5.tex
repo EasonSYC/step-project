@@ -1,2 +1,105 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(q^n N = p^n\), we have \(p^n \divides q^n N\), and hence \(p \divides q^n N\).
+
+          But since \(\gcd(p, q) = 1\), we must have \(p \divides q^{n - 1} N\). Repeating this step we will get \(p \divides N\).
+
+          Let \(N = p N_1\), we have \(q^n p N_1 = p^n\), giving \(q^n N_1 = p^{n - 1}\). Repeating the same step will give \(p \divides N_1\).
+
+          Let \(N_1 = p N_2\), we have \(q^n p N_2 = p^{n - 1}\), giving \(q^n N_2 = p^{n - 2}\). Repeating the same step will give \(p \divides N_2\).
+
+          We can repeat this until we reach \(q^n N_{n - 1} = p\) from which we can conclude \(p \divides N_{n - 1}\).
+
+          So \(N_{n - 1} = kp\) for some \(k \in \NN\).
+
+          But since \(N_t = p N_{t + 1}\), we can conclude that \(N_1 = k p^{n - 1}\) and hence
+          \[
+              N = p N_1 = k p^n
+          \]
+          as desired.
+
+          Hence, we have \(q^n k p^n = p^n\) which gives \(q^n k = 1\). B33gut this means \(q^n\) and \(k\) must both be one since \(q, k \in \NN\). Hence, \(q = 1\).
+
+          Assume, for the sake of contradiction, that \(\sqrt[n]{N}\) is a rational number that is not a positive integer. Let
+          \[
+              \sqrt[n]{N} = \frac{p}{q},
+          \]
+          where \(p, q \in \NN\), \(\gcd(p, q) = 1\), and \(q \neq 1\) (this is to ensure it is not a positive integer).
+
+          Hence, by rearrangement, we have
+          \[
+              q^n N = p^n,
+          \]
+          and from what we have proved we must have \(q = 1\), which contradicts with \(q \neq 1\).
+
+          Hence, \(\sqrt[n]{N}\) must either be a positive integer or must be irrational.
+
+    \item Since \(a^a d^b = b^a c^b\), we know that \(a^a \divides b^a c^b\). By the same reasoning as part 1, we know that \(c^b = k a^a\) for some positive integer \(k_1\).
+
+          Hence, putting it back to the original equation, we have
+          \[
+              d^b = k_1 b^a,
+          \]
+          which implies \(d^b \geq b^a\).
+
+          Since \(a^a d^b = b^a c^b\), we know that \(c^b \divides a^a d^b\). By the same reasoning as part 1, we know that \(a^a = k_2 c^b\) for some positive integer \(k_2\).
+
+          Hence, putting it back to the original equation, we have
+          \[
+              k_2 d^b = b^a,
+          \]
+          which implies \(b^a \geq d^b\).
+
+          This means \(d^b = b^a\).
+
+          If a prime \(p \divides d\), then \(p \divides d^b\), and hence \(p \divides b^a\).
+
+          Since \(b^a = b b^{a - 1}\), if \(p\) does not divide \(b\), this means \(p\) and \(b\) must be coprime (since \(p\) is a prime), then \(p\) must divide \(b^{a - 1}\), and repeating this argument eventually reaches \(p\) dividing \(b^{a - (a - 1)}\) which is a contradiction. So \(p\) must divide \(b\).
+
+          Let \(d = p^m d'\), and we must have \(p\) not divide \(d'\). Similarly, let \(b = p^n b'\), and we must have \(p\) does not divide \(b'\).
+
+          Putting this back to \(d^b = b^a\) shows
+          \[
+              (p^m d')^b = (p^n b')^a,
+          \]
+          and hence
+          \[
+              p^{mb} d'^b = p^{na} b'^a,
+          \]
+          and we must have \(p\) does not divide \(d'^b\) nor \(b'^a\).
+
+          This means \(p^{mb}\) and \(p^{na}\) are exactly the highest powers of \(p\) that divide \(d^b = b^a\), and hence
+          \[
+              mb = na \iff b = \frac{na}{m}.
+          \]
+
+          Since \(p^n \divides b\), we must have \(p^n \divides \frac{na}{m}\), and hence \(p^n \divides na\). However, since \(a\) and \(b\) are co-prime, and \(p\) is a prime factor of \(b\), then \(p\) must not divide \(a\), and hence \(p^n \divides n\). Hence, \(p^n \leq n\).
+
+          Since \(y^x > x\) for \(y \geq 2\) and \(x > 0\), and \(p^n \leq n\), we must have \(p < 2\) or \(n \leq 0\). But since \(p\) is a prime, \(p \geq 2\), so we must have \(n \leq 0\) and hence \(n = 0\).
+
+          This means that the highest power of the prime number \(p\) that divides \(b\) is always \(0\), and hence \(b = 1\).
+
+          Let
+          \[
+              r = \frac{p}{q},
+          \]
+          where \(p, q \in \NN\), \(\gcd(p, q) = 1\).
+
+          We have
+          \[
+              r^r = \frac{r}{s}
+          \]
+          for \(r, s \in \NN\), \(\gcd(r, s) = 1\).
+
+          We have
+          \begin{align*}
+              \left(\frac{p}{q}\right)^{\frac{p}{q}} & = \frac{r}{s}                \\
+              \left(\frac{p}{q}\right)^p             & = \left(\frac{r}{s}\right)^q \\
+              p^p s^q                                & = q^p r^q.
+          \end{align*}
+
+          Here, let \(a = p, b = q, c = r\) and \(d = s\). We must have \(b = q = 1\), which contradicts with \(q \neq 1\).
+
+          Therefore, \(r = p \in \NN\) is a positive integer.
+\end{enumerate}
