@@ -1,2 +1,143 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(X_i \in \{0, 1\}\), we have \(\Expt(X_i) = 0 \Prob(X_i = 0) + 1 \Prob(X_i = 1) = \Prob(X_i = 1)\).
+
+          The total number of arrangements is
+          \[
+              \frac{n!}{a!b!}.
+          \]
+
+          To make \(X_1 = 1\), we must have the first letter being \(A\), and the rest can arrange to be whatever possible. Hence, the number of valid arrangements is
+          \[
+              \frac{(n - 1)!}{(a - 1)! b!}.
+          \]
+
+          Hence,
+          \[
+              \Expt(X_1) = v\Prob(X_1 = 1) = \frac{\frac{(n - 1)!}{(a - 1)! b!}}{\frac{n!}{a!b!}} = \frac{a}{n}.
+          \]
+
+          When \(i \neq 1\), we must have the \(i - 1\)th letter being \(B\) and the \(i\)th letter being \(A\), and the rest can arrange to be whatever possible. Since \(i > 1\), the \(i - 1\)th letter will always exist. Hence, the number of valid arrangements is
+          \[
+              \frac{(n - 2)!}{(a - 1)! (b - 1)!}
+          \]
+
+          Therefore,
+          \[
+              \Expt(X_i) = \Prob(X_i = 1) = \frac{\frac{(n - 2)!}{(a - 1)! (b - 1)!}}{\frac{n!}{a!b!}} = \frac{ab}{n (n - 1)}.
+          \]
+
+          Hence,
+          \begin{align*}
+              \Expt(S) & = \Expt\left(\sum_{i = 1}^{n} X_i\right)        \\
+                       & = \sum_{i = 1}^{n} \Expt(X_i)                   \\
+                       & = \frac{a}{n} + (n - 1) \cdot \frac{ab}{n(n-1)} \\
+                       & = \frac{a}{n} + \frac{ab}{n}                    \\
+                       & = \frac{a(b + 1)}{n}.
+          \end{align*}
+
+    \item \begin{enumerate}
+              \item Notice that \(X_1 X_j \in \{0, 1\}\), and \(X_1 X_j = 1\) if and only if \(X_1 = 1\) and \(X_j = 1\). Hence,
+                    \[
+                        \Expt(X_1 X_j) = \Prob(X_1 = 1 \land X_j = 1).
+                    \]
+
+                    The arrangement for the event \(X_1 = 1 \land X_j = 1\) must have the first letter \(A\), the \(j-1\)-th letter \(B\), and the \(j\)-th letter \(A\). Since \(j \geq 3\), we have \(j - 1 \geq 2\) so will not repeat the requirement with the first letter. The rest can arrange whatever, so the number of valid arrangements is
+                    \[
+                        \frac{(n - 3)!}{(a - 2)!(b - 1)!},
+                    \]
+                    and hence
+                    \[
+                        \Expt(X_1 X_j) = \Prob(X_1 = 1 \land X_j = 1) = \frac{\frac{(n - 3)!}{(a - 2)!(b - 1)!}}{\frac{n!}{a!b!}} = \frac{a (a - 1) b}{n (n - 1) (n - 2)},
+                    \]
+                    as desired.
+
+              \item All terms in this sum satisfy \(2 \leq i \leq n - 2\) and \(i + 2 \leq j \leq n\).  Notice that \(X_i X_j \in \{0, 1\}\), and \(X_i X_j = 1\) if and only if \(X_i = 1\) and \(X_j = 1\). Hence,
+                    \[
+                        \Expt(X_i X_j) = \Prob(X_i = 1 \land X_j = 1).
+                    \]
+
+                    The arrangement for the event \(X_i = 1 \land X_j = 1\) must have the \(i - 1\)-th letter \(B\), \(i\)-th letter \(A\), \(j - 1\)-th letter \(B\) and \(j\)-th letter \(A\). Since \(j \geq i + 2\), \(j - 1 \geq i + 1 > i\), so the requirements do not repeat. Hence, the number of valid arrangements is
+                    \[
+                        \frac{(n - 4)!}{(a - 2)!(b - 2)!},
+                    \]
+                    and hence
+                    \[
+                        \Expt(X_i X_j) = \Prob(X_i = 1 \land X_j = 1) = \frac{\frac{(n - 4)!}{(a - 2)!(b - 2)!}}{\frac{n!}{a!b!}} = \frac{a (a - 1) b (b - 1)}{n (n - 1) (n - 2) (n - 3)}.
+                    \]
+
+                    The number of terms in this sum is
+                    \begin{align*}
+                        \sum_{i = 2}^{n - 2} \sum_{j = i + 2}^{n} 1 & = \sum_{i = 2}^{n - 2} (n - (i + 2) + 1)                                \\
+                                                                    & = \sum_{i = 2}^{n - 2} (n - i - 1)                                      \\
+                                                                    & = [(n - 2) - 2 + 1] (n - 1) - \left[\frac{(n - 2)(n - 1)}{2} - 1\right] \\
+                                                                    & = (n - 3)(n - 1) - \left[\frac{n^2 - 3n}{2}\right]                      \\
+                                                                    & = (n - 3) \left[(n - 1) - \frac{n}{2}\right]                            \\
+                                                                    & = \frac{(n - 3)(n - 2)}{2}.
+                    \end{align*}
+
+                    Hence, this sum evaluates to
+                    \[
+                        \frac{(n - 3)(n - 2)}{2} \cdot \frac{a (a - 1) b (b - 1)}{n (n - 1) (n - 2) (n - 3)} = \frac{a (a - 1) b (b - 1)}{2n(n - 1)},
+                    \]
+                    exactly as desired.
+
+              \item To find \(\Var(S)\), we would like to find \(\Expt(S^2)\). Notice that
+                    \begin{align*}
+                        \Expt(S^2) & = \Expt\left(\left(\sum_{i = 1}^{n} X_i\right)^2\right)        \\
+                                   & = \Expt \left(\sum_{i = 1}^{n} \sum_{j = 1}^{n} X_i X_j\right) \\
+                                   & = \sum_{i = 1}^{n} \sum_{j = 1}^{n} \Expt(X_i X_j).
+                    \end{align*}
+
+                    This sum can be further split up into these parts:
+                    \begin{itemize}
+                        \item Where \(i = j\), the sum of \(\Expt(X_i^2)\). But since \(X_i\) can only take \(0\) or \(1\), \(X_i^2\) can only take \(0\) or \(1\), and we have
+                              \[
+                                  \Prob(X_i = 0) = \Prob(X_i^2 = 0), \Prob(X_i = 1) = \Prob(X_i^2 = 1),
+                              \]
+                              and hence
+                              \[
+                                  \Expt(X_i^2) = \Expt(X_i).
+                              \]
+
+                              Hence, the sum can be evaluated as
+                              \begin{align*}
+                                  \sum_{i = 1}^{n} \Expt(X_i^2) & = \sum_{i = 1}^{n} \Expt(X_i)                            \\
+                                                                & = \Expt(X_1) + \sum_{i = 2}^{n} \Expt(X_i)               \\
+                                                                & = \frac{a}{n} + (n - 1) \cdot \frac{a(b + 1)}{n(n - 1)}.
+                              \end{align*}
+
+                        \item Where \(j = i \pm 1\). We can consider the case where \(j = i + 1\) and double the result. For \(X_i X_j = 1\), we must have \(X_i = 1\) and \(X_j = 1\), and hence the \(i\)-th letter must be \(A\), and the \(j - 1\)-th letter must be \(B\). But this is impossible since \(j = i + 1\), and a letter cannot be both \(A\) and \(B\). And hence
+                              \begin{align*}
+                                  2 \cdot \sum_{i = 1}^{n - 1} \Expt(X_i X_{i + 1}) = 0.
+                              \end{align*}
+
+                        \item Where \(j \geq i + 2\) or \(j \leq i - 2\). We consider the case where \(j \geq i + 2\) and double the result. This is calculated in part a for the case \(i = 1\), and part b for the case \(i \geq 2\).
+                    \end{itemize}
+
+                    Hence,
+                    \begin{align*}
+                        \Expt(S^2) & = \sum_{i = 1}^{n} \sum_{j = 1}^{n} \Expt(X_i X_j)                                                                                                                    \\
+                                   & = \frac{a}{n} + (n - 1) \cdot \frac{ab}{n(n - 1)} + 2 \cdot \left[(n - 2) \cdot \frac{a (a - 1) b}{n (n - 1) (n - 2)} + \frac{a (a - 1) b (b - 1)}{2n (n - 1)}\right] \\
+                                   & = \frac{a}{n} + \frac{ab}{n} + \frac{2 a (a - 1) b}{n (n - 1)} + \frac{a (a - 1) b (b - 1)}{n (n - 1)}                                                                \\
+                                   & = \frac{a(b + 1)}{n} + \frac{a (a - 1) b (b + 1)}{n (n - 1)}                                                                                                          \\
+                                   & = \frac{a(b + 1)}{n} \left[1 + \frac{(a - 1) b}{n - 1}\right].
+                    \end{align*}
+
+                    Hence,
+                    \begin{align*}
+                        \Var(S) & = \Expt(S^2) - \Expt(S)^2                                                                          \\
+                                & = \frac{a(b + 1)}{n} \left[1 + \frac{(a - 1) b}{n - 1}\right] - \left[\frac{a (b + 1)}{n}\right]^2 \\
+                                & = \frac{a(b + 1)}{n} \left[1 + \frac{(a - 1) b}{n - 1} - \frac{a (b + 1)}{n}\right]                \\
+                                & = \frac{a(b + 1)}{n} \cdot \frac{n (n - 1) + n (a - 1) b - (n - 1) a (b + 1)}{n (n - 1)}           \\
+                                & = \frac{a(b + 1)}{n^2 (n - 1)} \left(n^2 - n + abn - nb - nab - na + ab + a\right)                 \\
+                                & = \frac{a(b + 1)}{n^2 (n - 1)} \left(n^2 - n - nb - na + ab + a\right)                             \\
+                                & = \frac{a(b + 1)}{n^2 (n - 1)} \left((a + b)^2 - (a + b) - (a + b) b - (a + b) a + ab + a\right)   \\
+                                & = \frac{a(b + 1)}{n^2 (n - 1)} \left(a^2 + 2ab + b^2 - a - b - ab - b^2 - a^2 - ab + ab + a\right) \\
+                                & = \frac{a(b + 1)}{n^2 (n - 1)} \left(ab - b\right)                                                 \\
+                                & = \frac{a(b + 1)}{n^2 (n - 1)} b (a - 1)                                                           \\
+                                & = \frac{a (a - 1) b (b + 1)}{n^2 (n - 1)}.
+                    \end{align*}
+          \end{enumerate}
+\end{enumerate}
