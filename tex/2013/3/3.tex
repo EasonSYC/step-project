@@ -1,2 +1,169 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Since \(\vect{p}_1 + \vect{p}_2 + \vect{p}_3 + \vect{4}_4 = \vect{0}\), we must have
+\begin{align*}
+    0 & = \vect{0} \cdot \vect{0}                                                                                                             \\
+      & = \left(\vect{p}_1 + \vect{p}_2 + \vect{p}_3 + \vect{4}_4\right) \cdot \left(\vect{p}_1 + \vect{p}_2 + \vect{p}_3 + \vect{4}_4\right) \\
+      & = \sum_{i = 1}^{4} \vect{p}_i \cdot \vect{p}_i + 2 \sum_{i = 1}^{3} \sum_{j = i + 1}^{4} \vect{p}_i \cdot \vect{p}_j.
+\end{align*}
+
+Since \(P_i\) are on the unit sphere, we must have \(\vect{p}_i \cdot \vect{p}_i = 1\). By symmetry, for all \(i \neq j\), \[
+    \vect{p}_i \cdot \vect{p}_j
+\]
+must be some real constant, say \(k\).
+
+Hence,
+\[
+    0 = 4 \cdot 1 + 2 \cdot 6 \cdot k,
+\]
+which solves to
+\[
+    k = -\frac{1}{3},
+\]
+as desired.
+
+\begin{enumerate}
+    \item We have
+          \begin{align*}
+              \sum_{i = 1}^{4} (X P_i)^2 & = \sum_{i = 1}^{4} \left(\vect{p}_i - \vect{x}\right) \cdot \left(\vect{p}_i - \vect{x}\right)                       \\
+                                         & = \sum_{i = 1}^{4} \left(\vect{p_i} \cdot \vect{p_i} - 2 \vect{x} \cdot \vect{p}_i + \vect{x} \cdot \vect{x}\right)  \\
+                                         & = \sum_{i = 1}^{4} \vect{p_i} \cdot \vect{p_i} - 2 \vect{x} \cdot \sum_{i = 1}^{4} + 4 \cdot \vect{x} \cdot \vect{x} \\
+                                         & = \sum_{i = 1}^{4} 1 - 2 \vect{x} \cdot \vect{0} + 4 \cdot 1                                                         \\
+                                         & = 4 - 0 + 4                                                                                                          \\
+                                         & = 8.
+          \end{align*}
+
+    \item Since \(P_1 (0, 0, 1)\) and \(P_2 (a, 0, b)\), we must have
+          \[
+              \vect{p}_1 = \begin{pmatrix}
+                  0 \\ 0 \\ 1
+              \end{pmatrix},
+              \vect{p}_2 = \begin{pmatrix}
+                  a \\ 0 \\ b
+              \end{pmatrix},
+          \]
+          and hence
+          \[
+              \vect{p}_1 \cdot \vect{p}_2 = 0 \cdot a + 0 \cdot 0 + 1 \cdot b = b = - \frac{1}{3}.
+          \]
+
+          We must have
+          \[
+              \abs{\vect{p}_2} = \sqrt{a^2 + 0^2 + b^2} = \sqrt{a^2 + b^2} = 1,
+          \]
+          which means
+          \[
+              a = \frac{2\sqrt{2}}{3},
+          \]
+          as desired.
+
+          The \(z\)-component of \(\vect{p}_3\) and \(\vect{p}_4\) must also be \(-\frac{1}{3}\), due to the dot product with \(vect{p}_1\) being equal to the \(z\)-component must also be equal to \(-\frac{1}{3}\).
+
+          Let
+          \[
+              \vect{p}_3 = \begin{pmatrix}
+                  c \\ d \\ -\frac{1}{3}
+              \end{pmatrix},
+          \]
+          then from \(\sum_{i = 1}^{4} \vect{p}_i = \vect{0}\), we have
+          \[
+              \vect{p}_4 = \begin{pmatrix}
+                  - c - \frac{2\sqrt{2}}{3} \\ -d \\ -\frac{1}{3}
+              \end{pmatrix}.
+          \]
+
+          Since \(\vect{p}_3 \cdot \vect{p}_2 = -\frac{1}{3}\), we have
+          \[
+              \frac{2\sqrt{2}}{3} \cdot c + 0 \cdot d + \left(-\frac{1}{3}\right) \cdot \left(-\frac{1}{3}\right) = -\frac{1}{3},
+          \]
+          and hence
+          \[
+              \frac{2\sqrt{2}}{3} c = -\frac{4}{9},
+          \]
+          which means
+          \[
+              6\sqrt{2} c = -4,
+          \]
+          and hence
+          \[
+              c = - \frac{4}{6\sqrt{2}} = - \frac{\sqrt{2}}{3}.
+          \]
+
+          Now, since \(\vect{p}_3 \cdot \vect{p}_4 = - \frac{1}{3}\), we have
+          \[
+              c \cdot \left(- c - \frac{2\sqrt{2}}{3}\right) + d \cdot (-d) + \left(-\frac{1}{3}\right) \cdot \left(-\frac{1}{3}\right) = - \frac{1}{3}.
+          \]
+
+          Therefore,
+          \[
+              \left(-\frac{\sqrt{2}}{3}\right) \cdot \left(- \frac{\sqrt{2}}{3}\right) - d^2 = -\frac{4}{9},
+          \]
+          and hence
+          \[
+              d^2 = \frac{2}{3},
+          \]
+          giving
+          \[
+              d = \pm \frac{\sqrt{2}}{\sqrt{3}}.
+          \]
+
+          Hence,
+          \[
+              P_3 \left(-\frac{\sqrt{2}}{3}, \pm \frac{\sqrt{2}}{\sqrt{3}}, -\frac{1}{3}\right), P_4 \left(-\frac{\sqrt{2}}{\sqrt{3}}, \mp \frac{\sqrt{2}}{3}, -\frac{1}{3}\right).
+          \]
+
+    \item We have
+          \begin{align*}
+              \sum_{i = 1}^{4} \left(X P_i\right)^4 & = \sum_{i = 1}^{4} \left[\left(\vect{p}_i - \vect{x}\right) \cdot \left(\vect{p}_i - \vect{x}\right)\right]^2         \\
+                                                    & = \sum_{i = 1}^{4} \left(\vect{p}_i \cdot \vect{p}_i - 2 \vect{x} \cdot \vect{p}_i + \vect{x} \cdot \vect{x}\right)^2 \\
+                                                    & = \sum_{i = 1}^{4} \left(1 + 1 - 2 \vect{x} \cdot \vect{p}_i\right)^2                                                 \\
+                                                    & = \sum_{i = 1}^{4} \left(2 - 2 \vect{x} \cdot \vect{p}_i\right)^2                                                     \\
+                                                    & = 4 \sum_{i = 1}^{4} \left(1 - \vect{x} \cdot \vect{p}_i\right)^2.
+          \end{align*}
+
+          Let \(X(x, y, z)\). We have
+          \begin{align*}
+              \sum_{i = 1}^{4} \left(X P_i\right)^4
+               & = 4 \sum_{i = 1}^{4} \left(1 - \vect{x} \cdot \vect{p}_i\right)^2                                                                                                                                     \\
+               & = 4 \left[ \left(1 -
+                  \begin{pmatrix}
+                          x \\ y \\ z
+                      \end{pmatrix}
+                  \cdot
+                  \begin{pmatrix}
+                          0 \\ 0 \\ 1
+                      \end{pmatrix}
+                  \right)^2 + \left(1 -
+                  \begin{pmatrix}
+                          x \\ y \\ z
+                      \end{pmatrix}
+                  \cdot
+                  \begin{pmatrix}
+                          \frac{2\sqrt{2}}{3} \\ 0 \\ -\frac{1}{3}
+                      \end{pmatrix}
+              \right)^2  \right.                                                                                                                                                                                       \\
+               & \phantom{=} \left. + \left(1 -
+                  \begin{pmatrix}
+                          x \\ y \\ z
+                      \end{pmatrix}
+                  \cdot
+                  \begin{pmatrix}
+                          -\frac{\sqrt{2}}{3} \\ \frac{\sqrt{2}}{\sqrt{3}} \\ -\frac{1}{3}
+                      \end{pmatrix}
+                  \right)^2+ \left(1 -
+                  \begin{pmatrix}
+                          x \\ y \\ z
+                      \end{pmatrix}
+                  \cdot
+              \begin{pmatrix}
+                          -\frac{\sqrt{2}}{3} \\ -\frac{\sqrt{2}}{\sqrt{3}} \\ -\frac{1}{3}
+                      \end{pmatrix} \right)^2\right]                                                                                               \\
+               & = 4 \left[(1 - z)^2 + \left(1 - \frac{2\sqrt{2}}{3}x + \frac{1}{3}z\right)^2 \right.                                                                                                                  \\
+               & \phantom{=} \left. + \left(1 + \frac{\sqrt{2}}{3}x - \frac{\sqrt{2}}{\sqrt{3}}y + \frac{1}{3}z\right)^2  + \left(1 + \frac{\sqrt{2}}{3}x + \frac{\sqrt{2}}{\sqrt{3}}y + \frac{1}{3}z\right)^2 \right] \\
+               & = 4\left(4 + \frac{4}{3} x^2 + \frac{4}{3}y^2 + \frac{4}{3}z^2\right)                                                                                                                                 \\
+               & = 4 \left[4 + \frac{4}{3}\right]                                                                                                                                                                      \\
+               & = 4 \cdot \frac{16}{3}                                                                                                                                                                                \\
+               & = \frac{64}{3}
+          \end{align*}
+          is a constant, independent of the position of \(X\).
+\end{enumerate}
