@@ -1,2 +1,167 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item The cumulative distribution function of \(X + Y\) at some value \(t\) is ratio of the area below the line \(X + Y = t\) within the unit square \([0, 1]^2\), against the area of the unit square (which is \(1\)).
+
+          When \(0 \leq t \leq 1\), the area below is a triangle with vertices at \((0, 0)\), \((0, t)\) and \((t, 0)\). This means
+          \[
+              F_{X + Y}(t) = \frac{1}{2}t^2.
+          \]
+
+          When \(1 \leq t \leq 2\), the area below is the unit square subtracting the triangle with vertices at \((1, 1)\), \((1, t - 1)\) and \((t - 1, 1)\). This means
+          \[
+              F_{X + Y}(t) = 1 - \frac{1}{2}[1 - (t - 1)]^2 = 1 - \frac{1}{2} (2 - t)^2.
+          \]
+
+          Hence, we have
+          \[
+              F_{X + Y}(t) =
+              \begin{cases}
+                  0,                         & t < 0,        \\
+                  \frac{1}{2} t^2,           & 0 \leq t < 1, \\
+                  1 - \frac{1}{2} (2 - t)^2, & 1 \leq t < 2, \\
+                  1,                         & 2 \leq t.
+              \end{cases}
+          \]
+
+    \item Since \(X + Y \in [0, 2]\), \((X + Y)^{-1} \in \left[\frac{1}{2}, +\infty\right)\). Let \(t' \in \left[\frac{1}{2}, +\infty\right)\), we have
+          \begin{align*}
+              F_{(X + Y)^{-1}}(t') & = \Prob\left(\frac{1}{X + Y} \leq t'\right)  \\
+                                   & = \Prob\left(X + Y \geq \frac{1}{t'}\right)  \\
+                                   & = 1 - \Prob\left(X + Y < \frac{1}{t'}\right) \\
+                                   & = 1 - F_{X + Y}\left(\frac{1}{t'}\right).
+          \end{align*}
+
+          If \(t' \in \left[\frac{1}{2}, 1\right]\), we have \(t'^{-1} \in [1, 2]\), and hence
+          \begin{align*}
+              F_{(X + Y)^{-1}}(t') & = 1 - F_{X + Y}\left(\frac{1}{t'}\right)                           \\
+                                   & = 1 - \left[1 - \frac{1}{2} \left(2 - \frac{1}{t'}\right)^2\right] \\
+                                   & = \frac{1}{2} \left(2 - \frac{1}{t'}\right)^2.
+          \end{align*}
+
+          If \(t' \in \left[1, +\infty\right)\), we have \(t'^{-1} \in (0, 1]\), and hence
+          \begin{align*}
+              F_{(X + Y)^{-1}}(t') & = 1 - F_{X + Y}\left(\frac{1}{t'}\right)       \\
+                                   & = 1 - \frac{1}{2} \left(\frac{1}{t'}\right)^2.
+          \end{align*}
+
+          Therefore, the cumulative distribution function of \((X + Y)^{-1}\) is given by
+          \[
+              F_{(X + Y)^{-1}}(t') = \begin{cases}
+                  0,                                           & t' < \frac{1}{2},        \\
+                  \frac{1}{2} \left(2 - \frac{1}{t'}\right)^2, & \frac{1}{2} \leq t' < 1, \\
+                  1 - \frac{1}{2} \left(\frac{1}{t'}\right)^2, & 1 \leq t'.
+              \end{cases}
+          \]
+
+          The probability density function of \((X + Y)^{-1}\) is
+          \begin{align*}
+              f_{(X + Y)^{-1}}(t') & = \DiffOp{t'} F_{(X + Y)^{-1}}(t')                                                                                        \\
+                                   & = \begin{cases}
+                                           \frac{1}{2} \cdot 2 \cdot \left(2 - \frac{1}{t'}\right) \cdot t'^{-2} = 2 t'^{-2} - t'^{-3}, & \frac{1}{2} \leq t' < 1, \\
+                                           -(-2)\frac{1}{2} t'^{-3} = t'^{-3},                                                          & 1 \leq t',               \\
+                                           0,                                                                                           & \text{otherwise},
+                                       \end{cases}
+          \end{align*}
+          as desired.
+
+          The expectation of \(\frac{1}{X + Y}\) is
+          \begin{align*}
+              \Expt\left(\frac{1}{X + Y}\right) & = \int_{\RR} t f_{(X + Y)^{-1}}(t) \Diff t                                                                              \\
+                                                & = \int_{\frac{1}{2}}^{1} t \cdot \left(2t^{-2} - t^{-3}\right) \Diff t + \int_{1}^{+\infty} t \cdot t^{-3} \Diff t      \\
+                                                & = \int_{\frac{1}{2}}^{1} \left(2t^{-1} - t^{-2}\right) \Diff t + \int_{1}^{+\infty} t^{-2} \Diff t                      \\
+                                                & = \left[2 \ln t + t^{-1}\right]_{\frac{1}{2}}^{1} - \left[t^{-1}\right]_{1}^{+\infty}                                   \\
+                                                & = \left[\left(2 \ln 1 + 1^{-1}\right) - \left(2 \ln \frac{1}{2} + \left(\frac{1}{2}\right)^{-1}\right)\right] - (0 - 1) \\
+                                                & = \left[1 + 2 \ln 2 - 2\right] + 1                                                                                      \\
+                                                & = 2 \ln 2.
+          \end{align*}
+
+    \item The cumulative distribution function of \(Y / X\) at some value \(t\) is the ratio of the area below the line \(Y / X = t\) within the unit square \([0, 1]^2\), against the area of the unit square.
+
+          Since \(0 \leq X, Y \leq 1\), we have \(0 \leq Y / X < +\infty\).
+
+          When \(0 \leq t \leq 1\), the area below is a triangle with vertices at \((0, 0), (1, 0)\) and \((1, t)\). Hence, we have
+          \[
+              F_{Y / X} (t) = \frac{t}{2}.
+          \]
+
+          When \(1 \leq t < +\infty\), the area below is the whole unit square, subtracting the triangle with the vertices at \((0, 0), (0, 1)\) and \(\left(1, \frac{1}{t}\right)\). Hence, we have
+          \[
+              F_{Y / X} (t) = 1 - \frac{1}{2t}.
+          \]
+
+          Therefore,
+          \[
+              F_{Y / X} (t) = \begin{cases}
+                  0,                & t < 0,        \\
+                  \frac{t}{2},      & 0 \leq t < 1, \\
+                  1 - \frac{1}{2t}, & 1 \leq t.
+              \end{cases}
+          \]
+
+          Hence, we have for \(0 < t' \leq 1\), we have
+          \begin{align*}
+              F_{\frac{X}{X + Y}}(t') & = \Prob\left(\frac{X}{X + Y} \leq t'\right)               \\
+                                      & = \Prob\left(\frac{1}{t'} \leq \frac{X + Y}{X}\right)     \\
+                                      & = \Prob\left(\frac{1}{t'} \leq 1 + \frac{Y}{X}\right)     \\
+                                      & = \Prob\left(\frac{Y}{X} \geq \frac{1}{t'} - 1\right)     \\
+                                      & = 1 - \Prob\left(\frac{Y}{X} \leq \frac{1}{t'} - 1\right) \\
+                                      & = 1 - F_{Y / X} \left(\frac{1}{t'} - 1\right).
+          \end{align*}
+
+          For \(0 < t' \leq \frac{1}{2}\), we have \(2 \leq \frac{1}{t'}\), and hence \(1 \leq \frac{1}{t'} - 1\),
+          \begin{align*}
+              F_{\frac{X}{X + Y}}(t') & = 1 - F_{Y / X} \left(\frac{1}{t'} - 1\right)                          \\
+                                      & = 1 - \left[1 - \frac{1}{2 \cdot \left(\frac{1}{t'} - 1\right)}\right] \\
+                                      & = \frac{1}{2 \cdot \left(\frac{1}{t'} - 1\right)}                      \\
+                                      & = \frac{t'}{2 - 2t'}.
+          \end{align*}
+
+          For \(\frac{1}{2} \leq t' \leq 1\), we have \(1 \leq \frac{1}{t'} \leq 2\), and hence \(0 \leq \frac{1}{t'} \leq 1\),
+          \begin{align*}
+              F_{\frac{X}{X + Y}}(t') & = 1 - F_{Y / X} \left(\frac{1}{t'} - 1\right) \\
+                                      & = 1 - \frac{\frac{1}{t'} - 1}{2}              \\
+                                      & = \frac{2 - \frac{1}{t'} + 1}{2}              \\
+                                      & = \frac{3t' - 1}{2t'}.
+          \end{align*}
+
+          Hence, we have
+          \begin{align*}
+              F_{\frac{X}{X + Y}}(t') & = \begin{cases}
+                                              0,                   & t' \leq 0,               \\
+                                              \frac{t'}{2 - 2t'},  & 0 < t' \leq \frac{1}{2}, \\
+                                              \frac{3t' - 1}{2t'}, & \frac{1}{2} < t' \leq 1, \\
+                                              1,                   & 1 < t'.
+                                          \end{cases}
+          \end{align*}
+
+          Differentiating gives
+          \begin{align*}
+              f_{\frac{X}{X + Y}}(t') & = \DiffOp{t'} F_{\frac{X}{X + Y}}(t')                                                               \\
+                                      & = \begin{cases}
+                                              \frac{1 \cdot (2 - 2t') + 2 t'}{(2 - 2t')^2} = \frac{1}{2 (1 - t')^2}, & 0 < t' \leq \frac{1}{2}, \\
+                                              \frac{3 \cdot 2t' - 2 (3t' - 1)}{4t'^2} = \frac{1}{2 t'^2},            & \frac{1}{2} < t' \leq 1, \\
+                                              0,                                                                     & \text{otherwise}.
+                                          \end{cases}
+          \end{align*}
+
+          By symmetry, \(\Expt\left(\frac{X}{X + Y}\right) = \Expt\left(\frac{Y}{X + Y}\right)\), but also
+          \[
+              \Expt\left(\frac{X}{X + Y}\right) + \Expt\left(\frac{Y}{X + Y}\right) = \Expt\left(\frac{X}{X + Y} + \frac{Y}{X + Y}\right) = \Expt(1) = 1,
+          \]
+          and hence
+          \[
+              \Expt\left(\frac{X}{X + Y}\right) = \frac{1}{2}.
+          \]
+
+          Using integration, we have
+          \begin{align*}
+              \Expt\left(\frac{X}{X + Y}\right) & = \int_{\RR} x f_{\frac{X}{X + Y}}(x) \Diff x                                                                                      \\
+                                                & = \int_{0}^{\frac{1}{2}} \frac{x}{2 (1 - x)^2} \Diff x + \int_{\frac{1}{2}}^{1} \frac{1}{2x} \Diff x                               \\
+                                                & = \int_{0}^{\frac{1}{2}} \frac{x}{2} \Diff \frac{1}{1 - x} + \frac{1}{2} \left[\ln x\right]_{\frac{1}{2}}^{1}                      \\
+                                                & = \left[\frac{x}{2(1 - x)}\right]_{0}^{\frac{1}{2}} - \frac{1}{2} \int_{0}^{\frac{1}{2}} \frac{1}{1 - x} \Diff x + \frac{\ln 2}{2} \\
+                                                & = \frac{\frac{1}{2}}{2 \cdot \frac{1}{2}} + \frac{1}{2} \left[\ln(1 - x)\right]_{0}^{\frac{1}{2}} + \frac{\ln 2}{2}                \\
+                                                & = \frac{1}{2} - \frac{\ln 2}{2} + \frac{\ln 2}{2}                                                                                  \\
+                                                & = \frac{1}{2}.
+          \end{align*}
+\end{enumerate}
