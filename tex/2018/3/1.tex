@@ -1,0 +1,140 @@
+\Question{\currfilebase}
+
+\begin{enumerate}
+    \item By differentiation with respect to \(\beta\), we have
+          \[
+              f'(\beta) = 1 + \frac{1}{\beta^2} + \frac{2}{\beta^3}.
+          \]
+
+          If \(f'(t) = 0\), we must have
+          \[
+              t^3 + t + 2 = 0.
+          \]
+
+          Therefore,
+          \[
+              (t + 1)(t^2 - t + 2) = 0,
+          \]
+          and hence the only real root to this is \(t = -1\), since \((-1)^2 - 2 \cdot 4 < 0\).
+
+          This means the only stationary point of \(y = f(\beta)\) is \((-1, f(-1) = -1)\).
+
+          For the limiting behaviour of the function, we first look at the case where \(\beta > 0\). As \(\beta \to +\infty\), we have \(f(\beta) \to \beta\) from below. As \(\beta \to 0^{+}\), we have \(f(\beta) \to -\frac{1}{\beta} - \frac{1}{\beta^2} \to -\infty\).
+
+          When \(\beta < 0\), we use the substitution \(t = -\frac{1}{\beta}\) to make the behaviours more convincing, and hence
+          \[
+              f(\beta) = \beta + t - t^2.
+          \]
+
+          As \(\beta \to 0^{-}\), we have \(t \to +\infty\), and \(f(\beta) \to t - t^2 \to -\infty\). As \(\beta \to -\infty\), we have \(t \to 0^{+}\), and \(f(\beta) \to \beta\) from above, since \(t - t^2 = t (1 - t) > 0\) when \(0 < t < 1\).
+
+          This means the curve \(y = f(\beta)\) is as below.
+
+          Similarly, by differentiation with respect to \(\beta\), we have
+          \[
+              g'(\beta) = 1 - \frac{3}{\beta^2} + \frac{2}{\beta^3}.
+          \]
+
+          If \(g'(t) = 0\), we must have
+          \[
+              t^3 - 3t + 2 = 0.
+          \]
+
+          Therefore,
+          \[
+              (t - 1)^2(t + 2) = 0,
+          \]
+          and hence the real roots to this is \(t = 1\) and \(t = -2\).
+
+          This means the stationary points of \(y = g(\beta)\) is \((1, g(1) = 3)\) and \((-2, g(-2) = -\frac{15}{4})\).
+
+          For the limiting behaviour of the function, we first look at the case where \(\beta > 0\). We consider the substitution \(t = -\frac{1}{\beta}\) to make the behaviours more convincing, and hence
+          \[
+              g(\beta) = \beta - 3t - t^2.
+          \]
+
+          As \(\beta \to +\infty\), \(t \to 0^{-}\), and hence \(f(\beta) \to \beta\) from below, since \(-3t - t^2 = - t(t + 3) > 0\) for \(-3 < t < 0\). As \(\beta \to 0^{+}\), \(t \to -\infty\), and hence \(f(\beta) \to -3t - t^2 \to -\infty\).
+
+          When \(\beta < 0\), we have as \(\beta \to 0^{-}\), \(f(\beta) \to -\infty\). As \(\beta \to -\infty\), \(f(\beta) \to \beta\) from below.
+
+          This means the curve \(y = g(\beta)\) is as below.
+
+    \item By Vieta's Theorem, we have \(u + v = -\alpha\), and \(uv = \beta\). Hence,
+          \[
+              u + v + \frac{1}{uv} = -\alpha + \frac{1}{\beta},
+          \]
+          and
+          \[
+              \frac{1}{u} + \frac{1}{v} + uv = \frac{u + v}{uv} + uv = - \frac{\alpha}{\beta} + \beta.
+          \]
+
+    \item By the given condition, we have
+          \[
+              -\alpha + \frac{1}{\beta} = -1 \iff \alpha = 1 + \frac{1}{\beta}.
+          \]
+
+          Hence,
+          \begin{align*}
+              \frac{1}{u} + \frac{1}{v} + uv & = - \frac{\alpha}{\beta} + \beta              \\
+                                             & = - \frac{1 + \frac{1}{\beta}}{\beta} + \beta \\
+                                             & = \frac{\beta^2 - 1 - \frac{1}{\beta}}{\beta} \\
+                                             & = \beta - \frac{1}{\beta} - \frac{1}{\beta^2} \\
+                                             & = f(\beta).
+          \end{align*}
+
+          Also, since \(u, v\) are both real, we have
+          \begin{align*}
+              \alpha^2 - 4\beta & = \left(1 + \frac{1}{\beta}\right)^2 - 4\beta       \\
+                                & = 1 + \frac{2}{\beta} + \frac{1}{\beta^2} - 4\beta  \\
+                                & = \frac{-4 \beta^3 + \beta^2 + 2\beta + 1}{\beta^2} \\
+                                & \geq 0.
+          \end{align*}
+
+          Multiplying both sides by \(-\beta^2\) (which flips the sign) gives
+          \begin{align*}
+              4\beta^3 - \beta^2 - 2\beta - 1    & \leq 0  \\
+              (\beta - 1)(4\beta^2 + 3\beta + 1) & \leq 0.
+          \end{align*}
+
+          This cubic has exactly one real root \(\beta = 1\), so the solution to this inequality is \(\beta \leq 1\) and \(\beta \neq 0\).
+
+          Notice that \(f\) is increasing on \((0, 1] \subset (0, +\infty)\). Therefore, for \(\beta > 0\),
+          \[
+              f(\beta) \leq f(1) = 1 - 1 - 1 = -1.
+          \]
+
+          When \(\beta < 0\), we have
+          \[
+              f(\beta) \leq f(-1) = -1.
+          \]
+
+          So for the range of \(\beta\) in this question, we always have \(f(\beta) \leq -1\). But we also have \(\frac{1}{u} + \frac{1}{v} + uv \leq -1\) as shown before. These gives us exactly our desired statement.
+
+    \item By the given condition, we have
+          \[
+              -\alpha + \frac{1}{\beta} = 3 \iff \alpha = -3 + \frac{1}{\beta}.
+          \]
+
+          Hence,
+          \begin{align*}
+              \frac{1}{u} + \frac{1}{v} + uv & = - \frac{\alpha}{\beta} + \beta               \\
+                                             & = - \frac{-3 + \frac{1}{\beta}}{\beta} + \beta \\
+                                             & = \beta + \frac{3}{\beta} - \frac{1}{\beta^2}  \\
+                                             & = g(\beta).
+          \end{align*}
+
+          Also, since \(u, v\) are both real, we have \(\beta \leq 1\) and \(\beta \neq 0\) as well.
+
+          \(g\) must be increasing on \((0, 1]\). Hence, for \(\beta > 0\), we have
+          \[
+              g(\beta) \leq g(1) = 3.
+          \]
+
+          When \(\beta < 0\), we have
+          \[
+              g(\beta) \leq g(-2) = -\frac{15}{4}.
+          \]
+
+          Since \(3 > -\frac{15}{4}\), we can conclude that the maximum value of \(\frac{1}{u} + \frac{1}{v} + uv\) is \(3\), and it is taken when \(\beta = 1\), which corresponds to \(\alpha = -2\).
+
+\end{enumerate}
