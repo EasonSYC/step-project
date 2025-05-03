@@ -55,7 +55,7 @@ def Split(fileName: str,
             if i < len(outline) - 1:
                 endPage = outline[i + 1][2]
             else:
-                endPage = input.page_count
+                endPage = input.page_count + 1
 
             fullName = separator.join(prefix + [title])
             output: Document = Document("pdf", inputData)
