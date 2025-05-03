@@ -1,2 +1,90 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item First, we notice that
+          \[
+              G_{k + 1}^{k + 1} = \prod_{t = 1}^{k + 1} a_t = a_{k + 1} G_{k}^{k},
+          \]
+          and hence
+          \[
+              G_{k + 1} = \left(a_{k + 1} G_{k}^{k}\right)^{\frac{1}{k + 1}}.
+          \]
+
+          Similarly, notice that
+          \[
+              (k + 1) A_{k + 1} = \sum_{t = 1}^{k + 1} a_t = a_{k + 1} + k A_{k}.
+          \]
+
+          Hence,
+          \begin{align*}
+              (k + 1)\left(A_{k + 1} - G_{k + 1}\right)                                      & \geq k\left(A_k - G_k\right),                                    \\
+              a_{k + 1} + k A_k - (k + 1) \left(a_{k + 1} G_{k}^{k}\right)^{\frac{1}{k + 1}} & \geq k a_k - k G_k,                                              \\
+              a_{k + 1} + k G_k                                                              & \geq (k + 1)a_{k + 1}^{\frac{1}{k + 1}} G_{k}^{\frac{k}{k + 1}}.
+          \end{align*}
+
+          Dividing both sides by \(G_k\), we have
+          \begin{align*}
+              \frac{a_{k + 1}}{G_k} + k                 & \geq (k + 1) a_{k + 1}^{\frac{1}{k + 1}} G_k^{- \frac{1}{k + 1}},  \\
+              \lambda_k^{k + 1} + k                     & \geq (k + 1) \left(\frac{a_{k + 1}}{G_k}\right)^{\frac{1}{k + 1}}, \\
+              \lambda_k^{k + 1} + k                     & \geq (k + 1) \lambda_k,                                            \\
+              \lambda_k^{k + 1} - (k + 1) \lambda_k + k & \geq 0,
+          \end{align*}
+          as desired. (Notice that the condition for the equal sign is equivalent as well.)
+
+    \item By differentiation, we have
+          \[
+              f'(x) = (k + 1)x^k - (k + 1) = (k + 1) (x^k - 1).
+          \]
+
+          When \(x \in (0, 1), x^k \in (0, 1), f'(x) < 0\), and hence \(f\) is strictly decreasing.
+
+          When \(x \in (1, +\infty), x^k \in (1, +\infty), f'(x) > 0\), and hence \(f\) is strictly increasing.
+
+          Hence, \(f(1)\) is the minimum for \(f\) on \((0, +\infty)\). This means for all \(x \in (0, +\infty)\), we have
+          \[
+              f(x) \geq f(1) = 1^{k + 1} - (k + 1) + k = 0,
+          \]
+          taking the equal sign if and only if \(x = 1\).
+
+    \item \begin{enumerate}
+              \item We show this by induction. For the base case \(n = 1\), \(A_1 = G_1 = a_1\), so naturally \(A_n \geq G_n\) is satisfied.
+
+                    Assume that the statement holds for some \(n = k\), i.e. \(A_k \geq G_k\), \(A_k - G_k \geq 0\). Since \(k > 0\) as well, we must have
+                    \[
+                        (k + 1)(A_{k + 1} - G_{k + 1}) \geq k (A_k - G_k) \geq 0.
+                    \]
+
+                    We also have \(k + 1 > 0\), and hence
+                    \[
+                        A_{k + 1} - G_{k + 1} \geq 0 \iff A_{k + 1} \geq G_{k + 1},
+                    \]
+                    meaning the statement holds for \(n = k + 1\) as well.
+
+                    Hence, by the principle of mathematical induction, we must have \(A_n \geq G_n\) for all \(n \in \NN\), which finishes our proof.
+
+              \item We show this by induction. For the base case \(n = 1\), this condition is naturally satisfied.
+
+                    Assume that the statement holds for some \(n = k\), i.e. \(A_k = G_k \implies a_1 = a_2 = \cdots = a_k\). We show this for \(n = k + 1\). If \(A_{k + 1} = G_{k + 1}\), then we must have
+                    \[
+                        k (A_k - G_k) \leq (k + 1)(A_{k + 1} - G_{k + 1}) = 0,
+                    \]
+                    but since \(A_k \geq G_k\), we must have then \(A_k = G_k\), and hence the equal sign in the inequality being taken.
+
+                    This must mean that
+                    \[
+                        \lambda_{k} = \left(\frac{a_{k + 1}}{G_k}\right)^{\frac{1}{k + 1}} = 1,
+                    \]
+                    and hence
+                    \[
+                        a_{k + 1} = G_k.
+                    \]
+
+                    At the same time, since \(A_k = G_k\), we must have \(a_1 = a_2 = \cdots = a_k\), and hence \(G_k = a_1 = a_2 = \cdots = a_k\). Therefore, we must also have
+                    \[
+                        a_1 = a_2 = \cdots = a_k = a_{k + 1},
+                    \]
+                    which proves the statement that \(A_{k + 1} = G_{k + 1}\) implies \(a_1 = a_2 = \cdots = a_k = a_{k + 1}\), which is the original statement for \(n = k + 1\).
+
+                    Hence, by the principle of mathematical induction, we must have \(A_n = G_n\) implies \(a_1 = a_2 = \cdots = a_n\) for all \(n \in \NN\), which finishes our proof.
+          \end{enumerate}
+\end{enumerate}
