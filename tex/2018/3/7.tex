@@ -1,2 +1,112 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item We have
+          \begin{align*}
+               & \phantom{=} \frac{(\cot \theta + i)^{2n + 1} - (\cot \theta - i)^{2n + 1}}{2i}                                                                 \\
+               & = \frac{\left(\cos \theta + i \sin \theta\right)^{2n + 1} - (\cos \theta - i \sin \theta)^{2n + 1}}{2i \sin^{2n + 1} \theta}                   \\
+               & = \frac{\left(\cos (2n + 1) \theta + i \sin (2n + 1) \theta\right) - (\cos (2n + 1) \theta - i \sin (2n + 1) \theta)}{2i \sin^{2n + 1} \theta} \\
+               & = \frac{2i \sin (2n + 1) \theta}{2i \sin^{2n + 1} \theta}                                                                                      \\
+               & = \frac{\sin (2n + 1) \theta}{\sin^{2n + 1} \theta},
+          \end{align*}
+          as desired.
+
+          By applying the binomial expansion formula on the numerator, we have
+          \begin{align*}
+               & \phantom{=} (\cot \theta + i)^{2n + 1} - (\cot \theta - i)^{2n + 1}                                                                                          \\
+               & = \sum_{t = 0}^{2n + 1} \binom{2n + 1}{t} \cot^t \theta \cdot i^{2n + 1 - t} - \sum_{t = 0}^{2n + 1} \binom{2n + 1}{t} \cot^t \theta \cdot (-i)^{2n + 1 - t} \\
+               & = \sum_{t = 0}^{2n + 1} \binom{2n + 1}{t} \cot^t \theta \cdot \left[i^{2n + 1 - t} - (-i)^{2n + 1 - t}\right]                                                \\
+               & = (-1)^n \cdot i \cdot  \sum_{t = 0}^{2n + 1} \binom{2n + 1}{t} \cot^t \theta \cdot i^{-t} \cdot \left[1 - (-1)^{1 - t}\right].
+          \end{align*}
+
+          Due to the existence of the final term, this means that only terms with even \(t\) will retain (give a 2), and odd \(t\)s will cancel. Hence,
+          \begin{align*}
+               & \phantom{=} (\cot \theta + i)^{2n + 1} - (\cot \theta - i)^{2n + 1}                                                           \\
+               & = (-1)^n \cdot i \cdot \sum_{t = 0}^{2n + 1} \binom{2n + 1}{t} \cot^t \theta \cdot i^{-t} \cdot \left[1 - (-1)^{1 - t}\right] \\
+               & = (-1)^n \cdot 2i \cdot \sum_{t = 0}^{n} \binom{2n + 1}{2t} \cot^{2t} \theta \cdot i^{-2t}                                    \\
+               & = 2i(-1)^n \cdot \sum_{t = 0}^{n} \binom{2n + 1}{2t} \cot^{2t} \theta \cdot (-1)^t                                            \\
+               & = 2i(-1)^n \cdot \sum_{t = 0}^{n} \binom{2n + 1}{2n - 2t + 1} \cot^{2t} \theta \cdot (-1)^t                                   \\
+               & = 2i(-1)^n \cdot \sum_{t = 0}^{n} \binom{2n + 1}{2t + 1} \cot^{2 (n - t)} \theta \cdot (-1)^{n - t}                           \\
+               & = 2i \cdot \sum_{t = 0}^{n} \binom{2n + 1}{2t + 1} \cot^{2 (n - t)} \theta \cdot (-1)^{t}.
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+               & \phantom{=} \frac{\sin (2n + 1) \theta}{\sin^{2n + 1} \theta}                                        \\
+               & = \frac{2i \cdot \sum_{t = 0}^{n} \binom{2n + 1}{2t + 1} \cot^{2 (n - t)} \theta \cdot (-1)^{t}}{2i} \\
+               & = \sum_{t = 0}^{n} \binom{2n + 1}{2t + 1} \cot^{2 (n - t)} \theta \cdot (-1)^{t}.
+          \end{align*}
+
+          The left-hand side of the original equation is
+          \begin{align*}
+              \sum_{t = 0}^{n} \binom{2n + 1}{2t + 1} x^{n - t} \cdot (-1)^t.
+          \end{align*}
+
+          Let \(x = \cot^2 \theta\), we have
+          \[
+              \phantom{=} \frac{\sin (2n + 1) \theta}{\sin^{2n + 1} \theta} = \sum_{t = 0}^{n} \binom{2n + 1}{2t + 1} x^{n - t} \cdot (-1)^t = 0.
+          \]
+
+          Therefore, we have \(\sin (2n + 1) \theta = 0\), and hence \((2n + 1) \theta = m \pi\) for \(m \in \ZZ\).
+
+          To avoid duplicate solutions for \(x = \cot^2 \theta\), we restrict \(\theta \in \left(0, \frac{\pi}{2}\right]\), and hence \((2n + 1) \theta \in \left(0, \left(n + \frac{1}{2} \right)\pi\right]\), and hence \(m = 1, 2, \ldots, n\).
+
+          This solves to \(\theta = \frac{m\pi}{2n + 1}\) for \(m = 1, 2, \ldots, n\), and hence this gives exactly
+          \[
+              x = \cot^2 \left(\frac{m \pi}{2n + 1}\right).
+          \]
+
+    \item By Vieta's Theorem, we will have
+          \[
+              \sum_{m = 1}^{n} x_m = -\frac{-\binom{2n + 1}{3}}{\binom{2n + 1}{1}} = \frac{(2n + 1)(2n)(2n - 1)}{(2n + 1) \cdot 3 \cdot 2 \cdot 1} = \frac{n(2n - 1)}{3},
+          \]
+          and since we have
+          \[
+              x_m = \cot^2 \left(\frac{m \pi}{2n + 1}\right),
+          \]
+          we have
+          \[
+              \sum_{m = 1}^{n} \cot^2 \left(\frac{m \pi}{2n + 1}\right) = \frac{n (2n - 1)}{3}.
+          \]
+
+    \item For \(0 < \theta < \frac{1}{2}\pi\), we have \(0 < \sin \theta < \theta < \tan \theta\), and squaring this gives
+          \[
+              0 < \sin^2 \theta < \theta^2 < \tan^2 \theta,
+          \]
+          and flipping to the reciprocal gives
+          \[
+              0 < \cot^2 \theta < \frac{1}{\theta^2} < \csc^2 \theta = 1 + \cot^2 \theta,
+          \]
+          which proves exactly what is desired.
+
+          Therefore, we have
+          \[
+              \sum_{m = 1}^{n} \cot^2 \left(\frac{m\pi}{2n + 1}\right) < \sum_{m = 1}^{n} \frac{1}{\left(\frac{m\pi}{2n + 1}\right)^2} < \sum_{m = 1}^{n} \left[1 + \cot^2 \left(\frac{m\pi}{2n + 1}\right)\right],
+          \]
+          and hence
+          \[
+              \frac{n(2n - 1)}{3} < \sum_{m = 1}^{n} \frac{(2n + 1)^2}{m^2 \pi^2} < \frac{2n(n + 1)}{3},
+          \]
+          and hence
+          \[
+              \frac{n(2n - 1) \pi^2}{3 (2n + 1)^2} < \sum_{m = 1}^{n} \frac{1}{m^2} < \frac{2n(n + 1) \pi^2}{3 (2n + 1)^2}.
+          \]
+
+          Take the limit as \(n \to \infty\), the strict inequalities become weak, and hence
+          \[
+              \lim_{n \to \infty} \frac{n(2n - 1) \pi^2}{3 (2n + 1)^2} \leq \sum_{m = 1}^{\infty} \frac{1}{m^2} \leq \lim_{n \to \infty} \frac{2n(n + 1) \pi^2}{3 (2n + 1)^2},
+          \]
+          and hence
+          \[
+              \frac{2 \pi^2}{3 \cdot 2^2} \leq \sum_{m = 1}^{\infty} \frac{1}{m^2} \leq \frac{2n \pi^2}{3 \cdot 2^2},
+          \]
+          and therefore
+          \[
+              \frac{\pi^2}{6} \leq \sum_{m = 1}^{\infty} \frac{1}{m^2} \leq \frac{\pi^2}{6},
+          \]
+          and hence
+          \[
+              \sum_{m = 1}^{\infty} \frac{1}{m^2} = \frac{\pi^2}{6},
+          \]
+          as desired.
+\end{enumerate}
