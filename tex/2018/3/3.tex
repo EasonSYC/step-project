@@ -1,2 +1,180 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Notice that
+\begin{align*}
+    x^a (x^b (x^c y)' )' & = x^a (x^b (c x^{c - 1} y + x^c y'))'                                                                             \\
+                         & = x^a \left[x^{b + c - 1} \left(cy + xy' \right)\right]'                                                          \\
+                         & = x^a \left[(b + c - 1) x^{b + c - 2} \left(cy + xy' \right) + x^{b + c - 1}  \left(cy' + y' + xy''\right)\right] \\
+                         & = x^{a + b + c - 2} \left[(b + c - 1) \left(cy + xy' \right) + x \left(cy' + y' + xy''\right)\right]              \\
+                         & = x^{a + b + c - 2} \left[x^2 y'' + (b + 2c) xy' + (b + c - 1) cy\right].
+\end{align*}
+
+Comparing this with the left-hand side of the original equation, we must have
+\[
+    \left\{
+    \begin{aligned}
+        a + b + c - 2 & = 0,         \\
+        b + 2c        & = 1 - 2p,    \\
+        (b + c - 1)c  & = p^2 - q^2.
+    \end{aligned}
+    \right.
+\]
+
+The second equation gives
+\[
+    b = 1 - 2p - 2c,
+\]
+and putting this into the third equation gives
+\[
+    (1 - 2p - 2c + c - 1)c = p^2 - q^2,
+\]
+and hence
+\[
+    c^2 + 2pc + p^2 - q^2 = 0.
+\]
+
+This gives
+\[
+    (c + (p - q))(c + (p + q)) = 0,
+\]
+and hence
+\[
+    c_1 = -p + q, c_2 = -p - q.
+\]
+
+Putting this back, we get
+\[
+    b_1 = 1 - 2p - 2(-p + q) = 1 - 2q, b_2 = 1 - 2p - 2(-p - q) = 1 + 2q,
+\]
+and since \(a = 2 - b - c\) from the first equation, we have
+\[
+    a_1 = 2 - (1 - 2q) - (-p + q) = 1 + p + q
+\]
+and
+\[
+    a_2 = 2 - (1 + 2q) - (-p - q) = 1 + p - q
+\]
+
+Hence, the solutions are
+\[
+    \left\{
+    \begin{aligned}
+        a & = p \pm q + 1, \\
+        b & = \mp 2q + 1,  \\
+        c & = -p \pm q.    \\
+    \end{aligned}
+    \right.
+\]
+
+\begin{enumerate}
+    \item In the case where \(f(x) = 0\). We must have
+          \[
+              x^{a} \left(x^{b} (x^{c} y)'\right)' = 0,
+          \]
+          and hence
+          \[
+              \left(x^{b} (x^{c} y)'\right)' = 0.
+          \]
+
+          Therefore, we must have by integration
+          \[
+              x^{b} (x^{c} y)' = C_1
+          \]
+          for some (real) constant \(C_1\).
+
+          Hence,
+          \[
+              (x^{c} y)' = C_1 x^{-b}.
+          \]
+
+          There are two cases here:
+          \begin{enumerate}
+              \item When \(b = 1\) i.e. \(q = 0\), the right-hand side is \(C_1 x^{-1}\), and the left-hand side is \((x^{c} y)'\). Integrating both sides give
+                    \[
+                        x^{c} y = C_1 \ln x + C_2
+                    \]
+                    for some (real) constant \(C_2\).
+
+                    Hence,
+                    \[
+                        y = x^{-c} (C_1 \ln x + C_2)
+                    \]
+                    for some (real) constants \(C_1, C_2\).
+
+                    When \(q = 0\), \(c = -p\), and hence
+                    \[
+                        y = x^p (C_1 \ln x + C_2).
+                    \]
+
+              \item When \(b \neq 1\) i.e. \(q \neq 0\), integrating both sides give
+                    \[
+                        x^{c} y = \frac{C_1 x^{-b + 1}}{-b + 1} + C_2
+                    \]
+                    for some (real) constant \(C_2\).
+
+                    Hence,
+                    \[
+                        y = x^{-c} \left(\frac{C_1 x^{-b + 1}}{-b + 1} + C_2\right)
+                    \]
+                    for some (real) constant \(C_1, C_2\).
+
+                    Hence,
+                    \begin{align*}
+                        y & = x^{-(-p \pm q)} \left(\frac{C_1 x^{-(\mp 2q + 1) + 1}}{-(\mp 2q + 1) + 1} + C_2\right) \\
+                          & = x^{p \mp q} \left(\frac{C_1 x^{\pm 2q}}{\pm 2q} + C_2\right).                          \\
+                          & = \frac{C_1}{\pm 2q} x^{p \pm q} + C_2 x^{p \mp q}                                       \\
+                          & = C_3 x^{p \pm q} + C_2 x^{p \mp q},
+                    \end{align*}
+                    for some (real) constant \(C_2, C_3\).
+          \end{enumerate}
+
+    \item This is when \(q = 0\) and \(f(x) = x^n\). We have \(a = p + 1, b = 1\) and \(c = -p\), and the original differential equation reduces to
+          \[
+              x^{p + 1} \left(x \left(x^{-p} y\right)' \right)' = x^n,
+          \]
+          and hence
+          \[
+              \left(x \left(x^{-p} y\right)' \right)' = x^{n - p - 1}.
+          \]
+
+          There are two cases here:
+          \begin{enumerate}
+              \item If \(n - p - 1 = -1\), i.e. \(n = p\), we have, by integration,
+                    \[
+                        x \left(x^{-p} y\right)' = \ln x + C_1.
+                    \]
+
+                    This gives
+                    \[
+                        \left(x^{-p} y\right)' = \frac{\ln x}{x} + \frac{C_1}{x},
+                    \]
+                    and hence by integration
+                    \[
+                        x^{-p} y = \frac{(\ln x)^2}{2} + C_1 \ln x + C_2.
+                    \]
+
+                    This solves to
+                    \[
+                        y = \frac{x^p (\ln x)^2}{2} + C_1 x^p \ln x + C_2 x^p.
+                    \]
+
+              \item If \(n - p - 1 \neq -1\), i.e. \(n \neq p\), we have
+                    \[
+                        x \left(x^{-p} y\right)' = \frac{x^{n - p}}{n - p} + C_1.
+                    \]
+
+                    This gives
+                    \[
+                        \left(x^{-p} y\right)' = \frac{x^{n - p - 1}}{n - p} + \frac{C_1}{x}.
+                    \]
+
+                    Since \(n - p - 1 \neq -1\), by integration we have
+                    \[
+                        x^{-p} y = \frac{x^{n - p}}{(n - p)^2} + C_1 \ln x + C_2,
+                    \]
+                    and hence
+                    \[
+                        y = \frac{x^n}{(n - p)^2} + C_1 x^p \ln x + C_2 x^p.
+                    \]
+          \end{enumerate}
+\end{enumerate}
