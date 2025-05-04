@@ -1,2 +1,66 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Using the substitution \(t = \frac{1}{x}\), we have
+          \[
+              \DiffFrac{t}{x} = - \frac{1}{x^2} \implies \Diff{x} = - x^2 \Diff{t} = - \frac{\Diff{t}}{t^2},
+          \]
+          and when \(x \to 0^{+}\), \(t \to +\infty\), and when \(x = 1\), \(t = 1\). Hence,
+          \begin{align*}
+              I & = \int_{0}^{1} \frac{f(x^{-1})}{1 + x} \Diff{x}                                                                                                       \\
+                & = \int_{1}^{+\infty} \frac{f(t)}{1 + t^{-1}} \cdot \left(- \frac{\Diff{t}}{t^2}\right)                                                                \\
+                & = \int_{1}^{+\infty} \frac{f(t) \Diff{t}}{t (1 + t)}                                                                                                  \\
+                & = \int_{1}^{2} \frac{f(t) \Diff{t}}{t (1 + t)} + \int_{2}^{3} \frac{f(t) \Diff{t}}{t (1 + t)} + \int_{3}^{4} \frac{f(t) \Diff{t}}{t (1 + t)} + \cdots \\
+                & = \sum_{n = 1}^{+\infty} \int_{n}^{n + 1}\frac{f(t) \Diff{t}}{t (1 + t)},
+          \end{align*}
+          as desired.
+
+          Since \(f(x) = f(x + 1)\) for all \(x\), we must have that \(f(x) = f(x + n)\) for all \(x\) and integers \(n\). Also, we have
+          \[
+              \frac{1}{y(1 + y)} = \frac{1}{y} - \frac{1}{1 + y}.
+          \]
+
+          Hence,
+          \begin{align*}
+              I & = \sum_{n = 1}^{+\infty} \int_{n}^{n + 1} \frac{f(t) \Diff{t}}{t (1 + t)}                                                               \\
+                & = \sum_{n = 1}^{+\infty} \int_{0}^{1} \frac{f(n + t) \Diff{t}}{(n + t) (n + t + 1)}                                                     \\
+                & = \sum_{n = 1}^{+\infty} \int_{0}^{1} f(t) \cdot \left[\frac{1}{n + t} - \frac{1}{n + t + 1}\right] \Diff{t}                            \\
+                & = \sum_{n = 1}^{+\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t} - \sum_{n = 1}^{+\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t + 1} \\
+                & = \sum_{n = 1}^{+\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t} - \sum_{n = 2}^{+\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t}     \\
+                & = \int_{0}^{1} \frac{f(t) \Diff{t}}{1 + t}.
+          \end{align*}
+
+    \item For the first integral, simply consider \(f(x) = \{x\}\), and we can immediately see that \(f(x)\) has period of \(1\) from the definition. Hence,
+          \[
+              \int_{0}^{1} \frac{\{x^{-1}\}}{1 + x} \Diff x = \int_{0}^{1} \frac{f(x^{-1})}{1 + x} \Diff x = \int_{0}^{1} \frac{f(x)}{1 + x} \Diff x = \int_{0}^{1} \frac{\{x\}}{1 + x} \Diff x.
+          \]
+
+          Since for \(0 < x < 1\), we have \(\{x\} = x\), and hence
+          \begin{align*}
+              \int_{0}^{1} \frac{\{x^{-1}\}}{1 + x} \Diff x & = \int_{0}^{1} \frac{\{x\}}{1 + x} \Diff x              \\
+                                                            & = \int_{0}^{1} \frac{x}{1 + x} \Diff x                  \\
+                                                            & = \int_{0}^{1} \left(1 - \frac{1}{1 + x}\right) \Diff x \\
+                                                            & = 1 - \left[\ln(1 + x)\right]_{0}^{1}                   \\
+                                                            & = 1 - (\ln(2) - \ln(1))                                 \\
+                                                            & = 1 - \ln 2.
+          \end{align*}
+
+          For the second integral, we let \(g(x) = \{2x\}\), and we can see that \(g(x)\) has a period of \(\frac{1}{2}\), and hence it also has a period of \(1\). Hence,
+          \[
+              \int_{0}^{1} \frac{\{2x^{-1}\}}{1 + x} \Diff x = \int_{0}^{1} \frac{g(x^{-1})}{1 + x} \Diff x = \int_{0}^{1} \frac{g(x)}{1 + x} \Diff x = \int_{0}^{1} \frac{\{2x\}}{1 + x} \Diff x.
+          \]
+
+          We split this integral into two parts, \([0, 0.5]\) and \([0.5, 1]\).
+
+          \begin{align*}
+              \int_{0}^{1} \frac{\{2x^{-1}\}}{1 + x} \Diff x & = \int_{0}^{1} \frac{\{2x\}}{1 + x} \Diff x                                                                         \\
+                                                             & = \int_{0}^{0.5} \frac{\{2x\}}{1 + x} \Diff x + \int_{0.5}^{1} \frac{\{2x\}}{1 + x} \Diff x                         \\
+                                                             & = \int_{0}^{0.5} \frac{2x}{1 + x} \Diff x + \int_{0.5}^{1} \frac{2x - 1}{1 + x} \Diff x                             \\
+                                                             & = \int_{0}^{0.5} \left[2 - \frac{2}{1 + x}\right] \Diff x + \int_{0.5}^{1} \left[2 - \frac{3}{1 + x}\right] \Diff x \\
+                                                             & = 1 - 2 \left[\ln(1 + x)\right]_{0}^{0.5} + 1 - 3 \left[\ln(1 + x)\right]_{0.5}^{1}                                 \\
+                                                             & = 2 - 2 \ln 1.5 + 2 \ln 1 - 3 \ln 2 + 3 \ln 1.5                                                                     \\
+                                                             & = 2 - 3 \ln 2 + \ln 1.5                                                                                             \\
+                                                             & = 2 - 3 \ln 2 + \ln 3 - \ln 2                                                                                       \\
+                                                             & = 2 - 4 \ln 2 + \ln 3.
+          \end{align*}
+\end{enumerate}
