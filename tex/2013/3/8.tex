@@ -1,2 +1,47 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+By the formula of the sum for a geometric series, we have
+\begin{align*}
+    \sum_{r = 0}^{n - 1} \exp(2i (\alpha + r\pi / n)) & = \exp(2i (\alpha + 0\pi / n)) \cdot \frac{1 - \exp(2 i \pi / n)^ n}{1 - \exp(2 i \pi / n)} \\
+                                                      & = \exp(2 i \alpha) \cdot \frac{1 - \exp(2 i \pi)}{1 - \exp(2 i \pi / n)}                    \\
+                                                      & = \exp(2 i \alpha) \cdot \frac{1 - 1}{1 - \exp(2 i \pi / n)}                                \\
+                                                      & = 0,
+\end{align*}
+since the denominator is not \(0\).
+
+By geometry, we have
+\[
+    r \cos \theta + s = d,
+\]
+and hence
+\[
+    s = d - r \cos \theta.
+\]
+
+Since \(r = ks = k(d - r \cos \theta)\), we have
+\[
+    r = \frac{kd}{1 + k \cos \theta}.
+\]
+
+Let \(L_1\) be an angle \(\alpha\) to horizontal, then \(L_j\) is angle \(\alpha + (j - 1)\pi / n\) angle to the horizontal for \(j = 1, 2, \ldots, n\). Let \(\theta_j = \alpha + (j - 1)\pi / n\), and we have
+\begin{align*}
+    l_j & = \LEvalAt{r}{\theta = \theta_j} + \LEvalAt{r}{\theta = \theta_j + \pi}                            \\
+        & = kd \left(\frac{1}{1 + k \cos \theta_j} + \frac{1}{1 + k \cos \left(\theta_j + \pi\right)}\right) \\
+        & = kd \left(\frac{1}{1 + k \cos \theta_j} + \frac{1}{1 - k \cos \theta_j}\right)                    \\
+        & = kd \cdot \frac{1 + k \cos \theta_j + 1 - k \cos \theta_j}{1 - k^2 \cos^2 \theta_j}               \\
+        & = \frac{2kd}{1 - k^2 \cos^2 \theta_j}.
+\end{align*}
+
+Hence, we have
+\begin{align*}
+    \sum_{j = 1}^{n} \frac{1}{l_j} & = \frac{1}{2kd} \sum_{j = 1}^{n}(1 - k^2 \cos^2 \theta_j)                                                                              \\
+                                   & = \frac{1}{2kd} \left[n - k^2 \sum_{j = 1}^{n} \cos^2 \left(\alpha + (j - 1)\pi / n\right)\right]                                      \\
+                                   & = \frac{1}{2kd} \left[n - \frac{k^2}{2} \cdot \sum_{j = 1}^{n} \left[1 + \cos 2 \left(\alpha + (j - 1)\pi / n\right)\right]\right]     \\
+                                   & = \frac{1}{2kd} \left[n - \frac{nk^2}{2} - \frac{k^2}{2}\cdot \sum_{j = 1}^{n} \cos 2 \left(\alpha + (j - 1)\pi / n\right)\right]      \\
+                                   & = \frac{1}{2kd} \left[n - \frac{nk^2}{2} - \frac{k^2}{2}\cdot \sum_{r = 0}^{n - 1} \cos 2 \left(\alpha + r\pi / n\right)\right]        \\
+                                   & = \frac{1}{2kd} \left[n - \frac{nk^2}{2} - \frac{k^2}{2}\cdot \sum_{r = 0}^{n - 1} \re \exp (2i \left(\alpha + r\pi / n\right))\right] \\
+                                   & = \frac{1}{2kd} \left[n - \frac{nk^2}{2} - \frac{k^2}{2}\cdot 0\right]                                                                 \\
+                                   & = \frac{1}{2kd} \cdot \frac{n (2 - k^2)}{2}                                                                                            \\
+                                   & = \frac{n (2 - k^2)}{4kd},
+\end{align*}
+as desired.
