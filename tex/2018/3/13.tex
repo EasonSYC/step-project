@@ -1,2 +1,162 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+By the definition of a probability generating function, we have
+\[
+    G(1) = \sum_{n = 0}^{+\infty} \Prob(X = n), \text{ and } G(-1) = \sum_{n = 0}^{+\infty} (-1)^n \Prob(X = n).
+\]
+
+Hence,
+\[
+    G(1) + G(-1) = \sum_{n = 0}^{+\infty} [1 + (-1)^n] \Prob(X = n).
+\]
+
+When \(n\) is odd, \(1 + (-1)^n = 0\). When \(n\) is even, \(1 + (-1)^n = 2\).
+
+This means
+\[
+    G(1) + G(-1) = 2 \sum_{n = 0}^{+\infty} \Prob(X = 2n),
+\]
+which gives
+\[
+    \frac{1}{2} (G(1) + G(-1)) = \sum_{n = 0}^{+\infty} \Prob(X = 2n) = \Prob(X = 0 \text{ or } X = 2 \text{ or } X = 4 \ldots).
+\]
+
+Since \(X \sim \Poisson(\lambda)\), we have
+\[
+    \Prob(X = x) = e^{-\lambda} \frac{\lambda^x}{x!},
+\]
+and hence the probability generating function for \(X\), \(G(t)\), must satisfy
+\begin{align*}
+    G(t) & = \sum_{n = 0}^{+\infty} \Prob(X = n) \cdot t^n                      \\
+         & = \sum_{n = 0}^{+\infty} e^{-\lambda} \frac{\lambda^n}{n!} \cdot t^n \\
+         & = e^{-\lambda} \sum_{n = 0}^{+\infty} \frac{(\lambda t)^n}{n!}       \\
+         & = e^{-\lambda} \cdot e^{\lambda t}                                   \\
+         & = e^{-\lambda (1 - t)}.
+\end{align*}
+
+\begin{enumerate}
+    \item Consider \(G(t) + G(-t)\). By definition, we have
+          \[
+              G(t) = \sum_{n = 0}^{+\infty} \Prob(X = n) t^n, G(-t) = \sum_{n = 0}^{+\infty} (-1)^n \Prob(X = n) t^n,
+          \]
+          and hence
+          \[
+              G(t) + G(-t) = \sum_{n = 0}^{+\infty} \left(1 + (-1)^n\right) \Prob(X = n) t^n = 2 \sum_{n = 0}^{+\infty} \Prob(X = 2n) t^{2n}.
+          \]
+
+          Let \(H(t)\) be the probability generating function of \(Y\), we have
+          \begin{align*}
+              H(t) & = \sum_{n = 0}^{+\infty} \Prob(Y = n) \cdot t^n       \\
+                   & = \sum_{n = 0}^{+\infty} \Prob(Y = 2n) \cdot t^{2n}   \\
+                   & = \sum_{n = 0}^{+\infty} k \Prob(X = 2n) \cdot t^{2n} \\
+                   & = \frac{k}{2} \left(G(t) + G(-t)\right).
+          \end{align*}
+
+          To find \(k\), we must have \(H(1) = 1\). Hence,
+          \[
+              1 = \frac{k}{2} \left(G(1) + G(-1)\right) = \frac{k}{2} \left(e^{- \lambda (1 - 1)} + e^{- \lambda (1 + 1)}\right) = \frac{k}{2} \left(1 + e^{-2 \lambda}\right),
+          \]
+          which gives
+          \[
+              k = \frac{2}{1 + e^{-2\lambda}} = \frac{2 e^{\lambda}}{e^{\lambda} + e^{-\lambda}} = \frac{e^{\lambda}}{\cosh \lambda}.
+          \]
+
+          Hence,
+          \begin{align*}
+              H(t) & = \frac{k}{2} \left(G(t) + G(-t)\right)                                                       \\
+                   & = \frac{e^{\lambda}}{2 \cosh \lambda} \left(e^{-\lambda(1 - t)}  + e^{-\lambda(1 + t)}\right) \\
+                   & = \frac{1}{\cosh \lambda} \frac{e^{\lambda t} + e^{-\lambda t}}{2}                            \\
+                   & = \frac{\cosh \lambda t}{\cosh \lambda}.
+          \end{align*}
+
+          Differentiating this with respect to \(t\), we have
+          \[
+              H'(t) = \frac{\lambda \sinh \lambda t}{\cosh \lambda},
+          \]
+          and hence
+          \[
+              \Expt(Y) = H'(1) = \frac{\lambda \sinh \lambda \cdot 1}{\cosh \lambda} = \lambda \tanh \lambda.
+          \]
+
+          Since \(-1 < \tanh \lambda < 1\), we have \(\lambda \tanh \lambda < \lambda\), and so \(\Expt(Y) < \lambda\) for \(\lambda > 0\).
+
+    \item Consider \(G(t) + G(-t) + G(it) + G(-it)\). By definition, we have
+          \[
+              G(t) + G(-t) + G(it) + G(-it) = \sum_{n = 0}^{+\infty} \left(1 + (-1)^n + i^n + (-i)^n\right) \Prob(X = n) \cdot t^n.
+          \]
+
+          Let \(m\) be an integer. Consider the following four cases:
+          \begin{itemize}
+              \item \(n = 4m\), \(1 + (-1)^n + i^n + (-i)^n = 1 + 1 + 1 + 1 = 4\).
+              \item \(n = 4m + 1\), \(1 + (-1)^n + i^n + (-i)^n = 1 + (-1) + i + (-i) = 0\).
+              \item \(n = 4m + 2\), \(1 + (-1)^n + i^n + (-i)^n = 1 + 1 + (-1) + (-1) = 0\).
+              \item \(n = 4m + 3\), \(1 + (-1)^n + i^n + (-i)^n + 1 + (-1) + (-i) + i = 0\).
+          \end{itemize}
+
+          Hence,
+          \[
+              G(t) + G(-t) + G(it) + G(-it) = 4 \sum_{n = 0}^{+\infty} \Prob(X = 4n) \cdot t^{4n}.
+          \]
+
+          Let \(P(t)\) be the probability generating function of \(Z\), we have
+          \begin{align*}
+              P(t) & = \sum_{n = 0}^{+\infty} \Prob(Z = n) \cdot t^n           \\
+                   & = \sum_{n = 0}^{+\infty} \Prob(Z = 4n) \cdot t^{4n}       \\
+                   & = c \sum_{n = 0}^{+\infty} \Prob(X = 4n) \cdot t^{4n}     \\
+                   & = \frac{c}{4} \left(G(t) + G(-t) + G(it) + G(-it)\right).
+          \end{align*}
+
+          Since \(P(1) = 0\), we must have
+          \begin{align*}
+              1 & = \frac{c}{4} \left(G(1) + G(-1) + G(i) + G(-i)\right)                                                               \\
+                & = \frac{c}{4} \left(e^{-\lambda (1 - 1)} + e^{-\lambda (1 + 1)} + e^{-\lambda (1 - i)} + e^{-\lambda (1 + i)}\right) \\
+                & = \frac{ce^{-\lambda}}{4} \left(e^{\lambda} + e^{-\lambda} + e^{i\lambda} + e^{-i\lambda}\right)                     \\
+                & = \frac{c e^{-\lambda}}{2} \left(\cos \lambda + \cosh \lambda\right).
+          \end{align*}
+
+          Hence,
+          \[
+              c = \frac{2e^\lambda}{\cos \lambda + \cosh \lambda}.
+          \]
+
+          Therefore,
+          \begin{align*}
+              P(t) & = \frac{c}{4} \left(G(t) + G(-t) + G(it) + G(-it)\right)                                                                                                  \\
+                   & = \frac{e^\lambda}{2 (\cos \lambda + \cosh \lambda)} \left[e^{-\lambda(1 - t)} + e^{-\lambda(1 + t)} + e^{-\lambda(1 - it)} + e^{-\lambda(1 + it)}\right] \\
+                   & = \frac{e^{\lambda t} + e^{-\lambda t} + e^{\lambda it} + e^{-\lambda it}}{2 (\cos \lambda + \cosh \lambda)}                                              \\
+                   & = \frac{\cos \lambda t + \cosh \lambda t}{\cos \lambda + \cosh \lambda}.
+          \end{align*}
+
+          Differentiating this with respect to \(t\) gives us
+          \[
+              P'(t) = \frac{\lambda (-\sin \lambda t + \sinh \lambda t)}{\cos \lambda + \cosh \lambda},
+          \]
+          and hence
+          \[
+              \Expt(Z) = P'(1) = \frac{\lambda(- \sin \lambda + \sinh \lambda)}{\cos \lambda + \cosh \lambda}.
+          \]
+
+          \(\Expt(Z) < \lambda\) is equivalent to
+          \[
+              \frac{\sinh \lambda - \sin \lambda}{\cosh \lambda + \cos \lambda} < 1,
+          \]
+          which is then equivalent to
+          \[
+              \sinh \lambda - \cosh \lambda < \sin \lambda + \cos \lambda,
+          \]
+          which is
+          \[
+              - e^{-\lambda} < \sin \lambda + \cos \lambda.
+          \]
+
+          However, this is not necessarily true. Let \(\lambda = \pi\). We have
+          \[
+              \LHS = - e^{- \pi} > - e^{0} = -1,
+          \]
+          and
+          \[
+              \RHS = \sin \pi + \cos \pi = -1,
+          \]
+          which means \(\LHS > \RHS\) for \(\lambda = \pi\), which means \(\Expt(Z) > \lambda\). Therefore, the statement is not true.
+
+\end{enumerate}
