@@ -1,2 +1,58 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item \(\Prob(Y_k) \leq y\) is the probability that there is at least \(k\) numbers that are less than equal to \(y\).
+
+          If there are \(k \leq m \leq n\) numbers less than or equal to \(y\), then there must be \(n - m\) numbers greater than or equal to \(y\). The probability of the first thing happening for each number is \(y\), and for the second thing happening for each number is \(1 - y\). We also have to choose \(m\) numbers from the \(n\) to make them less than or equal to \(y\). Therefore,
+          \[
+              \Prob(Y_k \leq y) = \sum_{m = k}^{n} \binom{n}{m} y^m (1 - y)^{n - m}.
+          \]
+
+    \item We have
+          \[
+              m \binom{n}{m} = m \cdot \frac{n!}{m! (n - m)!} = \frac{n!}{(m - 1)! (n - m)!} = n \cdot \frac{(n - 1)!}{(m - 1)! (n - m)!} = n \binom{n - 1}{m - 1}.
+          \]
+
+          We have
+          \[
+              (n - m) \binom{n}{m} = (n - m) \cdot \frac{n!}{m! (n - m)!} = \frac{n!}{m! (n - m - 1)!} = n \cdot \frac{(n - 1)!}{m!(n - m - 1)!} = n \binom{n - 1}{m}.
+          \]
+
+          The cumulative distribution function \(F_{Y_k}\) is
+          \[
+              F_{Y_k}(y) = \sum_{m = k}^{n} \binom{n}{m} y^m (1 - y)^{n - m}.
+          \]
+
+          Therefore, the probability density function \(f_{Y_k}\) is
+          \begin{align*}
+              f_{Y_k}(y) & = F_{Y_k}'(y)                                                                                                                                           \\
+                         & = \sum_{m = k}^{n} \binom{n}{m} \left[m y^{m - 1} (1 - y)^{n - m} - (n - m) y^{m} (1 - y)^{n - m - 1}\right]                                            \\
+                         & = \sum_{m = k}^{n} y^{m - 1} (1 - y)^{n - m - 1} \left[m \binom{n}{m} (1 - y) - (n - m) \binom{n}{m} y\right]                                           \\
+                         & = n \left[\sum_{m = k}^{n} \binom{n - 1}{m - 1} y^{m - 1} (1 - y)^{n - m} - \sum_{m = k}^{n - 1} \binom{n - 1}{m} y^{m} (1 - y)^{n - m - 1} \right]     \\
+                         & = n \left[\sum_{m = k}^{n} \binom{n - 1}{m - 1} y^{m - 1} (1 - y)^{n - m} - \sum_{m = k + 1}^{n} \binom{n - 1}{m - 1} y^{m - 1} (1 - y)^{n - m} \right] \\
+                         & = n \binom{n - 1}{k - 1} y^{k - 1} (1 - y)^{n - k}.
+          \end{align*}
+
+          Since \(Y_k \in [0, 1]\), we must have
+          \[
+              \int_{0}^{1} f_{Y_k} (y) \Diff y = 1,
+          \]
+          and hence
+          \[
+              n \binom{n - 1}{k - 1} \int_{0}^{1} y^{k - 1} (1 - y)^{n - k} \Diff y = 1,
+          \]
+          and therefore we have
+          \[
+              \int_{0}^{1} y^{k - 1} (1 - y)^{n - k} \Diff y = \frac{1}{n \binom{n - 1}{k - 1}}.
+          \]
+
+    \item By the definition of the expectation,
+          \begin{align*}
+              \Expt(Y_k) & = \int_{0}^{1} y f_{Y_k}(y) \Diff y                                                       \\
+                         & = n \binom{n - 1}{k - 1} \int_{0}^{1} y^{k} (1 - y)^{n - k} \Diff y                       \\
+                         & = n \binom{n - 1}{k - 1} \cdot \frac{1}{(n + 1) \binom{n}{k}}                             \\
+                         & = \frac{n \cdot \frac{(n - 1)!}{(k - 1)! (n - k)!}}{(n + 1) \cdot \frac{n!}{k! (n - k)!}} \\
+                         & = \frac{\frac{n!}{(k - 1)! (n - k)!}}{\frac{(n + 1) n!}{k (k - 1)! (n - k)!}}             \\
+                         & =\frac{k}{n + 1}.
+          \end{align*}
+\end{enumerate}
