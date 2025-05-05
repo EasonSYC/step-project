@@ -1,2 +1,192 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+The hyperbola has parametric equation
+\[
+    \left\{
+    \begin{aligned}
+        x & = a \sec \theta, \\
+        y & = b \tan \theta.
+    \end{aligned}
+    \right.
+\]
+
+Hence, by differentiation, we have
+\begin{align*}
+    \DiffFrac{y}{x} & = \frac{\DiffFrac{y}{\theta}}{\DiffFrac{x}{\theta}} \\
+                    & = \frac{b \sec^2 \theta}{a \sec \theta \tan \theta} \\
+                    & = \frac{b \cos \theta}{a \sin \theta \cos \theta}   \\
+                    & = \frac{b}{a \sin \theta}.
+\end{align*}
+
+The tangent to the hyperbola at \(P\) will be
+\[
+    y - b \tan \theta = \frac{b}{a \sin \theta} (x - a \sec \theta),
+\]
+which simplifies to
+\[
+    ay \sin \theta - ab \tan \theta \sin \theta = bx - ab \sec \theta,
+\]
+and hence
+\[
+    bx - ay \sin \theta = ab (\sec \theta - \tan \theta \sin \theta).
+\]
+
+Notice that
+\[
+    \sec \theta - \tan \theta \sin \theta = \frac{1 - \sin^2 \theta}{\cos \theta} = \frac{\cos^2 \theta}{\cos \theta} = \cos \theta,
+\]
+and so the equation of the tangent is
+\[
+    bx - ay \sin \theta = ab \cos \theta,
+\]
+exactly as desired.
+
+\begin{enumerate}
+    \item Let \(\frac{x}{a} = \frac{y}{b} = s\) for \(S\), we have \(x = as\) and \(y = bs\), and hence
+          \[
+              abs - abs \sin \theta = ab \cos \theta,
+          \]
+          which gives
+          \[
+              s = \frac{\cos \theta}{1 - \sin \theta},
+          \]
+          and hence
+          \[
+              S \left(a\frac{\cos \theta}{1 - \sin \theta}, b\frac{\cos \theta}{1 - \sin \theta}\right).
+          \]
+
+          Let \(\frac{x}{a} = - \frac{y}{b} = t\) for \(T\), we have \(x = at\) and \(y = -bt\), and hence
+          \[
+              abt + abt \sin \theta = ab \cos \theta,
+          \]
+          which gives
+          \[
+              t = \frac{\cos \theta}{1 + \sin \theta},
+          \]
+          and hence
+          \[
+              T \left(a\frac{\cos \theta}{1 + \sin \theta}, -b\frac{\cos \theta}{1 + \sin \theta}\right).
+          \]
+
+          We have
+          \begin{align*}
+              \frac{a\frac{\cos \theta}{1 - \sin \theta} + a\frac{\cos \theta}{1 + \sin \theta}}{2} & = \frac{a \cos \theta}{2} \left(\frac{1}{1 - \sin \theta} + \frac{1}{1 + \sin \theta}\right) \\
+                                                                                                    & = \frac{a \cos \theta}{2} \left(\frac{2}{\cos^2 \theta}\right)                               \\
+                                                                                                    & = \frac{a}{\cos \theta}                                                                      \\
+                                                                                                    & = a \sec \theta,
+          \end{align*}
+          and
+          \begin{align*}
+              \frac{a\frac{\cos \theta}{1 - \sin \theta} - b\frac{\cos \theta}{1 + \sin \theta}}{2} & = \frac{b \cos \theta}{2} \left(\frac{1}{1 - \sin \theta} - \frac{1}{1 + \sin \theta}\right) \\
+                                                                                                    & = \frac{b \cos \theta}{2} \left(\frac{2 \sin \theta}{\cos^2 \theta}\right)                   \\
+                                                                                                    & = \frac{b \sin \theta}{\cos \theta}                                                          \\
+                                                                                                    & = b \tan \theta.
+          \end{align*}
+
+          This means the midpoint of \(ST\) is \((a \sec \theta, b \tan \theta)\), which is exactly \(P\).
+
+    \item Since the tangents are perpendicular, that means
+          \[
+              \LEvalAt{\DiffFrac{y}{x}}{\theta} \cdot \LEvalAt{\DiffFrac{y}{x}}{\phi} = -1,
+          \]
+          and hence
+          \[
+              \frac{b}{a \sin \theta} \cdot \frac{b}{a \sin \phi} = -1,
+          \]
+          which means
+          \[
+              b^2 = - a^2 \sin \theta \sin \phi.
+          \]
+
+          The two tangents are
+          \[
+              bx - ay \sin \theta = ab \cos \theta
+          \]
+          and
+          \[
+              bx - ay \sin \phi = ab \cos \phi.
+          \]
+
+
+          Since \(bx = bx\), we have
+          \[
+              ay \sin \theta + ab \cos \theta = ay \sin \phi + ab \cos \phi,
+          \]
+          and hence
+          \[
+              y (\sin \theta - \sin \phi) = b (\cos \phi - \cos \theta),
+          \]
+          which gives
+          \[
+              y = b \cdot \frac{\cos \phi - \cos \theta}{\sin \theta - \sin \phi}.
+          \]
+
+          Hence,
+          \begin{align*}
+              x & = \frac{ab \cos \theta + ay \sin \theta}{b}                                                                       \\
+                & = \frac{a}{b} \left(b \cos \theta + b \sin \theta \frac{\cos \phi - \cos \theta}{\sin \theta - \sin \phi}\right)  \\
+                & = a \left(\cos \theta + \sin \theta \frac{\cos \phi - \cos \theta}{\sin \theta - \sin \phi}\right)                \\
+                & = a \frac{\cos \theta (\sin \theta - \sin \phi) + \sin \theta (\cos \phi - \cos \theta)}{\sin \theta - \sin \phi} \\
+                & = a \cdot \frac{\sin \theta \cos \phi - \cos \theta \sin \phi}{\sin \theta - \sin \phi}                           \\
+                & = a \cdot \frac{\sin(\theta - \phi)}{\sin \theta - \sin \phi}.
+          \end{align*}
+
+          This means
+          \[
+              \left\{
+              \begin{aligned}
+                  x^2 & = a^2 \cdot \frac{\sin^2 (\theta - \phi)}{\left(\sin \theta - \sin \phi\right)^2},                                                                                                                                           \\
+                  y^2 & = b^2 \cdot \frac{\left(\cos \phi - \cos \theta\right)^2}{\left(\sin \theta - \sin \phi\right)^2} = - a^2 \sin \theta \sin \phi \cdot \frac{\left(\cos \phi - \cos \theta\right)^2}{\left(\sin \theta - \sin \phi\right)^2}.
+              \end{aligned}
+              \right.
+          \]
+
+          Notice that
+          \[
+              a^2 - b^2 = a^2 + a^2 \sin \theta \sin \phi = a^2 (1 + \sin \theta \sin \phi).
+          \]
+
+          Hence,
+          \begin{align*}
+              x^2 + y^2 & = a^2 \left[\frac{\sin^2 (\theta - \phi)}{\left(\sin \theta - \sin \phi\right)^2} - \sin \theta \sin \phi \cdot \frac{\left(\cos \phi - \cos \theta\right)^2}{\left(\sin \theta - \sin \phi\right)^2}\right] \\
+                        & =\frac{a^2}{(\sin \theta - \sin \phi)^2} \left[\sin^2 (\theta - \phi) - \sin \theta \sin \phi \left(\cos \phi - \cos \theta\right)^2\right].
+          \end{align*}
+
+          What is desired is to show
+          \[
+              (1 + \sin \theta \sin \phi) (\sin \theta - \sin \phi)^2 = \sin^2 (\theta - \phi) - \sin \theta \sin \phi \left(\cos \phi - \cos \theta\right)^2.
+          \]
+
+          We have
+          \begin{align*}
+              \RHS & = (\sin \theta \cos \phi - \cos \theta \sin \phi)^2 - \sin \theta \sin \phi (\cos^2 \phi + \cos^2 \theta - 2 \cos \phi \cos \theta)    \\
+                   & = \sin^2 \theta \cos^2 \phi + \cos^2 \theta \sin^2 \phi - 2 \sin \theta \cos \theta \sin \phi \cos \phi                                \\
+                   & \phantom{=} - \sin \theta \sin \phi \cos^2 \phi - \sin \theta \sin \phi \cos^2 \theta  + 2 \sin \theta \cos \theta \sin \phi \cos \phi \\
+                   & = \sin\theta \cos^2\phi (\sin \theta - \sin \phi) + \cos^2 \theta \sin \phi (\sin \phi - \sin \theta)                                  \\
+                   & = (\sin\theta \cos^2 \phi - \cos^2 \theta \sin \phi) (\sin \theta - \sin \phi).
+          \end{align*}
+
+          Therefore, what is left to prove is that
+          \[
+              (1 + \sin \theta \sin \phi)(\sin \theta - \sin \phi) = \sin\theta \cos^2 \phi - \cos^2 \theta \sin \phi
+          \]
+
+          Notice that
+          \begin{align*}
+              \LHS & = \sin \theta - \sin \phi + \sin^2 \theta \sin \phi - \sin \theta \sin^2 \phi \\
+                   & = \sin \theta (1 - \sin^2 \phi) - \sin \phi (1 - \sin^2 \theta)               \\
+                   & = \sin \theta \cos^2 \phi - \sin \phi \cos^2 \theta                           \\
+                   & = \RHS.
+          \end{align*}
+
+          This shows that
+          \[
+              \frac{1}{(\sin \theta - \sin \phi)^2} \left[\sin^2 (\theta - \phi) - \sin \theta \sin \phi \left(\cos \phi - \cos \theta\right)^2\right] = 1 + \sin \theta \sin \phi,
+          \]
+          and hence
+          \[
+              x^2 + y^2 = a^2 - b^2,
+          \]
+          as desired.
+
+\end{enumerate}
