@@ -1,2 +1,129 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(A, Q, C\) lie on a straight line, \(\vect{AQ} = \lambda \vect{AC}\) for some \(\lambda \in \RR\). This means
+          \[
+              q - a = \lambda (c - a),
+          \]
+          and hence
+          \[
+              \frac{q - a}{c - a} = \lambda \in \RR,
+          \]
+          as required.
+
+          Hence, we must have
+          \[
+              \frac{q - a}{c - a} = \left(\frac{q - a}{c - a}\right)^* = \frac{q^* - a^*}{c^* - a^*}.
+          \]
+
+          Cross-multiplying the terms out give
+          \[
+              (c - a)(q^* - a^*) = (c^* - a^*)(q - a)
+          \]
+          exactly as desired.
+
+          Substituting in \(a^* = 1 / a\) and \(c^* = 1 / c\), we have
+          \[
+              (c - a) \left(q^* - \frac{1}{a}\right) = \left(\frac{1}{c} - \frac{1}{a}\right)(q - a),
+          \]
+          and expanding the brackets gives
+          \[
+              cq^* - aq^* - \frac{c}{a} + 1 = \frac{q}{c} - \frac{a}{c} - \frac{q}{a} + 1,
+          \]
+          and hence
+          \[
+              cq^* - aq^* - \frac{c}{a} = \frac{q}{c} - \frac{a}{c} - \frac{q}{a}.
+          \]
+
+          Multiplying by \(ac\) on both sides gives us
+          \[
+              a c^2 q^* - a^2 c q^* - c^2 = aq - a^2 - cq,
+          \]
+          and hence
+          \[
+              ac (c - a) q^* = (a - c)q - (a^2 - c^2) = (a - c)q - (a - c)(a + c).
+          \]
+
+          We can divide through \((a - c)\) on both sides since \(a \neq c\). Hence,
+          \[
+              0 = q - (a + c) + ac q^*,
+          \]
+          and hence
+          \[
+              acq^* + q = a + c,
+          \]
+          as desired.
+
+    \item By part 1, we must have
+          \[
+              acq^* + q = a + c, bdq^* + q = b + d.
+          \]
+
+          Since \(q = q\), we have
+          \[
+              acq^* - (a + c) = bdq^* - (b + d),
+          \]
+          and rearranging gives
+          \[
+              (ac - bd) q^* = (a + c) - (b + d),
+          \]
+          exactly as desired.
+
+          We also have \(q^* = q^*\), and hence
+          \[
+              \frac{a + c - q}{ac} = \frac{b + d - q}{bd},
+          \]
+          which gives
+          \[
+              (bd)(a + c - q) = (ac)(b + d - q),
+          \]
+          and rearranging gives
+          \[
+              (ac - bd)q = ac(b + d) - bd(a + c).
+          \]
+
+          Summing this with previously, we have
+          \[
+              (ac - bd)(q + q^*) = (a + c) - (b + d) + ac(b + d) - bd(a + c).
+          \]
+
+          We notice that
+          \begin{align*}
+              (a + c) - (b + d) + ac(b + d) - bd(a + c) & = a + c - b - d + abc + acd - abd - bcd \\
+                                                        & = a - b + acd - bcd + c - d + abc - abd \\
+                                                        & = (a - b)(1 + cd) + (c - d)(1 + ab),
+          \end{align*}
+          and hence
+          \[
+              (ac - bd)(q + q^*) = (a - b)(1 + cd) + (c - d)(1 + ab),
+          \]
+          exactly as desired.
+
+    \item By part 1, we must have
+          \[
+              p + abp^* = a + b.
+          \]
+
+          Since \(p\) is real, \(p = p^*\), and hence
+          \[
+              (1 + ab)p = a + b,
+          \]
+          as desired.
+
+          Similarly, we must have
+          \[
+              (1 + cd)q = c + d,
+          \]
+          and putting this back into the result from part 2, we have
+          \[
+              (ac - bd)(q + q^*) = \frac{(a - b)(c + d)}{p} + \frac{(c - d)(a + b)}{p},
+          \]
+          and hence since \(ac - bd \neq 0\), we have
+          \begin{align*}
+              p(q + q^*) & = \frac{(a - b)(c + d) + (c - d)(a + b)}{ac - bd}       \\
+                         & = \frac{ac + ad - bc - bd + ac + bc - ad - bd}{ac - bd} \\
+                         & = \frac{2ac - 2bd}{ac - bd}                             \\
+                         & = 2,
+          \end{align*}
+          as desired.
+\end{enumerate}
