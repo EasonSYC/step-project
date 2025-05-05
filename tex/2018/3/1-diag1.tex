@@ -1,0 +1,10 @@
+
+\begin{tikzpicture}[scale=1]
+    \draw[->] (-4.5,0) -- (4.5,0) node[right] {\(x\)};
+    \draw[->] (0,-4.5) -- (0,4.5) node[above] {\(y\)};
+    \node at (0, 0) [below right] {\(O\)};
+    \draw[domain=0.58:4, samples=200, smooth] plot (\x, {\x - 1 / \x - 1 / (\x * \x)}) node[below right] {\(y = f(x)\)};
+    \draw[domain=-4:-0.4, samples=200, smooth] plot (\x, {\x - 1 / \x - 1 / (\x * \x)});
+    \draw[domain=-4:4, samples=200, smooth, dashed] plot (\x, \x) node[above right] {\(y = x\)};
+    \filldraw (-1, -1) circle (2pt) node[above left] {\((-1, -1)\)};
+\end{tikzpicture}

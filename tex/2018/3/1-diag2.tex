@@ -1,0 +1,11 @@
+
+\begin{tikzpicture}[scale=1]
+    \draw[->] (-5.5,0) -- (5.5,0) node[right] {\(x\)};
+    \draw[->] (0,-5.5) -- (0,5.5) node[above] {\(y\)};
+    \node at (0, 0) [below right] {\(O\)};
+    \draw[domain=0.25:5, samples=200, smooth] plot (\x, {\x + 3 / \x - 1 / (\x * \x)}) node[above right] {\(y = g(x)\)};
+    \draw[domain=-5:-1, samples=200, smooth] plot (\x, {\x + 3 / \x - 1 / (\x * \x)});
+    \draw[domain=-5:5, samples=200, smooth, dashed] plot (\x, \x) node[below right] {\(y = x\)};
+    \filldraw (1, 3) circle (2pt) node[above left] {\((1, 3)\)};
+    \filldraw (-2, -15/4) circle (2pt) node[above left] {\(\left(-2, -\frac{15}{4}\right)\)};
+\end{tikzpicture}
