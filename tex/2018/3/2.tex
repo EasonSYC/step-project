@@ -1,2 +1,91 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Notice that
+          \begin{align*}
+              \DiffFrac{y_n}{x} & = \DiffFrac{(-1)^n \frac{1}{z} \NdiffFrac{n}{z}{x}}{x}                                                                          \\
+                                & = (-1)^n \left[\DiffFrac{\frac{1}{z}}{x} \cdot \NdiffFrac{n}{z}{x} + \frac{1}{z} \cdot \DiffFrac{\NdiffFrac{n}{z}{x}}{x}\right] \\
+                                & = (-1)^n \left[\frac{2x}{z} \cdot \NdiffFrac{n}{z}{x} + \frac{1}{z} \cdot \NdiffFrac{n + 1}{z}{x}\right]                        \\
+                                & = 2x \cdot (-1)^n \frac{1}{z} \NdiffFrac{n}{z}{x} - (-1)^{n + 1} \frac{1}{z} \NdiffFrac{n + 1}{z}{x}                            \\
+                                & = 2x y_n - y_{n + 1},
+          \end{align*}
+          as desired.
+
+    \item We first look at the base case where \(n = 1\). What is desired is
+          \[
+              y_2 = 2 x y_1 - 2 y_0.
+          \]
+
+          We have \(y_0 = 1\),
+          \[
+              y_1 = (-1)^1 \frac{1}{e^{-x^2}} \DiffFrac{e^{-x^2}}{x} = - e^{x^2} (-2x) e^{-x^2} = 2x,
+          \]
+          and
+          \[
+              y_2 = 2x y_1 - \DiffFrac{y_1}{x} = 2x \cdot 2x - 2 = 4x^2 - 2.
+          \]
+
+          Hence,
+          \[
+              2x y_1 - 2 y_0 = 2x \cdot 2x - 2 \cdot 1 - 4x^2 - 2 = y_2,
+          \]
+          so the base case is satisfied.
+
+          Now assume this is true for some \(n = k \geq 1\), i.e.
+          \[
+              y_{k + 1} = 2 x y_k - 2 k y_{k - 1}.
+          \]
+
+          We have
+          \begin{align*}
+              y_{k + 2} & = 2 x y_{k + 1} - \DiffFrac{y_{k + 1}}{x}                                          \\
+                        & = 2 x y_{k + 1} - \DiffFrac{\left(2 x y_k - 2 k y_{k - 1}\right)}{x}               \\
+                        & = 2 x y_{k + 1} - 2 y_k - 2 x \DiffFrac{y_k}{x} + 2k \DiffFrac{y_{k - 1}}{x}       \\
+                        & = 2 x y_{k + 1} - 2 y_k - 2 x (2 x y_k -  y_{k + 1}) + 2k (2x y_{k - 1} - y_k)     \\
+                        & = 2 x y_{k + 1} - 2 y_k - 4x^2 y_k + 2 x y_{k + 1} + 4 k x y_{k - 1} - 2k y_k      \\
+                        & = 4x y_{k + 1} - 2 (2x^2 + k + 1) y_k + 4 k x y_{k - 1}                            \\
+                        & = 4x y_{k + 1} - 2 (2x^2 + k + 1) y_k + 4 k x \cdot \frac{2 x y_k - y_{k + 1}}{2k} \\
+                        & = 4x y_{k + 1} - 2 (2x^2 + k + 1) y_k + 2x (2 x y_k - y_{k + 1})                   \\
+                        & = 2x y_{k + 1} - 2 (k + 1) y_k,
+          \end{align*}
+          which is exactly the statement for \(n = k + 1\).
+
+          Hence, by the principle of mathematical induction, we have \(y_{n + 1} = 2 x y_n - 2n y_{n - 1}\) for all \(n \geq 1\).
+
+          We have
+          \begin{align*}
+              \LHS & = y_{n + 1}^2 - y_n y_{n + 2}                       \\
+                   & = y_{n + 1}^2 - y_n (2 x y_{n + 1} - 2 (n + 1) y_n) \\
+                   & = y_{n + 1}^2 - 2 x y_n y_{n + 1} + 2 (n + 1) y_n^2
+          \end{align*}
+          and
+          \begin{align*}
+              \RHS & = 2n (y_n^2 - y_{n - 1} y_{n + 1}) + 2 y_n^2                                \\
+                   & = 2n \left(y_n^2 - \frac{2x y_n - y_{n + 1}}{2n} y_{n + 1}\right) + 2 y_n^2 \\
+                   & = 2n y_n^2 - \left(2x y_n - y_{n + 1}\right) y_{n + 1} + 2 y_n^2            \\
+                   & = 2n y_n^2 - 2x y_n y_{n + 1} + y_{n + 1}^2 + 2 y_n^2                       \\
+                   & = y_{n + 1}^2 - 2x y_n y_{n + 1} + 2 (n + 1) y_n^2.
+          \end{align*}
+
+    \item This can be shown by induction on \(n\). The base case for \(n = 1\) is
+          \[
+              y_1^2 - y_0 y_2 = (2x)^2 - 1 \cdot (4x^2 - 2) = 2 > 0
+          \]
+          is true.
+
+          Now assume the statement is true for \(n = k \geq 1\), i.e.
+          \[
+              y_k^2 - y_{k - 1} y_{k + 1} > 0.
+          \]
+
+          We have
+          \begin{align*}
+              y_{k + 1}^2 - y_k y_{k + 2} & = 2n (y_k^2 - y_{k - 1} y_k + 1) + 2 y_n^2 \\
+                                          & > 2n \cdot 0 + y_n^2                       \\
+                                          & = 0 + y_n^2                                \\
+                                          & \geq 0,
+          \end{align*}
+          which is the statement for \(n = k + 1\).
+
+          Hence, by the principle of mathematical induction, we have \(y_n^2 - y_{n - 1} y_{n + 1} > 0\) for all \(n \geq 1\).
+\end{enumerate}
