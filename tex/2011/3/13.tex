@@ -1,2 +1,84 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item We first find the expression given by the question.
+          \begin{align*}
+              \frac{\Prob(X = r + 1)}{\Prob(X = r)} & = \frac{\left(\frac{b}{n}\right)^{r + 1} \left(\frac{n - b}{n}\right)^{k - r - 1} \binom{k}{r + 1}}{\left(\frac{b}{n}\right)^{r} \left(\frac{n - b}{n}\right)^{k - r} \binom{k}{r}} \\
+                                                    & = \frac{b / n}{(n - b) / n} \cdot \frac{\frac{k!}{(r + 1)! (k - r - 1)!}}{\frac{k!}{r! (k - r)!}}                                                                                   \\
+                                                    & = \frac{b}{n - b} \cdot \frac{r! (k - r)!}{(r + 1)! (k - r - 1)!}                                                                                                                   \\
+                                                    & = \frac{b}{n - b} \cdot \frac{k - r}{r + 1}                                                                                                                                         \\
+                                                    & = \frac{b}{n - b} \cdot \left(\frac{k + 1}{r + 1} - 1\right),
+          \end{align*}
+          and we can see that this decreases as \(r\) increases.
+
+          If the most probable number of black balls in the sample is unique (let it be \(r_0\)), then we have
+          \[
+              \Prob(X = r_0 + 1) < \Prob(X = r_0) \iff \frac{\Prob(X = r_0 + 1)}{\Prob(X = r_0)} < 1,
+          \]
+          and
+          \[
+              \Prob(X = r_0 - 1) < \Prob(X = r_0) \iff \frac{\Prob(X = r_0)}{\Prob(X = r_0 - 1)} > 1,
+          \]
+
+          This means \(r_0\) is the minimal solution to the inequality
+          \[
+              \frac{\Prob(X = r + 1)}{\Prob(X = r)} < 1.
+          \]
+
+          This could be simplified to
+          \begin{align*}
+              \frac{\Prob(X = r + 1)}{\Prob(X = r)}                & < 1                       \\
+              \frac{b}{n - b} \left(\frac{k + 1}{r + 1} - 1\right) & < 1                       \\
+              \frac{k + 1}{r + 1} - 1                              & < \frac{n - b}{b}         \\
+              \frac{k + 1}{r + 1}                                  & < \frac{n}{b}             \\
+              r + 1                                                & > \frac{b(k + 1)}{n}      \\
+              r                                                    & > \frac{b(k + 1)}{n} - 1,
+          \end{align*}
+          and hence
+          \[
+              r_0 = \floor*{\frac{b(k + 1)}{n}}.
+          \]
+
+          It is not unique when there exists some \(r\) where
+          \[
+              \frac{\Prob(X = r_0 + 1)}{\Prob(X = r_0)} = 1,
+          \]
+          which means there exists an integer \(r\) such that
+          \[
+              r = \frac{b(k + 1)}{n} - 1.
+          \]
+
+          This happens if and only if \(n \divides b(k + 1)\).
+
+    \item Let \(Y\) be the number of black balls in the sample. Similarly, we have
+          \begin{align*}
+              \frac{\Prob(Y = r + 1)}{\Prob(Y = r)} & = \frac{\frac{\binom{b}{r + 1} \cdot \binom{n - b}{k - r - 1}}{\binom{n}{k}}}{\frac{\binom{b}{r} \cdot \binom{n - b}{k - r}}{\binom{n}{k}}}                                \\
+                                                    & = \frac{\frac{b!}{(r + 1)! (b - r - 1)!} \cdot \frac{(n - b)!}{(k - r - 1)!(n + r - k - b + 1)!}}{\frac{b!}{r! (b - r)!} \cdot \frac{(n - b)!}{(k - r)! (n + r - k - b)!}} \\
+                                                    & = \frac{r! (b - r)! (k - r)! (n + r - k - b)!}{(r + 1)! (b - r - 1)! (k - r - 1)! (n + r - k - b + 1)!}                                                                    \\
+                                                    & = \frac{(b - r) \cdot (k - r)}{(r + 1) \cdot (n + r - k - b + 1)}.
+          \end{align*}
+
+          The most probable number of black balls is the smallest solution to
+          \begin{align*}
+              \frac{(b - r) \cdot (k - r)}{(r + 1) \cdot (n + r - k - b + 1)} & < 1                                          \\
+              (b - r)(k - r)                                                  & < (r + 1)(n + r - k - b + 1)                 \\
+              bk - rk - bk + r^2                                              & < nr + r^2 - rk - bk + r + n + r - k - b + 1 \\
+              (n + 2)r                                                        & > bk + k + b - 1 - n                         \\
+              r                                                               & > \frac{bk + k + b - 1 - n}{n + 2}           \\
+                                                                              & = \frac{(n + 1)(k + 1)}{n + 2} - 1.
+          \end{align*}
+
+          This means the most probable number of black balls, given its uniqueness, is
+          \[
+              \floor*{\frac{(b + 1)(k + 1)}{(n + 2)}}.
+          \]
+
+          It is not unique when
+          \[
+              \frac{(n + 1)(k + 1)}{n + 2} - 1
+          \]
+          is an integer, if and only if
+          \[
+              (n + 2) \divides (n + 1)(k + 1).
+          \]
+\end{enumerate}
