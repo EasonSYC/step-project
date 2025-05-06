@@ -1,2 +1,130 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+We have
+\begin{align*}
+    \DiffFrac{z}{x} & = n \cdot y^{n - 1} \cdot \DiffFrac{y}{x} \cdot \left(\DiffFrac{y}{x}\right)^2 + y^n \cdot 2 \cdot \DiffFrac{y}{x} \cdot \NdiffFrac{2}{y}{x} \\
+                    & = y^{n - 1} \DiffFrac{y}{x} \left[n \left(\DiffFrac{y}{x}\right)^2 + 2y \NdiffFrac{2}{y}{x}\right],
+\end{align*}
+as desired.
+
+\begin{enumerate}
+    \item Let \(n = 1\), we have \(z = y \left(\DiffFrac{y}{x}\right)^2\), and
+          \[
+              \DiffFrac{z}{x} = \DiffFrac{y}{x} \left[\left(\DiffFrac{y}{x}\right)^2 + 2y \NdiffFrac{2}{y}{x}\right].
+          \]
+
+          Hence, the differential equation
+          \[
+              \left(\DiffFrac{y}{x}\right)^2 + 2y \NdiffFrac{2}{y}{x} = \sqrt{y}
+          \]
+          simplifies to
+          \[
+              \frac{\DiffFrac{z}{x}}{\DiffFrac{y}{x}} = \sqrt{y},
+          \]
+          and hence
+          \[
+              \DiffFrac{z}{y} = \sqrt{y}.
+          \]
+
+          Hence, by integration,
+          \[
+              z = \frac{2}{3} y^{\frac{3}{2}} + C.
+          \]
+
+          When \(x = 0\), \(y = 1\) and \(\DiffFrac{y}{x} = 0\), and hence \(z = 0\). Hence,
+          \[
+              0 = \frac{2}{3} + C,
+          \]
+          and therefore \(C = -\frac{2}{3}\).
+
+          We therefore have
+          \[
+              y \left(\DiffFrac{y}{x}\right)^2 =\frac{2}{3} y^{\frac{3}{2}} - \frac{2}{3},
+          \]
+          and hence
+          \[
+              \DiffFrac{y}{x} = \sqrt{\frac{2}{3} \left(\sqrt{y} - \frac{1}{y}\right)}.
+          \]
+
+          Rearrangement gives
+          \[
+              \frac{\sqrt{y} \Diff y}{\sqrt{y^{\frac{3}{2}} - 1}} = \sqrt{\frac{2}{3}} \Diff x.
+          \]
+
+          Notice that
+          \begin{align*}
+              \DiffFrac{\sqrt{y^{\frac{3}{2}} - 1}}{y} & = \frac{1}{2} \cdot \frac{1}{\sqrt{y^{\frac{3}{2}} - 1}} \cdot \frac{3}{2} \cdot \sqrt{y} \\
+                                                       & = \frac{3}{4} \cdot \frac{\sqrt{y}}{\sqrt{y^{\frac{3}{2}} - 1}},
+          \end{align*}
+          and hence by integration
+          \[
+              \frac{4}{3} \cdot \sqrt{y^{\frac{3}{2}} - 1} = \sqrt{\frac{2}{3}} x + C.
+          \]
+
+          When \(x = 0, y = 1\), and hence \(C = 0\). Therefore,
+          \[
+              \sqrt{y^{\frac{3}{2}} - 1} = \sqrt{\frac{3}{8}} x,
+          \]
+          and hence
+          \[
+              y^{\frac{3}{2}} = \frac{3}{8} x^2 + 1,
+          \]
+          and hence
+          \[
+              y = \left(\frac{3}{8}x^2 + 1\right)^{\frac{2}{3}},
+          \]
+          as desired.
+
+    \item Let \(n = -2\), we have \(z = y^{-2} \left(\DiffFrac{y}{x}\right)^2\), and
+          \[
+              \DiffFrac{z}{x} = -2y^{-3} \DiffFrac{y}{x} \left[\left(\DiffFrac{y}{x}\right)^2 - y \NdiffFrac{2}{y}{x}\right].
+          \]
+
+          Hence, the differential equation
+          \[
+              \left(\DiffFrac{y}{x}\right)^2 - y \NdiffFrac{2}{y}{x} + y^2 = 0
+          \]
+          simplifies to
+          \[
+              \frac{\DiffFrac{z}{x}}{-2y^{-3} \DiffFrac{y}{x}} + y^2 = 0,
+          \]
+          which gives
+          \[
+              \DiffFrac{z}{y}  = \frac{2}{y}.
+          \]
+
+          By integration on both sides, we have
+          \[
+              z = 2 \ln y + C,
+          \]
+          and when \(x = 0\), \(y = 1\), \(\DiffFrac{y}{x} = 0\), which gives \(z = 0\). Hence, \(C = 0\), and
+          \[
+              y^{-2} \left(\DiffFrac{y}{x}\right)^2 = 2 \ln y,
+          \]
+          which gives
+          \[
+              \DiffFrac{y}{x} = y\sqrt{2 \ln y},
+          \]
+          and therefore,
+          \[
+              \frac{\Diff y}{y \sqrt{\ln y}} = \sqrt{2} \Diff x.
+          \]
+
+          By integration,
+          \[
+              \int \frac{\Diff y}{y \sqrt{\ln y}} = \int \frac{\Diff \ln y}{\sqrt{\ln y}} = 2 \sqrt{\ln y} + C,
+          \]
+          and hence
+          \[
+              2 \sqrt{\ln y} = \sqrt{2} x + C.
+          \]
+
+          When \(x = 0\), \(y = 1\), so \(C = 0\), and hence
+          \[
+              \sqrt{\ln y} = \frac{x}{\sqrt{2}},
+          \]
+          and therefore, the solution to the original differential equation is
+          \[
+              y = e^{\frac{x^2}{2}}.
+          \]
+\end{enumerate}
