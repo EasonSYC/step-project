@@ -1,2 +1,79 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+By differentiation, we have
+\[
+    [G(H(t))]' = G'(H(t)) \cdot H'(t).
+\]
+
+Hence, we have
+\begin{align*}
+    \Expt(Y) & = \LEvalAt{[G(H(t))]'}{t = 1} \\
+             & = G'(H(1)) \cdot H'(1)        \\
+             & = G'(1) \cdot H'(1)           \\
+             & = \Expt(N) \cdot \Expt(X_i).
+\end{align*}
+
+By differentiating twice, we have
+\[
+    [G(H(t))]'' = G''(H(t)) \cdot H'(t) \cdot H'(t) + G'(H(t)) \cdot H''(t).
+\]
+
+Hence, we have
+\begin{align*}
+    \Var(Y) & = \Expt(Y(Y - 1)) + \Expt(Y) - \Expt(Y)^2                                                                                             \\
+            & = \LEvalAt{[G(H(t))]''}{t = 1}  + \Expt(Y) - \Expt(Y)^2                                                                               \\
+            & = G''(H(1)) \cdot H'(1) \cdot H'(1) + G'(H(1)) \cdot H''(1)  + \Expt(Y) - \Expt(Y)^2                                                  \\
+            & = G''(1) \cdot H'(1)^2 + G'(1) \cdot H''(1) + \Expt(Y) - \Expt(Y)^2                                                                   \\
+            & = \Expt(N(N - 1)) \cdot \Expt(X_i)^2 + \Expt(N) \cdot \Expt(X_i (X_i - 1))  + \Expt(Y) - \Expt(Y)^2                                   \\
+            & = \left[\Var(N) + \Expt(N)^2 - \Expt(N)\right] \cdot \Expt(X_i)^2 + \Expt(N) \cdot \left[\Var(X_i) + \Expt(X_i^2) - \Expt(X_i)\right] \\
+            & \phantom{=} + \Expt(N) \cdot \Expt(X_i) - \Expt(N)^2 \cdot \Expt(X_i)^2                                                               \\
+            & =\Var(N) \Expt(X_i)^2 + \Expt(N) \Var(X_i).
+\end{align*}
+
+As defined, we have \(N \sim \Geometric\left(\frac{1}{2}\right)\), and hence
+\[
+    G(t) = \frac{\frac{1}{2} \cdot t}{1 - \left(1 - \frac{1}{2}\right)t} = \frac{t}{2 - t},
+\]
+and
+\[
+    \Expt(N) = 1 / \frac{1}{2} = 2, \Var(N) = \frac{1 - \frac{1}{2}}{\left(\frac{1}{2}\right)^2} = 2.
+\]
+
+We have \(X_i \sim \Binomial\left(1, \frac{1}{2}\right)\), and hence
+\[
+    H(t) = \frac{1}{2} \cdot t^0 + \frac{1}{2} \cdot t^1 = \frac{1}{2} \cdot (1 + t),
+\]
+and
+\[
+    \Expt(X_i) = 1 \cdot \frac{1}{2} = \frac{1}{2}, \Var(X_i) = 1 \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}.
+\]
+
+Hence, for \(Y = \sum_{i = 1}^{N} X_i\), we have
+\[
+    \text{p.g.f.}_{Y}(t) = G(H(t)) = \frac{\frac{1}{2} (1 + t)}{2 - \frac{1}{2} (1 + t)} = \frac{1 + t}{3 - t},
+\]
+and by the formula for expectation and variance, we have
+\[
+    \Expt(Y) = \Expt(N) \Expt(X_i) = 2 \cdot \frac{1}{2} = 1,
+\]
+and
+\[
+    \Var(Y) = \Var(N) \cdot \Expt(X_i)^2 + \Expt(N) \cdot \Var(X_i) = 2 \cdot \left(\frac{1}{2}\right)^2 + 2 \cdot \frac{1}{4} = 1.
+\]
+
+By expressing the probability generating function of \(Y\) as a power series, we notice that
+\begin{align*}
+    \text{p.g.f.}_{Y}(t) & = \frac{1 + t}{3 - t}                                                    \\
+                         & = -1 + \frac{4}{3 - t}                                                   \\
+                         & = -1 + \frac{4}{3} \cdot \frac{1}{1 - \frac{t}{3}}                       \\
+                         & = -1 + \frac{4}{3} \sum_{r = 0}^{+\infty} \left(\frac{t}{3}\right)^r     \\
+                         & = -1 + \frac{4}{3} + \frac{4}{3} \sum_{r = 1}^{+\infty} 3^{-r} \cdot t^r \\
+                         & = \frac{1}{3} + \frac{4}{3} \sum_{r = 1}^{+\infty} 3^{-r} \cdot t^r,
+\end{align*}
+and hence
+\begin{align*}
+    \Prob(Y = y) = \begin{cases}
+                       \frac{1}{3},         & y = 0,            \\
+                       \frac{4}{3^{y + 1}}, & \text{otherwise}.
+                   \end{cases}
+\end{align*}
