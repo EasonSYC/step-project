@@ -1,2 +1,85 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item By the formula for difference of two squares, we have
+          \begin{align*}
+              (1 - x)(1 + x)(1 + x^2)(1 + x^4) \cdots (1 + x^{2^n}) & = (1 - x^2)(1 + x^2)(1 + x^4) \cdots (1 + x^{2^n}) \\
+                                                                    & = (1 - x^4)(1 + x^4) \cdots (1 + x^{2^n})          \\
+                                                                    & = \cdots                                           \\
+                                                                    & = 1 - x^{2^{n + 1}}.
+          \end{align*}
+
+          This means,
+          \[
+              1 = (1 - x)(1 + x)(1 + x^2)(1 + x^4) \cdots (1 + x^{2^n}) + x^{2^{n + 1}},
+          \]
+          and dividing both sides by \(1 - x\) gives
+          \[
+              \frac{1}{1 - x} = (1 + x)(1 + x^2)(1 + x^4) \cdots (1 + x^{2^n}) + \frac{x^{2^{n + 1}}}{1 - x}.
+          \]
+
+          Rearranging and taking natural logs on both sides, we have
+          \[
+              \ln(1 - x^{2^{n + 1}}) - \ln(1 - x) = \sum_{k = 0}^{n} \ln(1 + x^{2^{k}}),
+          \]
+          and therefore,
+          \[
+              \ln(1 - x) = -\sum_{k = 0}^{n} \ln(1 + x^{2^{k}}) + \ln(1 - x^{2^{n + 1}}).
+          \]
+
+          Let \(n \to +\infty\). \(2^{n + 1} \to +\infty\), and since \(\abs{x} < 1\), we have \(x^{2^{n + 1}} \to 0\), and hence
+          \[
+              \ln(1 - x) = -\sum_{k = 0}^{+\infty} \ln(1 + x^{2^{k}}) + \ln(1) = -\sum_{k = 0}^{+\infty} \ln(1 + x^{2^{k}}),
+          \]
+          as desired.
+
+          Differentiating both sides with respect to \(x\), we have
+          \[
+              - \frac{1}{1 - x} = - \sum_{k = 0}^{+\infty} \frac{2^k x^{2^k - 1}}{1 + x^{2^k}},
+          \]
+          and hence
+          \[
+              \frac{1}{1 - x} = \sum_{k = 0}^{+\infty} \frac{2^k x^{2^k - 1}}{1 + x^{2^k}},
+          \]
+          exactly as desired.
+
+    \item Notice that
+          \begin{align*}
+               & \phantom{=} (1 + x + x^2) (1 - x + x^2) (1 - x^2 + x^4) (1 - x^4 + x^8) \cdots (1 - x^{2^{n - 1}} + x^{2^n}) \\
+               & = ((1 + x^2)^2 - x^2) (1 - x^2 + x^4) (1 - x^4 + x^8) \cdots (1 - x^{2^{n - 1}} + x^{2^n})                   \\
+               & = (1 + x^2 + x^4) (1 - x^2 + x^4) (1 - x^4 + x^8) \cdots (1 - x^{2^{n - 1}} + x^{2^n})                       \\
+               & = ((1 + x^4)^2 - (x^2)^2) (1 - x^4 + x^8) \cdots (1 - x^{2^{n - 1}} + x^{2^n})                               \\
+               & = (1 + x^4 + x^8)(1 - x^4 + x^8) \cdots (1 - x^{2^{n - 1}} + x^{2^n})                                        \\
+               & = \cdots                                                                                                     \\
+               & = 1 + x^{2^n} + x^{2^{n + 1}}.
+          \end{align*}
+
+          Therefore,
+          \[
+              1 = (1 + x + x^2) (1 - x + x^2) (1 - x^2 + x^4) (1 - x^4 + x^8) \cdots (1 - x^{2^{n - 1}} + x^{2^n}) - x^{2^n} - x^{2^{n + 1}},
+          \]
+          and hence
+          \[
+              \frac{1}{1 + x + x^2} = (1 - x + x^2) (1 - x^2 + x^4) (1 - x^4 + x^8) \cdots (1 - x^{2^{n - 1}} + x^{2^n}) - \frac{x^{2^n} + x^{2^{n + 1}}}{1 + x + x^2}.
+          \]
+
+          Rearranging and taking natural logs on both sides, we have
+          \[
+              \ln(1 + x^{2^n} + x^{2^{n + 1}}) - \ln (1 + x + x^2) = \sum_{k = 1}^{n} \ln(1 - x^{2^{k - 1}} + x^{2^k}),
+          \]
+          and hence
+          \[
+              \ln (1 + x + x^2) = -\sum_{k = 1}^{n} \ln(1 - x^{2^{k - 1}} + x^{2^k}) + \ln(1 + x^{2^n} + x^{2^{n + 1}}).
+          \]
+
+          Let \(n \to +\infty\), we have \(2^n, 2^{n + 1} \to +\infty\), and since \(\abs{x} < 1\), we must have \(x^{2^n}, x^{2^{n + 1}} \to +\infty\), and hence \(\ln(1 + x^{2^n} + x^{2^{n + 1}}) \to 0\). Hence,
+          \[
+              \ln (1 + x + x^2) = - \sum_{k = 1}^{+\infty} \ln(1 - x^{2^{k - 1}} + x^{2^k}).
+          \]
+
+          Differentiating both sides with respect to \(x\), we get
+          \[
+              \frac{1 + 2x}{1 + x + x^2} = - \sum_{k = 1}^{+\infty} \frac{- 2^{k - 1} x^{2^{k - 1} - 1} + 2^{k} x^{2^{k} - 1} }{1 - x^{2^{k - 1}} + x^{2^k}} = \sum_{k = 1}^{+\infty} \frac{2^{k - 1} x^{2^{k - 1} - 1} - 2^{k} x^{2^{k} - 1} }{1 - x^{2^{k - 1}} + x^{2^k}},
+          \]
+          which is exactly what is desired.
+\end{enumerate}
