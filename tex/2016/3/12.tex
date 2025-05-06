@@ -5,11 +5,11 @@
 
           We have that
           \begin{align*}
-              \alpha & = \Prob(16n \leq X \leq 24n)                  \\
-                     & = \Prob(\abs{(X - 20n)} \leq 4n)              \\
-                     & = \Prob(\abs{(X - \mu)} \leq \sigma \sqrt n)  \\
-                     & = 1 - \Prob(\abs{(X - \mu)} > \sigma \sqrt n) \\
-                     & \geq 1 - \frac{1}{\sqrt{n}^2}                 \\
+              \alpha & = \Prob(16n \leq X \leq 24n)                   \\
+                     & = \Prob(\abs*{(X - 20n)} \leq 4n)              \\
+                     & = \Prob(\abs*{(X - \mu)} \leq \sigma \sqrt n)  \\
+                     & = 1 - \Prob(\abs*{(X - \mu)} > \sigma \sqrt n) \\
+                     & \geq 1 - \frac{1}{\sqrt{n}^2}                  \\
                      & = 1 - \frac{1}{n},
           \end{align*}
           as desired, where we applied the Chebyshev Inequality for \(k = \sqrt{n} > 0\).
@@ -21,11 +21,11 @@
 
           Notice that the left-hand side is simply \(\Prob(0 \leq X \leq 2n)\). By the Chebyshev Inequality, we have
           \begin{align*}
-              \LHS & = \Prob(0 \leq X \leq 2n)                \\
-                   & = \Prob(|X - \mu| \leq n)                \\
-                   & = \Prob(|X - \mu| \leq \sqrt{n} \sigma)  \\
-                   & = 1 - \Prob(|X - \mu| > \sqrt{n} \sigma) \\
-                   & \geq 1 - \frac{1}{n}                     \\
+              \LHS & = \Prob(0 \leq X \leq 2n)                     \\
+                   & = \Prob(\abs*{X - \mu} \leq n)                \\
+                   & = \Prob(\abs*{X - \mu} \leq \sqrt{n} \sigma)  \\
+                   & = 1 - \Prob(\abs*{X - \mu} > \sqrt{n} \sigma) \\
+                   & \geq 1 - \frac{1}{n}                          \\
                    & = \RHS,
           \end{align*}
           as desired, where we applied the Chebyshev Inequality for \(k = \sqrt{n} > 0\).

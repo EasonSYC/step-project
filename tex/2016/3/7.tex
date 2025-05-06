@@ -20,60 +20,60 @@ For the following parts, W.L.O.G. let the orientation of the polygon be such tha
 \begin{enumerate}
     \item Let \(z\) represent the complex number for \(P\), we have
           \begin{align*}
-              \prod_{k = 0}^{n - 1} \abs{P X_k} & = \prod_{k = 0}^{n - 1} \abs{z - \omega^k}   \\
-                                                & = \abs{\prod_{k = 0}^{n - 1} (z - \omega^k)} \\
-                                                & = \abs{z^n - 1}.
+              \prod_{k = 0}^{n - 1} \abs*{P X_k} & = \prod_{k = 0}^{n - 1} \abs*{z - \omega^k}   \\
+                                                 & = \abs*{\prod_{k = 0}^{n - 1} (z - \omega^k)} \\
+                                                 & = \abs*{z^n - 1}.
           \end{align*}
 
-          Since \(P\) is equidistant from \(X_0\) and \(X_1\), we must have that \(P = r \exp\left(\frac{\pi i}{n}\right)\) for some \(r \in \RR\), where \(\abs{r} = \abs{OP}\). Therefore, we have
+          Since \(P\) is equidistant from \(X_0\) and \(X_1\), we must have that \(P = r \exp\left(\frac{\pi i}{n}\right)\) for some \(r \in \RR\), where \(\abs*{r} = \abs*{OP}\). Therefore, we have
           \begin{align*}
-              \prod_{k = 0}^{n - 1} \abs{P X_k} & = \abs{z^n - 1}                                  \\
-                                                & = \abs{r^n \exp\left(\frac{\pi i}{2}\right) - 1} \\
-                                                & = \abs{-r^n - 1}                                 \\
-                                                & = \abs{r^n + 1}.
+              \prod_{k = 0}^{n - 1} \abs*{P X_k} & = \abs*{z^n - 1}                                  \\
+                                                 & = \abs*{r^n \exp\left(\frac{\pi i}{2}\right) - 1} \\
+                                                 & = \abs*{-r^n - 1}                                 \\
+                                                 & = \abs*{r^n + 1}.
           \end{align*}
 
-          If \(n\) is even, then \(r^n = |r|^n > 0\), and therefore \(\abs{r^n + 1} = r^n + 1 = \abs{r}^n + 1 = \abs{OP}^n + 1\) as desired.
+          If \(n\) is even, then \(r^n = \abs*{r}^n > 0\), and therefore \(\abs*{r^n + 1} = r^n + 1 = \abs*{r}^n + 1 = \abs*{OP}^n + 1\) as desired.
 
-          If \(n\) is odd, and \(r > 0\), then \(r^n = |r|^n > 0\), and
+          If \(n\) is odd, and \(r > 0\), then \(r^n = \abs*{r}^n > 0\), and
           \begin{align*}
-              \LHS & = \abs{r^n + 1}   \\
-                   & = r^n + 1         \\
-                   & = |r|^n + 1       \\
-                   & = \abs{OP}^n + 1.
-          \end{align*}
-
-          When \(-1 \leq r < 0\), we have \(-1 \leq r^n = -|r|^n < 0\), and
-          \begin{align*}
-              \LHS & = \abs{r^n + 1}    \\
+              \LHS & = \abs*{r^n + 1}   \\
                    & = r^n + 1          \\
-                   & = -|r|^n + 1       \\
-                   & = -\abs{OP}^n + 1.
+                   & = \abs*{r}^n + 1   \\
+                   & = \abs*{OP}^n + 1.
           \end{align*}
 
-          When \(r < -1\), we have \(r^n = -|r|^n < -1\), and
+          When \(-1 \leq r < 0\), we have \(-1 \leq r^n = -\abs*{r}^n < 0\), and
           \begin{align*}
-              \LHS & = \abs{r^n + 1}   \\
-                   & = -r^n - 1        \\
-                   & = |r|^n - 1       \\
-                   & = \abs{OP}^n - 1.
+              \LHS & = \abs*{r^n + 1}    \\
+                   & = r^n + 1           \\
+                   & = -\abs*{r}^n + 1   \\
+                   & = -\abs*{OP}^n + 1.
+          \end{align*}
+
+          When \(r < -1\), we have \(r^n = -\abs*{r}^n < -1\), and
+          \begin{align*}
+              \LHS & = \abs*{r^n + 1}   \\
+                   & = -r^n - 1         \\
+                   & = \abs*{r}^n - 1   \\
+                   & = \abs*{OP}^n - 1.
           \end{align*}
 
           In summary, when \(n\) is odd, we have
           \[
-              \prod_{k = 0}^{n - 1} \abs{P X_k} =
+              \prod_{k = 0}^{n - 1} \abs*{P X_k} =
               \begin{cases}
-                  \abs{OP}^n + 1,  & P \text{ is in the first quadrant},                  \\
-                  -\abs{OP}^n + 1, & P \text{ is in the third quadrant and } |OP| \leq 1, \\
-                  \abs{OP}^n - 1,  & P \text{ is in the third quadrant and } |OP| > 1.
+                  \abs*{OP}^n + 1,  & P \text{ is in the first quadrant},                       \\
+                  -\abs*{OP}^n + 1, & P \text{ is in the third quadrant and } \abs*{OP} \leq 1, \\
+                  \abs*{OP}^n - 1,  & P \text{ is in the third quadrant and } \abs*{OP} > 1.
               \end{cases}
           \]
 
     \item Notice that for a general point \(P\) whose complex number is \(z\), we have
           \begin{align*}
-              \prod_{k = 1}^{n - 1} \abs{P X_k} & = (z - \omega) (z - \omega^2) \cdots \left(z - \omega^{n - 1}\right) \\
-                                                & = \frac{z^n - 1}{z - 1}                                              \\
-                                                & = 1 + z + z^2 + \cdots + z^{n - 1}.
+              \prod_{k = 1}^{n - 1} \abs*{P X_k} & = (z - \omega) (z - \omega^2) \cdots \left(z - \omega^{n - 1}\right) \\
+                                                 & = \frac{z^n - 1}{z - 1}                                              \\
+                                                 & = 1 + z + z^2 + \cdots + z^{n - 1}.
           \end{align*}
 
           If we let \(P = X_0\), \(z = 1\), and \(\RHS = n\), just as we desired.
