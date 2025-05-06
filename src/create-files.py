@@ -12,7 +12,7 @@ def InclusiveRange(start: int, end: int) -> list[int]:
 def Years() -> list[Year] :
     # yearList: list[Year] = [SPEC] + [y for y in InclusiveRange(1987, 2024)]
     # return yearList
-    return [2018]
+    return [2019, 2020, 2021, 2022, 2023]
 
 def Papers(year: Year) -> list[Paper]:
     if year == SPEC or year <= 2019:
