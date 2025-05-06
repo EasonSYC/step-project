@@ -1,2 +1,126 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Since \(\dot{y} = -2(y - z)\), differentiating both sides with respect to \(t\) gives
+\begin{align*}
+    \ddot{y} & = -2 \dot{y} + 2 \dot{z}           \\
+             & = -2 \dot{y} + 2 (- \dot{y} - 3 z) \\
+             & = -4 \dot{y} - 6z                  \\
+             & = -4 \dot{y} - 3(\dot{y} + 2y)     \\
+             & = -7 \dot{y} - 6y,
+\end{align*}
+and hence
+\[
+    \ddot{y} + 7\dot{y} + 6y = 0.
+\]
+
+The auxiliary equation
+\[
+    \lambda^2 + 7 \lambda + 6 = 0
+\]
+gives roots
+\[
+    \lambda_{1} = -1, \lambda_{2} = -6,
+\]
+and hence
+\[
+    y = Ae^{-t} + Be^{-6t}.
+\]
+
+Hence,
+\[
+    \dot{y} = -Ae^{-t} - 6Be^{-6t},
+\]
+and therefore,
+\begin{align*}
+    z & = \frac{\dot{y} + 2y}{2}                                   \\
+      & = \frac{(-Ae^{-t} - 6Be^{-6t}) + 2(Ae^{-t} + Be^{-6t})}{2} \\
+      & = \frac{Ae^{-t} - 4Be^{-6t}}{2}                            \\
+      & = \frac{1}{2}A e^{-t} - 2B e^{-6t}.
+\end{align*}
+
+This set of general solution
+\[
+    (y, z) = \left(Ae^{-t} + Be^{-6t}, \frac{1}{2}A e^{-t} - 2B e^{-6t}\right),
+\]
+is exactly what is desired.
+
+\begin{enumerate}
+    \item \(y(0) = 5\) and \(z(0) = 0\) gives the system of linear equations
+          \[
+              \left\{
+              \begin{aligned}
+                  A + B             & = 5, \\
+                  \frac{1}{2}A - 2B & = 0.
+              \end{aligned}
+              \right.
+          \]
+
+          This solves to \((A, B) = (4, 1)\). Hence,
+          \[
+              z_1(t) = 2e^{-t} - 2e^{-6t}.
+          \]
+
+    \item \(z(0) = z(1) = c\) gives the system of linear equations
+          \[
+              \left\{
+              \begin{aligned}
+                  \frac{1}{2}A - 2B              & = c, \\
+                  \frac{1}{2e}A - \frac{2}{e^6}B & = c,
+              \end{aligned}
+              \right.
+              \implies
+              \left\{
+              \begin{aligned}
+                  A - 4B     & = 2c,    \\
+                  e^5 A - 4B & = 2e^6c.
+              \end{aligned}
+              \right.
+          \]
+
+          Hence,
+          \[
+              A = \frac{2c(e^6 - 1)}{e^5 - 1},
+          \]
+          and therefore
+          \begin{align*}
+              B & = \frac{A - 2c}{4}                                        \\
+                & = \frac{\frac{2c(e^6 - 1)}{e^5 - 1} - 2c}{4}              \\
+                & = \frac{c}{2} \cdot \frac{(e^6 - 1) - (e^5 - 1)}{e^5 - 1} \\
+                & = \frac{c e^5 (e - 1)}{2(e^5 - 1)}.
+          \end{align*}
+
+          This gives
+          \[
+              z_2(t) = \frac{c(e^6 - 1)}{e^5 - 1} e^{-t} - \frac{ce^5 (e - 1)}{e^5 - 1} e^{-6t}.
+          \]
+
+    \item Notice that
+          \begin{align*}
+               & \phantom{=} \sum_{n = -\infty}^{0} z_1(t - n)                                                  \\
+               & = \sum_{n = -\infty}^{0} [2e^{-t + n} - 2e^{-6t + 6n}]                                         \\
+               & = 2\sum_{n = 0}^{+\infty} [e^{-t-n} - e^{-6t-6n}]                                              \\
+               & = 2 \left[e^{-t} \sum_{n = 0}^{+\infty} e^{-n} - e^{-6t} \sum_{n = 0}^{+\infty} e^{-6n}\right] \\
+               & = 2 \left[\frac{e^{-t}}{1 - e^{-1}} - \frac{e^{-6t}}{1 - e^{-6}}\right]                        \\
+               & = \frac{2e}{e - 1} e^{-t} - \frac{2e^6}{e^6 - 1} e^{-6t}.
+          \end{align*}
+
+          Hence, \(c\) must be such that
+          \[
+              \left\{
+              \begin{aligned}
+                  \frac{c(e^6 - 1)}{e^5 - 1} & = \frac{2e}{e - 1},             \\
+                  \frac{2e^6}{e^6 - 1}       & = \frac{ce^5 (e - 1)}{e^5 - 1}.
+              \end{aligned}
+              \right.
+          \]
+
+          Both solves to precisely
+          \[
+              c = \frac{2e(e^5 - 1)}{(e - 1)(e^6 - 1)},
+          \]
+          and hence
+          \[
+              z_2(t) = \sum_{n = -\infty}^{0} z_1(t - n)
+          \]
+          for this value of \(c\).
+\end{enumerate}
