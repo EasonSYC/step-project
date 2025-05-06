@@ -2,41 +2,41 @@
 \begin{enumerate}
     \item Let this condition be \(C_1\). Since the game ends in the first round, the score must remain to be zero, and therefore
           \[
-              \Prob(N = 0 | C_1) = 1,
+              \Prob(N = 0 \mid C_1) = 1,
           \]
           and for all other \(n \in \NN\) where \(n \neq 0\),
           \[
-              \Prob(N = n | C_1) = 0.
+              \Prob(N = n \mid C_1) = 0.
           \]
 
-          This means the p.g.f. for \(N\) conditional under \(C_1\) is just simply \(G(t | C_1) = \Prob(N = 0 | C_1) \cdot t^0 = 1\).
+          This means the p.g.f. for \(N\) conditional under \(C_1\) is just simply \(G(t \mid C_1) = \Prob(N = 0 \mid C_1) \cdot t^0 = 1\).
 
     \item Denote this condition be \(C_2\). Since in the first round, the game score does not change, and after the first round it is just as if this was a new game, so for all \(n \in \NN \cup \{0\}\), we must have
           \[
-              \Prob(N = n | C_2) = \Prob(N = n),
+              \Prob(N = n \mid C_2) = \Prob(N = n),
           \]
           and hence
           \[
-              G(t | C_2) = \sum_{n = 0}^{+\infty} \Prob(N = n | C_2) \cdot x^n = \sum_{n = 0}^{+\infty} \Prob(N = n) \cdot t^n = G(t).
+              G(t \mid C_2) = \sum_{n = 0}^{+\infty} \Prob(N = n \mid C_2) \cdot x^n = \sum_{n = 0}^{+\infty} \Prob(N = n) \cdot t^n = G(t).
           \]
 
     \item Denote the condition where the score is increased by \(1\) as \(C_3\). Since in the first round the game score increased by one, and after the first round it is just as if this was a new game, so for all \(n \in \NN\), we must have
           \[
-              \Prob(N = n | C_3) = \Prob(N = n - 1),
+              \Prob(N = n \mid C_3) = \Prob(N = n - 1),
           \]
           and
           \[
-              \Prob(N = 0 | C_3) = 0.
+              \Prob(N = 0 \mid C_3) = 0.
           \]
 
           Hence,
           \[
-              G(t | C_3) = \sum_{n = 0}^{+\infty} \Prob(N = n | C_3) \cdot x^n = \sum_{n = 1}^{+\infty} \Prob(N = n - 1) \cdot t^n = t \cdot \sum_{n = 0}^{+\infty} \Prob(N = n) \cdot t^n= tG(t).
+              G(t \mid C_3) = \sum_{n = 0}^{+\infty} \Prob(N = n \mid C_3) \cdot x^n = \sum_{n = 1}^{+\infty} \Prob(N = n - 1) \cdot t^n = t \cdot \sum_{n = 0}^{+\infty} \Prob(N = n) \cdot t^n= tG(t).
           \]
 
           Since in the first round, one of \(C_1, C_2\) and \(C_3\) must happen, we must have that
           \[
-              G(t) = \Prob(C_1) \cdot G(t|C_1) + \Prob(C_2) \cdot G(t|C_2) + \Prob(C_3) \cdot G(t|C_3) = a + b G(t) + ctG(t).
+              G(t) = \Prob(C_1) \cdot G(t \mid C_1) + \Prob(C_2) \cdot G(t \mid C_2) + \Prob(C_3) \cdot G(t \mid C_3) = a + b G(t) + ctG(t).
           \]
 
           Hence, rearranging gives
