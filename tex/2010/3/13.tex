@@ -1,2 +1,98 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Since \(Z_1\) and \(Z_2\) are independent, we have
+\[
+    \Cov(Z_1, Z_2) = 0,
+\]
+and hence
+\[
+    \Corr(Z_1, Z_2) = \frac{\Cov(Z_1, Z_2)}{\sqrt{\Var(Z_1) \Var(Z_2)}} = \frac{0}{\sqrt{1 \cdot 1}} = 0.
+\]
+
+For \(Y_2\), we have
+\begin{align*}
+    \Expt(Y_2) & = \Expt\left(\rho_{12} Z_1 + \sqrt{1 - \rho_{12}^2} Z_2\right) \\
+               & = \rho_{12} \Expt(Z_1) + \sqrt{1 - \rho_{12}^2} \Expt(Z_2)     \\
+               & = \rho_{12} \cdot 0 + \sqrt{1 - \rho_{12}^2} \cdot 0           \\
+               & = 0,
+\end{align*}
+\begin{align*}
+    \Var(Y_2) & = \Var(\rho_{12} Z_1 + \sqrt{1 - \rho_{12}^2} Z_2)    \\
+              & = \rho_{12}^2 \Var(Z_1) + (1 - \rho_{12}^2) \Var(Z_2) \\
+              & = \rho_{12}^2 \cdot 1 + (1 - \rho_{12}^2) \cdot 1     \\
+              & = 1,
+\end{align*}
+and hence
+\begin{align*}
+    \Corr(Y_1, Y_2) & = \frac{\Cov(Y_1, Y_2)}{\sqrt{\Var(Y_1) \Var(Y_2)}}                                                        \\
+                    & = \frac{\Expt(Y_1 Y_2) - \Expt(Y_1) \Expt(Y_2)}{\sqrt{1 \cdot 1}}                                          \\
+                    & = \Expt\left(\rho_{12} Z_1^2 + \rho_{12} \sqrt{1 - \rho_{12}^2} Z_1 Z_2\right) - 0 \cdot 0                 \\
+                    & = \rho_{12} \Expt(Z_1^2) + \rho_{12} \sqrt{1 - \rho_{12}^2} \Expt(Z_1 Z_2)                                 \\
+                    & = \rho_{12} \left(\Var(Z_1) + \Expt(Z_1)^2\right) + \rho_{12} \sqrt{1 - \rho_{12}^2} \Expt(Z_1) \Expt(Z_2) \\
+                    & = \rho_{12} \left(1 + 0^2\right) + \rho_{12} \sqrt{1 - \rho_{12}^2} \cdot 0 \cdot 0                        \\
+                    & = \rho_{12}.
+\end{align*}
+
+For \(Y_3\), we have
+\begin{align*}
+    \Var(Y_3) & = \Var(a Z_1 + b Z_2 + c Z_3)                   \\
+              & = a^2 \Var(Z_1) + b^2 \Var(Z_2) + c^2 \Var(Z_3) \\
+              & = a^2 + b^2 + c^2                               \\
+              & = 1,
+\end{align*}
+and hence \(a^2 + b^2 + c^2 = 1\).
+
+For the correlation, we have
+\begin{align*}
+    \Corr(Y_1, Y_3) & = \frac{\Cov(Y_1 Y_3)}{\sqrt{\Var(Y_1) \Var(Y_3)}}                                 \\
+                    & = \frac{\Expt(Y_1 Y_3) - \Expt(Y_1) \Expt(Y_3)}{\sqrt{1 \cdot 1}}                  \\
+                    & = \frac{\Expt(aZ_1^2 + bZ_1Z_2 + cZ_1Z_3) - 0 \cdot 0}{1}                          \\
+                    & = a\Expt(Z_1^2) + b\Expt(Z_1 Z_2) + c\Expt(Z_1 Z_3)                                \\
+                    & = a (\Var(Z_1) + \Expt(Z_1)^2) + b \Expt(Z_1) \Expt(Z_2) + c \Expt(Z_1) \Expt(Z_3) \\
+                    & = a (1 + 0^2) + b \cdot 0 \cdot 0 + c \cdot 0 \cdot 0                              \\
+                    & = a                                                                                \\
+                    & = \rho_{13},
+\end{align*}
+and
+\begin{align*}
+    \Corr(Y_2, Y_3) & = \frac{\Cov(Y_2 Y_3)}{\sqrt{\Var(Y_2) \Var(Y_3)}}                                                                           \\
+                    & = \frac{\Expt(Y_2 Y_3) - \Expt(Y_2) \Expt(Y_3)}{\sqrt{1 \cdot 1}}                                                            \\
+                    & = \frac{\Expt\left((aZ_1 + bZ_2 + cZ_3) \cdot \left(\rho_{12} Z_1 + \sqrt{1 - \rho_{12}^2 Z_2}\right)\right) - 0 \cdot 0}{1} \\
+                    & = \Expt\left(a\rho_{12}Z_1^2 + b\sqrt{1 - \rho_{12}^2} Z_2^2\right)                                                          \\
+                    & = a \rho_{12} (\Var(Z_1) + \Expt(Z_1)^2) + b\sqrt{1 - \rho_{12}^2} (\Var(Z_2) + \Expt(Z_2)^2)                                \\
+                    & = a \rho_{12} + b\sqrt{1 - \rho_{12}^2}                                                                                      \\
+                    & = \rho_{23},
+\end{align*}
+since all the cross-term expectation is \(0\), i.e. for \(i \neq j\), \(\Expt(Z_i Z_j) = \Expt(Z_i) \Expt(Z_j) = 0\). Hence,
+\[
+    b = \frac{\rho_{23} - \rho_{12} \rho_{13}}{\sqrt{1 - \rho_{12}^2}},
+\]
+and therefore,
+\[
+    c = \sqrt{1 - a^2 - b^2} = \sqrt{1 - \rho_{13}^2 - \frac{\left(\rho_{23} - \rho_{12} \rho_{13}\right)^2}{1 - \rho_{12}^2}}.
+\]
+
+We could have \(X_i = \mu_{i} + \sigma_{i} Y_i\) for \(i = 1, 2, 3\), since
+\[
+    \Expt(X_i) = \mu_{i} + \sigma_{i} \Expt(Y_i) = \mu_{i} + \sigma_{i} \cdot 0 = \mu_{i},
+\]
+and
+\[
+    \Var(X_i) = \sigma^2_{i} \Var(Y_i) = \sigma^2_{i} \cdot 1 = \sigma^2_{i}.
+\]
+
+As for correlation, we notice that for any random variables \(U, V\), we have
+\begin{align*}
+    \Corr(aU + b, cU + d) & = \frac{\Cov(aU + b, cV + d)}{\sqrt{\Var(aU + b) \Var(cV + d)}}                                                                  \\
+                          & = \frac{\Expt((aU+b)(cV+d)) - \Expt(aU+b)\Expt(cV+d)}{\sqrt{a^2 \Var(U) c^2 \Var(V)}}                                            \\
+                          & = \frac{ac\Expt(UV) + bc\Expt(V) + ad\Expt(U) + bd - (a\Expt(U) + b)(c\Expt(V) + d)}{ac\sqrt{\Var(U)\Var(V)}}                    \\
+                          & = \frac{ac\Expt(UV) + bc\Expt(V) + ad\Expt(U) + bd - ac\Expt(U)\Expt(V) - bc\Expt(V) - ad\Expt(U) - bd}{ac\sqrt{\Var(U)\Var(V)}} \\
+                          & = \frac{ac (\Expt(UV) - \Expt(U)\Expt(V))}{ac\sqrt{\Var(U) \Var(V)}}                                                             \\
+                          & = \frac{\Cov(U, V)}{\sqrt{\Var(U) \Var(V)}}                                                                                      \\
+                          & = \Corr(U, V),
+\end{align*}
+which shows linear coding does not affect the correlation. This implies
+\[
+    \Corr(X_i, X_j) = \Corr(Y_i, Y_j) = \rho_{ij}
+\]
+for \(i \neq j\). Therefore, \(X_i = \mu_{i} + \sigma_{i} Y_i\) for \(i = 1, 2, 3\) satisfies the desired.
