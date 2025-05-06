@@ -4,8 +4,8 @@
           \begin{align*}
               \int \frac{\sinh x}{\cosh 2x} \Diff x & = \int \frac{\Diff u}{2 u^2 - 1}                                                          \\
                                                     & = \int \frac{1}{2} \left(\frac{1}{\sqrt{2}u - 1} - \frac{1}{\sqrt{2}u + 1}\right) \Diff u \\
-                                                    & = \frac{1}{2\sqrt{2}} \left(\ln\abs{\sqrt{2}u - 1} - \ln\abs{\sqrt{2}u + 1}\right) + C    \\
-                                                    & = \frac{1}{2\sqrt{2}} \ln\abs{\frac{\sqrt{2}\cosh x - 1}{\sqrt{2}\cosh x + 1}} + C,
+                                                    & = \frac{1}{2\sqrt{2}} \left(\ln\abs*{\sqrt{2}u - 1} - \ln\abs*{\sqrt{2}u + 1}\right) + C  \\
+                                                    & = \frac{1}{2\sqrt{2}} \ln\abs*{\frac{\sqrt{2}\cosh x - 1}{\sqrt{2}\cosh x + 1}} + C,
           \end{align*}
           as desired.
 
@@ -23,12 +23,12 @@
 
           Let \(u = e^x\), \(\Diff u = \Diff e^x = e^x \Diff x\), and therefore
           \begin{align*}
-              \int_{0}^{1} \frac{\Diff u}{1 + u^4} & = \int_{-\infty}^{0} \frac{e^x \Diff x}{1 + x^4}                                                                                                                     \\
-                                                   & = \frac{1}{2} \int_{-\infty}^{0} \frac{\cosh x}{\cosh 2x} - \frac{\sinh x}{\cosh 2x} \Diff x                                                                         \\
-                                                   & = \frac{1}{2} \left[\frac{1}{\sqrt{2}} \arctan(\sqrt{2} \sinh x) - \frac{1}{2\sqrt{2}} \ln\abs{\frac{\sqrt{2}\cosh x - 1}{\sqrt{2}\cosh x + 1}}\right]_{-\infty}^{0} \\
-                                                   & = \frac{1}{4\sqrt{2}} \left[2\arctan(\sqrt{2} \sinh x) - \ln\abs{\frac{\sqrt{2}\cosh x - 1}{\sqrt{2}\cosh x + 1}}\right]_{-\infty}^{0}                               \\
-                                                   & = \frac{1}{4\sqrt{2}} \left[\left(0 - \ln \abs{\frac{\sqrt{2} - 1}{\sqrt{2} + 1}}\right) - \left(2 \cdot (-\frac{\pi}{2}) - \ln\abs{1}\right)\right]                 \\
-                                                   & = \frac{1}{4\sqrt{2}} \left[\pi - 2\ln(\sqrt{2} - 1)\right]                                                                                                          \\
+              \int_{0}^{1} \frac{\Diff u}{1 + u^4} & = \int_{-\infty}^{0} \frac{e^x \Diff x}{1 + x^4}                                                                                                                      \\
+                                                   & = \frac{1}{2} \int_{-\infty}^{0} \frac{\cosh x}{\cosh 2x} - \frac{\sinh x}{\cosh 2x} \Diff x                                                                          \\
+                                                   & = \frac{1}{2} \left[\frac{1}{\sqrt{2}} \arctan(\sqrt{2} \sinh x) - \frac{1}{2\sqrt{2}} \ln\abs*{\frac{\sqrt{2}\cosh x - 1}{\sqrt{2}\cosh x + 1}}\right]_{-\infty}^{0} \\
+                                                   & = \frac{1}{4\sqrt{2}} \left[2\arctan(\sqrt{2} \sinh x) - \ln\abs*{\frac{\sqrt{2}\cosh x - 1}{\sqrt{2}\cosh x + 1}}\right]_{-\infty}^{0}                               \\
+                                                   & = \frac{1}{4\sqrt{2}} \left[\left(0 - \ln \abs*{\frac{\sqrt{2} - 1}{\sqrt{2} + 1}}\right) - \left(2 \cdot (-\frac{\pi}{2}) - \ln\abs*{1}\right)\right]                \\
+                                                   & = \frac{1}{4\sqrt{2}} \left[\pi - 2\ln(\sqrt{2} - 1)\right]                                                                                                           \\
                                                    & = \frac{\pi + 2\ln(\sqrt{2} + 1)}{4\sqrt{2}},
           \end{align*}
           as desired.
