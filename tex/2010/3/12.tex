@@ -1,2 +1,77 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Since
+\[
+    S = \sum_{n = 0}^{+\infty} (1 + nd) r^n,
+\]
+we have
+\begin{align*}
+    (1 - r)S & = S - rS                                                                          \\
+             & = \sum_{n = 0}^{+\infty} (1 + nd) r^n - \sum_{n = 0}^{+\infty} (1 + nd) r^{n + 1} \\
+             & = \sum_{n = 0}^{+\infty} (1 + nd) r^n - \sum_{n = 1}^{+\infty} (1 + (n - 1)d) r^n \\
+             & = 1 + \sum_{n = 1}^{+\infty} d r^n                                                \\
+             & = 1 + \frac{dr}{1 - r},
+\end{align*}
+and hence
+\[
+    S = \frac{1}{1 - r} + \frac{dr}{(1 - r)^2},
+\]
+as desired.
+
+Let \(X\) be the number shots taken for Arthur to hit the target for the first time, and we have \(X \sim \Geometric(a)\), we would like to show \(\Expt(X) = \frac{1}{a}\).
+
+The probability mass function for \(X\) satisfies
+\[
+    \Prob(X = x) = (1 - a)^{x - 1} \cdot a,
+\]
+and hence
+\begin{align*}
+    \Expt(X) & = \sum_{x = 1}^{+\infty} x \Prob(X = x)                                                \\
+             & = a \cdot \sum_{x = 1}^{+\infty} x (1 - a)^{x - 1}                                     \\
+             & = a \cdot \sum_{x = 0}^{+\infty} (1 + x) (1 - a)^{x}                                   \\
+             & = a \cdot \left[\frac{1}{1 - (1 - a)} + \frac{1 \cdot (1 - a)}{(1 - (1 - a))^2}\right] \\
+             & = a \cdot \left[\frac{1}{a} + \frac{1 - a}{a^2}\right]                                 \\
+             & = a \cdot \frac{1}{a^2}                                                                \\
+             & = \frac{1}{a},
+\end{align*}
+as desired.
+
+Since there is a probability \(a\) of Arthur winning on a particular shot, and if Arthur did not hit (with probability \((1 - a)\)), then there is a probability \(b\) of Boadicea winning on the shot, and \((1 - b)\) probability that the first two shots both miss, and the game continues as if nothing happened in the first two shots. Therefore,
+\[
+    (\alpha, \beta) = a (1, 0) + (1 - a) b (0, 1) + (1 - a)(1 - b) (\alpha, \beta),
+\]
+and hence
+\[
+    \left\{
+    \begin{aligned}
+        \alpha & = a + (1 - a)(1 - b) \alpha = a + a' b' \alpha,        \\
+        \beta  & = (1 - a) b + (1 - a)(1 - b) \beta = a' + a' b' \beta,
+    \end{aligned}
+    \right.
+    \implies
+    \left\{
+    \begin{aligned}
+        \alpha & = \frac{a}{1 - a' b'},    \\
+        \beta  & = \frac{a' b}{1 - a' b'}.
+    \end{aligned}
+    \right.
+\]
+
+Let the expected number of shots in the contest be \(e\). By the linearity of the expectation, we have
+\[
+    e = a \cdot 1 + a' b \cdot 2 + a' b' \cdot (e + 2),
+\]
+where the \((e + 2)\) comes from when Arthur and Boadicea both miss their initial shots (for the \(2\)), and the game continues (for the \(e\)), and hence
+\[
+    e = \frac{a + 2a'b + 2a' b'}{1 - a' b'} = \frac{a + 2a'}{1 - a' b'} = \frac{2 - a}{1 - a' b'}.
+\]
+
+On the other hand, we have
+\[
+    \frac{\alpha}{a} + \frac{\beta}{b} = \frac{1}{1 - a' b'} + \frac{1 - a}{1 - a' b'} = \frac{2 - a}{1 - a' b'},
+\]
+and therefore
+\[
+    e = \frac{\alpha}{a} + \frac{\beta}{b},
+\]
+as desired.
