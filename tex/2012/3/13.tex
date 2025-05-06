@@ -1,2 +1,37 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item We have
+          \begin{align*}
+              \Expt(Z \mid a < Z < b) & = \frac{\int_{a}^{b} z \Phi'(z) \Diff z}{\int_{a}^{b} \Phi'(z) \Diff z}                       \\
+                                      & = \frac{\int_{a}^{b} z e^{-\frac{z^2}{2}}\Diff z}{\sqrt{2\pi} \left(\Phi(b) - \Phi(a)\right)} \\
+                                      & = \frac{\left[-e^{-\frac{z^2}{2}}\right]_{a}^{b}}{\sqrt{2\pi} \left(\Phi(b) - \Phi(a)\right)} \\
+                                      & = \frac{e^{-\frac{a^2}{2}} - e^{-\frac{b^2}{2}}}{\sqrt{2\pi} \left(\Phi(b) - \Phi(a)\right)}
+          \end{align*}
+
+    \item Since \(X = \mu + \sigma Z\)
+          \begin{align*}
+              \Expt(X \mid X > 0) & = \Expt(\mu + \sigma Z \mid (\mu + \sigma Z) > 0)                 \\
+                                  & = \mu + \sigma \Expt(Z \mid (\mu + \sigma Z) > 0)                 \\
+                                  & = \mu + \sigma \Expt\left(Z \mid Z > - \frac{\mu}{\sigma}\right),
+          \end{align*}
+          as desired.
+
+          Hence,
+          \begin{align*}
+              m & = \Expt(\abs*{X})                                                                                                                                                                                                                                                                                                                                                                                                                                       \\
+                & = \Expt(\abs*{X} \mid X > 0) \cdot \Prob(X > 0) + \Expt(\abs*{X} \mid X < 0) \cdot \Prob(X < 0)                                                                                                                                                                                                                                                                                                                                                         \\
+                & = \Expt(X \mid X > 0) \cdot \Prob(X > 0) - \Expt(X \mid X < 0) \cdot \Prob(X < 0)                                                                                                                                                                                                                                                                                                                                                                       \\
+                & = \left[\mu + \sigma \Expt\left(Z \mid Z > - \frac{\mu}{\sigma}\right)\right] \cdot \Prob(\mu + \sigma Z > 0)                                                                                                                                                                                                                                                                                                                                           \\
+                & \phantom{=} - \left[\mu + \sigma \Expt\left(Z \mid Z < - \frac{\mu}{\sigma}\right)\right] \cdot \Prob(\mu + \sigma Z < 0)                                                                                                                                                                                                                                                                                                                               \\
+                & = \left[\mu + \sigma \cdot \frac{\exp\left(-\frac{1}{2} \left(- \frac{\mu}{\sigma}\right)^2\right)}{\sqrt{2\pi} \left(1 - \Phi\left(- \frac{\mu}{\sigma}\right)\right)}\right] \cdot \left[1 - \Phi\left(- \frac{\mu}{\sigma}\right)\right] - \left[\mu + \sigma \cdot \frac{- \exp\left(-\frac{1}{2} \left(- \frac{\mu}{\sigma}\right)^2\right)}{\sqrt{2\pi} \Phi\left(- \frac{\mu}{\sigma}\right)}\right] \cdot \Phi\left(- \frac{\mu}{\sigma}\right) \\
+                & = \mu \left[1 - \Phi\left(- \frac{\mu}{\sigma}\right) - \Phi\left(- \frac{\mu}{\sigma}\right)\right] + \frac{\sigma \exp\left(-\frac{1}{2} \left(- \frac{\mu}{\sigma}\right)^2\right)}{\sqrt{2\pi}} \cdot (1 + 1)                                                                                                                                                                                                                                       \\
+                & = \mu \left[1 - 2 \Phi \left(-\frac{\mu}{\sigma}\right)\right] + \frac{\sqrt{2}\sigma \exp\left(-\frac{1}{2} \cdot \frac{\mu^2}{\sigma^2}\right)}{\sqrt{\pi}},
+          \end{align*}
+          as desired.
+
+          To find the variance of \(\abs*{X}\), we would like to find \(\Expt(\abs*{X}^2)\). But this is precisely \(\Expt(\abs*{X}^2) = \Expt(X^2) = \Var(X) + \Expt(X)^2 = \sigma^2 + \mu^2\). Hence,
+          \begin{align*}
+              \Var(\abs*{X}) & = \Expt(\abs*{X}^2) - \Expt(\abs*{X})^2 \\
+                             & = \sigma^2 + \mu^2 - m^2.
+          \end{align*}
+\end{enumerate}
