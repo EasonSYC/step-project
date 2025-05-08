@@ -1,2 +1,101 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Let the two curves be \(\Gamma_1: y = 4 - x^2\) and \(\Gamma_2: x = - \frac{y^2}{m} + \frac{k}{m}\).
+
+          For the first curve, its \(y\)-intercept is \(4\), and its \(x\)-intercept is \(\pm 2\).
+
+          For the second curve, its \(y\)-intercept is \(\pm \sqrt{k}\) (if \(k \geq 0\)), and its \(x\)-intercept is \(\frac{k}{m}\).
+
+          \begin{enumerate}
+              \item Since \(k < 0\), we must have \(\frac{k}{m} < 0\) as well, and hence the curves must look as follows:
+                    \begin{center}
+                        \input{\currfiledir 3-diag1}
+                    \end{center}
+              \item Since \(0 < k < 16\), \(\Gamma_2\) must have a \(y\)-intercept less than that of \(\Gamma_1\). Since \(\frac{k}{m} < 2\), \(\Gamma_2\) must have the \(x\)-intercept to the left of \((2, 0)\). Hence, the curves must look as follows:
+                    \begin{center}
+                        \input{\currfiledir 3-diag2}
+                    \end{center}
+              \item Since \(k > 16\), \(\Gamma_2\) must have a \(y\)-intercept greater than that of \(\Gamma_1\). Since \(\frac{k}{m} > 2\), \(\Gamma_2\) must have the \(x\)-intercept to the right of \((2, 0)\). Hence, the curves must look as follows:
+                    \begin{center}
+                        \input{\currfiledir 3-diag3}
+                    \end{center}
+              \item Since \(k > 16\), \(\Gamma_2\) must have a \(y\)-intercept greater than that of \(\Gamma_1\). Since \(\frac{k}{m} < 2\), \(\Gamma_2\) must have the \(x\)-intercept to the left of \((2, 0)\). Hence, the curves must look as follows:
+                    \begin{center}
+                        \input{\currfiledir 3-diag4}
+                    \end{center}
+          \end{enumerate}
+    \item Since \(y = y\), we must have
+          \[
+              12x = k - (4 - x^2)^2 = k - 16 + 8 x^2 - x^4,
+          \]
+          and hence
+          \[
+              x^4 - 8x^2 + 12 x + 16 - k = 0,
+          \]
+          as desired.
+
+          For the first curve, we have
+          \[
+              \DiffFrac{y}{x} = -2x,
+          \]
+          and applying implicit differentiation on both sides of the second equation, we must have
+          \[
+              12 = - 2 y \DiffFrac{y}{x},
+          \]
+          and hence
+          \[
+              12 = (-2y) \cdot (-2x),
+          \]
+          which gives \(xy = 3\) for the point where the curves touch.
+
+          Hence,
+          \[
+              \frac{3}{a} = 4 - a^2,
+          \]
+          and this gives
+          \[
+              a^3 - 4a + 3 = 0
+          \]
+          as desired.
+
+          Notice that
+          \[
+              a^3 - 4a + 3 = (a - 1)(a^2 + a - 3),
+          \]
+          and hence the three solutions to \(a\) are
+          \[
+              a_1 = 1, a_{2, 3} = \frac{-1 \pm \sqrt{1 + 12}}{2} = \frac{-1 \pm \sqrt{13}}{2}.
+          \]
+
+          From the first equation, we must have
+          \begin{align*}
+              k & = a^4 - 8a^2 + 12a + 16             \\
+                & = a (a^3 - 4a + 3) - 4a^2 + 9a + 16 \\
+                & = a \cdot 0 - 4a^2 + 9a + 16        \\
+                & = -4a^2 + 9a + 16,
+          \end{align*}
+          as desired.
+
+          For \(a = 1\), \(k = -4 \cdot 1^2 + 9 \cdot 1 + 16 = -4 + 9 + 16 = 21\), and \(\frac{k}{m} = \frac{21}{12} < 2\), so (d) arises.
+
+          When \(a_{2, 3} = \frac{-1 \pm \sqrt{13}}{2}\), we have \(a^2 + a - 3 = 0\), and hence
+          \[
+              k = -4a^2 + 9a + 16 = -4(a^2 + a - 3) + 13a + 4 = 13a + 4.
+          \]
+
+          For \(a_2 = \frac{-1 + \sqrt{13}}{2}\), we have
+          \[
+              k = \frac{-13 + 13\sqrt{13}}{2} + 4 = \frac{-5 + 13\sqrt{13}}{2}.
+          \]
+
+          Since \(13\sqrt{13} > 13 \cdot 3 = 39\), we must have \(-5 + 13\sqrt{13} > 34\), and hence \(k > \frac{34}{2} = 17 > 16\).
+
+          We also have \(13 \sqrt{13} < 13 \cdot 4 = 52\), and hence \(-5 + 13\sqrt{13} < 47\), and hence \(k < \frac{47}{2}\), which means
+          \[
+              \frac{k}{m} < \frac{47}{2 \cdot 12} = \frac{47}{24} < 2,
+          \]
+          so case (d) arises.
+
+          For \(a_3 = \frac{-1 - \sqrt{13}}{2}\), we have \(k = \frac{-13 - 13\sqrt{13}}{2} + 4 = \frac{-5 - 13\sqrt{13}}{4} < 0\), and so (a) arises.
+\end{enumerate}

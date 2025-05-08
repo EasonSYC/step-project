@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+    \draw[->] (-5.5, 0) -- (5.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -5.5) -- (0, 5.5) node[above] {\(y\)};
+    \filldraw (0, 0) circle (1pt) node[below right] {\(O\)};
+    \draw[domain=-3:3, samples=200, smooth] plot (\x, 4 - \x * \x);
+    \filldraw (0, 4) circle (1pt) node[above right] {\(4\)};
+    \filldraw (2, 0) circle (1pt) node[above right] {\(2\)};
+    \filldraw (-2, 0) circle (1pt) node[below right] {\(-2\)};
+    \draw[domain=-3.5:1.9, samples=200, smooth] plot (\x, 2.5 * sqrt{(1.9 - \x)});
+    \draw[domain=-3.5:1.9, samples=200, smooth] plot (\x, -2.5 * sqrt{(1.9 - \x)});
+    \filldraw (1.9, 0) circle (1pt) node [below left] {\(\frac{k}{m}\)};
+    \filldraw (0, 2.5 * sqrt{1.9}) circle (1pt) node [below left] {\(\sqrt{k}\)};
+    \filldraw (0, -2.5 * sqrt{1.9}) circle (1pt) node [above left] {\(-\sqrt{k}\)};
+\end{tikzpicture}
