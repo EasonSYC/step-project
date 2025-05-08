@@ -1,2 +1,95 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Since \(x + iy\) is a root of this quadratic equation, putting it back into the original equation, we have
+\[
+    (x + iy)^2 + p (x + iy) + 1 = (x^2 - y^2 + px + 1) + (2x + p)yi = 0,
+\]
+and so it must have both real parts and complex parts \(0\), and hence \(x^2 - y^2 + px + 1 = 0\), and \((2x + p)y = 0\).
+
+Since \((2x + p)y = 0\), we must have either \(2x + p = 0\) (which gives \(p = -2x\)), or \(y = 0\). In the latter case, we put this back into the first equation, and we have
+\[
+    x^2 + px + 1 = 0.
+\]
+
+If \(x = 0\), then we must have \(0 + 0 + 1 = 1 = 0\) which is impossible. Hence, \(x \neq 0\), and by rearranging, we have
+\[
+    p = - \frac{x^2 + 1}{x}.
+\]
+
+In the case where \(p = -2x\), we must have
+\[
+    x^2 - y^2 + (-2x) \cdot x + 1 = 0 \iff x^2 + y^2 = 1,
+\]
+and this represents a circle centred at the origin with radius \(1\).
+
+In the case where \(p = - \frac{x^2 + 1}{x}\), we must have \(y = 0\), and \(x \neq 0\). This represents the real axis without the origin.
+
+This is the root locus of this equation.
+
+\begin{center}
+    \input{\currfiledir 6-diag1}
+\end{center}
+
+For the second equation, let \(z = x + iy\) be a solution. We have
+\[
+    p (x + iy)^2 + (x + iy) + 1 = (px^2 - py^2 + x + 1) + (2px + 1)yi = 0,
+\]
+and so \(px^2 - py^2 + x + 1 = 0\) and \((2px + 1)y = 0\).
+
+Since \((2px + 1)y = 0\), we must have either \(2px + 1 = 0\) (which gives \(p = - \frac{1}{2x}\) since \(x \neq 0\), or otherwise \(0 + 1 = 1 = 0\)), or \(y = 0\). In the latter case, we put this back to the first equation, and we have
+\[
+    px^2 + x + 1 = 0.
+\]
+
+If \(x = 0\) then we must have \(0 + 0 + 1 = 1 = 0\) which is impossible. Hence, \(x \neq 0\), and by rearranging, we have
+\[
+    p = - \frac{x + 1}{x^2}.
+\]
+
+In the case where \(p = - \frac{1}{2x}\), given \(x \neq 0\),
+\[
+    - \frac{1}{2x} (x^2 - y^2) + x + 1 = 0 \iff \frac{x}{2} + \frac{y^2}{2x} + 1 = 0 \iff (x + 1)^2 + y^2 = 1.
+\]
+
+This represents a circle centred at \((-1, 0)\) with radius \(1\), and since \(x \neq 0\), we have to remove the point \((0, 0)\).
+
+In the case where \(p = -\frac{x + 1}{x^2}\), \(y = 0\) and this represents the real axis without the origin.
+
+This is the root locus of this equation.
+
+\begin{center}
+    \input{\currfiledir 6-diag2}
+\end{center}
+
+For the final equation, let \(z = x + iy\) be a solution. We have
+\[
+    p(x + iy)^2 + p^2 (x + iy) + 2 = (px^2 - py^2 + p^2x + 2) + yp(2x + p)i = 0,
+\]
+and so \(px^2 - py^2 + p^2x + 2 = 0\) and \(yp(2x + p)\) = 0.
+
+Notice that here, \(p \neq 0\), since if \(p = 0\) then \(2 = 0\) and there is no solution. So since \(yp (2x + p) = 0\), we have \(2x + p = 0\) which gives \(p = -2x\), or \(y = 0\). In the latter case, we put this back to the first equation, and we have
+\[
+    p x^2 + p^2 x + 2 = 0.
+\]
+
+If \(x = 0\) then we must have \(0 + 0 + 2 = 2 = 0\) which is impossible. Hence, \(x \neq 0\). For this to have a real solution for \(p\), we must have \(x \neq 0\) and
+\[
+    (x^2)^2 - 4 \cdot x \cdot 2 \geq 0,
+\]
+which means
+\[
+    x (x - 2) (x^2 + 2x + 2) \geq 0.
+\]
+
+Since \(x^2 + 2x + 2 = (x + 1)^2 + 1 \geq 1 \geq 0\), we must have \(x (x - 2) \geq 0\), and \(x \leq 0\) or \(x \geq 2\). This represents the real line with the interval \([0, 2)\) removed.
+
+In the case where \(p = -2x\), putting this back to the first equation, we have
+\[
+    (-2x) x^2 - (-2x)y^2 + (-2x)^2 x + 2 = 0 \iff x^3 + xy^2 + 1 = 0 \iff y^2 = -\frac{1 + x^3}{x}.
+\]
+
+This is the root locus of this equation.
+
+\begin{center}
+    \input{\currfiledir 6-diag3}
+\end{center}
