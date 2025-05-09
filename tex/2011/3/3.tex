@@ -1,2 +1,110 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+We have
+\begin{align*}
+    a(x - \alpha)^3 + b(x - \beta)^3 & = ax^3 - 3a\alpha x^2 + 3a\alpha^2 x - a\alpha^3 + bx^3 - 3b\beta x^2 + 3b\beta^2 x - b\beta^3 \\
+                                     & = (a + b)x^3 - 3(a\alpha + b\beta) x^2 + 3 (a\alpha^2 + b\beta^2) x - (a\alpha^3 + b\beta^3).
+\end{align*}
+
+By comparing coefficients, we have
+\[
+    \left\{
+    \begin{aligned}
+        a + b                                                        & = 1,  \\
+        -3 (a\alpha + b\beta) = 0 \implies a\alpha + b\beta          & = 0,  \\
+        3 (a\alpha^2 + b\beta^2) = -3p \implies a\alpha^2 + b\beta^2 & = -p, \\
+        -(a\alpha^3 + b\beta^3) = q \implies a\alpha^3 + b\beta^3    & = -q.
+    \end{aligned}
+    \right.
+\]
+
+The first pair of equation solve to
+\[
+    (a, b) = \left(-\frac{\beta}{\alpha - \beta}, \frac{\alpha}{\alpha - \beta}\right).
+\]
+
+Putting this into the third equation, we can see
+\begin{align*}
+    \LHS & = \frac{\beta}{\beta - \alpha} \cdot \alpha^2 - \frac{\alpha}{\beta - \alpha} \cdot \beta^2 \\
+         & = \frac{\alpha\beta (\alpha - \beta)}{\beta - \alpha}                                       \\
+         & = -\alpha \beta                                                                             \\
+         & = - \frac{p^2}{p}                                                                           \\
+         & = -p                                                                                        \\
+         & = \RHS,
+\end{align*}
+using Vieta's Theorem for \(\alpha\beta\), and for the final one,
+\begin{align*}
+    \LHS & = \frac{\beta}{\beta - \alpha} \cdot \alpha^3 - \frac{\alpha}{\beta - \alpha} \cdot \beta^3 \\
+         & = \frac{\alpha\beta (\alpha^2 - \beta^2)}{\beta - \alpha}                                   \\
+         & =  - \frac{\alpha\beta (\alpha + \beta) (\beta - \alpha)}{\beta - \alpha}                   \\
+         & = -\alpha\beta (\alpha + \beta)                                                             \\
+         & = -\frac{p^2}{p} \cdot \left(- \frac{-q}{p}\right)                                          \\
+         & = -p \cdot \frac{q}{p}                                                                      \\
+         & = -q                                                                                        \\
+         & = \RHS,
+\end{align*}
+using Vieta's Theorem for \(\alpha\beta\) and \(\alpha + \beta\). Hence, this means for \(\alpha, \beta\) being solutions to \(pt^2 - qt + p^2 = 0\) and
+\[
+    (a, b) = \left(-\frac{\beta}{\alpha - \beta}, \frac{\alpha}{\alpha - \beta}\right),
+\]
+we have
+\[
+    x^3 - 3px + q = a (x - \alpha)^3 + b (x - \beta)^3.
+\]
+
+In this case here, we have \(p = 8\) and \(q = 48\). Hence, the quadratic equation is
+\[
+    8t^2 - 48t + 8^2 = 8 (t^2 - 6t + 8) = 8 (t - 2)(t - 4) = 0,
+\]
+which solves to \((\alpha, \beta) = (2, 4)\) or \((\alpha, \beta) = (4, 2)\). Without loss of generality, let \((\alpha, \beta) = (2, 4)\), and hence
+\[
+    (a, b) = \left(-\frac{\beta}{\alpha - \beta}, \frac{\alpha}{\alpha - \beta}\right) = \left(-\frac{4}{2 - 4}, \frac{2}{2 - 4}\right) = \left(2, -1\right),
+\]
+
+Hence, the original cubic equation
+\[
+    x^3 - 24x + 48 = 0
+\]
+can be simplified to
+\[
+    2 (x - 2) ^ 3 - (x - 4)^3 = 0.
+\]
+
+Hence,
+\[
+    2(x - 2)^3 = (x - 4)^3,
+\]
+and we have
+\[
+    2^{\frac{1}{3}} (x - 2) = \omega^n (x - 4),
+\]
+for \(n = 0, 1, 2\) and \(\omega = \exp \left(\frac{2\pi i}{3}\right)\).
+
+Rearranging gives us
+\[
+    x = \frac{2 \left(2\omega^n - 2^\frac{1}{3}\right)}{\omega^n - 2^{\frac{1}{3}}}
+\]
+
+When \(n = 0\), \(\omega^n = 1\), and hence
+\[
+    x = \frac{2 \left(2 - 2^{\frac{1}{3}}\right)}{1 - 2^{\frac{1}{3}}}.
+\]
+
+The other two solutions
+\[
+    x = \frac{2 \left(2 \omega - 2^{\frac{1}{3}}\right)}{\omega - 2^{\frac{1}{3}}}, x = \frac{2 \left(2 \omega^2 - 2^{\frac{1}{3}}\right)}{\omega^2 - 2^{\frac{1}{3}}}.
+\]
+
+This equation reduces to
+\[
+    x^3 - 3r^2 x + 2 r^3 = 0.
+\]
+
+This can be factorised to
+\[
+    (x - r)(x^2 + rx - 2r^2) = (x - r)^2 (x + 2r)
+\]
+and the solutions are
+\[
+    x_{1, 2} = r, x_3 = -2r.
+\]
