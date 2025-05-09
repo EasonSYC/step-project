@@ -1,2 +1,67 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Since we have
+\[
+    \tan \theta = \frac{y}{x} \implies \theta = \arctan \frac{y}{x} + k\pi
+\]
+for some \(k \in \ZZ\), differentiating with respect to \(t\) gives us
+\[
+    \DiffFrac{\theta}{t} = \frac{1}{1 + \left(\frac{y}{x}\right)^2} \cdot \DiffFrac{\frac{y}{x}}{t} = \frac{x^2}{x^2 + y^2} \cdot \frac{x\DiffFrac{y}{t} - y\DiffFrac{x}{t}}{x^2} = \frac{x\DiffFrac{y}{t} - y\DiffFrac{x}{t}}{r^2}.
+\]
+
+Hence,
+\[
+    \frac{1}{2} \int r^2 \Diff \theta = \frac{1}{2} \int r^2 \cdot \frac{x\DiffFrac{y}{t} - y\DiffFrac{x}{t}}{r^2} \cdot \Diff t = \frac{1}{2} \int \left(x\DiffFrac{y}{t} - y\DiffFrac{x}{t}\right) \Diff t,
+\]
+as desired.
+
+The coordinates of \(A\) and \(B\) are
+\[
+    A \left(x - a \cos t, y - a \sin t\right), B \left(x + b \cos t, y + b \sin t\right).
+\]
+
+Hence, we have
+\begin{align*}
+    [A] & = \frac{1}{2} \int_{0}^{2\pi} \left(x_A \DiffFrac{y_A}{t} - y_A \DiffFrac{x_A}{y}\right) \Diff t                                                                                                                            \\
+        & = \frac{1}{2} \int_{0}^{2\pi} \left[(x - a \cos t) \left(\DiffFrac{y}{t} - a \cos t\right) - (y - a \sin t) \left(\DiffFrac{x}{t} + a \sin t\right)\right] \Diff t                                                          \\
+        & = \frac{1}{2} \int_{0}^{2\pi} \left(x\DiffFrac{y}{t} - y\DiffFrac{x}{t}\right) \Diff t - \frac{a}{2} \int_{0}^{2\pi} \left[\cos t \left(\DiffFrac{y}{t} + x\right) + \sin t \left(y - \DiffFrac{x}{t}\right)\right] \Diff t \\
+        & \phantom{=} + \frac{a^2}{2} \int_{0}^{2\pi} \left(\cos^2 t + \sin^2 t\right) \Diff t                                                                                                                                        \\
+        & = [P] - af + \frac{a^2}{2} \int_{0}^{2\pi} \Diff t                                                                                                                                                                          \\
+        & = [P] - af + 2\pi \cdot \frac{a^2}{2}                                                                                                                                                                                       \\
+        & = [P] + \pi a^2 - af,
+\end{align*}
+as desired.
+
+Similarly,
+\begin{align*}
+    [B] & = \frac{1}{2} \int_{0}^{2\pi} \left(x_B \DiffFrac{y_B}{t} - y_B \DiffFrac{x_B}{y}\right) \Diff t                                                                                                                              \\
+        & = \frac{1}{2} \int_{0}^{2\pi} \left[(x + b \cos t) \left(\DiffFrac{y}{t} + b \cos t\right) - (y + b \sin t) \left(\DiffFrac{x}{t} - b \sin t\right)\right] \Diff t                                                            \\
+        & = \frac{1}{2} \int_{0}^{2\pi} \left(x \DiffFrac{y}{t} - y \DiffFrac{x}{t}\right) \Diff t + \frac{b}{2} \int_{0}^{2\pi} \left[\cos t \left(\DiffFrac{y}{t} + x\right) + \sin t \left(y - \DiffFrac{x}{t}\right)\right] \Diff t \\
+        & \phantom{=} + \frac{b^2}{2} \int_{0}^{2\pi} \left(\cos^2 t + \sin^2 t\right) \Diff t                                                                                                                                          \\
+        & = [P] + bf + \frac{b^2}{2} \int_{0}^{2\pi} \Diff t                                                                                                                                                                            \\
+        & = [P] + bf + 2\pi \cdot \frac{b^2}{2}                                                                                                                                                                                         \\
+        & = [P] + \pi b^2 + bf.
+\end{align*}
+
+Since over \(t \in [0, 2\pi]\), \(A\) and \(B\) both trace over \(\mathcal{D}\), we must have
+\[
+    [A] = [B],
+\]
+and hence
+\[
+    \pi a^2 - af = \pi b^2 + bf,
+\]
+which means
+\[
+    \pi (a + b) (a - b) = (a + b)f,
+\]
+and hence
+\[
+    f = (a - b)\pi,
+\]
+and therefore
+\[
+    [A] = [B] = [P] + ab\pi.
+\]
+
+The area between the curves \(\mathcal{C}\) and \(\mathcal{D}\) is represented as \([A] - [P]\) or \([B] - [P]\), and hence this area is \(\pi ab\), as desired.
