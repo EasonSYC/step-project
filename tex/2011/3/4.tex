@@ -1,2 +1,75 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item The following two diagrams shows the cases \(a < b\) and \(a > b\) respectively.
+          \begin{center}
+              \input{\currfiledir 4-diag1}
+              \input{\currfiledir 4-diag2}
+          \end{center}
+
+          In both cases, the shaded area is greater than the area of the rectangle formed by \((0, 0), (a, 0), (a, b)\) and \((0, b)\), leading to the inequality. The equal sign holds when \(b = f(a)\).
+    \item Since \(f(x) = x^{p - 1}\), we must have \(x = f^{-1}(x)^{p - 1}\), and hence \(f^{-1}(x) = x^{\frac{1}{p - 1}}\). Hence,
+          \[
+              \int_{0}^{a} f(x) \Diff x = \frac{1}{p} \left[x^p\right]_{0}^{a} = \frac{a^p}{p}.
+          \]
+
+          Since \(\frac{1}{p} + \frac{1}{q} = 1\), we must have \(\frac{1}{q} = 1 - \frac{1}{p} = \frac{p - 1}{p}\), and
+          \[
+              q = \frac{p}{p - 1},
+          \]
+          and hence
+          \[
+              f^{-1}(x) = x^{q - 1},
+          \]
+          which gives
+          \[
+              \int_{0}^{b} f^{-1}(x) \Diff x = \frac{b^q}{q}.
+          \]
+
+          Since \(f\) is a polynomial, it must be continuous. \(f(0) = 0^{p - 1} = 0\), and
+          \[
+              f'(x) = (p - 1) x^{p - 2}
+          \]
+          is always non-negative for \(x \geq 0\), we must have by the original inequality
+          \[
+              ab \leq \frac{a^p}{p} + \frac{b^q}{q}
+          \]
+          as desired.
+
+    \item Consider the function \(f(x) = \sin x\). First, \(f\) is continuous, and
+          \[
+              f'(x) = \cos x
+          \]
+          is always positive for \(0 \leq x \leq \frac{1}{2} \pi\). We notice
+          \[
+              \int_{0}^{a} f(x) \Diff x = [-\cos x]_{0}^{a} = 1 - \cos a,
+          \]
+          and \(f^{-1}(x) = \arcsin x\), and hence for \(0 \leq b \leq 1\),
+          \begin{align*}
+              \int_{0}^{b} f^{-1}(x) \Diff x & = \int_{0}^{b} \arcsin(x) \Diff x                                                          \\
+                                             & = \left[x \arcsin x\right]_{0}^{b} - \int_{0}^{b} x \cdot \frac{1}{\sqrt{1 - x^2}} \Diff x \\
+                                             & = \left[x \arcsin x + \sqrt{1 - x^2}\right]_{0}^{b}                                        \\
+                                             & = b \arcsin b + \sqrt{1 - b^2} - 1.
+          \end{align*}
+
+          Hence, using the given inequality,
+          \[
+              ab \leq b \arcsin b + \sqrt{1 - b^2} - 1 + 1 - \cos a = b \arcsin b + \sqrt{1 - b^2} - \cos a,
+          \]
+          as desired.
+
+          Let \(a = 0\) and \(b = t^{-1}\). Since \(t \geq 1\), we have \(0 < b \leq 1\), and hence
+          \[
+              0 \leq t^{-1} \arcsin t^{-1} + \sqrt{1 - t^{-2}} - \cos 0.
+          \]
+
+          Multiplying both sides by \(t\), and noticing \(\cos 0  = 1\), we have
+          \[
+              0 \leq \arcsin t^{-1} + \sqrt{t^2 - 1} - t,
+          \]
+          and hence
+          \[
+              \arcsin t^{-1} \geq t - \sqrt{t^2 - 1},
+          \]
+          as desired.
+\end{enumerate}
