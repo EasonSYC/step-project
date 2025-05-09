@@ -1,2 +1,38 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+By definition,
+\[
+    f(x) = \sum_{k = 0}^{n} a_k x^k
+\]
+where \(a_n = 1\).
+
+Hence,
+\begin{align*}
+    q^{n - 1} f\left(\frac{p}{q}\right) & = q^{n - 1} \sum_{k = 0}^{n} a_k \left(\frac{p}{q}\right)^k \\
+                                        & = q^{n - 1} \sum_{k = 0}^{n} a_k p^k q^{-k}                 \\
+                                        & = \sum_{k = 0}^{n} a_k p^k q^{n - k - 1}.
+\end{align*}
+
+For the terms with \(k = 0, 1, 2, \ldots, n - 1\), we have \(n - k - 1 \geq 0\) and hence the terms \(a_k p^k q^{n - k - 1}\) is an integer, and hence the sum from \(k = 0\) to \(k = n - 1\) is an integer as well.
+
+If \(\frac{p}{q}\) is a rational root of \(f\), \(f\left(\frac{p}{q}\right) = 0\), and since all the rest of the terms are integers, the term where \(k = n\) must be an integer as well. When \(k = n\),
+\[
+    a_k p^k q^{n - k - 1} = a_n p^n q^{-1} = \frac{p^n}{q}
+\]
+must be an integer. But since \(p\) and \(q\) are coprime, this can be an integer if and only if \(q = 1\).
+
+Therefore, \(\frac{p}{q} = p\) is an integer as well, and any rational root to \(f(x) = 0\) must be an integer.
+
+\begin{enumerate}
+    \item Consider the polynomial \(f(x) = x^n - 2\). The \(n\)th root of \(2\) must satisfy \(1 < \sqrt[n]{2} < 2\), for \(n \geq 2\). This is because \(1^n = 1 < 2\) and \(2^n = 2 \cdot 2^{n - 1} > 2 1 = 2\).
+
+          The \(n\)th root of \(2\) is a root to \(f\). If it is rational, then it must be integer. But \(1 < \sqrt[n]{2} < 2\) and so the \(n\)th root of \(2\) cannot be an integer. Therefore, it must be irrational.
+
+    \item Consider the polynomial \(f(x) = x^3 - x + 1\). If the roots to this polynomial are rational, then they must be integer.
+
+          Under modulo \(2\), \(x^3 \equiv x\) since \(1^3 \equiv 1\) and \(0^3 \equiv 0\). Hence, \(f(x) \equiv x^3 - x + 1 \equiv 0 + 1 \equiv 1\) modulo \(2\). This means there is no integer root to \(f(x) = 0\) since the right-hand side is congruent to \(0\) modulo \(2\), and hence there are no rational roots.
+
+    \item Consider the polynomial \(f(x) = x^n - 5x + 7\). If the roots to this polynomial are rational, then they must be integer.
+
+          For \(n \geq 2\), under modulo \(2\), \(x^n \equiv 5x\) since \(1^n \equiv 1 \equiv 5 \equiv 5 \cdot 1\) and \(0^n \equiv 0 \equiv 5 \cdot 0\). Hence, \(f(x) \equiv x^n - 5x + 7 \equiv 0 + 7 \equiv 1\) modulo \(2\). This means there is no integer root to \(f(x) = 0\) since the right-hand side is congruent to \(0\) modulo 2, and hence there are no rational roots.
+\end{enumerate}
