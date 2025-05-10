@@ -1,2 +1,83 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item The base case is when \(n = 2\), and we have
+          \[
+              T_2 = (\sqrt{a + 1} + \sqrt{a})^2 = (2a + 1) + 2 \cdot \sqrt{a (a + 1)}.
+          \]
+
+          We therefore have \(A_2 = 2a + 1\) and \(B_2 = 2\), and we verify that
+          \[
+              a(a + 1) B_2^2 + 1 = a (a + 1) \cdot 2^2 + 1 = 4a^2 + 4a + 1 = (2a + 1)^2 = A_2^2,
+          \]
+          as desired, and the statement holds for the base case when \(n = 2\).
+
+          Now, assume that this statement is for some even \(n = k\), i.e.
+          \[
+              T_k = A_k + B_k \sqrt{a (a + 1)}
+          \]
+          where \(A_k\) and \(B_k\) are both integers, and \(A_k^2 = a(a + 1) B_k^2 + 1\).
+
+          Notice that
+          \begin{align*}
+              T_{k + 2} & = T_k \cdot \left(\sqrt{a + 1} + \sqrt{a}\right)^2                                                       \\
+                        & = \left(A_k + B_k \sqrt{a(a + 1)}\right) \cdot \left(2a + 1 + 2 \sqrt{a(a + 1)}\right)                   \\
+                        & = A_k \cdot (2a + 1) + B_k \cdot 2 \cdot a (a + 1) + 2A_k \sqrt{a(a + 1)} + (2a + 1) B_k \sqrt{a(a + 1)} \\
+                        & = \left[(2a + 1)A_k + 2a(a + 1)B_k\right] + \left[2 A_k + (2a + 1)B_k\right] \sqrt{a(a + 1)}.
+          \end{align*}
+
+          Now let \(A_{k + 2} = (2a + 1) A_k + 2a (a + 1) B_k\), and \(B_{k + 2} = 2 A_k + (2a + 1)B_k\). Since \(a\) is a positive integer, and \(A_k\) and \(B_k\) are both integers, we must have \(A_{k + 2}\) and \(B_{k + 2}\) are both integers. Furthermore,
+          \begin{align*}
+               & \phantom{=} A_{k + 2}^2 - \left[a (a + 1) B_{k + 2}^2 + 1\right]                                                \\
+               & = \left[(2a + 1) A_k + 2a (a + 1) B_k\right]^2 - \left[a (a + 1) \left(2 A_k + (2a + 1)B_k\right)^2 + 1\right]  \\
+               & = \left[(2a + 1)^2 - 4 a (a + 1)\right] A_k^2                                                                   \\
+               & \phantom{=} + \left[2 \cdot (2a + 1) \cdot 2a (a + 1) - 2 \cdot a (a + 1) \cdot 2 \cdot (2a + 1)\right] A_k B_k \\
+               & \phantom{=} + [(2a (a + 1))^2 - a (a + 1) (2a + 1)^2] B_k - 1                                                   \\
+               & = A_k^2 - a (a + 1) B_k^2 - 1                                                                                   \\
+               & = 1 - 1                                                                                                         \\
+               & = 0,
+          \end{align*}
+          and hence
+          \[
+              A_{k + 2}^2 = a (a + 1) B_{k + 2}^2 + 1.
+          \]
+
+          So the original statement holds for \(n = k + 2\).
+
+          By the principle of mathematical induction, the original statement must hold for all even integers \(n\).
+
+    \item If \(n\) is odd, then we have
+          \begin{align*}
+              T_n & = (\sqrt{a + 1} + \sqrt{a}) T_{n - 1}                                                                 \\
+                  & = (\sqrt{a + 1} + \sqrt{a}) (A_{n - 1} + B_{n - 1} \sqrt{a(a + 1)})                                   \\
+                  & = A_{n - 1} \sqrt{a + 1} + A_{n - 1} \sqrt{a} + B_{n - 1} (a + 1) \sqrt{a} + B_{n - 1} a \sqrt{a + 1} \\
+                  & = (A_{n - 1} + a B_{n - 1}) \sqrt{a + 1} + (A_{n - 1} + (a + 1) B_{n - 1})\sqrt{a}.
+          \end{align*}
+
+          Now, consider \(C_n = A_{n - 1} + a B_{n - 1}\), and \(D_n = A_{n - 1} + (a + 1) B_{n - 1}\). Since \(a\) is a positive integer, and \(A_{n - 1}\) and \(B_{n - 1}\) are integers, we must have \(C_n\) and \(D_n\) are integers as well. Furthermore,
+          \begin{align*}
+               & \phantom{=} (a + 1) C_n^2 - (a D_n^2 + 1)                                                                                   \\
+               & = (a + 1) \left(A_{n - 1} + a B_{n - 1}\right)^2 - \left[a \left(A_{n - 1} + (a + 1) B_{n - 1}\right)^2 + 1\right]          \\
+               & = \left[(a + 1) - a\right] A_{n - 1}^2 + \left[(a + 1) \cdot 2 \cdot a - a \cdot 2 \cdot (a + 1)\right] A_{n - 1} B_{n - 1} \\
+               & \phantom{=} + [(a + 1) a^2 - a (a + 1)^2] B_{n - 1}^2 - 1                                                                   \\
+               & = A_{n - 1}^2 - a(a + 1) B_{n - 1}^2 - 1                                                                                    \\
+               & = 1 - 1                                                                                                                     \\
+               & = 0,
+          \end{align*}
+          and hence
+          \[
+              (a + 1) C_n^2 = a D_n^2 + 1.
+          \]
+
+          This shows precisely the original statement.
+
+    \item For even \(n\),
+          \[
+              T_n = A_n + B_n \sqrt{a (a + 1)} = \sqrt{A_n^2} + \sqrt{B_n^2 \cdot a (a + 1)} = \sqrt{A_n^2} + \sqrt{A_n^2 - 1},
+          \]
+          and for odd \(n\),
+          \[
+              T_n = C_n\sqrt{a + 1} + D_n \sqrt{a} = \sqrt{C_n^2 (a + 1)} + \sqrt{D_n^2 a} = \sqrt{a D_n^2 + 1} + \sqrt{a D_n^2},
+          \]
+          as desired.
+\end{enumerate}
