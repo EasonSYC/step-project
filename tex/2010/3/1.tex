@@ -1,2 +1,65 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Notice that
+          \begin{align*}
+              C & = \frac{1}{n + 1} \sum_{k = 1}^{n + 1} x_k                      \\
+                & = \frac{1}{n + 1} \left(\sum_{k = 1}^{n} x_k + x_{n + 1}\right) \\
+                & = \frac{1}{n + 1} \left(n A + x_{n + 1}\right).
+          \end{align*}
+
+    \item By expanding the brackets,
+          \begin{align*}
+              B & = \frac{1}{n} \sum_{k = 1}^{n} (x_k - A)^2                                           \\
+                & = \frac{1}{n} \sum_{k = 1}^{n} (x_k^2 - 2Ax_k + A^2)                                 \\
+                & = \frac{1}{n} \left[\sum_{k = 1}^{n} x_k^2 - 2A \sum_{k = 1}^{n} x_k + A^2 n \right] \\
+                & = \frac{1}{n} \sum_{k = 1}^{n} x_k^2 - 2A \frac{1}{n} \sum_{k = 1}^{n} x_k + A^2     \\
+                & = \frac{1}{n} \sum_{k = 1}^{n} x_k^2 - 2A^2 + A^2                                    \\
+                & = \frac{1}{n} \sum_{k = 1}^{n} x_k^2 - A^2.
+          \end{align*}
+
+    \item Similarly, we have
+          \[
+              D = \frac{1}{n + 1} \sum_{k = 1}^{n + 1} x_k^2 - C^2.
+          \]
+
+          Hence,
+          \begin{align*}
+              D & = \frac{1}{n + 1} \sum_{k = 1}^{n + 1} x_k^2 - C^2                                                                    \\
+                & = \frac{1}{n + 1} \left(\sum_{k = 1}^{n} x_k^2 + x_{n + 1}^2\right) - \left(\frac{1}{n + 1} (nA + x_{n + 1})\right)^2 \\
+                & = \frac{1}{n + 1} \left(n (B + A^2) + x_{n + 1}^2\right) - \left(\frac{1}{n + 1} (nA + x_{n + 1})\right)^2            \\
+                & = \frac{1}{(n + 1)^2} \left[(n + 1)\left(n (B + A^2) + x_{n + 1}^2\right) - (nA + x_{n + 1})^2\right]                 \\
+                & = \frac{1}{(n + 1)^2} \left(n A^2 + n(n + 1)B + n x_{n + 1}^2 - 2nA x_{n + 1}\right)                                  \\
+                & = \frac{n}{(n + 1)^2} \left(A^2 + (n + 1)B + x_{n + 1}^2 - 2A x_{n + 1}\right)                                        \\
+                & = \frac{n}{(n + 1)^2} \left[\left(A - x_{n + 1}\right)^2 + (n + 1)B\right]
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              (n + 1)D - nB & = \frac{n}{n + 1} \left[\left(A - x_{n + 1}\right)^2 + (n + 1)B\right] - nB \\
+                            & = \frac{n}{n + 1} \cdot \left(A - x_{n + 1}\right)^2 + nB - nB              \\
+                            & = \frac{n}{n + 1} \cdot \left(A - x_{n + 1}\right)^2                        \\
+                            & \geq 0,
+          \end{align*}
+          since a square is always non-negative, and hence
+          \[
+              (n + 1)D \geq nB.
+          \]
+
+          On the other hand, notice that
+          \begin{align*}
+              D - B & = \frac{n}{(n + 1)^2} \left[\left(A - x_{n + 1}\right)^2 + (n + 1)B\right] - B \\
+                    & = \frac{n}{(n + 1)^2} \left(A - x_{n + 1}\right)^2 + \frac{n}{n + 1} B - B     \\
+                    & =\frac{n}{(n + 1)^2} \left(A - x_{n + 1}\right)^2 - \frac{1}{n + 1}B,
+          \end{align*}
+          and hence
+          \begin{align*}
+              D < B & \iff \frac{n}{(n + 1)^2} \left(A - x_{n + 1}\right)^2 - \frac{1}{n + 1}B < 0       \\
+                    & \iff \frac{n}{(n + 1)^2} \left(A - x_{n + 1}\right)^2 < \frac{1}{n + 1}B           \\
+                    & \iff \left(A - x_{n + 1}\right)^2 < \frac{n + 1}{n} B                              \\
+                    & \iff - \sqrt{\frac{n + 1}{n} B} < A - x_{n + 1} < \sqrt{\frac{n + 1}{n} B}         \\
+                    & \iff - A - \sqrt{\frac{n + 1}{n} B} < - x_{n + 1} < - A + \sqrt{\frac{n + 1}{n} B} \\
+                    & \iff A - \sqrt{\frac{n + 1}{n} B} < x_{n + 1} < A + \sqrt{\frac{n + 1}{n} B},
+          \end{align*}
+          exactly as desired.
+\end{enumerate}
