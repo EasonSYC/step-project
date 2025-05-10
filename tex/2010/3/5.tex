@@ -1,2 +1,70 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{center}
+    \input{\currfiledir 5-diag1}
+\end{center}
+
+The line \(CP\) has equation
+\[
+    l_{CP}: y = \frac{1}{1 - n} x - \frac{an}{1 - n},
+\]
+and the line \(DA\) has equation \(l_{DA}: x = 0\). Hence, \(R\) has coordinates
+\[
+    R \left(0, -\frac{an}{1 - n}\right).
+\]
+
+The line \(CQ\) has equation
+\[
+    l_{CQ}: y = (1 - m)x + am,
+\]
+and the line \(BA\) has equation \(l_{BA}: y = 0\). Hence, \(S\) has coordinates
+\[
+    S \left(-\frac{am}{1 - m}, 0\right).
+\]
+
+The line \(PQ\) has equation
+\[
+    l_{PQ}: y = - \frac{m}{n} x + am,
+\]
+and the line \(RS\) has equation
+\[
+    l_{RS}: y = -\frac{n (1 - m)}{m (1 - n)} \cdot x - \frac{an}{1 - n}.
+\]
+
+Therefore, \(T\) must have \(x\)-coordinates satisfying
+\[
+    - \frac{m}{n} x + am = - \frac{n (1 - m)}{m (1 - n)} \cdot x - \frac{an}{1 - n},
+\]
+and hence
+\[
+    \left(\frac{n (1 - m)}{m (1 - n)} - \frac{m}{n}\right)x = - a \left(m + \frac{n}{1 - n}\right),
+\]
+and hence
+\[
+    \frac{n^2 (1 - m) - m^2 (1 - n)}{mn (1 - n)} \cdot x = -a \left(\frac{m (1 - n) + n}{1 - n}\right),
+\]
+which gives
+\[
+    \frac{(n + m - mn)(n - m)}{mn (1 - n)} \cdot x = -a \cdot \frac{m + n - mn}{1 - n}.
+\]
+
+This means
+\[
+    x = \frac{amn}{m - n},
+\]
+and hence
+\[
+    y = - \frac{m}{n} \cdot \frac{amn}{m - n} + am = \frac{-am^2 + am(m - n)}{m - n} = \frac{-amn}{m - n}.
+\]
+
+This shows that line \(AT\) is the line \(y = -x\), while line \(AC\) is the line \(y = x\).
+
+Therefore, means that \(AT\) is perpendicular to \(AC\).
+
+\begin{center}
+    \input{\currfiledir 5-diag2}
+\end{center}
+
+Label the square \(ABCD\) (in a counter-clockwise sequence), and find two arbitrary points \(P\) and \(Q\) on \(AB\) and \(AD\) respectively, with different distances away from \(A\). Construct the line \(CP\) and \(CQ\), and let their intersections with \(AD\) and \(AB\) be \(R\) and \(S\) respectively. Construct the line \(RS\) and \(PQ\), and let them meet at \(T_1\). We have \(T_1 A\) is perpendicular to \(AC\).
+
+Repeating this process (rotating the labelling of \(A, B, C\) and \(D\) counter-clockwise), we will get \(T_2 B\), \(T_3 C\) and \(T_4 D\), as shown in the diagrams. The square formed by these four lines is \(A' B' C' D'\) (found by intersecting the lines). The new square has side length \(\sqrt{a}\) equal to the length of the diameter, and hence have area \(2a^2\).

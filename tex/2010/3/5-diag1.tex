@@ -1,0 +1,24 @@
+\begin{tikzpicture}[scale = 0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (5, 0);
+    \coordinate (C) at (5, 5);
+    \coordinate (D) at (0, 5);
+    \coordinate (P) at (4, 0);
+    \coordinate (Q) at (0, 3);
+    \coordinate (R) at (0, -20);
+    \coordinate (S) at (-7.5, 0);
+    \coordinate (T) at (-12, 12);
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw (C) -- (R) -- (A) -- (S) -- (C);
+    \draw (R) -- (T) -- (P);
+    \draw (T) -- (A) -- (C);
+    \filldraw (A) circle (1pt) node [below left] {\(A\)};
+    \filldraw (B) circle (1pt) node [below right] {\(B\)};
+    \filldraw (C) circle (1pt) node [above right] {\(C\)};
+    \filldraw (D) circle (1pt) node [above left] {\(D\)};
+    \filldraw (P) circle (1pt) node [below left] {\(P\)};
+    \filldraw (Q) circle (1pt) node [below left] {\(Q\)};
+    \filldraw (R) circle (1pt) node [below left] {\(R\)};
+    \filldraw (S) circle (1pt) node [below left] {\(S\)};
+    \filldraw (T) circle (1pt) node [below left] {\(T\)};
+\end{tikzpicture}

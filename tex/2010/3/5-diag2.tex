@@ -1,0 +1,32 @@
+\begin{tikzpicture}[scale = 0.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (5, 0);
+    \coordinate (C) at (5, 5);
+    \coordinate (D) at (0, 5);
+    \coordinate (T1) at (-6, 6);
+    \coordinate (T2) at (-2, -7);
+    \coordinate (T3) at (13, -3);
+    \coordinate (T4) at (9, 14);
+    \coordinate (A') at (-2.5, 2.5);
+    \coordinate (B') at (2.5, -2.5);
+    \coordinate (C') at (7.5, 2.5);
+    \coordinate (D') at (2.5, 7.5);
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw[dashed] (A') -- (B') -- (C') -- (D') -- cycle;
+    \draw (T1) -- (A);
+    \draw (T2) -- (B);
+    \draw (T3) -- (C);
+    \draw (T4) -- (D);
+    \filldraw (A) circle (1pt) node [below left] {\(A\)};
+    \filldraw (B) circle (1pt) node [below right] {\(B\)};
+    \filldraw (C) circle (1pt) node [above right] {\(C\)};
+    \filldraw (D) circle (1pt) node [above left] {\(D\)};
+    \filldraw (A') circle (1pt) node [below left] {\(A'\)};
+    \filldraw (B') circle (1pt) node [below right] {\(B'\)};
+    \filldraw (C') circle (1pt) node [above right] {\(C'\)};
+    \filldraw (D') circle (1pt) node [above left] {\(D'\)};
+    \filldraw (T1) circle (1pt) node [below left] {\(T_1\)};
+    \filldraw (T2) circle (1pt) node [below right] {\(T_2\)};
+    \filldraw (T3) circle (1pt) node [above right] {\(T_3\)};
+    \filldraw (T4) circle (1pt) node [above left] {\(T_4\)};
+\end{tikzpicture}
