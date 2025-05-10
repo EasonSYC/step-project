@@ -1,2 +1,127 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Since \(y = \cos (m \arcsin x)\), we have
+\[
+    \DiffFrac{y}{x} = - \frac{m \sin (m \arcsin x)}{\sqrt{1 - x^2}},
+\]
+and
+\begin{align*}
+    \NdiffFrac{2}{y}{x} & = - \frac{m^2 \cos (m \arcsin x) \cdot \frac{1}{\sqrt{1 - x^2}} \cdot \sqrt{1 - x^2} - m \sin (m \arcsin x) \cdot (-x) \cdot \frac{1}{\sqrt{1 - x^2}}}{1 - x^2} \\
+                        & = -\frac{m}{1 - x^2} \left(m \cos(m \arcsin x) + x \sin (m \arcsin x) \cdot \frac{1}{\sqrt{1 - x^2}}\right).
+\end{align*}
+
+Hence, the left-hand side of the differential equation reduces to
+\begin{align*}
+     & \phantom{=} (1 - x^2) \DiffFrac{y}{x} - x \DiffFrac{y}{x} + m^2 y                                         \\
+     & = -m \cdot \left(m \cos(m \arcsin x) + x \sin (m \arcsin x) \cdot \frac{1}{\sqrt{1 - x^2}}\right)         \\
+     & \phantom{=} + \frac{mx \sin (m \arcsin x)}{\sqrt{1 - x^2}} + m^2 \cos (m \arcsin x)                       \\
+     & = -m^2 \cos (m \arcsin x) + m^2 \cos (m \arcsin x)                                                        \\
+     & \phantom{=} - \frac{mx \sin (m \arcsin x)}{\sqrt{1 - x^2}} + \frac{mx \sin (m \arcsin x)}{\sqrt{1 - x^2}} \\
+     & = 0,
+\end{align*}
+as desired.
+
+Differentiating both sides of this equation with respect to \(x\), we get
+\[
+    (-2x) \NdiffFrac{2}{y}{x} + (1 - x^2) \NdiffFrac{3}{y}{x} - \DiffFrac{y}{x} - x \NdiffFrac{2}{y}{x} + m^2 \DiffFrac{y}{x} = 0,
+\]
+which reduces to
+\[
+    (1 - x^2) \NdiffFrac{3}{y}{x} -3x \NdiffFrac{2}{y}{x} + (m^2 - 1) \DiffFrac{y}{x} = 0.
+\]
+
+Differentiating both sides with respect to \(x\) again, we get
+\[
+    (-2x) \NdiffFrac{3}{y}{x} + (1 - x^2) \NdiffFrac{4}{y}{x} - 3 \NdiffFrac{2}{y}{x} - 3x \NdiffFrac{3}{y}{x} + (m^2 - 1) \NdiffFrac{2}{y}{x} = 0,
+\]
+which reduces to
+\[
+    (1 - x^2) \NdiffFrac{4}{y}{x} - 5x \NdiffFrac{3}{y}{x} + (m^2 - 4) \NdiffFrac{2}{y}{x} = 0.
+\]
+
+The conjecture is for all \(n \geq 0\),
+\[
+    (1 - x^2) \NdiffFrac{n + 2}{y}{x} - (2n + 1) \NdiffFrac{n + 1}{y}{x} + (m^2 - n^2) \NdiffFrac{n}{y}{x} = 0.
+\]
+
+The base case where \(n = 0\) is already shown. We show the inductive step. Assume this statement is true for some \(n = k\), i.e.
+\[
+    (1 - x^2) \NdiffFrac{k + 2}{y}{x} - (2k + 1)x \NdiffFrac{k + 1}{y}{x} + (m^2 - k^2) \NdiffFrac{k}{y}{x} = 0.
+\]
+
+Differentiating both sides with respect to \(x\) gives
+\[
+    (-2x) \NdiffFrac{k + 2}{y}{x} + (1 - x^2) \NdiffFrac{k + 3}{y}{x} - (2k + 1) \NdiffFrac{k + 1}{y}{x} - (2k + 1)x \NdiffFrac{k + 2}{y}{x} + (m^2 - k^2) \NdiffFrac{k + 1}{y}{x} = 0,
+\]
+which reduces to
+\[
+    (1 - x^2) \NdiffFrac{k + 3}{y}{x} - (2k + 3)x \NdiffFrac{k + 2}{y}{x} + (m^2 - (k + 1)^2) \NdiffFrac{k + 1}{y}{x} = 0.
+\]
+
+This is precisely the statement for when \(n = k + 1\).
+
+Hence, by the principle of mathematical induction, the conjecture holds for all integers \(n \geq 0\).
+
+Now, we evaluate this at \(x = 0\), and we have
+\[
+    \LEvalAt{\NdiffFrac{n + 2}{y}{x}}{x = 0} + (m^2 - n^2) \LEvalAt{\NdiffFrac{n}{y}{x}}{x = 0} = 0
+\]
+for all \(n \geq 0\), which rearranged gives
+\[
+    \LEvalAt{\NdiffFrac{n + 2}{y}{x}}{x = 0} = (n^2 - m^2) \LEvalAt{\NdiffFrac{n}{y}{x}}{x = 0}.
+\]
+
+Notice that
+\[
+    \LEvalAt{y}{x = 0} = \cos (m \arcsin 0) = 1,
+\]
+and
+\[
+    \LEvalAt{\DiffFrac{y}{x}}{x = 0} = - \frac{m \sin (m \arcsin 0)}{\sqrt{1 - 0^2}} = 0
+\]
+
+Hence,
+\[
+    \LEvalAt{\NdiffFrac{2}{y}{x}}{x = 0} = (0^2 - m^2) \LEvalAt{y}{x = 0} = -m^2,
+\]
+and
+\[
+    \LEvalAt{\NdiffFrac{3}{y}{x}}{x = 0} = (1^2 - m^2) \LEvalAt{\DiffFrac{y}{x}}{x = 0} = 0,
+\]
+and
+\[
+    \LEvalAt{\NdiffFrac{4}{y}{x}}{x = 0} = (2^2 - m^2) \LEvalAt{\NdiffFrac{2}{y}{x}}{x = 0} = -m^2 (2^2 - m^2),
+\]
+
+In general, we have
+\[
+    \LEvalAt{\NdiffFrac{2n + 1}{y}{x}}{x = 0} = 0,
+\]
+and
+\[
+    \LEvalAt{\NdiffFrac{2n}{y}{x}}{x = 0} = \prod_{k = 0}^{n - 1} (4k^2 - m^2) = (-1)^n \prod_{k = 0}^{n - 1} (m^2 - 4k^2)
+\]
+for all integers \(n \geq 0\).
+
+Hence, the Maclaurin series for \(y\) satisfy that
+\begin{align*}
+    y & = \sum_{n = 0}^{+\infty} \frac{\LEvalAt{\NdiffFrac{n}{y}{x}}{x = 0} x^n}{n!}            \\
+      & = \sum_{n = 0}^{+\infty} \frac{(-1)^n \prod_{k = 0}^{n - 1} (m^2 - 4k^2) x^{2n}}{(2n)!} \\
+      & = 1 - \frac{m^2 x^2}{2!} + \frac{m^2 (m^2 - 2^2) x^4}{4!} - \cdots.
+\end{align*}
+
+In the case where \(m\) is even, notice that when \(m = 2k\), \(m^2 - 4k^2 = 0\), and so for all \(n \geq \frac{m}{2} + 1\),
+\[
+    \prod_{k = 0}^{n - 1} (m^2 - 4k^2) x^{2n} = 0,
+\]
+and hence this infinite sum becomes finite:
+\begin{align*}
+    y & = \sum_{n = 0}^{+\infty} \frac{(-1)^n \prod_{k = 0}^{n - 1} (m^2 - k^2) x^{2n}}{(2n)!}      \\
+      & = \sum_{n = 0}^{\frac{m}{2}} \frac{(-1)^n \prod_{k = 0}^{n - 1} (m^2 - k^2) x^{2n}}{(2n)!}.
+\end{align*}
+
+Now, let \(x = \sin \theta\), we have \(\theta = \arcsin x\) since \(\abs*{\theta} < \frac{1}{2}\pi\), and \(y = \cos m\theta\). Hence,
+\[
+    \cos m\theta = 1 - \frac{m^2 \sin^2\theta}{2!} + \frac{m^2 (m^2 - 2^2) \sin^4\theta}{4!} - \cdots,
+\]
+where the sum is finite (and hence a polynomial), and the degree of this polynomial is \(m\);
