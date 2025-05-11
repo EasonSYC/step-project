@@ -1,2 +1,110 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(\alpha\) is a common root of both equations, we have
+          \[
+              \alpha^2 + a \alpha + b = 0, \alpha^2 + c \alpha + d = 0.
+          \]
+
+          Since \(0 = 0\), we have
+          \begin{align*}
+              \alpha^2 + a \alpha + b & = \alpha^2 + c \alpha + d \\
+              a \alpha + b            & = c \alpha + d            \\
+              (a - c) \alpha          & = - (b - d)               \\
+              \alpha                  & = - \frac{b - d}{a - c},
+          \end{align*}
+          given that \(a \neq c\).
+
+          We first prove the only-if direction of the statement. Putting this back to the first original equation, we have
+          \[
+              \left(- \frac{b - d}{a - c}\right)^2 + a \cdot \left(- \frac{b - d}{a - c}\right) + b = 0,
+          \]
+          and hence multiplying both sides by \((a - c)^2\), we get
+          \[
+              (b - d)^2 - a (b - d) (a - c) + b (a - c)^2 = 0,
+          \]
+          as desired.
+
+          The if direction of the statement is as follows. Given this equation, dividing both sides by \((a - c)^2\) gives
+          \[
+              \left(- \frac{b - d}{a - c}\right)^2 + a \left(- \frac{b - d}{a - c}\right) + b = 0,
+          \]
+          and putting \(x = - \frac{b - d}{a - c}\) into the second equation gives
+          \begin{align*}
+              x^2 + cx + d & = \left(- \frac{b - d}{a - c}\right)^2 + c \left(- \frac{b - d}{a - c}\right) + d                                      \\
+                           & = \frac{1}{(a - c)^2} \left[(b - d)^2 - c (b - d) (a - c) + d (a - c)^2\right]                                         \\
+                           & = \frac{1}{(a - c)^2} \left[(b - d)^2 - a (b - d) (a - c) + a (b - d) (a - c) - c (b - d) (a - c) + d (a - c)^2\right] \\
+                           & = \frac{1}{(a - c)^2} \left[(b - d)^2 - a (b - d) (a - c) + (b - d) (a - c)^2 + d (a - c)^2\right]                     \\
+                           & = \frac{1}{(a - c)^2} \left[(b - d)^2 - a (b - d) (a - c) + b (a - c)^2\right]                                         \\
+                           & = 0.
+          \end{align*}
+
+          This still holds if \(a \neq c\). For the only-if direction, we still have \((a - c) \alpha = -(b - d)\), and hence \((a - c)^2 \alpha^2 = (b - d)^2\). Putting \(\alpha\) into the first equation, and multiplying both sides by \((a - c)^2\) gives us
+          \[
+              (a - c)^2 \alpha^2 + a (a - c) \alpha (a - c) + b (a - c)^2 = 0,
+          \]
+          and hence
+          \[
+              (b - d)^2 - a (b - d) (a - c) + b (a - c)^2 = 0.
+          \]
+
+          For the if-direction, if \(a = c\), then \((b - d)^2 = 0\) and hence \(b = d\). This means the two quadratic equations are identical, which naturally leads to at least one common root.
+
+    \item We first show that the original two equations have at least one common root if and only if \(x^2 + ax + b = 0\) and \(x^2 + (q - b)x + r = 0\) share a root.
+
+          The only-if direction is as follows. Multiplying both sides of the first equation by \(x\), we get
+          \[
+              x^3 + ax^2 + bx = 0,
+          \]
+          and hence subtracting this from the second equation gives us
+          \[
+              x^2 + (q - b)x + r = 0,
+          \]
+          which means the common root of the original two equations must be a root to the new equation as well.
+
+          For the if direction, multiplying both sides of \(x^2 + ax + b = 0\) by \(x\) and adding this to the new equation gives us that
+          \[
+              x^3 + (a + 1) x^2 + qx + r = 0.
+          \]
+
+          This means the common root of \(x^2 + ax + b = 0\) and \(x^2 + (q - b)x + r = 0\) must be a root to the cubic equation as well.
+
+          Now, the equations \(x^2 + ax + b = 0\) and \(x^2 + (q - b)x + r = 0\) share a root, if and only if
+          \[
+              (b - r)^2 - a (b - r) (a - (q - b)) + b (a - (q - b))^2 = 0,
+          \]
+          which is equivalent to
+          \[
+              (b - r)^2 - a (b - r) (a + b - q) + b (a + b - q)^2 = 0.
+          \]
+
+          The two equations are equivalent to
+          \[
+              x^2 + \frac{5}{2}x + b = 0, x^3 + \frac{7}{2}x + \frac{5}{2}x + \frac{1}{2} = 0.
+          \]
+
+          Let \(a = \frac{5}{2}, b = b, q = \frac{5}{2}, r = \frac{1}{2}\), and the two equations have at least common root if and only if
+          \[
+              \left(b - \frac{1}{2}\right)^2 - \frac{5}{2} \left(b - \frac{1}{2}\right) \left(\frac{5}{2} + b - \frac{5}{2}\right) + b \left(\frac{5}{2} + b - \frac{5}{2}\right)^2 = 0.
+          \]
+
+          This simplifies to
+          \[
+              (2b - 1)^2 - 5 (2b - 1) b + 4 b^3 = 0,
+          \]
+          which is equivalent to
+          \[
+              4b^3 - 6b^2 + b + 1 = 0.
+          \]
+
+          Notice that
+          \[
+              4b^3 - 6b^2 + b + 1 = (b - 1)(4b^2 - 2b - 1),
+          \]
+          and hence
+          \[
+              b_1 = 1, b_{2, 3} = \frac{2 \pm \sqrt{2^2 + 4 \cdot 4}}{2 \cdot 4} = \frac{1 \pm \sqrt{5}}{4}.
+          \]
+
+
+\end{enumerate}
