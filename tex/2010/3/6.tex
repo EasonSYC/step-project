@@ -1,2 +1,114 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item The coordinates of \(P_1\) are
+          \[
+              P_1 (\cos \phi, \sin \phi, 0),
+          \]
+          and the coordinates of \(Q_1\) are
+          \[
+              Q_1 (- \sin \phi, \cos \phi, 0).
+          \]
+
+          Since the rotation is about \(z\)-axis, the position of \(R\) remains unchanged
+          \[
+              R_1 (0, 0, 1).
+          \]
+
+    \item This rotation axis is precisely \(OQ_1\), since it is contained in the \(x\)-\(y\) plane, and is perpendicular to \(OP_1\). Hence, the position of \(Q\) remains unchanged, and hence
+          \[
+              Q_2 (- \sin \phi, \cos \phi, 0).
+          \]
+
+          If we drop a perpendicular from \(P_2\) to the line \(OP_1\), and call the intersection be \(P'\). We can see from trigonometry that
+          \[
+              P_2 P' = \sin \lambda,
+          \]
+          and
+          \[
+              O P' = \cos \lambda.
+          \]
+
+          Hence, the \(x\)-coordinate of \(P_2\) is \(\cos \lambda \cos \phi\), and the \(y\)-coordinate of \(P_2\) is \(\cos \lambda \sin \phi\). The \(z\)-coordinate of \(P_2\) is \(\sin \lambda\), and hence
+          \[
+              P_2 (\cos \phi \cos \lambda, \sin \phi \cos \lambda, \sin \lambda).
+          \]
+
+          The relative positions of \(P, Q\) and \(R\) remains unchanged under rotation, and hence
+          \begin{align*}
+              \vect{r}_{R_2} & = \vect{r}_{P_2} \times \vect{r}_{Q_2}                                                                       \\
+                             & = \begin{pmatrix}
+                                     \cos \phi \cos \lambda \\
+                                     \sin \phi \cos \lambda \\
+                                     \sin \lambda
+                                 \end{pmatrix} \times \begin{pmatrix}
+                                                          - \sin \phi \\
+                                                          \cos \phi   \\
+                                                          0
+                                                      \end{pmatrix}                                                                        \\
+                             & = \begin{vmatrix}
+                                     \vect{\hat{i}}         & \vect{\hat{j}}         & \vect{\hat{k}} \\
+                                     \cos \phi \cos \lambda & \sin \phi \cos \lambda & \sin \lambda   \\
+                                     - \sin \phi            & \cos \phi              & 0
+                                 \end{vmatrix} \\
+                             & = \begin{pmatrix}
+                                     \sin \phi \cos \lambda \cdot 0 - \sin \lambda \cos \phi           \\
+                                     - (\cos \phi \cos \lambda \cdot 0 + \sin \lambda \cdot \sin \phi) \\
+                                     \cos \phi \cos \lambda \cdot \cos \phi + \sin \phi \cos \lambda \cdot \sin \phi
+                                 \end{pmatrix}                             \\
+                             & = \begin{pmatrix}
+                                     - \sin \lambda \cos \phi  \\
+                                     -  \sin \lambda \sin \phi \\
+                                     \cos^2 \phi \cos \lambda  + \sin^2 \phi \cos \lambda
+                                 \end{pmatrix}                                                        \\
+                             & = \begin{pmatrix}
+                                     - \sin \lambda \cos \phi  \\
+                                     -  \sin \lambda \sin \phi \\
+                                     \cos \lambda
+                                 \end{pmatrix},
+          \end{align*}
+          and hence
+          \[
+              R_2 (- \sin \lambda \cos \phi, - \sin \lambda \sin \phi, \cos \lambda).
+          \]
+
+    \item The angle of rotation is the angle between \(O P_0\) and \(O P_2\), and hence
+          \begin{align*}
+              \cos \theta & = \frac{\bvect{O P_0} \cdot \bvect{O P_2}}{\abs{\bvect{O P_0}} \cdot \abs{\bvect{O P_2}}} \\
+                          & = \begin{pmatrix}
+                                  1 \\
+                                  0 \\
+                                  0
+                              \end{pmatrix} \cdot \begin{pmatrix}
+                                                      \cos \phi \cos \lambda \\
+                                                      \sin \phi \cos \lambda \\
+                                                      \sin \lambda
+                                                  \end{pmatrix}                                              \\
+                          & = \cos \phi \cos \lambda,
+          \end{align*}
+          as desired.
+
+          The axis of this rotation must be perpendicular to both \(O P_1\) and \(O P_2\), and hence their cross product
+          \begin{align*}
+              \bvect{O P_0} \times \bvect{O P_2} & = \begin{pmatrix}
+                                                         1 \\
+                                                         0 \\
+                                                         0
+                                                     \end{pmatrix} \times \begin{pmatrix}
+                                                                              \cos \phi \cos \lambda \\
+                                                                              \sin \phi \cos \lambda \\
+                                                                              \sin \lambda
+                                                                          \end{pmatrix}                                                                \\
+                                                 & = \begin{vmatrix}
+                                                         \vect{\hat{i}}         & \vect{\hat{j}}         & \vect{\hat{k}} \\
+                                                         1                      & 0                      & 0              \\
+                                                         \cos \phi \cos \lambda & \sin \phi \cos \lambda & \sin \lambda
+                                                     \end{vmatrix} \\
+                                                 & = \begin{pmatrix}
+                                                         0              \\
+                                                         - \sin \lambda \\
+                                                         \sin \phi \cos \lambda
+                                                     \end{pmatrix}
+          \end{align*}
+          is a vector in the direction of the axis.
+\end{enumerate}
