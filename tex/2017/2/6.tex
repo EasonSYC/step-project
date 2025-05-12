@@ -1,2 +1,98 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item We first look at the base case where \(n = 1\). \(S_1 = \frac{1}{1} = 1\), and \(2 \cdot \sqrt{1} - 1 = 1\), so
+          \[
+              S_1 \leq 2 \cdot \sqrt{1} - 1
+          \]
+          holds, and the original statement holds for when \(n = 1\).
+
+          Assume this holds for some \(n = k \in \NN\), i.e., \(S_k \leq 2 \sqrt{k} - 1\). We have
+          \begin{align*}
+              S_{k + 1} & = \sum_{r = 1}^{k + 1} \frac{1}{\sqrt{r}}                      \\
+                        & = \sum_{r = 1}^{k} \frac{1}{\sqrt{r}} + \frac{1}{\sqrt{k + 1}} \\
+                        & = S_k + \frac{1}{\sqrt{k + 1}}                                 \\
+                        & \leq 2 \sqrt{k} + \frac{1}{\sqrt{k + 1}} - 1.
+          \end{align*}
+
+          We would like to show
+          \[
+              2\sqrt{k} + \frac{1}{\sqrt{k + 1}} \leq 2 \sqrt{k + 1}.
+          \]
+
+          Notice that
+          \begin{align*}
+              2\sqrt{k} + \frac{1}{\sqrt{k + 1}} \leq 2 \sqrt{k + 1} & \iff 2\sqrt{k(k + 1)} + 1 \leq 2 (k + 1) \\
+                                                                     & \iff 2\sqrt{k(k + 1)} \leq 2k + 1        \\
+                                                                     & \iff 4k(k + 1) \leq (2k + 1)^2           \\
+                                                                     & \iff 4k^2 + 4k \leq 4k^2 + 4k + 1        \\
+                                                                     & \iff 0 \leq 1,
+          \end{align*}
+          which is true.
+
+          Hence,
+          \[
+              S_{k + 1} \leq 2 \sqrt{k} + \frac{1}{\sqrt{k + 1}} - 1 \leq 2\sqrt{k + 1} - 1,
+          \]
+          which is precisely the statement for \(n = k + 1\).
+
+          The original statement holds for the base case where \(n = 0\), and assuming it holds for some \(n = k \in \NN\), it holds for \(n = k + 1\). Hence, by the principle of mathematical induction, the original statement holds for all \(n \in \NN\).
+
+    \item For \(k \geq 0\), we notice
+          \begin{align*}
+              (4k + 1) \sqrt{k + 1} > (4k + 3) \sqrt{k} & \iff (4k + 1)^2 (k + 1) > (4k + 3)^2 k                      \\
+                                                        & \iff (16k^2 + 8k + 1) (k + 1) > (16k^2 + 24k + 9) k         \\
+                                                        & \iff 16k^3 + 8k^2 + k + 16k^2 + 8k + 1 > 16k^3 + 24k^2 + 9k \\
+                                                        & \iff 1 > 0,
+          \end{align*}
+          which is true.
+
+          We claim that \(C = \frac{3}{2}\) is the smallest number \(C\) which makes this true. We first show that \(C = \frac{3}{2}\) makes the statement true by induction. For the base case where \(n = 1\), \(S_1 = 1\), and
+          \[
+              2 \sqrt{1} + \frac{1}{2\sqrt{1}} - \frac{3}{2} = \frac{5}{2} - \frac{3}{2} = 1,
+          \]
+          and so this statement holds for \(n = 1\).
+
+          Now, assume that this statement holds for some \(n = k \in \NN\), i.e.
+          \[
+              S_k \geq 2\sqrt{k} + \frac{1}{2\sqrt{k}} - C.
+          \]
+
+          We have
+          \begin{align*}
+              S_{k + 1} & = S_k + \frac{1}{\sqrt{k + 1}}                                      \\
+                        & \geq 2\sqrt{k} + \frac{1}{2 \sqrt{k}} + \frac{1}{\sqrt{k + 1}} - C.
+          \end{align*}
+
+          We would like to show that
+          \[
+              2\sqrt{k} + \frac{1}{2 \sqrt{k}} + \frac{1}{\sqrt{k + 1}} \geq 2\sqrt{k + 1} + \frac{1}{2\sqrt{k + 1}}.
+          \]
+
+          Notice that
+          \begin{align*}
+               & \phantom{\iff} 2\sqrt{k} + \frac{1}{2 \sqrt{k}} + \frac{1}{\sqrt{k + 1}} \geq 2\sqrt{k + 1} + \frac{1}{2\sqrt{k + 1}} \\
+               & \iff 2\sqrt{k} + \frac{1}{2\sqrt{k}} \geq 2\sqrt{k + 1} - \frac{1}{2\sqrt{k + 1}}                                     \\
+               & \iff \frac{4k + 1}{2\sqrt{k}} \geq \frac{4(k + 1) - 1}{2\sqrt{k + 1}}                                                 \\
+               & \iff (4k + 1) \sqrt{k + 1} \geq (4k + 3) \sqrt{k},
+          \end{align*}
+          which is implied by the proven inequality, and hence
+          \[
+              S_{k + 1} \geq 2\sqrt{k} + \frac{1}{2 \sqrt{k}} + \frac{1}{\sqrt{k + 1}} - C \geq 2\sqrt{k + 1} + \frac{1}{2\sqrt{k + 1}} - C,
+          \]
+          which precisely proves the statement for \(n = k + 1\).
+
+          The claimed statement holds for the base case where \(n = 1\), and given it holds for some \(n = k \in \NN\), it holds for \(n = k + 1\). Hence, the statement holds for all \(n \in \NN\) when \(C = \frac{3}{2}\).
+
+          If \(C < \frac{3}{2}\), we have for \(n = 1\)
+          \[
+              2\sqrt{1} + \frac{1}{2 \sqrt{1}} - C > \frac{5}{2} - \frac{3}{2} = 1,
+          \]
+          but
+          \[
+              S_1 = 1,
+          \]
+          so the statement does not hold for when \(n = 1\).
+
+          Hence, the smallest number \(C\) for the statement to be true is \(C = \frac{3}{2}\).
+\end{enumerate}

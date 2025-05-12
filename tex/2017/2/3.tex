@@ -1,2 +1,72 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(\sin y = \sin x\), we must have
+          \[
+              y = x + 2 k \pi
+          \]
+          where \(k \in \ZZ\), or
+          \[
+              y = (2k + 1) \pi - x
+          \]
+          where \(k \in \ZZ\).
+
+          For the first case, since \(x \in [-\pi, \pi]\) and \(y \in [-\pi, \pi]\), we must have simply \(x = y\).
+
+          For the second case, within this range, we can have \(y = \pi - x\), and \(y = - \pi - x\).
+
+          Hence, the sketch looks as follows.
+
+          \begin{center}
+              \input{\currfiledir 3-diag1}
+          \end{center}
+
+    \item Differentiating with respect to \(x\), we have
+          \[
+              \cos y \DiffFrac{y}{x} = \frac{1}{2} \cos x.
+          \]
+
+          Since \(\sin y = \frac{1}{2} \sin x\), \(\cos y = \pm \sqrt{1 - \sin^2 y} = \pm \sqrt{1 - \frac{1}{4} \sin^2 x}\). Since \(0 \leq y \leq \frac{1}{2} \pi\), \(\cos y > 0\), and hence \(\cos y = \frac{1}{2} \sqrt{4 - \sin^2 x}\). Hence,
+          \[
+              \DiffFrac{y}{x} = \frac{\frac{1}{2} \cos x}{\frac{1}{2} \sqrt{4 - \sin^2 x}} = \frac{\cos x}{\sqrt{4 - \sin^2 x}}.
+          \]
+
+          Differentiating this again gives us
+          \begin{align*}
+              \NdiffFrac{2}{y}{x} & = \frac{(- \sin x) \sqrt{4 - \sin^2 x} - \frac{1}{2} \cdot (-2 \sin x) \cdot \cos x \cdot \frac{1}{\sqrt{4 - \sin^2 x}} \cdot \cos x}{4 - \sin^2 x} \\
+                                  & = \frac{(- \sin x) (4 - \sin^2 x) + \sin x \cos^2 x}{(4 - \sin^2 x)^{\frac{3}{2}}}                                                                  \\
+                                  & = \frac{-4 \sin x + \sin^3 x + \sin x (1 - \sin^2 x)}{(4 - \sin^2 x)^{\frac{3}{2}}}                                                                 \\
+                                  & = -\frac{3 \sin x}{(4 - \sin^2 x)^{\frac{3}{2}}},
+          \end{align*}
+          as desired.
+
+          Within this range of \(x\) and \(y\), we have
+          \[
+              y = \arcsin \left(\frac{1}{2} \sin x\right),
+          \]
+          and hence this is a function, and each \(x\) corresponds to a unique \(y\).
+
+          At \(x = 0\),
+          \[
+              y = 0, y' = \frac{\cos 0}{\sqrt{4 - \sin^2 0}} = \frac{1}{2},
+          \]
+          and at \(x = \frac{\pi}{2}\),
+          \[
+              y = \frac{\pi}{6}, y' = -\frac{\cos \frac{\pi}{2}}{\sqrt{4 - \sin^2 \frac{\pi}{2}}} = 0.
+          \]
+
+          Since \(y'' = - \frac{3 \sin x}{(4 - \sin^2 x)^{\frac{3}{2}}} < 0\) for \(x \in \left[0, \frac{\pi}{2}\right]\), this function is concave, and hence the graph looks as follows.
+          \begin{center}
+              \input{\currfiledir 3-diag2.tex}
+          \end{center}
+
+          Hence, for \((x, y) \in [-\pi, \pi]^2\), the graph looks as follows, by symmetry.
+          \begin{center}
+              \input{\currfiledir 3-diag3.tex}
+          \end{center}
+
+    \item The graph is as follows.
+          \begin{center}
+              \input{\currfiledir 3-diag4.tex}
+          \end{center}
+\end{enumerate}

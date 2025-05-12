@@ -1,2 +1,49 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+The line through \(A\) perpendicular to \(BC\) is
+\[
+    l_1: \vect{r} = \vect{a} + \lambda \vect{u}, \lambda \in \RR.
+\]
+
+The line through \(B\) perpendicular to \(CA\) is
+\[
+    l_2: \vect{r} = \vect{b} + \mu \vect{v}, \mu \in \RR.
+\]
+
+Since \(P\) is the intersection of \(l_1\) and \(l_2\), we must have
+\[
+    \vect{a} + \lambda \vect{u} = \vect{b} + \mu \vect{v},
+\]
+and hence solving for \(\vect{v}\) we have
+\[
+    \vect{v} = \frac{1}{\mu} \left(\vect{a} + \lambda \vect{u} - \vect{b}\right).
+\]
+
+Since \(\vect{v}\) is perpendicular to \(CA\), we must have \(\vect{v} \cdot (\vect{a} - \vect{c}) = 0\), and hence
+\begin{align*}
+     & \phantom{\iff} \frac{1}{\mu} \left(\vect{a} + \lambda \vect{u} - \vect{b}\right) \cdot (\vect{a} - \vect{c}) = 0 \\
+     & \iff (\vect{a} - \vect{b}) \cdot (\vect{a} - \vect{c}) + \lambda \vect{u} \cdot (\vect{a} - \vect{c}) = 0        \\
+     & \iff \lambda = -\frac{(\vect{a} - \vect{b}) \cdot (\vect{a} - \vect{c})}{\vect{u} \cdot (\vect{a} - \vect{c})}.
+\end{align*}
+
+Hence, the position vector of \(P\), \(\vect{p}\), must satisfy that
+\[
+    \vect{p} = \vect{a} + \lambda \vect{u} = \vect{a} - \frac{(\vect{a} - \vect{b}) \cdot (\vect{a} - \vect{c})}{\vect{u} \cdot (\vect{a} - \vect{c})} \vect{u}.
+\]
+
+\(CP\) is perpendicular to \(AB\) if and only if \((\vect{p} - \vect{c}) \cdot (\vect{b} - \vect{a}) = 0\). We notice
+\begin{align*}
+    (\vect{p} - \vect{c}) \cdot (\vect{b} - \vect{a}) & = \left(\vect{a} + \lambda \vect{u} - \vect{c}\right) \cdot (\vect{b} - \vect{a})                                   \\
+                                                      & = \left(\vect{a} - \vect{c}\right) \cdot (\vect{b} - \vect{a}) + \lambda \vect{u} \left(\vect{b} - \vect{a}\right).
+\end{align*}
+
+Since \(\vect{u}\) is perpendicular to \(BC\), we must have \(\vect{u} \cdot (\vect{c} - \vect{b})\), and hence \(\vect{u} \cdot \vect{c} = \vect{u} \cdot \vect{b}\). Hence,
+\begin{align*}
+    (\vect{p} - \vect{c}) \cdot (\vect{b} - \vect{a}) & = \left(\vect{a} - \vect{c}\right) \cdot (\vect{b} - \vect{a}) + \lambda \vect{u} \cdot \left(\vect{b} - \vect{a}\right)                                                                                        \\
+                                                      & = \left(\vect{a} - \vect{c}\right) \cdot (\vect{b} - \vect{a}) + \lambda \vect{u} \cdot \left(\vect{c} - \vect{a}\right)                                                                                        \\
+                                                      & = \left(\vect{a} - \vect{c}\right) \cdot (\vect{b} - \vect{a}) - \frac{(\vect{a} - \vect{b}) \cdot (\vect{a} - \vect{c})}{\vect{u} \cdot (\vect{a} - \vect{c})} \vect{u} \cdot \left(\vect{c} - \vect{a}\right) \\
+                                                      & = \left(\vect{a} - \vect{c}\right) \cdot (\vect{b} - \vect{a}) + (\vect{a} - \vect{b}) \cdot (\vect{a} - \vect{c})                                                                                              \\
+                                                      & = \left(\vect{a} - \vect{c}\right) \cdot (\vect{b} - \vect{a}) - (\vect{a} - \vect{c}) \cdot (\vect{b} - \vect{a})                                                                                              \\
+                                                      & = 0,
+\end{align*}
+and hence \(CP\) is perpendicular to \(AB\).

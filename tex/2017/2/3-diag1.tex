@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+    \draw[->] (-pi - 0.5, 0) -- (pi + 0.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -pi - 0.5) -- (0, pi + 0.5) node[right] {\(y\)};
+    \node at (0, 0) [below right] {\(0\)};
+    \draw (-pi, -pi) -- (pi, pi) node [above right] {\(y = x\)};
+    \draw (0, pi) -- (pi, 0) node [above right] {\(y = \pi - x\)};
+    \draw (-pi, 0) -- (0, -pi) node [below left] {\(y = -\pi - x\)};
+    \draw[dashed] (0, pi) -- (pi, pi) -- (pi, 0);
+    \draw[dashed] (-pi, 0) -- (-pi, -pi) -- (0, -pi);
+    \node at (0, pi) [left] {\(\pi\)};
+    \node at (pi, 0) [below] {\(\pi\)};
+    \node at (0, -pi) [right] {\(-\pi\)};
+    \node at (-pi, 0) [above] {\(-\pi\)};
+\end{tikzpicture}

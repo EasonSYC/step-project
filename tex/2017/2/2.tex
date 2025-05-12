@@ -1,2 +1,65 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+We have
+\begin{align*}
+    x_{n + 2} & = \frac{a x_{n + 1} - 1}{x_{n + 1} + b}                                       \\
+              & = \frac{a \cdot \frac{a x_n - 1}{x_n + b} - 1}{\frac{a x_n - 1}{x_n + b} + b} \\
+              & = \frac{a (a x_n - 1) - (x_n + b)}{(a x_n - 1) + b (x_n + b)}                 \\
+              & = \frac{(a^2 - 1) x_n - (a + b)}{(a + b) x_n + (b^2 - 1)}.
+\end{align*}
+
+\begin{enumerate}
+    \item If the sequence is periodic with period \(2\), then for all integers \(n \geq 0\), we have
+          \begin{align*}
+              x_{n + 2} = x_n & \iff x_n \left[(a + b) x_n + (b^2 - 1)\right] = (a^2 - 1) x_n - (a + b) \\
+                              & \iff (a + b) x_n^2 - (a + b) (a - b) x_n + (a + b) = 0                  \\
+                              & \iff (a + b) (x_n^2 - (a - b) x_n + 1) = 0.
+          \end{align*}
+
+          We also have
+          \begin{align*}
+              x_{n + 1} = x_n & \iff x_n (x_n + b) = a x_n - 1    \\
+                              & \iff x_n^2 - (a - b) x_b + 1 = 0,
+          \end{align*}
+          and this means that for some \(n = k \geq 0\), we must have \(x_n^2 - (a - b) x_n + 1 \neq 0\) (otherwise, the sequence will have period \(1\)).
+
+          Therefore, for such \(n = k\), we must have \(a + b = 0\) for the first condition to be true, and hence this is a necessary condition.
+
+    \item Using the formula between \(x_{n + 4}\) and \(x_n\), we have
+          \begin{align*}
+              x_{n + 4} & = \frac{(a^2 - 1) x_{n + 2} - (a + b)}{(a + b) x_{n + 2} + (b^2 - 1)}                                                                                                                                                         \\
+                        & = \frac{(a^2 - 1) \cdot \frac{(a^2 - 1) x_n - (a + b)}{(a + b) x_n + (b^2 - 1)} - (a + b)}{(a + b) \cdot \frac{(a^2 - 1) x_n - (a + b)}{(a + b) x_n + (b^2 - 1)} + (b^2 - 1)}                                                 \\
+                        & = \frac{(a^2 - 1) \cdot \left[(a^2 - 1) x_n - (a + b)\right] - (a + b) \cdot \left[(a + b) x_n + (b^2 - 1)\right]}{(a + b) \cdot \left[(a^2 - 1) x_n - (a + b)\right] + (b^2 - 1) \cdot \left[(a + b) x_n + (b^2 - 1)\right]} \\
+                        & = \frac{\left[(a^2 - 1)^2 - (a + b)^2\right] x_n - \left[(a^2 - 1)(a + b) + (a + b)(b^2 - 1)\right]}{(a + b)\left[(a^2 - 1) + (b^2 - 1)\right] x_n + \left[(b^2 - 1)^2 - (a + b)^2\right]}.
+          \end{align*}
+
+          If sequence has period \(4\), we have \(x_{n + 4} = x_n\) for all integers \(n \geq 0\), and the sequence does not have period \(1\), \(2\) or \(3\).
+
+          We notice
+          \begin{align*}
+              x_{n + 4} = x_n & \iff x_n \cdot \left[(a + b)\left[(a^2 - 1) + (b^2 - 1)\right] x_n + \left[(b^2 - 1)^2 - (a + b)^2\right]\right] \\
+                              & \phantom{\iff} = \left[(a^2 - 1)^2 - (a + b)^2\right] x_n - \left[(a^2 - 1)(a + b) + (a + b)(b^2 - 1)\right]     \\
+                              & \iff (a + b) (a^2 + b^2 - 2) \left(x_n^2 - (a - b)x_n + 1 \right) = 0.
+          \end{align*}
+
+          From the previous part, we know that for some \(n = k \geq 0\), we must have
+          \[
+              (a + b) \left(x_k^2 - (a - b)x_k + 1 \right) \neq 0,
+          \]
+          which means \(a + b \neq 0\) and \(x_k^2 - (a - b) x_k + 1 \neq 0\). Hence, we must have \(a^2 + b^2 - 2 = 0\).
+
+          On the other hand, if \(a^2 + b^2 - 2 = 0\), \(a + b \neq 0\) and \(x_k^2 - (a - b) x_k + 1 \neq 0\) for some \(n = k \geq 0\), we know that the sequence does not satisfy \(x_{n + 1} = x_n\), does not satisfy \(x_{n + 2} = x_n\), and it satisfies \(x_{n + 4} = x_n\).
+
+          If \(x_{n + 3} = x_n\), then we have \(x_{n + 3} = x_{n + 4}\) which contradicts with not satisfying \(x_{n + 1} = x_n\). Hence, the sequence does not satisfy \(x_{n + 3} = x_n\), and it must have period \(4\).
+
+          Therefore, the sequence has period \(4\), if and only if
+          \[
+              \left\{
+              \begin{aligned}
+                  a + b                  & \neq 0,                                \\
+                  a^2 + b^2 - 2          & = 0,                                   \\
+                  x_k^2 - (a - b)x_k + 1 & \neq 0 \text{ for some } n = k \geq 0.
+              \end{aligned}
+              \right.
+          \]
+\end{enumerate}

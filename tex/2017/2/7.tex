@@ -1,2 +1,81 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(\ln\) is an increasing function, for \(0 < x < 1\), we have \(\ln x < 0\), and
+          \begin{align*}
+              f(x) > x & \iff \ln f(x) > \ln x \\
+                       & \iff \ln x^x > \ln x  \\
+                       & \iff x \ln x > \ln x  \\
+                       & \iff x < 1,
+          \end{align*}
+          which is true since \(0 < x < 1\).
+
+          Notice that
+          \begin{align*}
+              x < g(x) < f(x) & \iff \ln x < \ln x^{f(x)} < \ln x^x \\
+                              & \iff \ln x < x^x \ln x < x \ln x    \\
+                              & \iff 1 > x^x > x.
+          \end{align*}
+
+          The right inequality is shown by the previous part. For the left inequality, we have
+          \begin{align*}
+              1 > x^x & \iff \ln 1 > x \ln x \\
+                      & \iff 0 > x \ln x
+          \end{align*}
+          must be true, since \(0 < x < 1\) and \(\ln x < 0\).
+
+          Hence, we have \(x < g(x) < f(x)\) for \(0 < x < 1\).
+
+          When \(x > 1\), we claim that \(x < f(x) < g(x)\).
+
+    \item Notice that
+          \begin{align*}
+              f'(x) & = \DiffOp{x} x^x                                                        \\
+                    & = \DiffOp{x} \exp (x \ln x)                                             \\
+                    & = \exp (x \ln x) \cdot \left(1 \cdot \ln x + x \cdot \frac{1}{x}\right) \\
+                    & = \exp (x \ln x) \cdot (\ln x + 1)                                      \\
+                    & = f(x) \cdot (\ln x + 1).
+          \end{align*}
+
+          \(f'(x) = 0\) if and only if \(\ln x + 1 = 0\), which holds if and only if \(x = \frac{1}{e}\).
+
+    \item We have
+          \[
+              \lim_{x \to 0} f(x) = \lim_{x \to 0} \exp(x \ln x) = \exp (0) = 1,
+          \]
+          and hence
+          \[
+              \lim_{x \to 0} g(x) = 0.
+          \]
+
+    \item Let \(h(x) = \frac{1}{x} + \ln x\). We have
+          \[
+              h'(x) = - \frac{1}{x^2} + \frac{1}{x} = \frac{x - 1}{x^2}.
+          \]
+
+          When \(0 < x < 1\), \(h'(x) < 0\), and when \(1 < x\), \(h'(x) > 0\). Hence, \(h\) takes a minimum when \(x = 1\), and \(h(1) = \frac{1}{1} + \ln 1 = 1\).
+
+          This shows precisely that
+          \[
+              \frac{1}{x} + \ln x \geq 1
+          \]
+          for \(x > 0\).
+
+          Notice that
+          \begin{align*}
+              g'(x) & = \DiffOp{x} x^{f(x)}                                                                 \\
+                    & = \DiffOp{x} \exp (f(x) \ln x)                                                        \\
+                    & = \exp(f(x) \ln x) \cdot \left(\frac{1}{x} \cdot f(x) + f'(x) \ln x\right)            \\
+                    & = g(x) \cdot \left(\frac{1}{x} \cdot f(x) + f(x) \cdot (\ln x + 1) \cdot \ln x\right) \\
+                    & = f(x) g(x) \cdot \left(\frac{1}{x} + \ln x (\ln x + 1)\right)                        \\
+                    & \geq f(x) g(x) \cdot \left(1 + (\ln x)^2\right)                                       \\
+                    & > 0,
+          \end{align*}
+          since \(f(x), g(x) > 0\) for \(x > 0\) (since they are both exponentials), and \(1 + (\ln x)^2 \geq 1 > 0\) as well.
+\end{enumerate}
+
+The graphs of the functions look as follows.
+
+\begin{center}
+    \input{\currfiledir 7-diag}
+\end{center}

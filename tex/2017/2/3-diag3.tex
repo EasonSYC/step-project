@@ -1,0 +1,26 @@
+\begin{tikzpicture}[trig format=rad]
+    \draw[->] (-pi - 0.5, 0) -- (pi + 0.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -pi - 0.5) -- (0, pi + 0.5) node[right] {\(y\)};
+    \draw [smooth, samples=200, domain=-pi:pi] plot (\x, {asin(0.5*sin(\x))});
+    \draw [smooth, samples=200, domain=0:pi] plot (\x, {pi - asin(0.5*sin(\x))});
+    \draw [smooth, samples=200, domain=-pi:0] plot (\x, {-pi - asin(0.5*sin(\x))});
+    \draw[dashed] (0, pi / 6) -- (pi / 2, pi / 6) -- (pi / 2, 0);
+    \draw[dashed] (0, -pi / 6) -- (-pi / 2, -pi / 6) -- (-pi / 2, 0);
+    \draw[dashed] (0, pi) -- (pi, pi) -- (pi, 0);
+    \draw[dashed] (0, 5 * pi / 6) -- (pi / 2, 5 * pi / 6) -- (pi / 2, pi / 6);
+    \draw[dashed] (0, -pi) -- (-pi, -pi) -- (-pi, 0);
+    \draw[dashed] (0, -5 * pi / 6) -- (-pi / 2, -5 * pi / 6) -- (-pi / 2, -pi / 6);
+
+    \node at (0, 0) [below right] {\(O\)};
+    \node at (-pi, 0) [above] {\(-\pi\)};
+    \node at (-pi / 2, 0) [above] {\(-\pi / 2\)};
+    \node at (pi / 2, 0) [below] {\(\pi / 2\)};
+    \node at (pi, 0) [below] {\(\pi\)};
+
+    \node at (0, -pi) [right] {\(-\pi\)};
+    \node at (0, -5 * pi / 6) [right] {\(-5 \pi / 6\)};
+    \node at (0, -pi / 6) [right] {\(-\pi / 6\)};
+    \node at (0, pi / 6) [left] {\(\pi / 6\)};
+    \node at (0, 5 * pi / 6) [left] {\(5 \pi / 6\)};
+    \node at (0, pi) [left] {\(\pi\)};
+\end{tikzpicture}

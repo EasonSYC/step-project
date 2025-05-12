@@ -1,2 +1,98 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Using integration by parts, we notice that
+          \begin{align*}
+              (n + 1) I_n & = (n + 1) \int_{0}^{1} x^n \arctan x \Diff x                                                             \\
+                          & = \int_{0}^{1} \arctan x \Diff x^{n + 1}                                                                 \\
+                          & = \left[\arctan x \cdot x^{n + 1}\right]_{0}^{1} - \int_{0}^{1} x^{n + 1} \Diff \arctan x                \\
+                          & = \arctan 1 \cdot 1^{n + 1} - \arctan 0 \cdot 0^{n + 1} - \int_{0}^{1} \frac{x^{n + 1}}{1 + x^2} \Diff x \\
+                          & = \frac{\pi}{4} - \int_{0}^{1} \frac{x^{n + 1}}{1 + x^2} \Diff x.
+          \end{align*}
+
+          Set \(n = 0\), and we have
+          \begin{align*}
+              I_0 & = (0 + 1) I_0                                                         \\
+                  & = \frac{\pi}{4} - \int_{0}^{1} \frac{x}{1 + x^2} \Diff x              \\
+                  & = \frac{\pi}{4} - \frac{1}{2} \cdot \left[\ln(1 + x^2)\right]_{0}^{1} \\
+                  & = \frac{\pi}{4} - \frac{1}{2} \cdot \left[\ln 2 - \ln 1\right]        \\
+                  & = \frac{\pi}{4} - \frac{\ln 2}{2}.
+          \end{align*}
+
+    \item Using the result in the previous part,
+          \begin{align*}
+              (n + 3) I_{n + 2} + (n + 1) I_n & = \left(\frac{\pi}{4} - \int_{0}^{1} \frac{x^{n + 3}}{1 + x^2} \Diff x\right) + \left(\frac{\pi}{4} - \int_{0}^{1} \frac{x^{n + 1}}{1 + x^2} \Diff x\right) \\
+                                              & = \frac{\pi}{2} - \int_{0}^{1} \frac{x^{n + 1} + x^{n + 3}}{1 + x^2} \Diff x                                                                                \\
+                                              & = \frac{\pi}{2} - \int_{0}^{1} \frac{x^{n + 1} \left(1 + x^2\right)}{1 + x^2} \Diff x                                                                       \\
+                                              & = \frac{\pi}{2} - \int_{0}^{1} x^{n + 1} \Diff x                                                                                                            \\
+                                              & = \frac{\pi}{2} - \frac{1}{n + 2} \left[x^{n + 2}\right]_{0}^{1}                                                                                            \\
+                                              & = \frac{\pi}{2} - \frac{1}{n + 2}.
+          \end{align*}
+
+          Letting \(n = 0\), and we have
+          \[
+              3 I_2 + I_0 = \frac{\pi}{2} - \frac{1}{2}.
+          \]
+
+
+          Letting \(n = 2\), and we have
+          \[
+              5 I_4 + 3 I_2 = \frac{\pi}{2} - \frac{1}{4}.
+          \]
+
+          Subtracting the first one from the second one, and hence
+          \[
+              5 I_4 - I_0 = \frac{1}{4}.
+          \]
+
+          Hence,
+          \[
+              I_4 = \frac{1}{5} \cdot \left[\frac{1}{4} + \left(\frac{\pi}{4} - \frac{\ln 2}{2}\right)\right] = \frac{1}{20} + \frac{\pi}{20} - \frac{\ln 2}{10}.
+          \]
+
+    \item Let \(n = 1\), and the statement says
+          \begin{align*}
+              (4n + 1) I_{4n} & = 5 I_4                                                      \\
+                              & = A - \frac{1}{2} \sum_{r = 1}^{2 \cdot 1}(-1)^r \frac{1}{r} \\
+                              & = A - \frac{1}{2} \left(- \frac{1}{1} + \frac{1}{2}\right)   \\
+                              & = A + \frac{1}{4}.
+          \end{align*}
+
+          Comparing to the previous expression, we claim that
+          \[
+              A = \frac{\pi}{4} - \frac{\ln 2}{2}.
+          \]
+
+          This shows the base case for \(n = 1\). For the induction step, we first introduce a lemma. Since
+          \[
+              (n + 5) I_{n + 4} + (n + 3) I_{n + 2} = \frac{\pi}{2} - \frac{1}{n + 4}, (n + 3) I_{n + 2} + (n + 1) I_{n} = \frac{\pi}{2} - \frac{1}{n + 2},
+          \]
+          subtracting the second one from the first one will give us
+          \[
+              (n + 5) I_{n + 4} - (n + 1) I_{n} = \frac{1}{n + 2} - \frac{1}{n + 4}.
+          \]
+
+          Setting \(n = 4m\), we have
+          \begin{align*}
+              (4(m + 1) + 1) I_{4 (m + 1)} & = (4m + 1) I_{4m} + \frac{1}{4m + 2} - \frac{1}{4m + 4}                                                             \\
+                                           & = (4m + 1) I_{4m} - \frac{1}{2} \cdot \left(-\frac{1}{2m + 1} + \frac{1}{2m + 2}\right)                             \\
+                                           & = (4m + 1) I_{4m} - \frac{1}{2} \cdot \left[(-1)^{2m + 1} \frac{1}{2m + 1} + (-1)^{2m + 2} \frac{1}{2m + 2}\right].
+          \end{align*}
+
+          Now we show the inductive step. Assume the statement is true for some \(n = k \geq 1\), i.e.
+          \[
+              (4k + 1) I_{4k} = A - \frac{1}{2} \sum_{r = 1}^{2n} (-1)^r \frac{1}{r}.
+          \]
+
+          Using the identity above, we have
+          \begin{align*}
+              (4(k + 1) + 1) I_{4 (k + 1)} & = (4k + 1) I_{4k} - \frac{1}{2} \cdot \left[(-1)^{2k + 1} \frac{1}{2k + 1} + (-1)^{2k + 2} \frac{1}{2k + 2}\right]                                      \\
+                                           & = A - \frac{1}{2} \sum_{r = 1}^{2k} (-1)^r \frac{1}{r} - \frac{1}{2} \cdot \left[(-1)^{2k + 1} \frac{1}{2k + 1} + (-1)^{2k + 2} \frac{1}{2k + 2}\right] \\
+                                           & = A - \frac{1}{2} \sum_{r = 1}^{2(k + 1)} (-1)^r \frac{1}{r}.
+          \end{align*}
+
+          Hence, the original statement is true for \(n = 1\) (as shown when determining the value of \(A\)), and given the original statement holds for some \(n = k \geq 1\), it holds for \(n = k + 1\). By the principle of mathematical induction, this statement holds for all \(n \geq 1\), where
+          \[
+              A = \frac{\pi}{4} - \frac{\ln 2}{2}.
+          \]
+\end{enumerate}

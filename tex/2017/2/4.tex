@@ -1,2 +1,104 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item If \(f(x) = 1\), this gives
+          \[
+              \left(\int_{a}^{b} g(x) \Diff x\right)^2 \leq (b - a) \left(\int_{a}^{b} g(x)^2 \Diff x\right).
+          \]
+
+          Let \(g(x) = e^x\), \(a = 0\) and \(b = t\), and we have
+          \[
+              \LHS = \left(\int_{0}^{t} e^x \Diff x\right)^2 = \left(e^t - 1\right)^2,
+          \]
+          and
+          \[
+              \RHS = t \int_{0}^{t} e^{2x} \Diff x = \frac{t}{2} \left(e^{2t} - 1\right) = \frac{t}{2} \left(e^t - 1\right) \left(e^t + 1\right).
+          \]
+
+          Since \(\LHS \leq \RHS\), we have
+          \[
+              \left(e^t - 1\right)^2 \leq \frac{t}{2} \left(e^t - 1\right) \left(e^t + 1\right),
+          \]
+          and hence
+          \[
+              \frac{e^t - 1}{e^t + 1} \leq \frac{t}{2},
+          \]
+          since \(e^t + 1 > 0\).
+
+    \item If \(f(x) = x\), and \(a = 0, b = 1\), the Schwarz inequality gives
+          \[
+              \left(\int_{0}^{1} x g(x) \Diff x\right)^2 \leq \int_{0}^{1} x^2 \Diff x \int_{0}^{1} g(x)^2 \Diff x.
+          \]
+
+          Since
+          \[
+              \int_{0}^{1} x^2 \Diff x = \frac{1}{3} \left[x^3\right]_{0}^{1} = \frac{1}{3},
+          \]
+          we therefore have
+          \[
+              3\left(\int_{0}^{1} x g(x) \Diff x\right)^2 \leq \int_{0}^{1} g(x)^2 \Diff x.
+          \]
+
+          Consider \(g(x) = \exp\left(-\frac{1}{4} x^2\right)\). Notice that
+          \begin{align*}
+              \int_{0}^{1} x g(x) \Diff x & = \int_{0}^{1} x \exp\left(-\frac{1}{4} x^2\right) \Diff x            \\
+                                          & = -2 \left[\exp\left(-\frac{1}{4} x^2\right)\right]_{0}^{1}           \\
+                                          & = -2 \left[\exp\left(-\frac{1}{4}\right) - \exp \left(0\right)\right] \\
+                                          & = 2 \left(1 - \exp\left(-\frac{1}{4}\right)\right),
+          \end{align*}
+          and hence
+          \[
+              3 \cdot \left[2 \left(1 - \exp\left(-\frac{1}{4}\right)\right)\right]^2 \leq \int_{0}^{1} \exp\left(-\frac{1}{2} x^2\right) \Diff x,
+          \]
+          which is equivalent to
+          \[
+              \int_{0}^{1} \exp\left(-\frac{1}{2} x^2\right) \Diff x \geq 12 \left(1 - \exp\left(-\frac{1}{4}\right)\right)^2,
+          \]
+          as desired.
+
+    \item For the right-half of the inequality, let \(f(x) = 1\), and let the bounds be \(a = 0, b = \frac{1}{2}\pi\), we have
+          \[
+              \left(\int_{0}^{\frac{\pi}{2}} g(x) \Diff x\right)^2 \leq \frac{\pi}{2} \int_{0}^{\frac{\pi}{2}} g(x)^2 \Diff x.
+          \]
+
+          Let \(g(x) = \sqrt{\sin x}\), and hence
+          \[
+              \left(\int_{0}^{\frac{\pi}{2}} \sqrt{\sin x} \Diff x\right)^2 \leq \frac{\pi}{2} \int_{0}^{\frac{\pi}{2}} \sin x \Diff x = \frac{\pi}{2} \left[- \cos x\right]_{0}^{\frac{\pi}{2}} = \frac{\pi}{2}.
+          \]
+
+          Since the integrand \(\sqrt{\sin x} \geq 0\) for all \(x \in \left[0, \frac{\pi}{2}\right]\), the integral over this interval must be non-negative, and hence
+          \[
+              \int_{0}^{\frac{\pi}{2}} \sqrt{\sin x} \Diff x \leq \sqrt{\frac{\pi}{2}}.
+          \]
+
+          For the left-half of the inequality, consider \(g(x) = \sqrt[4]{\sin x}\), and \(f(x) = \cos x\) (with the same bounds, \(a = 0, b = \frac{1}{2}\pi\)). We notice that
+          \begin{align*}
+              \int_{a}^{b} f(x) g(x) \Diff x & = \int_{0}^{\frac{1}{2} \pi} \cos x \sqrt[4] {\sin x} \Diff x                  \\
+                                             & = \frac{4}{5} \left[\left(\sin x\right)^{\frac{5}{4}}\right]_{0}^{\frac{1}{2}} \\
+                                             & = \frac{4}{5} \left[1^{\frac{5}{4}} - 0^{\frac{5}{4}}\right]                   \\
+                                             & = \frac{4}{5},
+          \end{align*}
+          and that
+          \begin{align*}
+              \int_{a}^{b} f(x)^2 \Diff x & = \int_{0}^{\frac{1}{2} \pi} \cos^2 x \Diff x                                                                                   \\
+                                          & = \int_{0}^{\frac{1}{2} \pi} \frac{1 + \cos 2x}{2} \Diff x                                                                      \\
+                                          & = \left[\frac{1}{2}x + \frac{1}{4} \sin 2x\right]_{0}^{\frac{1}{2}\pi}                                                          \\
+                                          & = \left[\frac{1}{2} \cdot \frac{1}{2} \pi + \frac{1}{4} \sin \pi\right] - \left[\frac{1}{2} \cdot 0 + \frac{1}{4} \sin 0\right] \\
+                                          & = \frac{1}{4} \pi.
+          \end{align*}
+
+          Hence, by the Schwarz inequality, we have
+          \begin{align*}
+              \frac{16}{25} \leq \frac{1}{4} \pi \cdot \int_{0}^{\frac{\pi}{2}} \sqrt{\sin x} \Diff x,
+          \end{align*}
+          and hence
+          \[
+              \int_{0}^{\frac{\pi}{2}} \sqrt{\sin x} \Diff x \geq \frac{64}{25\pi}.
+          \]
+
+          Combining both sides of the equality, we hence have
+          \[
+              \frac{64}{25 \pi} \leq \int_{0}^{\frac{\pi}{2}} \sqrt{\sin x} \leq \sqrt{\frac{\pi}{2}},
+          \]
+          as desired.
+\end{enumerate}
