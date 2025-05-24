@@ -1,2 +1,86 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item For each try, there is a probability of \(\frac{1}{n}\) of getting the correct key, and \(1 - \frac{1}{n}\) otherwise. Let \(X_1\) denote the number of attempts to open the door, we can see that \(X_1 \sim \Geometric\left(\frac{1}{n}\right)\), and hence using the formula for a  geometric distribution,
+          \[
+              \Expt(X_1) = n.
+          \]
+
+          The way to consider the binomial expansion is as follows. First, note the probability mass function of \(X_1\) is
+          \[
+              \Prob(X_1 = x) = \left(1 - \frac{1}{n}\right)^{x - 1} \cdot \frac{1}{n},
+          \]
+          and hence the expectation is given by
+          \begin{align*}
+              \Expt(X_1) & = \sum_{x = 1}^{\infty} x \Prob(X_1 = x)                                                \\
+                         & = \sum_{x = 1}^{\infty} x \cdot \left(1 - \frac{1}{n}\right)^{x - 1} \cdot \frac{1}{n}  \\
+                         & = \frac{1}{n} \cdot \sum_{x = 1}^{\infty} x \cdot \left(1 - \frac{1}{n}\right)^{x - 1}.
+          \end{align*}
+
+          Consider the binomial expansion of \((1 - q)^{-2}\). We have
+          \begin{align*}
+              (1 - q)^{-2} & = \sum_{t = 0}^{\infty} \frac{(-q)^t \cdot \prod_{r = 1}^{t} (-2 + 1 - t)}{t!} \\
+                           & = \sum_{t = 0}^{\infty} \frac{(-1)^t q^t (-1)^t \prod_{r = 1}^{t} (1 + t)}{t!} \\
+                           & = \sum_{t = 0}^{\infty} \frac{q^t (t + 1)!}{t!}                                \\
+                           & = \sum_{t = 0}^{\infty} (t + 1) q^t.
+          \end{align*}
+
+          Let \(q = 1 - \frac{1}{n}\). We can see
+          \begin{align*}
+              \Expt(X_1) & = \frac{1}{n} \cdot \sum_{x = 1}^{\infty} x \cdot \left(1 - \frac{1}{n}\right)^{x - 1} \\
+                         & = \frac{1}{n} \cdot \sum_{x = 0}^{\infty} (x + 1) \cdot q^x                            \\
+                         & = \frac{1}{n} \cdot (1 - q)^{-2}                                                       \\
+                         & = \frac{1}{n} \cdot \left(\frac{1}{n}\right)^{-2}                                      \\
+                         & = n,
+          \end{align*}
+          precisely what we had before.
+
+    \item Let \(X_2\) be the number of attempts to open the door in this case. Considering the probability mass function of \(X_2\), we have for \(x = 1, 2, \ldots, n\), that
+          \begin{align*}
+              \Prob(X_2 = x) & = \frac{n - 1}{n} \cdot \frac{n - 2}{n - 1} \cdots \frac{n - (x - 2) - 1}{n - (x - 2)} \cdot \frac{1}{n - (x - 1)} \\
+                             & = \frac{(n - 1)! / (n - x)!}{n! / (n - x)!}                                                                        \\
+                             & = \frac{(n - 1)!}{n!}                                                                                              \\
+                             & = \frac{1}{n}.
+          \end{align*}
+
+          This shows that \(X_2\) follows a discrete uniform distribution on \(\{1, 2, \ldots, n\}\), i.e., \(X_2 \sim \Uniform(n)\).
+
+          Hence, \(\Expt(X_2) = \frac{n + 1}{2}\).
+
+    \item Let \(X_3\) be the number of attempts to open the door in this case. Considering the probability mass function of \(X_2\), we have for \(x = 1, 2, \ldots\), that
+          \begin{align*}
+              \Prob(X_3 = x) & = \frac{n - 1}{n} \cdot \frac{n}{n + 1} \cdots \frac{n + x - 3}{n + x - 2} \cdot \frac{1}{n + x - 1} \\
+                             & = \frac{(n + x - 3)! / (n - 2)!}{(n + x - 1)! / (n - 1)!}                                            \\
+                             & = \frac{(n + x - 3)! (n - 1)!}{(n + x - 1)! (n - 2)!}                                                \\
+                             & = \frac{n - 1}{(n + x - 1) (n + x - 2)},
+          \end{align*}
+          which is precisely what is desired.
+
+          By partial fractions, we have
+          \[
+              \Prob(X_3 = x) = (n - 1) \cdot \left(\frac{2}{n + x - 2} - \frac{1}{n + x - 1}\right),
+          \]
+          and hence the expected number of attempts is
+          \begin{align*}
+              \Expt(X_3) & = \sum_{x = 1}^{\infty} (n - 1) \cdot x \cdot \left(\frac{1}{n + x - 2} - \frac{1}{n + x - 1}\right) \\
+                         & = (n - 1) \sum_{x = 1}^{\infty} x \left(\frac{1}{n + x - 2} - \frac{1}{n + x - 1}\right).
+          \end{align*}
+
+          We consider the partial sum of this infinite sum op to \(x = t\), and
+          \begin{align*}
+              \sum_{x = 1}^{t} x \left(\frac{1}{n + x - 2} - \frac{1}{n + x - 1}\right) & = \sum_{x = 1}^{t} \frac{x}{n + x - 2} - \sum_{x = 1}^{t} \frac{x}{n + x - 1}         \\
+                                                                                        & = \sum_{x = 0}^{t - 1} \frac{x + 1}{n + x - 1} - \sum_{x = 1}^{t} \frac{x}{n + x - 1} \\
+                                                                                        & = \frac{1}{n - 1} + \sum_{x = 1}^{t - 1} \frac{1}{n + x - 1} - \frac{t}{n + t - 1}    \\
+                                                                                        & = \sum_{x = 0}^{t - 1} \frac{1}{n + x - 1} - \frac{t}{n + t - 1}                      \\
+                                                                                        & = \sum_{x = n - 1}^{n + t - 2} \frac{1}{x} - \frac{t}{n + t - 1}.
+          \end{align*}
+
+          Hence, we have
+          \begin{align*}
+              \Expt(X_3) & = (n - 1) \sum_{x = 1}^{\infty} x \left(\frac{1}{n + x - 2} - \frac{1}{n + x - 1}\right)                                                 \\
+                         & = (n - 1) \lim_{t \to \infty} \left(\sum_{x = n - 1}^{n + t - 2} \frac{1}{x} - \frac{t}{n + t - 1}\right)                                \\
+                         & = (n - 1) \lim_{t \to \infty} \left(\sum_{x = 1}^{n + t - 2} \frac{1}{x} - \sum_{x = 1}^{n - 2} \frac{1}{x} - \frac{t}{n + t - 1}\right) \\
+                         & = (n - 1) \left(\sum_{x = 1}^{\infty} \frac{1}{x} - \sum_{x = 1}^{n - 2} \frac{1}{x} - 1\right)
+          \end{align*}
+          does not converge since the first term (harmonic sum) diverges, and the rest of the terms are finite.
+\end{enumerate}

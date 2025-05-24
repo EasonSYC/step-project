@@ -1,2 +1,46 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Let \(X \sim \Poisson(\lambda)\) and \(Y \sim \Poisson(\mu)\). \(X\) and \(Y\) take values of non-negative integers. Hence, for any non-negative integer \(r\), we have
+          \begin{align*}
+              \Prob(X + Y = r) & = \sum_{t = 0}^{r} \Prob(X = t, Y = r - t)                                                             \\
+                               & = \sum_{t = 0}^{r} \Prob(X = t) \Prob(Y = r - t)                                                       \\
+                               & = \sum_{t = 0}^{r} \frac{\lambda^t}{e^\lambda \cdot t!} \cdot \frac{\mu^{r - t}}{e^\mu \cdot (r - t)!} \\
+                               & = \frac{1}{e^{\lambda + \mu}} \cdot \sum_{t = 0}^{r} \frac{\lambda^t \mu^{r - t}}{t! (r - t)!}         \\
+                               & = \frac{1}{e^{\lambda + \mu} r!} \cdot \sum_{t = 0}^{r} \frac{r! \lambda^t \mu^{r - t}}{t! (r - t)!}   \\
+                               & = \frac{1}{e^{\lambda + \mu} r!} \cdot \sum_{t = 0}^{r} \binom{r}{t} \lambda^t \mu^{r - t}             \\
+                               & = \frac{1}{e^{\lambda + \mu} r!} (\lambda + \mu)^r                                                     \\
+                               & = \frac{(\lambda + \mu)^r}{e^{\lambda + \mu} r!},
+          \end{align*}
+          which is precisely the probability mass function for \(\Poisson(\lambda + \mu)\), and hence \(X + Y \sim \Poisson(\lambda + \mu)\).
+
+    \item We consider the probability mass function for the number of fishes Adam has caught in this situation. Given \(X + Y = k\), the only values that \(X\) can take are \(0, 1, \cdots, k\), and hence consider \(x = 0,1, \cdots, k\), we have
+          \begin{align*}
+              \Prob(X = x \mid X + Y = k) & = \frac{\Prob (X = x, X + Y = k)}{\Prob(X + Y = k)}                                                                                    \\
+                                          & = \frac{\Prob(X = x, Y = k - x)}{\Prob(X + Y = k)}                                                                                     \\
+                                          & = \frac{\Prob(X = x) \cdot \Prob(Y = k - x)}{\Prob(X + Y = k)}                                                                         \\
+                                          & = \frac{\frac{\lambda^x}{e^{\lambda} x!} \cdot \frac{\mu^{k - x}}{e^{\mu} (k - x)!}}{\frac{(\lambda + \mu)^{k}}{e^{\lambda + \mu} k!}} \\
+                                          & = \frac{\lambda^x \mu^{k - x}}{(\lambda + \mu)^{k}} \cdot \frac{k!}{x! (k - x)!}                                                       \\
+                                          & = \binom{k}{x} \cdot \left(\frac{\lambda}{\lambda + \mu}\right)^{x} \cdot \left(\frac{\mu}{\lambda + \mu}\right)^{k - x}.
+          \end{align*}
+
+          This is precisely the probability mass function for the binomial distribution \(\Binomial\left(k, \frac{\lambda}{\lambda + \mu}\right)\), and we can say that
+          \[
+              \left(X \mid X + Y = k\right) \sim \Binomial\left(k, \frac{\lambda}{\lambda + \mu}\right).
+          \]
+
+    \item When the first fish is caught, this is \(X + Y = 1\), and \(X = 1\). Hence, the probability is
+          \[
+              \Prob(X = 1 \mid X + Y = 1) = \binom{1}{1} \cdot \left(\frac{\lambda}{\lambda + \mu}\right)^{1} \cdot \left(\frac{\mu}{\lambda + \mu}\right)^{1 - 1} = \frac{\lambda}{\lambda + \mu}.
+          \]
+
+    \item There is a probability of \(\frac{\lambda}{\lambda + \mu}\) of Adam catching the first fish, and in this case the waiting time is first for the fish to come up (which is \(\frac{1}{\lambda + \mu}\)), plus the waiting time of Eve's fish to come up (which is \(\frac{1}{\mu}\)), summed together. This applies the other way around as well if Eve catches the first fish.
+
+          Hence, the expected time is
+          \begin{align*}
+               & \phantom{=} \frac{\lambda}{\lambda + \mu} \cdot \left(\frac{1}{\lambda + \mu} + \frac{1}{\mu}\right) + \frac{\mu}{\lambda + \mu} \cdot \left(\frac{1}{\lambda + \mu} + \frac{1}{\lambda}\right) \\
+               & = \frac{1}{\lambda + \mu} \cdot \left(\frac{\lambda}{\lambda + \mu} + \frac{\lambda}{\mu} + \frac{\mu}{\lambda + \mu} + \frac{\mu}{\lambda}\right)                                              \\
+               & = \frac{1}{\lambda + \mu} \cdot \left(1 + \frac{\lambda^2 + \mu^2}{\lambda \mu}\right)                                                                                                          \\
+               & = \frac{\lambda^2 + \lambda \mu + \mu^2}{\lambda \mu (\lambda + \mu)}.
+          \end{align*}
+\end{enumerate}
