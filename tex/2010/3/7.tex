@@ -105,8 +105,8 @@ for all integers \(n \geq 0\).
 
 Hence, the Maclaurin series for \(y\) satisfy that
 \begin{align*}
-    y & = \sum_{n = 0}^{+\infty} \frac{\LEvalAt{\NdiffFrac{n}{y}{x}}{x = 0} x^n}{n!}            \\
-      & = \sum_{n = 0}^{+\infty} \frac{(-1)^n \prod_{k = 0}^{n - 1} (m^2 - 4k^2) x^{2n}}{(2n)!} \\
+    y & = \sum_{n = 0}^{\infty} \frac{\LEvalAt{\NdiffFrac{n}{y}{x}}{x = 0} x^n}{n!}            \\
+      & = \sum_{n = 0}^{\infty} \frac{(-1)^n \prod_{k = 0}^{n - 1} (m^2 - 4k^2) x^{2n}}{(2n)!} \\
       & = 1 - \frac{m^2 x^2}{2!} + \frac{m^2 (m^2 - 2^2) x^4}{4!} - \cdots.
 \end{align*}
 
@@ -116,7 +116,7 @@ In the case where \(m\) is even, notice that when \(m = 2k\), \(m^2 - 4k^2 = 0\)
 \]
 and hence this infinite sum becomes finite:
 \begin{align*}
-    y & = \sum_{n = 0}^{+\infty} \frac{(-1)^n \prod_{k = 0}^{n - 1} (m^2 - k^2) x^{2n}}{(2n)!}      \\
+    y & = \sum_{n = 0}^{\infty} \frac{(-1)^n \prod_{k = 0}^{n - 1} (m^2 - k^2) x^{2n}}{(2n)!}       \\
       & = \sum_{n = 0}^{\frac{m}{2}} \frac{(-1)^n \prod_{k = 0}^{n - 1} (m^2 - k^2) x^{2n}}{(2n)!}.
 \end{align*}
 

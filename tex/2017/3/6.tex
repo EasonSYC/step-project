@@ -3,7 +3,7 @@
 \begin{enumerate}
     \item Consider the substitution \(u = \frac{1}{v}\).
 
-          When \(u \to 0^{+}\), \(v \to +\infty\).
+          When \(u \to 0^{+}\), \(v \to \infty\).
 
           When \(u = x\), \(v = \frac{1}{x}\).
 
@@ -13,10 +13,10 @@
           \]
           Therefore,
           \begin{align*}
-              T(x) & = \int_0^x \frac{\Diff u}{1 + u^2}                                                            \\
-                   & = \int_{+\infty}^{\frac{1}{x}} -\frac{1}{v^2} \cdot \frac{1}{1 + \frac{1}{v^2}} \Diff v       \\
-                   & = \int_{\frac{1}{x}}^{+\infty} \frac{\Diff v}{1 + v^2}                                        \\
-                   & = \int_{0}^{+\infty} \frac{\Diff v}{1 + v^2} - \int_{0}^{\frac{1}{x}} \frac{\Diff v}{1 + v^2} \\
+              T(x) & = \int_0^x \frac{\Diff u}{1 + u^2}                                                           \\
+                   & = \int_{\infty}^{\frac{1}{x}} -\frac{1}{v^2} \cdot \frac{1}{1 + \frac{1}{v^2}} \Diff v       \\
+                   & = \int_{\frac{1}{x}}^{\infty} \frac{\Diff v}{1 + v^2}                                        \\
+                   & = \int_{0}^{\infty} \frac{\Diff v}{1 + v^2} - \int_{0}^{\frac{1}{x}} \frac{\Diff v}{1 + v^2} \\
                    & = T_{\infty} - T(x^{-1}),
           \end{align*}
           as desired.

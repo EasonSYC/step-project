@@ -73,10 +73,10 @@ for all \(r \geq 0\) where \(r\) is an integer, by mathematical induction.
 
 Hence, the MacLaurin Series for \(\frac{\arcsin x}{\sqrt{1 - x^2}}\), must be
 \begin{align*}
-    \frac{\arcsin x}{\sqrt{1 - x^2}} & = \sum_{k = 0}^{+\infty} \frac{\LEvalAt{\NdiffFrac{k}{y}{x}}{x = 0}}{k!} \cdot x^k                                                                                                              \\
-                                     & = \sum_{r = 0}^{+\infty} \frac{\LEvalAt{\NdiffFrac{2r}{y}{x}}{x = 0}}{(2r)!} \cdot x^{2r} + \sum_{r = 0}^{+\infty} \frac{\LEvalAt{\NdiffFrac{2r + 1}{y}{x}}{x = 0}}{(2r + 1)!} \cdot x^{2r + 1} \\
-                                     & = 0 + \sum_{r = 0}^{+\infty} \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot x^{2r + 1}                                                                                                             \\
-                                     & = \sum_{r = 0}^{+\infty} \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot x^{2r + 1}.
+    \frac{\arcsin x}{\sqrt{1 - x^2}} & = \sum_{k = 0}^{\infty} \frac{\LEvalAt{\NdiffFrac{k}{y}{x}}{x = 0}}{k!} \cdot x^k                                                                                                             \\
+                                     & = \sum_{r = 0}^{\infty} \frac{\LEvalAt{\NdiffFrac{2r}{y}{x}}{x = 0}}{(2r)!} \cdot x^{2r} + \sum_{r = 0}^{\infty} \frac{\LEvalAt{\NdiffFrac{2r + 1}{y}{x}}{x = 0}}{(2r + 1)!} \cdot x^{2r + 1} \\
+                                     & = 0 + \sum_{r = 0}^{\infty} \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot x^{2r + 1}                                                                                                            \\
+                                     & = \sum_{r = 0}^{\infty} \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot x^{2r + 1}.
 \end{align*}
 
 This means the general term for even powers of \(x\) is zero, and the general term for odd powers of \(x\) is
@@ -87,7 +87,7 @@ where \(r\) is any non-negative integer.
 
 The infinite sum can be expressed as
 \[
-    \sum_{r = 0}^{+\infty} \frac{(r!)^2}{(2r + 1)!} = 2 \cdot \sum_{r = 0}^{+\infty} \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot \left(\frac{1}{2}\right)^{2r+1},
+    \sum_{r = 0}^{\infty} \frac{(r!)^2}{(2r + 1)!} = 2 \cdot \sum_{r = 0}^{\infty} \frac{2^{2r} \cdot (r!)^2}{(2r + 1)!} \cdot \left(\frac{1}{2}\right)^{2r+1},
 \]
 which is precisely double the value of
 \[

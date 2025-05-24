@@ -44,12 +44,12 @@
 
           Therefore,
           \begin{align*}
-              \int_{1}^{+\infty} \frac{\Diff x}{x^2 + 2x \sinh a - 1} & = \frac{1}{e^a + e^{-a}} \cdot \left[\ln \abs*{\frac{x - e^{-a}}{x + e^a}}\right]_{1}^{+\infty}                                \\
-                                                                      & = \frac{1}{2 \cosh a} \cdot \left[\ln 1 - \ln \abs*{\frac{1 - e^{-a}}{1 + e^a}}\right]                                         \\
-                                                                      & = \frac{1}{2 \cosh a} \cdot \ln \frac{1 + e^a}{1 - e^{-a}}                                                                     \\
-                                                                      & = \frac{1}{2 \cosh a} \cdot \left(a + \ln \frac{1 + e^{-a}}{1 - e^{-a}}\right)                                                 \\
-                                                                      & = \frac{1}{2 \cosh a} \cdot \left(a + \ln \frac{e^{\frac{a}{2}} + e^{-\frac{a}{2}}}{e^{\frac{a}{2}} - e^{-\frac{a}{2}}}\right) \\
-                                                                      & = \frac{1}{2 \cosh a} \cdot \left(a + \ln \coth \frac{a}{2}\right).
+              \int_{1}^{\infty} \frac{\Diff x}{x^2 + 2x \sinh a - 1} & = \frac{1}{e^a + e^{-a}} \cdot \left[\ln \abs*{\frac{x - e^{-a}}{x + e^a}}\right]_{1}^{\infty}                                 \\
+                                                                     & = \frac{1}{2 \cosh a} \cdot \left[\ln 1 - \ln \abs*{\frac{1 - e^{-a}}{1 + e^a}}\right]                                         \\
+                                                                     & = \frac{1}{2 \cosh a} \cdot \ln \frac{1 + e^a}{1 - e^{-a}}                                                                     \\
+                                                                     & = \frac{1}{2 \cosh a} \cdot \left(a + \ln \frac{1 + e^{-a}}{1 - e^{-a}}\right)                                                 \\
+                                                                     & = \frac{1}{2 \cosh a} \cdot \left(a + \ln \frac{e^{\frac{a}{2}} + e^{-\frac{a}{2}}}{e^{\frac{a}{2}} - e^{-\frac{a}{2}}}\right) \\
+                                                                     & = \frac{1}{2 \cosh a} \cdot \left(a + \ln \coth \frac{a}{2}\right).
           \end{align*}
 
           For the second integral, notice that
@@ -58,12 +58,12 @@
           \end{align*}
           and hence
           \begin{align*}
-              \int_{0}^{+\infty} \frac{\Diff x}{x^4 + 2x^2 \cosh a + 1} & = \frac{1}{2 \sinh a} \int_{0}^{+\infty} \left(\frac{1}{x^2 + e^{-a}} - \frac{1}{x^2 + e^{a}}\right) \Diff x                                                         \\
-                                                                        & = \frac{1}{2 \sinh a} \left[e^{\frac{a}{2}} \arctan \left(e^{\frac{a}{2}} x\right) - e^{-\frac{a}{2}} \arctan \left(e^{-\frac{a}{2}} x\right) \right]_{0}^{+\infty}  \\
-                                                                        & = \frac{1}{2 \sinh a} \left[\left(e^{\frac{a}{2}} \frac{\pi}{2} - e^{-\frac{a}{2}} \frac{\pi}{2}\right) - \left(e^{\frac{a}{2}} 0 - e^{-\frac{a}{2}} 0\right)\right] \\
-                                                                        & = \frac{1}{2 \sinh a} \cdot (e^{\frac{a}{2}} - e^{-\frac{a}{2}}) \cdot \frac{\pi}{2}                                                                                 \\
-                                                                        & = \frac{\pi \sinh \frac{a}{2}}{2 \sinh a}                                                                                                                            \\
-                                                                        & = \frac{\pi \sinh \frac{a}{2}}{4 \sinh \frac{a}{2} \cosh \frac{a}{2}}                                                                                                \\
-                                                                        & = \frac{\pi}{4 \cosh \frac{a}{2}}.
+              \int_{0}^{\infty} \frac{\Diff x}{x^4 + 2x^2 \cosh a + 1} & = \frac{1}{2 \sinh a} \int_{0}^{\infty} \left(\frac{1}{x^2 + e^{-a}} - \frac{1}{x^2 + e^{a}}\right) \Diff x                                                          \\
+                                                                       & = \frac{1}{2 \sinh a} \left[e^{\frac{a}{2}} \arctan \left(e^{\frac{a}{2}} x\right) - e^{-\frac{a}{2}} \arctan \left(e^{-\frac{a}{2}} x\right) \right]_{0}^{\infty}   \\
+                                                                       & = \frac{1}{2 \sinh a} \left[\left(e^{\frac{a}{2}} \frac{\pi}{2} - e^{-\frac{a}{2}} \frac{\pi}{2}\right) - \left(e^{\frac{a}{2}} 0 - e^{-\frac{a}{2}} 0\right)\right] \\
+                                                                       & = \frac{1}{2 \sinh a} \cdot (e^{\frac{a}{2}} - e^{-\frac{a}{2}}) \cdot \frac{\pi}{2}                                                                                 \\
+                                                                       & = \frac{\pi \sinh \frac{a}{2}}{2 \sinh a}                                                                                                                            \\
+                                                                       & = \frac{\pi \sinh \frac{a}{2}}{4 \sinh \frac{a}{2} \cosh \frac{a}{2}}                                                                                                \\
+                                                                       & = \frac{\pi}{4 \cosh \frac{a}{2}}.
           \end{align*}
 \end{enumerate}

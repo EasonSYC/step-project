@@ -96,11 +96,11 @@ is exactly what is desired.
 
     \item Notice that
           \begin{align*}
-               & \phantom{=} \sum_{n = -\infty}^{0} z_1(t - n)                                                  \\
-               & = \sum_{n = -\infty}^{0} [2e^{-t + n} - 2e^{-6t + 6n}]                                         \\
-               & = 2\sum_{n = 0}^{+\infty} [e^{-t-n} - e^{-6t-6n}]                                              \\
-               & = 2 \left[e^{-t} \sum_{n = 0}^{+\infty} e^{-n} - e^{-6t} \sum_{n = 0}^{+\infty} e^{-6n}\right] \\
-               & = 2 \left[\frac{e^{-t}}{1 - e^{-1}} - \frac{e^{-6t}}{1 - e^{-6}}\right]                        \\
+               & \phantom{=} \sum_{n = -\infty}^{0} z_1(t - n)                                                \\
+               & = \sum_{n = -\infty}^{0} [2e^{-t + n} - 2e^{-6t + 6n}]                                       \\
+               & = 2\sum_{n = 0}^{\infty} [e^{-t-n} - e^{-6t-6n}]                                             \\
+               & = 2 \left[e^{-t} \sum_{n = 0}^{\infty} e^{-n} - e^{-6t} \sum_{n = 0}^{\infty} e^{-6n}\right] \\
+               & = 2 \left[\frac{e^{-t}}{1 - e^{-1}} - \frac{e^{-6t}}{1 - e^{-6}}\right]                      \\
                & = \frac{2e}{e - 1} e^{-t} - \frac{2e^6}{e^6 - 1} e^{-6t}.
           \end{align*}
 

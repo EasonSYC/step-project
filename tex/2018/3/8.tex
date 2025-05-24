@@ -5,13 +5,13 @@
           \[
               \DiffFrac{t}{x} = - \frac{1}{x^2} \implies \Diff{x} = - x^2 \Diff{t} = - \frac{\Diff{t}}{t^2},
           \]
-          and when \(x \to 0^{+}\), \(t \to +\infty\), and when \(x = 1\), \(t = 1\). Hence,
+          and when \(x \to 0^{+}\), \(t \to \infty\), and when \(x = 1\), \(t = 1\). Hence,
           \begin{align*}
               I & = \int_{0}^{1} \frac{f(x^{-1})}{1 + x} \Diff{x}                                                                                                       \\
-                & = \int_{1}^{+\infty} \frac{f(t)}{1 + t^{-1}} \cdot \left(- \frac{\Diff{t}}{t^2}\right)                                                                \\
-                & = \int_{1}^{+\infty} \frac{f(t) \Diff{t}}{t (1 + t)}                                                                                                  \\
+                & = \int_{1}^{\infty} \frac{f(t)}{1 + t^{-1}} \cdot \left(- \frac{\Diff{t}}{t^2}\right)                                                                 \\
+                & = \int_{1}^{\infty} \frac{f(t) \Diff{t}}{t (1 + t)}                                                                                                   \\
                 & = \int_{1}^{2} \frac{f(t) \Diff{t}}{t (1 + t)} + \int_{2}^{3} \frac{f(t) \Diff{t}}{t (1 + t)} + \int_{3}^{4} \frac{f(t) \Diff{t}}{t (1 + t)} + \cdots \\
-                & = \sum_{n = 1}^{+\infty} \int_{n}^{n + 1}\frac{f(t) \Diff{t}}{t (1 + t)},
+                & = \sum_{n = 1}^{\infty} \int_{n}^{n + 1}\frac{f(t) \Diff{t}}{t (1 + t)},
           \end{align*}
           as desired.
 
@@ -22,11 +22,11 @@
 
           Hence,
           \begin{align*}
-              I & = \sum_{n = 1}^{+\infty} \int_{n}^{n + 1} \frac{f(t) \Diff{t}}{t (1 + t)}                                                               \\
-                & = \sum_{n = 1}^{+\infty} \int_{0}^{1} \frac{f(n + t) \Diff{t}}{(n + t) (n + t + 1)}                                                     \\
-                & = \sum_{n = 1}^{+\infty} \int_{0}^{1} f(t) \cdot \left[\frac{1}{n + t} - \frac{1}{n + t + 1}\right] \Diff{t}                            \\
-                & = \sum_{n = 1}^{+\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t} - \sum_{n = 1}^{+\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t + 1} \\
-                & = \sum_{n = 1}^{+\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t} - \sum_{n = 2}^{+\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t}     \\
+              I & = \sum_{n = 1}^{\infty} \int_{n}^{n + 1} \frac{f(t) \Diff{t}}{t (1 + t)}                                                              \\
+                & = \sum_{n = 1}^{\infty} \int_{0}^{1} \frac{f(n + t) \Diff{t}}{(n + t) (n + t + 1)}                                                    \\
+                & = \sum_{n = 1}^{\infty} \int_{0}^{1} f(t) \cdot \left[\frac{1}{n + t} - \frac{1}{n + t + 1}\right] \Diff{t}                           \\
+                & = \sum_{n = 1}^{\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t} - \sum_{n = 1}^{\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t + 1} \\
+                & = \sum_{n = 1}^{\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t} - \sum_{n = 2}^{\infty} \int_{0}^{1} \frac{f(t) \Diff{t}}{n + t}     \\
                 & = \int_{0}^{1} \frac{f(t) \Diff{t}}{1 + t}.
           \end{align*}
 

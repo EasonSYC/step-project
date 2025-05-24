@@ -17,7 +17,7 @@
           \]
           and hence
           \[
-              G(t \mid C_2) = \sum_{n = 0}^{+\infty} \Prob(N = n \mid C_2) \cdot x^n = \sum_{n = 0}^{+\infty} \Prob(N = n) \cdot t^n = G(t).
+              G(t \mid C_2) = \sum_{n = 0}^{\infty} \Prob(N = n \mid C_2) \cdot x^n = \sum_{n = 0}^{\infty} \Prob(N = n) \cdot t^n = G(t).
           \]
 
     \item Denote the condition where the score is increased by \(1\) as \(C_3\). Since in the first round the game score increased by one, and after the first round it is just as if this was a new game, so for all \(n \in \NN\), we must have
@@ -31,7 +31,7 @@
 
           Hence,
           \[
-              G(t \mid C_3) = \sum_{n = 0}^{+\infty} \Prob(N = n \mid C_3) \cdot x^n = \sum_{n = 1}^{+\infty} \Prob(N = n - 1) \cdot t^n = t \cdot \sum_{n = 0}^{+\infty} \Prob(N = n) \cdot t^n= tG(t).
+              G(t \mid C_3) = \sum_{n = 0}^{\infty} \Prob(N = n \mid C_3) \cdot x^n = \sum_{n = 1}^{\infty} \Prob(N = n - 1) \cdot t^n = t \cdot \sum_{n = 0}^{\infty} \Prob(N = n) \cdot t^n= tG(t).
           \]
 
           Since in the first round, one of \(C_1, C_2\) and \(C_3\) must happen, we must have that
@@ -50,9 +50,9 @@
 
           Hence, using the infinite expansion, we have
           \begin{align*}
-              G(t) & = \frac{a}{1-b} \cdot \sum_{k = 0}^{+\infty} \left(\frac{ct}{1 - b}\right)^k   \\
-                   & = \sum_{k = 0}^{+\infty} \frac{a}{1 - b} \cdot \frac{c^k}{(1 - b)^k} \cdot t^k \\
-                   & = \sum_{k = 0}^{+\infty} \frac{ac^k}{(1 - b)^{k + 1}} \cdot t^k.
+              G(t) & = \frac{a}{1-b} \cdot \sum_{k = 0}^{\infty} \left(\frac{ct}{1 - b}\right)^k   \\
+                   & = \sum_{k = 0}^{\infty} \frac{a}{1 - b} \cdot \frac{c^k}{(1 - b)^k} \cdot t^k \\
+                   & = \sum_{k = 0}^{\infty} \frac{ac^k}{(1 - b)^{k + 1}} \cdot t^k.
           \end{align*}
 
           But the coefficient before \(t^n\) is precisely the probability \(\Prob(N = n)\). This means

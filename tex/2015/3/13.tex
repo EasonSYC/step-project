@@ -24,7 +24,7 @@
               \end{cases}
           \]
 
-    \item Since \(X + Y \in [0, 2]\), \((X + Y)^{-1} \in \left[\frac{1}{2}, +\infty\right)\). Let \(t' \in \left[\frac{1}{2}, +\infty\right)\), we have
+    \item Since \(X + Y \in [0, 2]\), \((X + Y)^{-1} \in \left[\frac{1}{2}, \infty\right)\). Let \(t' \in \left[\frac{1}{2}, \infty\right)\), we have
           \begin{align*}
               F_{(X + Y)^{-1}}(t') & = \Prob\left(\frac{1}{X + Y} \leq t'\right)  \\
                                    & = \Prob\left(X + Y \geq \frac{1}{t'}\right)  \\
@@ -39,7 +39,7 @@
                                    & = \frac{1}{2} \left(2 - \frac{1}{t'}\right)^2.
           \end{align*}
 
-          If \(t' \in \left[1, +\infty\right)\), we have \(t'^{-1} \in (0, 1]\), and hence
+          If \(t' \in \left[1, \infty\right)\), we have \(t'^{-1} \in (0, 1]\), and hence
           \begin{align*}
               F_{(X + Y)^{-1}}(t') & = 1 - F_{X + Y}\left(\frac{1}{t'}\right)       \\
                                    & = 1 - \frac{1}{2} \left(\frac{1}{t'}\right)^2.
@@ -68,9 +68,9 @@
           The expectation of \(\frac{1}{X + Y}\) is
           \begin{align*}
               \Expt\left(\frac{1}{X + Y}\right) & = \int_{\RR} t f_{(X + Y)^{-1}}(t) \Diff t                                                                              \\
-                                                & = \int_{\frac{1}{2}}^{1} t \cdot \left(2t^{-2} - t^{-3}\right) \Diff t + \int_{1}^{+\infty} t \cdot t^{-3} \Diff t      \\
-                                                & = \int_{\frac{1}{2}}^{1} \left(2t^{-1} - t^{-2}\right) \Diff t + \int_{1}^{+\infty} t^{-2} \Diff t                      \\
-                                                & = \left[2 \ln t + t^{-1}\right]_{\frac{1}{2}}^{1} - \left[t^{-1}\right]_{1}^{+\infty}                                   \\
+                                                & = \int_{\frac{1}{2}}^{1} t \cdot \left(2t^{-2} - t^{-3}\right) \Diff t + \int_{1}^{\infty} t \cdot t^{-3} \Diff t       \\
+                                                & = \int_{\frac{1}{2}}^{1} \left(2t^{-1} - t^{-2}\right) \Diff t + \int_{1}^{\infty} t^{-2} \Diff t                       \\
+                                                & = \left[2 \ln t + t^{-1}\right]_{\frac{1}{2}}^{1} - \left[t^{-1}\right]_{1}^{\infty}                                    \\
                                                 & = \left[\left(2 \ln 1 + 1^{-1}\right) - \left(2 \ln \frac{1}{2} + \left(\frac{1}{2}\right)^{-1}\right)\right] - (0 - 1) \\
                                                 & = \left[1 + 2 \ln 2 - 2\right] + 1                                                                                      \\
                                                 & = 2 \ln 2.
@@ -78,14 +78,14 @@
 
     \item The cumulative distribution function of \(Y / X\) at some value \(t\) is the ratio of the area below the line \(Y / X = t\) within the unit square \([0, 1]^2\), against the area of the unit square.
 
-          Since \(0 \leq X, Y \leq 1\), we have \(0 \leq Y / X < +\infty\).
+          Since \(0 \leq X, Y \leq 1\), we have \(0 \leq Y / X < \infty\).
 
           When \(0 \leq t \leq 1\), the area below is a triangle with vertices at \((0, 0), (1, 0)\) and \((1, t)\). Hence, we have
           \[
               F_{Y / X} (t) = \frac{t}{2}.
           \]
 
-          When \(1 \leq t < +\infty\), the area below is the whole unit square, subtracting the triangle with the vertices at \((0, 0), (0, 1)\) and \(\left(1, \frac{1}{t}\right)\). Hence, we have
+          When \(1 \leq t < \infty\), the area below is the whole unit square, subtracting the triangle with the vertices at \((0, 0), (0, 1)\) and \(\left(1, \frac{1}{t}\right)\). Hence, we have
           \[
               F_{Y / X} (t) = 1 - \frac{1}{2t}.
           \]

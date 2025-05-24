@@ -46,11 +46,11 @@
 
           Hence,
           \begin{align*}
-              \Expt(Y) & = \Expt(e^x)                                                                                                                                                       \\
-                       & = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^x \cdot e^{-(x - \mu)^2 / (2\sigma^2)} \Diff x                                                            \\
-                       & = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{- (x - \mu)^2 / (2\sigma^2) + x} \Diff x                                                                 \\
-                       & = \frac{1}{\sigma\sqrt{2\pi}} \cdot e^{\mu + \frac{1}{2}\sigma^2} \int_{-\infty}^{+\infty} e^{- (x - \mu)^2 / (2\sigma^2) + x - \frac{1}{2}\sigma^2 - \mu} \Diff x \\
-                       & = e^{\mu + \frac{1}{2}\sigma^2} \cdot \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{-(x - \mu - \sigma)^2 / (2\sigma^2)} \Diff x                         \\
+              \Expt(Y) & = \Expt(e^x)                                                                                                                                                      \\
+                       & = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{\infty} e^x \cdot e^{-(x - \mu)^2 / (2\sigma^2)} \Diff x                                                            \\
+                       & = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{- (x - \mu)^2 / (2\sigma^2) + x} \Diff x                                                                 \\
+                       & = \frac{1}{\sigma\sqrt{2\pi}} \cdot e^{\mu + \frac{1}{2}\sigma^2} \int_{-\infty}^{\infty} e^{- (x - \mu)^2 / (2\sigma^2) + x - \frac{1}{2}\sigma^2 - \mu} \Diff x \\
+                       & = e^{\mu + \frac{1}{2}\sigma^2} \cdot \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-(x - \mu - \sigma)^2 / (2\sigma^2)} \Diff x                         \\
                        & = e^{\mu + \frac{1}{2}\sigma^2},
           \end{align*}
           as desired.
