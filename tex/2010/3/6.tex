@@ -36,7 +36,7 @@
 
           The relative positions of \(P, Q\) and \(R\) remains unchanged under rotation, and hence
           \begin{align*}
-              \vect{r}_{R_2} & = \vect{r}_{P_2} \times \vect{r}_{Q_2}                                                                       \\
+              \vect{r}_{R_2} & = \vect{r}_{P_2} \times \vect{r}_{Q_2}                                           \\
                              & = \begin{pmatrix}
                                      \cos \phi \cos \lambda \\
                                      \sin \phi \cos \lambda \\
@@ -45,22 +45,22 @@
                                                           - \sin \phi \\
                                                           \cos \phi   \\
                                                           0
-                                                      \end{pmatrix}                                                                        \\
+                                                      \end{pmatrix}                                            \\
                              & = \begin{vmatrix}
-                                     \vect{\hat{i}}         & \vect{\hat{j}}         & \vect{\hat{k}} \\
-                                     \cos \phi \cos \lambda & \sin \phi \cos \lambda & \sin \lambda   \\
+                                     \ihat                  & \jhat                  & \khat        \\
+                                     \cos \phi \cos \lambda & \sin \phi \cos \lambda & \sin \lambda \\
                                      - \sin \phi            & \cos \phi              & 0
-                                 \end{vmatrix} \\
+                                 \end{vmatrix}                 \\
                              & = \begin{pmatrix}
                                      \sin \phi \cos \lambda \cdot 0 - \sin \lambda \cos \phi           \\
                                      - (\cos \phi \cos \lambda \cdot 0 + \sin \lambda \cdot \sin \phi) \\
                                      \cos \phi \cos \lambda \cdot \cos \phi + \sin \phi \cos \lambda \cdot \sin \phi
-                                 \end{pmatrix}                             \\
+                                 \end{pmatrix} \\
                              & = \begin{pmatrix}
                                      - \sin \lambda \cos \phi  \\
                                      -  \sin \lambda \sin \phi \\
                                      \cos^2 \phi \cos \lambda  + \sin^2 \phi \cos \lambda
-                                 \end{pmatrix}                                                        \\
+                                 \end{pmatrix}                            \\
                              & = \begin{pmatrix}
                                      - \sin \lambda \cos \phi  \\
                                      -  \sin \lambda \sin \phi \\
@@ -98,10 +98,10 @@
                                                                               \cos \phi \cos \lambda \\
                                                                               \sin \phi \cos \lambda \\
                                                                               \sin \lambda
-                                                                          \end{pmatrix}                                                                \\
+                                                                          \end{pmatrix}                    \\
                                                  & = \begin{vmatrix}
-                                                         \vect{\hat{i}}         & \vect{\hat{j}}         & \vect{\hat{k}} \\
-                                                         1                      & 0                      & 0              \\
+                                                         \ihat                  & \jhat                  & \khat        \\
+                                                         1                      & 0                      & 0            \\
                                                          \cos \phi \cos \lambda & \sin \phi \cos \lambda & \sin \lambda
                                                      \end{vmatrix} \\
                                                  & = \begin{pmatrix}
