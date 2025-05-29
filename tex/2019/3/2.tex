@@ -1,2 +1,111 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Let \(y = 0\), and we have
+          \[
+              f(x + 0) = f(x) = f(x) f(0),
+          \]
+          so either \(f(x) = 0\) or \(f(0) = 1\) for all \(x\).
+
+          Assume, B.W.O.C., that \(f(0) \neq 1\), then we must have \(f(x) = 0\) for all \(x\), which means \(f'(x) = 0\), contradicting with \(f'(0) = k \neq 0\).
+
+          Hence, \(f(0) = 1\).
+
+          By definition of the derivative, we have
+          \begin{align*}
+              f'(x) & = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}  \\
+                    & = \lim_{h \to 0} \frac{f(x) f(h) - f(x)}{h} \\
+                    & = f(x) \lim_{h \to 0} \frac{f(h) - 1}{h},
+          \end{align*}
+          and letting \(x = 0\), we also have
+          \[
+              k = f'(0) = f(0) \lim_{h \to 0} \frac{f(h) - 1}{h} = \lim_{h \to 0} \frac{f(h) - 1}{h},
+          \]
+          and hence
+          \[
+              f'(x) = k f(x)
+          \]
+          as desired.
+
+          This differential equation solves to
+          \[
+              f(x) = A e^{kx},
+          \]
+          and with the condition \(f(0) = 1\), we have \(A = 1\), and hence
+          \[
+              f(x) = e^{kx}
+          \]
+          for all \(x\).
+
+    \item Let \(y = 0\), and we have
+          \[
+              g(x + 0) = g(x) = \frac{g(x) + g(0)}{1 + g(x) g(0)}.
+          \]
+
+          This means that
+          \[
+              g(x) + g(x)^2 g(0) = g(x) + g(0),
+          \]
+          which gives
+          \[
+              g(0) \left[g(x)^2 - 1\right] = 0.
+          \]
+
+          Since \(\abs*{g(x)} < 1\) for all \(x\), we must have \(g(x)^2 - 1 < 0\), and hence \(g(0) = 0\).
+
+          By the definition of the derivative,
+          \begin{align*}
+              g'(x) & = \lim_{h \to 0} \frac{g(x + h) - g(x)}{h}                                  \\
+                    & = \lim_{h \to 0} \frac{\frac{g(x) + g(h)}{1 + g(x) g(h)} - g(x)}{h}         \\
+                    & = \lim_{h \to 0} \frac{g(x) + g(h) - g(x) - g(x)^2 g(h)}{h (1 + g(x) g(h))} \\
+                    & = \lim_{h \to 0} \frac{g(h) \left[1 - g(x)^2\right]}{h (1 + g(x) g(h))}     \\
+                    & = \left[1 - g(x)^2\right] \lim_{h \to 0} \frac{g(h)}{h (1 + g(x) g(h))}.
+          \end{align*}
+
+          Considering the limit, we have
+          \begin{align*}
+              \lim_{h \to 0} \frac{g(h)}{h (1 + g(x) g(h))} & = \lim_{h \to 0} \frac{g(h) / h}{1 + g(x) g(h)}                                          \\
+                                                            & = \frac{\lim_{h \to 0} \left[g(h) / h\right]}{\lim_{h \to 0} \left[1 + g(x) g(h)\right]} \\
+                                                            & = \frac{\lim_{h \to 0} \left[g(h) / h\right]}{1}                                         \\
+                                                            & = \lim_{h \to 0} \frac{g(h)}{h},
+          \end{align*}
+          and hence
+          \[
+              g'(x) = \left[1 - g(x)^2\right] \lim_{h \to 0} \frac{g(h)}{h}.
+          \]
+
+          Let \(x = 0\), and we have
+          \[
+              k = g'(0) = 1 \cdot \lim_{h \to 0} \frac{g(h)}{h},
+          \]
+          hence giving the differential equation
+          \[
+              g'(x) = k \left[1 - g(x)^2\right].
+          \]
+
+          This rearranges to give
+          \[
+              \frac{\Diff g(x)}{1 - g(x)^2} = k \Diff x,
+          \]
+          and hence
+          \[
+              \left[\frac{1}{1 + g(x)} + \frac{1}{1 - g(x)}\right] \Diff g(x) = 2 k \Diff x,
+          \]
+          which gives
+          \[
+              \ln \abs*{1 + g(x)} - \ln \abs*{1 - g(x)} = 2kx + C.
+          \]
+
+          Let \(x = 0\), we have \(g(0) = 0\), and hence \(C = 0\), and hence
+          \[
+              \frac{1 + g(x)}{1 - g(x)} = \exp(2kx),
+          \]
+          and hence
+          \[
+              1 + g(x) = \exp(2kx) - \exp(2kx) g(x),
+          \]
+          which gives
+          \[
+              g(x) = \frac{\exp(2kx) - 1}{\exp(2kx) + 1} = \frac{\exp(kx) - \exp(-kx)}{\exp(kx) + \exp(-kx)} = \tanh(kx).
+          \]
+\end{enumerate}
