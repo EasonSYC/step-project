@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+    \draw[->] (-0.5, 0) -- (5.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -0.5) -- (0, 1.5) node[above] {\(y\)};
+    \draw[dashed] (-0.5, 1) -- (5.5, 1) node[right] {\(y = 1\)};
+    \draw[smooth, samples=200, domain=0:5] plot (\x, {\x/sqrt(\x^2 + 1)});
+    \node at (1, {1/sqrt(2)}) [below right] {\(y = f(x)\)};
+    \node at (0, 0) [below left] {\(O\)};
+\end{tikzpicture}

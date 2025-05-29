@@ -1,2 +1,105 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item By quotient rule,
+          \begin{align*}
+              f'(x) & = \frac{\sqrt{x^2 + p} - x \cdot \frac{1}{2} \cdot 2x \cdot \frac{1}{\sqrt{x^2 + p}}}{x^2 + p} \\
+                    & = \frac{\sqrt{x^2 + p} - \frac{x^2}{\sqrt{x^2 + p}}}{x^2 + p}                                  \\
+                    & = \frac{p}{(x^2 + p) \sqrt{x^2 + p}}.
+          \end{align*}
+
+          This gives
+          \[
+              0 < f'(x) \leq \frac{1}{\sqrt{p}},
+          \]
+          with the equal sign taking if and only if \(x = 0\).
+
+          \(\lim_{x \to \infty} f(x) = 1\), so \(y = 1\) is a horizontal asymptote to the function.
+
+          Hence, the graph looks as follows:
+          \begin{center}
+              \input{\currfiledir 5-diag}
+          \end{center}
+
+    \item Since \(y = \frac{cx}{\sqrt{x^2 + p}} = c f(x)\), we have
+          \[
+              \DiffFrac{y}{x} = c f'(x) = \frac{cp}{\left(\sqrt{x^2 + p}\right)^3},
+          \]
+          and hence
+          \[
+              \Diff y = \frac{cp}{\left(\sqrt{x^2 + p}\right)^3} \Diff x.
+          \]
+
+          The integral can therefore be simplified as
+          \begin{align*}
+              I & = \int \frac{\Diff y}{(b^2 - y^2) \sqrt{c^2 - y^2}}                                                                                                     \\
+                & = \int \frac{1}{\left(b^2 - \frac{c^2 x^2}{x^2 + p}\right) \sqrt{c^2 - \frac{c^2 x^2}{x^2 + p}}} \cdot \frac{cp}{\left(\sqrt{x^2 + p}\right)^3} \Diff x \\
+                & = \int \frac{cp \Diff x}{\left(b^2(x^2 + p) - c^2 x^2\right) \sqrt{c^2 (x^2 + p) - c^2 x^2}}                                                            \\
+                & = \int \frac{cp \Diff x}{\left[(b^2 - c^2)x^2 + b^2 p\right]\sqrt{c^2 p}}                                                                               \\
+                & = \int \frac{\sqrt{p} \Diff x}{b^2 p + (b^2 - c^2) x^2}.
+          \end{align*}
+
+          Let \(p = 1\), and we have
+          \[
+              I = \int \frac{\Diff x}{b^2 + (b^2 - c^2)x^2}
+          \]
+          as desired.
+
+          Hence,
+          \begin{align*}
+              I & = \int \frac{\Diff x}{b^2 + (b^2 - c^2)x^2}                                                    \\
+                & = \frac{1}{b^2 - c^2} \int \frac{\Diff x}{\left(\frac{b}{\sqrt{b^2 - c^2}}\right)^2 + x^2}     \\
+                & = \frac{1}{b^2 - c^2} \cdot \frac{\sqrt{b^2 - c^2}}{b} \arctan \frac{\sqrt{b^2 - c^2}x}{b} + C \\
+                & = \frac{1}{b \sqrt{b^2 - c^2}} \arctan \frac{\sqrt{b^2 - c^2}x}{b} + C.
+          \end{align*}
+
+          Let \(b = \sqrt{3}\) and \(c = \sqrt{2}\), and hence
+          \[
+              I = \frac{1}{\sqrt{3} \sqrt{3 - 2}} \arctan \frac{\sqrt{3 - 2}x}{\sqrt{3}} + C = \frac{1}{\sqrt{3}} \arctan \frac{x}{\sqrt{3}} + C.
+          \]
+
+          When \(y = 1\), \(\frac{\sqrt{2} x}{\sqrt{x^2 + 1}} = 1\), and hence \(x^2 + 1 = 2x^2\), \(x^2 = 1\), giving \(x = 1\).
+
+          When \(y \to \sqrt{2} = b\), \(x \to \infty\).
+
+          Hence,
+          \begin{align*}
+              \int_{1}^{\sqrt{2}} \frac{\Diff y}{(3 - y^2) \sqrt{2 - y^2}} & = \frac{1}{\sqrt{3}} \left[\arctan \frac{x}{\sqrt{3}}\right]_{1}^{\infty} = \frac{1}{\sqrt{3}} \left(\frac{\pi}{2} - \frac{\pi}{6}\right) = \frac{\pi}{3\sqrt{3}}.
+          \end{align*}
+
+          Consider letting \(x = \frac{1}{y}\) in the integral, and we have \(\Diff x = -\frac{1}{y^2} \Diff y = -x^2 \Diff y\), and when \(y = 1\), \(x = 1\), and when \(y = \sqrt{2}\), \(x = \frac{1}{\sqrt{2}}\). Hence,
+          \begin{align*}
+              \int_{\frac{1}{\sqrt{2}}}^{1} \frac{y \Diff y}{(3y^2 - 1)\sqrt{2 y^2 - 1}} & = \int_{\sqrt{2}}^{1} \frac{\frac{1}{x} \cdot \frac{1}{-x^2} \Diff x}{\left(\frac{3}{x^2} - 1\right) \sqrt{\frac{2}{x^2} - 1}} \\
+                                                                                         & = \int_{1}^{\sqrt{2}} \frac{\Diff x}{\left(3 - x^2\right)\sqrt{2 - x^2}}                                                       \\
+                                                                                         & = \frac{\pi}{3\sqrt{3}}.
+          \end{align*}
+
+    \item Consider the same substitution \(y = \frac{ax}{\sqrt{x^2 + p}}\). We still have
+          \[
+              \Diff y = \frac{ap}{\left(\sqrt{x^2 + p}\right)^3} \Diff x,
+          \]
+          and hence
+          \begin{align*}
+               & \phantom{=} \int \frac{\Diff y}{(3y^2 - 1) \sqrt{2y^2 - 1}}                                                                                                       \\
+               & = \int \frac{ap}{\left(\sqrt{x^2 + p}\right)^3} \cdot \frac{\Diff x}{\left(3 \cdot \frac{a^2 x^2}{x^2 + p} - 1\right) \sqrt{2 \cdot \frac{a^2 x^2}{x^2 + p} - 1}} \\
+               & = \int \frac{ap \Diff x}{\left(3 a^2 x^2 - (x^2 + p)\right) \sqrt{2 a^2 x^2 - (x^2 + p)}}                                                                         \\
+               & = \int \frac{ap \Diff x}{\left((3 a^2 - 1) x^2 - p\right) \sqrt{(2 a^2 - 1) x^2 - p}}.
+          \end{align*}
+
+          Consider letting \(a = \frac{1}{\sqrt{2}}\) and \(p = -1\), and we have
+          \begin{align*}
+               & \phantom{=} \int \frac{\Diff y}{(3y^2 - 1) \sqrt{2y^2 - 1}}         \\
+               & =  \int \frac{-\Diff x}{\sqrt{2} \left(\frac{1}{2} x^2 + 1\right)}  \\
+               & = \int \frac{- \sqrt{2}\Diff x}{x^2 + 2}                            \\
+               & = -\sqrt{2} \cdot \frac{1}{\sqrt{2}} \arctan \frac{x}{\sqrt{2}} + C \\
+               & = - \arctan \frac{x}{\sqrt{2}} + C.
+          \end{align*}
+
+          When \(y = \frac{1}{\sqrt{2}}\), we have \(\frac{1}{\sqrt{2}} \cdot \frac{x}{\sqrt{x^2 - 1}} = \frac{1}{\sqrt{2}}\), and \(x \to \infty\). When \(y = 1\), we have \(\frac{1}{\sqrt{2}} \cdot \frac{x}{\sqrt{x^2 - 1}} = 1\), and \(x = \sqrt{2}\). Hence,
+          \begin{align*}
+               & \phantom{=} \int_{\frac{1}{\sqrt{2}}}^1 \frac{\Diff y}{(3y^2 - 1) \sqrt{2y^2 - 1}} \\
+               & = -\left[\arctan \frac{x}{\sqrt{2}}\right]_{\infty}^{\sqrt{2}}                     \\
+               & = \left[\arctan \frac{x}{\sqrt{2}}\right]_{\sqrt{2}}^{\infty}                      \\
+               & = \frac{\pi}{2} - \frac{\pi}{4}                                                    \\
+               & = \frac{\pi}{4}.
+          \end{align*}
+\end{enumerate}
