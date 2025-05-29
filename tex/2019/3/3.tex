@@ -1,2 +1,211 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(L_1\) is a line of invariant points, for each point \((x, y) \in L_1\), we have
+          \[
+              \begin{pmatrix}
+                  a & b \\
+                  c & d
+              \end{pmatrix}
+              \begin{pmatrix}
+                  x \\
+                  y
+              \end{pmatrix}
+              = \begin{pmatrix}
+                  x \\
+                  y
+              \end{pmatrix},
+          \]
+          and hence
+          \[
+              ax + by = x, cx + dy = y.
+          \]
+
+          Hence,
+          \[
+              (1 - a) x = by, (1 - d)y = cx,
+          \]
+          and hence
+          \[
+              (1 - a) x (1 - d)y = bycx,
+          \]
+          which simplifies to
+          \[
+              [(a - 1)(d - 1) - bc] xy = 0.
+          \]
+
+          If the line \(L_1\) is the line \(x = 0\), then \(by = 0\) for all \(y\) and \(dy = y\) for all \(y\), giving \(d = 1\) and \(b = 0\). Hence, \((a - 1) (d - 1) - bc = 0\).
+
+          Similarly, if the line \(L_1\) is the line \(y = 0\), then \(ax = x\) for all \(x\) and \(cx = 0\) for all \(y\), giving \(a = 1\) and \(c = 0\). Hence, \((a - 1) (d - 1) - bc = 0\).
+
+          Otherwise, there must be a point \((x, y) \in L_1\) such that \(xy \neq 0\), which means \((a - 1) (d - 1) - bc = 0\).
+
+          Hence, in all cases, we must have \((a - 1) (d - 1) = bc\) as desired.
+
+          If \(L_1\) does not pass through the origin, then \(y = mx + k\) for some \(k \neq 0\), or \(x = k\) for some \(k \neq 0\).
+
+          In the first case, we have
+          \[
+              ax + b(mx + k) = x,
+          \]
+          and hence
+          \[
+              (a + bm - 1)x + bk = 0
+          \]
+          for all \(x\), meaning \(a + bm - 1 = 0\) and \(bk = 0\).
+
+          Similarly,
+          \[
+              cx + d(mx + k) = mx + k,
+          \]
+          and hence
+          \[
+              (c + dm - m)x + (d - 1)k = 0
+          \]
+          for all \(x\), meaning \(c + dm - m = 0\) and \((d - 1)k = 0\).
+
+          Since \(k \neq 0\), \(bk = 0\) and \((d - 1)k = 0\) implies \(b = 0\) and \(d = 1\) respectively. Putting those back into the first corresponding equations, this solves to \(a = 1\) and \(c = 0\), which means
+          \[
+              \vect{A} = \begin{pmatrix}
+                  1 &   \\
+                    & 1
+              \end{pmatrix}
+              = \vect{I}_2.
+          \]
+
+          In the second case where \(x = k\) for some \(k \neq 0\), we have
+          \[
+              ak + by = k,
+          \]
+          and hence
+          \[
+              by + (a - 1)k = 0
+          \]
+          for all \(y\), meaning \(b = 0\) and \((a - 1)k = 0\).
+
+          Similarly,
+          \[
+              ck + dy = y,
+          \]
+          and hence
+          \[
+              (d - 1)y + ck = 0
+          \]
+          for all \(y\), meaning \(d - 1 = 0\) and \(ck = 0\).
+
+          Since \(k \neq 0\), \((a - 1)k = 0\) and \(ck = 0\) implies \(a = 1\) and \(c = 0\) respectively. Hence,
+          \[
+              \vect{A} = \begin{pmatrix}
+                  1 & 0 \\
+                  0 & 1
+              \end{pmatrix}
+              = \vect{I}_2.
+          \]
+
+          Therefore, \(L_1\) not passing through the origin must imply that \(\vect{A}\) is precisely the \(2\) by \(2\) identity matrix.
+
+    \item If \((x, y)\) is an invariant point, we have
+          \[
+              (a - 1) x + by = 0, cx + (d - 1)y = 0.
+          \]
+
+          If \(b = 0\), then \((a - 1)(d - 1) = bc = 0\), and hence \(a = 1\) or \(d = 1\).
+
+          In the case where \(a = 1\), the first equation is trivially true, and the second equation simplifies to
+          \[
+              cx + (d - 1)y = 0,
+          \]
+          and hence the line \(L: cx + (d - 1)y = 0\) is a line of invariant points.
+
+          In the case where \(d = 1\), the original equation simplifies to
+          \[
+              (a - 1)x = 0, cx = 0,
+          \]
+          and hence the line \(L: x = 0\) is a line of invariant points.
+
+          If \(b \neq 0\), we want to show that all points on the line \(L: (a - 1)x + by = 0\) satisfy the second equation. We multiply \((d - 1)\) on both sides of the equation, and hence
+          \[
+              (a - 1)(d - 1)x + b (d - 1)y = 0,
+          \]
+          which is
+          \[
+              bcx + b(d - 1)y = 0.
+          \]
+
+          Since \(b \neq 0\), we divide \(b\) on both sides, giving
+          \[
+              cx + (d - 1)y = 0,
+          \]
+          which is precisely the second equation. Hence, \(L: (a - 1)x + by = 0\) is a line of invariant points under this case.
+
+    \item We have \(L_2: y = mx + k\), \(k \neq 0\), we therefore have
+          \[
+              \begin{pmatrix}
+                  a & b \\
+                  c & d
+              \end{pmatrix}
+              \begin{pmatrix}
+                  x \\
+                  mx + k
+              \end{pmatrix}
+              =
+              \begin{pmatrix}
+                  X \\
+                  mX + k
+              \end{pmatrix},
+          \]
+          and hence
+          \[
+              ax + b(mx + k) = X, cx + d(mx + k) = mX + k.
+          \]
+
+          Putting the first equation into the second one gives us
+          \[
+              cx + d(mx + k) = m(ax + b(mx + k)) + k,
+          \]
+          which simplifies to
+          \[
+              (c + dm - am - bm^2)x + (dk - mbk - k) = 0,
+          \]
+          which is
+          \[
+              (bm^2 + (a - d)m - c)x + (mb - d + 1)k = 0.
+          \]
+
+          Since this is true for all \(x\) and \(k \neq 0\), we must have
+          \[
+              bm^2 + (a - d)m - c = 0, bm - d + 1 = 0.
+          \]
+
+          If \(b = 0\), then
+          \[
+              (a - d)m = c, d - 1 = 0,
+          \]
+          and hence \(d = 1\), \((a - 1)m = c\), and
+          \[
+              (a - 1)(d - 1) = 0, bc = 0,
+          \]
+          which gives
+          \[
+              (a - 1)(d - 1) = bc.
+          \]
+
+          If \(b \neq 0\), the second of those equations solve to
+          \[
+              m = \frac{d - 1}{b},
+          \]
+          and putting this back into the first equation, we have
+          \[
+              b \cdot \frac{(d - 1)^2}{b^2} + \frac{(a - d)(d - 1)}{b} - c = 0,
+          \]
+          and multiplying both sides by \(b\) gives
+          \[
+              (d - 1)^2 + (a - d)(d - 1) = bc,
+          \]
+          and hence
+          \[
+              (a - 1)(d - 1) = bc.
+          \]
+
+          Therefore, in both cases, we have \((a - 1)(d - 1) = bc\), as desired.
+\end{enumerate}
