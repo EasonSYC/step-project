@@ -56,11 +56,11 @@
 
           The probability density function of \((X + Y)^{-1}\) is
           \begin{align*}
-              f_{(X + Y)^{-1}}(t') & = \DiffOp{t'} F_{(X + Y)^{-1}}(t')                                                                                        \\
+              f_{(X + Y)^{-1}}(t') & = \DiffOp{t'} F_{(X + Y)^{-1}}(t')                                                                                              \\
                                    & = \begin{cases}
-                                           \frac{1}{2} \cdot 2 \cdot \left(2 - \frac{1}{t'}\right) \cdot t'^{-2} = 2 t'^{-2} - t'^{-3}, & \frac{1}{2} \leq t' < 1, \\
-                                           -(-2)\frac{1}{2} t'^{-3} = t'^{-3},                                                          & 1 \leq t',               \\
-                                           0,                                                                                           & \text{otherwise},
+                                           \frac{1}{2} \cdot 2 \cdot \left(2 - \frac{1}{t'}\right) \cdot {t'}^{-2} = 2 {t'}^{-2} - {t'}^{-3}, & \frac{1}{2} \leq t' < 1, \\
+                                           -(-2)\frac{1}{2} {t'}^{-3} = {t'}^{-3},                                                            & 1 \leq t',               \\
+                                           0,                                                                                                 & \text{otherwise},
                                        \end{cases}
           \end{align*}
           as desired.
@@ -137,10 +137,10 @@
 
           Differentiating gives
           \begin{align*}
-              f_{\frac{X}{X + Y}}(t') & = \DiffOp{t'} F_{\frac{X}{X + Y}}(t')                                                               \\
+              f_{\frac{X}{X + Y}}(t') & = \DiffOp{t'} F_{\frac{X}{X + Y}}(t')                                                                                                                \\
                                       & = \begin{cases}
                                               \frac{1 \cdot (2 - 2t') + 2 t'}{(2 - 2t')^2} = \frac{1}{2 (1 - t')^2}, & 0 < t' \leq \frac{1}{2}, \\
-                                              \frac{3 \cdot 2t' - 2 (3t' - 1)}{4t'^2} = \frac{1}{2 t'^2},            & \frac{1}{2} < t' \leq 1, \\
+                                              \frac{3 \cdot 2t' - 2 (3t' - 1)}{4{t'}^2} = \frac{1}{2 {t'}^2},        & \frac{1}{2} < t' \leq 1, \\
                                               0,                                                                     & \text{otherwise}.
                                           \end{cases}
           \end{align*}
