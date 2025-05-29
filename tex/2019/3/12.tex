@@ -1,2 +1,56 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+For each integer between \(1\) to \(n\) inclusive, they are either in a subset of \(S\), an element of \(T\), or not. For each integer there are \(2\) choices, and there are \(n\) integers, this means that
+\[
+    \abs*{T} = 2^n,
+\]
+as desired.
+
+\begin{enumerate}
+    \item Since there is an equal number of sets \(B \in T\) for \(1 \in B\) and \(1 \notin B\), this means
+          \[
+              \Prob(1 \in A_1) = \frac{1}{2}.
+          \]
+
+    \item For each of the integer \(1 \leq t \leq n\), \(t \notin A_1 \cap A_2\) if and only if they cannot be in both of \(A_1\) and \(A_2\), and hence
+          \[
+              \Prob(t \notin A_1 \cap A_2) = 1 - \left(\frac{1}{2}\right)^2 = \frac{3}{4},
+          \]
+          and \(A_1 \cap A_2 = \emptyset\) if and only if for all \(1 \leq t \leq n\), that \(t \notin A_1 \cap A_2\). All these events are independent, and hence
+          \[
+              \Prob(A_1 \cap A_2 = \emptyset) = \left(\frac{3}{4}\right)^n.
+          \]
+
+          By similar reasoning,
+          \[
+              \Prob(A_1 \cap A_2 \cap A_3 = \emptyset) = \left(\frac{7}{8}\right)^n,
+          \]
+          and
+          \[
+              \Prob(A_1 \cap A_2 \cap \cdots \cap A_m = \emptyset) = \left[1 - \left(\frac{1}{2}\right)^m\right]^n = \left(1 - \frac{1}{2^m}\right)^n.
+          \]
+
+    \item \(A_1 \subseteq A_2\) if and only if for any \(1 \leq t \leq n\), we have \(t \in A_1 \implies t \in A_2\). For this to happen, either \(t \notin A_1\) (in which case we do not worry about whether \(t\) is in \(A_2\) or not), or \(t \in A_1\) and \(t \in A_2\). This means
+          \[
+              \Prob(t \in A_1 \implies t \in A_2) = \frac{3}{4},
+          \]
+          and hence
+          \[
+              \Prob(A_1 \subseteq A_2) = \left(\frac{3}{4}\right)^n.
+          \]
+
+          For any \(1 \leq t \leq n\), \(A_1 \subseteq A_2 \subseteq \cdots \subseteq A_m\) means we have \(t \in A_1 \implies t \in A_2 \implies \cdots \implies t \in A_m\). This happens if and only if \(t \in A_i\) gives \(t \in A_j\) for all \(j \geq i\), and this is true if and only if there exists some \(0 \leq k \leq m\), such that for \(1 \leq i \leq k\), \(t \notin A_k\), and for \(k < j \leq m\), \(t \in A_k\).
+
+          There are precisely \(m + 1\) choices for such \(k\), and this means
+          \[
+              \Prob(t \in A_1 \implies t \in A_2 \implies \cdots \implies t \in A_m) = \frac{m + 1}{2^m},
+          \]
+          and hence
+          \[
+              \Prob(A_1 \subseteq A_2 \subseteq \cdots \subseteq A_m) = \left(\frac{m + 1}{2^m}\right)^n,
+          \]
+          which gives
+          \[
+              \Prob(A_1 \subseteq A_2 \subseteq A_3) = \left(\frac{1}{2}\right)^n.
+          \]
+\end{enumerate}

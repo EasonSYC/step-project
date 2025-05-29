@@ -1,2 +1,87 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Let \(X\) be the number of customers arriving at builders' merchants on a day, and we have \(X \sim \Poisson(\lambda)\). This means
+          \[
+              \Prob(X = x) = \frac{\lambda^x}{e^\lambda x!}
+          \]
+          for \(x = 0, 1, \ldots\).
+
+          Let \(Y\) be the number of customers taking the sand on a day. Then we have \(\left(Y \mid X = x\right) \sim \Binomial(x, p)\), and hence
+          \[
+              \Prob(Y = y \mid X = x) = \binom{x}{y} p^y (1 - p)^{x - y}.
+          \]
+
+          Hence, we have
+          \begin{align*}
+              \Prob(Y = y) & = \sum_{x = 0}^{\infty} \Prob(Y = y, X = x)                                                                \\
+                           & = \sum_{x = 0}^{\infty} \Prob(Y = y \mid X = x) \Prob(X = x)                                               \\
+                           & = \sum_{x = y}^{\infty} \Prob(Y = y \mid X = x) \Prob(X = x)                                               \\
+                           & = \sum_{x = y}^{\infty} \binom{x}{y} p^y (1 - p)^{x - y} \cdot \frac{\lambda^x}{e^\lambda x!}              \\
+                           & =  \sum_{x = y}^{\infty} \frac{x! p^y (1 - p)^x \lambda^x}{y! (x - y)! (1 - p)^y e^\lambda x!}             \\
+                           & = \frac{p^y}{y! (1 - p)^y e^\lambda} \sum_{x = y}^{\infty} \frac{(1 - p)^x \lambda^x}{(x - y)!}            \\
+                           & = \frac{p^y}{y! (1 - p)^y e^\lambda} \sum_{x = 0}^{\infty} \frac{\left[\lambda (1 - p)\right]^{x + y}}{x!} \\
+                           & = \frac{p^y \lambda^y}{y! e^\lambda} \sum_{x = 0}^{\infty} \frac{\left[\lambda (1 - p)\right]^x}{x!}       \\
+                           & = \frac{(p \lambda)^y}{y! e^\lambda} e^{\lambda (1 - p)}                                                   \\
+                           & = \frac{(p \lambda)^y}{y! e^{p \lambda}},
+          \end{align*}
+          which is precisely the probability mass function of \(\Poisson(p \lambda)\), as desired.
+
+    \item Let \(Z\) be the amount of sand remaining at the end of a day, and hence
+          \[
+              Z = S (1 - k)^{Y}.
+          \]
+
+          Hence, the expectation of \(Z\) is given by
+          \begin{align*}
+              \Expt(Z) & = S \Expt\left[(1 - k)^Y\right]                                                 \\
+                       & = S \sum_{y = 0}^{\infty} (1 - k)^y \Prob(Y = y)                                \\
+                       & = \frac{S}{e^{p\lambda}} \sum_{y = 0}^{\infty} \frac{(p \lambda (1 - k))^y}{y!} \\
+                       & = \frac{S}{e^{p\lambda}} e^{p \lambda(1 - k)}                                   \\
+                       & = \frac{S}{e^{pk\lambda}}.
+          \end{align*}
+
+          Let \(Z'\) be the amount of sand taken, and hence
+          \[
+              Z' = S - Z,
+          \]
+          which means
+          \[
+              \Expt(Z') = S - \Expt(Z) = S \left(1 - e^{-pk\lambda}\right),
+          \]
+          precisely as desired.
+
+    \item Given that \(Z = z\), the assistant will take \(kz\) of the remaining sand, and the probability of the assistant taking the golden grain event (denoted as \(G\)) is
+          \[
+              \Prob(G \mid Z = z) = \frac{kz}{S}.
+          \]
+
+          Using \(Z = S (1 - k)^Y\), we have
+          \[
+              \Prob(G \mid Y = y) = k (1 - k)^y
+          \]
+          \begin{align*}
+              \Prob(G) & = \sum_{y = 0}^{\infty} \Prob(G, Y = y)                                          \\
+                       & = \sum_{y = 0}^{\infty} \Prob(G \mid Y = y) \Prob(Y = y)                         \\
+                       & = \sum_{y = 0}^{\infty} k (1 - k)^y \cdot \frac{(p \lambda)^y}{y! e^{p\lambda}}  \\
+                       & = \frac{k}{e^{p \lambda}} \sum_{y = 0}^{\infty} \frac{(p \lambda (1 - k))^y}{y!} \\
+                       & = \frac{k}{e^{p \lambda}} e^{p \lambda (1 - k)}                                  \\
+                       & = \frac{k}{e^{p k \lambda}}.
+          \end{align*}
+
+          In the case where \(k = 0\), no sand is taken, and hence the probability is \(0\).
+
+          In the case where \(k \to 1\), \(\Prob(G) = e^{-p\lambda}\), which is the probability that \(Y = 0\). This is precisely when no customer takes any sand (since if any took the sand they must have taken the gold grain), and as \(k \to 1\) the merchants' assistant is guaranteed to take the gold provided it is still existent in the final pile.
+
+          In the case where \(p \lambda > 1\), we differentiate the probability with respect to \(k\), which gives
+          \[
+              \DiffFrac{k e^{-pk\lambda}}{k} = (1 - pk\lambda) e^{-pk\lambda}.
+          \]
+
+          \(e^{-pk\lambda}\) is always positive. In the case where \(k < \frac{1}{p\lambda}\), \(1 - pk\lambda > 0\), and when \(k > \frac{1}{p\lambda}\), \(1 - pk\lambda < 0\). Hence, precisely when \(k = \frac{1}{p\lambda}\), we will have \(\Prob(G)\) taking a maximum, and since \(p\lambda > 1\), this \(k\) will satisfy \(0 < k < 1\) which is within the range.
+
+          Hence, the value of \(k\) that maximises \(\Prob(G)\) is
+          \[
+              k = \frac{1}{p\lambda}.
+          \]
+\end{enumerate}
