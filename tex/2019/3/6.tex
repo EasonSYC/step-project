@@ -51,14 +51,17 @@ This is a circle centred at \(a\) with radius \(r\).
           \end{align*}
           as desired.
 
-          When \(r^2 - a a^* = 1\), \(a = - a^*\), and hence \(a\) is pure imaginary. The diagram for this case is as follows:
+          When \(r^2 - a a^* = 1\), \(a = - a^*\), and hence \(a\) is pure imaginary. Since \(r^2 = 1 + \abs*{a}^2\) in this case, \(r > \abs*{a}\), so the circle must contain the origin. The diagrams are as below, with the case \(\im(a) > 0\) on the left, \(\im(a) = 0\) in the middle, and \(\im(a) < 0\) on the right:
           \begin{center}
               \input{\currfiledir 6-diag1}
+              \input{\currfiledir 6-diag2}
+              \input{\currfiledir 6-diag3}
           \end{center}
 
-          When \(r^2 - a a^* = -1\), \(a = a^*\), and hence \(a\) is real. The diagram for this case is as follows:
+          When \(r^2 - a a^* = -1\), \(a = a^*\), and hence \(a\) is real. Since \(r^2 = -1 + \abs*{a}^2\) in this case, \(r < \abs*{a}\), so the circle cannot contain the origin, and \(\abs*{a} > 1\). The diagrams are as below, with the case \(\re(a) > 1\) on the left, and \(\re(a) < -1\) on the right:
           \begin{center}
-              \input{\currfiledir 6-diag2}
+              \input{\currfiledir 6-diag4}
+              \input{\currfiledir 6-diag5}
           \end{center}
 
     \item In the case where \(\omega = \frac{1}{z^*}\), we have \(z = \frac{1}{\omega^*}\), and hence similar to the previous one,

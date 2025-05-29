@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+    \draw[->] ({-sqrt(2) - 0.5}, 0) -- ({sqrt(2) + 0.5}, 0) node[right] {\(\re(z)\)};
+    \draw[->] (0, {-1 - sqrt(2) - 0.5}) -- (0, {-1 + sqrt(2) + 0.5}) node[above] {\(\im(z)\)};
+    \node at (0, 0) [below left] {\(O\)};
+    \draw (0, -1) circle ({sqrt(2)});
+    \filldraw (0, -1) circle (0.5pt) node[left] {\(a\)};
+\end{tikzpicture}
