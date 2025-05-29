@@ -1,0 +1,18 @@
+\begin{tikzpicture}[scale=1.5]
+    \draw[->] (-0.5, 0) -- (5.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -0.5) -- (0, 5.5) node[above] {\(y\)};
+    \draw[smooth, samples=200, domain=0:1] plot ({sqrt(sqrt(\x^4 - 5*\x^2 + 4) + 2)}, \x) -- ({sqrt(2)}, 1);
+    \draw[smooth, samples=200, domain=0:1] plot ({sqrt(-sqrt(\x^4 - 5*\x^2 + 4) + 2)}, \x) -- ({sqrt(2)}, 1);
+    \draw[smooth, samples=200, domain=2:sqrt(5)] plot ({sqrt(-sqrt(\x^4 - 5*\x^2 + 4) + 2)}, \x) -- (0, {sqrt(5)});
+    \draw[smooth, samples=200, domain=2:5] plot ({sqrt(sqrt(\x^4 - 5*\x^2 + 4) + 2)}, \x);
+    \draw[dotted] ({sqrt(2)}, 0) -- ({sqrt(2)}, 2) -- (0, 2);
+    \draw[dotted] ({sqrt(2)}, 1) -- (0, 1);
+    \node at (0, 0) [below left] {\(O\)};
+    \node at (2, 0) [below] {\(2\)};
+    \node at ({sqrt(2)}, 0) [below] {\(\sqrt{2}\)};
+    \node at (0, 1) [left] {\(1\)};
+    \node at (0, 2) [left] {\(2\)};
+    \node at (0, {sqrt(5)}) [left] {\(\sqrt{5}\)};
+    \draw[dashed] (0, 0) -- (5, 5) node[right] {\(y = x\)};
+    \draw[dashed] (0, 0) -- (5, {2*sqrt(5)}) node [right] {\(y = \frac{2}{\sqrt{5}}x\)};
+\end{tikzpicture}

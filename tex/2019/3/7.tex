@@ -1,2 +1,91 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item When \(a = b\),
+          \begin{align*}
+              y^2 (y^2 - a^2)                   & = x^2 (x^2 - a^2) \\
+              x^4 - y^4 - a^2 x^2 + a^2 y^2     & = 0               \\
+              (x^2 + y^2 - a^2) (x^2 - y^2)     & = 0               \\
+              (x^2 + y^2 - a^2) (x + y) (x - y) & = 0,
+          \end{align*}
+          so the Devil's Curve in this case consists of the line \(x + y = 0\), the line \(x - y = 0\), and the circle \(x^2 + y^2 = a^2\).
+
+          The curve is shown as follows.
+          \begin{center}
+              \input{\currfiledir 7-diag1}
+          \end{center}
+
+    \item When \(a = 2\) and \(b = \sqrt{5}\),
+          \[
+              y^2 (y^2 - 5) = x^2 (x^2 - 4).
+          \]
+          \begin{enumerate}
+              \item Rearrangement gives us
+                    \[
+                        (x^2)^2 - 4x^2 - y^2 (y^2 - 5) = 0,
+                    \]
+                    and considering the discriminant, we have
+                    \[
+                        (-4)^2 + 4 y^2 (y^2 - 5) \geq 0,
+                    \]
+                    i.e.
+                    \[
+                        \left(y^2 - 1\right) \left(y^2 - 4\right) \geq 0.
+                    \]
+
+                    This gives \(y^2 \leq 1\) or \(y^2 \geq 4\), and in the case where \(y \geq 0\), this must give \(0 \leq y \leq 1\) or \(y \geq 2\), as desired.
+              \item When the curve is very close to the origin, we must have \(x^4, y^4 \ll x^2, y^2\), and hence \(4x^2 \approx 5y^2\), which means \(y \approx \frac{2}{\sqrt{5}}x\).
+
+                    When the curve is very far from the origin, we must have \(x^4, y^4 \gg x^2, y^2\), and hence \(x^4 \approx y^4\), which means \(y \approx x\).
+
+              \item Using implicit differentiation, we have
+                    \begin{align*}
+                        y^2 (y^2 - 5)                & = x^2 (x^2 - 4) \\
+                        (4y^3 - 10y) \DiffFrac{y}{x} & = 4x^3 - 8x     \\
+                        (2y^2 - 5)y \DiffFrac{y}{x}  & = 2x(x^2 - 2).
+                    \end{align*}
+
+                    When \(\DiffFrac{y}{x} = 0\), the tangent to the curve is parallel to the \(x\)-axis, and hence
+                    \[
+                        2x(x^2 - 2) = 0,
+                    \]
+                    giving \(x = 0\) or \(x = \sqrt{2}\).
+
+                    For \(x = 0\), \(y^2 (y^2 - 5) = 0\), and therefore \(y = 0\) or \(y = \sqrt{5}\). The case where \(y = 0\) does not necessarily give that \(\DiffFrac{y}{x} = 0\), but the case where \(y = \sqrt{5}\) does.
+
+                    For \(x = \sqrt{2}\), \(y^2 (y^2 - 5) = -4\), \(y = 2\) or \(y = 1\). Both cases give \(\DiffFrac{y}{x} = 0\).
+
+                    So the tangent to the curve is parallel to the \(x\)-axis at points
+                    \[
+                        \left(0, \sqrt{5}\right), \left(\sqrt{2}, 1\right), \left(\sqrt{2}, 2\right).
+                    \]
+
+                    We must have
+                    \[
+                        (2y^2 - 5)y = 2x(x^2 - 2) \DiffFrac{x}{y},
+                    \]
+                    and when \(\DiffFrac{x}{y} = 0\), the tangent to the curve is parallel to the \(y\)-axis.
+
+                    This gives \((2y^2 - 5)y = 0\), and hence \(y = 0\) or \(y = \sqrt{\frac{5}{2}}\).
+
+                    For \(y = 0\), \(x = 0\) or \(x = 2\). The case \(x = 0\) does not necessarily give \(\DiffFrac{x}{y} = 0\), but the case where \(x = 2\) does.
+
+                    For \(y = \sqrt{\frac{5}{2}}\), \(x^2 (x^2 - 4) = - \frac{25}{4}\), and hence
+                    \[
+                        4x^4 - 16x^2 + 25 = 4 (x^2 - 2)^2 + 9 = 0,
+                    \]
+                    which is not possible.
+
+                    Hence, the tangent to the curve is parallel to the \(y\)-axis only at \((2, 0)\).
+          \end{enumerate}
+
+          Therefore, from the analysis in the previous parts, the curve looks as follows for \(x \geq 0\) and \(y \geq 0\):
+          \begin{center}
+              \input{\currfiledir 7-diag2}
+          \end{center}
+
+    \item All \(x\) terms in the curve is in \(x^2\), so the graph is symmetric in the \(y\)-axis since \(x^2 = (-x)^2\). Similarly, the graph is symmetric in the \(x\)-axis as well. Hence, the complete graph looks as follows.
+          \begin{center}
+              \input{\currfiledir 7-diag3}
+          \end{center}
+\end{enumerate}
