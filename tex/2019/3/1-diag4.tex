@@ -1,0 +1,9 @@
+\begin{tikzpicture}[scale=5]
+    \draw[->] (-0.5, 0) -- (1.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -0.5) -- (0, 0.5) node[above] {\(y\)};
+    \draw[smooth, samples=1000, domain=0:50] plot ({exp(-\x)}, {\x*exp(-\x)});
+    \filldraw ({1/e}, {1/e}) circle (0.2pt) node[above] {\((e^{-1}, e^{-1})\)};
+    \node at (0, 0) [below left] {\(O\)};
+    \node at (1, 0) [below] {\(1\)};
+    \draw (0, 0) circle (0.4pt);
+\end{tikzpicture}

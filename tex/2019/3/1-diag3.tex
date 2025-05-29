@@ -1,0 +1,11 @@
+\begin{tikzpicture}[trig format=rad, scale=5]
+    \draw[->] (-0.5, 0) -- (1.5, 0) node [right] {\(x\)};
+    \draw[->] (0, -0.5) -- (0, 0.5) node [above] {\(y\)};
+    \draw[dashed, smooth, samples=200, domain=0:2.25*pi] plot ({exp(-\x)*cos(\x)}, {exp(-\x)*sin(\x)});
+    \filldraw ({exp(-0.25*pi)*cos(0.25*pi)}, {exp(-0.25*pi)*sin(0.25*pi)}) circle (0.2pt) node[above] {\(\left(\exp\left(-\frac{\pi}{4}\right) \cdot \frac{\sqrt{2}}{2}, \exp\left(-\frac{\pi}{4}\right) \cdot \frac{\sqrt{2}}{2}\right)\)};
+    \filldraw ({exp(-0.75*pi)*cos(0.75*pi)}, {exp(-0.75*pi)*sin(0.75*pi)}) circle (0.2pt) node[left] {\(\left(-\exp\left(-\frac{3\pi}{4}\right) \cdot \frac{\sqrt{2}}{2}, \exp\left(-\frac{3\pi}{4}\right) \cdot \frac{\sqrt{2}}{2}\right)\)};
+    \node at (0, 0) [above right] {\(O\)};
+    \node at (1, 0) [below] {\(1\)};
+    \node at (0, {exp(-0.5*pi)}) [above left] {\(\exp\left(-\frac{\pi}{2}\right)\)};
+    \node at ({-exp(-pi)}, 0) [below left] {\(\exp\left(-\pi\right)\)};
+\end{tikzpicture}

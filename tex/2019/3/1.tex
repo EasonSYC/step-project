@@ -1,2 +1,149 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item When \(k = 1\),
+          \[
+              \dot{x} = -x - y, \dot{y} = x - y.
+          \]
+
+          Hence,
+          \begin{align*}
+              \ddot{x} & = - \dot{x} - \dot{y}           \\
+                       & = - \dot{x} - (x - y)           \\
+                       & = -\dot{x} - x + y              \\
+                       & = -\dot{x} - x + (-x - \dot{x}) \\
+                       & = -2\dot{x} - 2x,
+          \end{align*}
+          and this gives
+          \[
+              \ddot{x} + 2\dot{x} + 2x = 0.
+          \]
+
+          The auxiliary equation to this differential equation is
+          \[
+              \lambda^2 + 2\lambda + 2 = 0,
+          \]
+          which solves to
+          \[
+              \lambda = -1 \pm i.
+          \]
+
+          The general solution for \(x\) is hence
+          \[
+              x(t) = \exp(-t) \left(A \sin t + B \cos t\right).
+          \]
+
+          This means
+          \begin{align*}
+              \dot{x}(t) & = - \exp(-t) \left(A \sin t + B \cos t\right) + \exp(-t) \left(A \cos t - B \sin t\right) \\
+                         & = -x(t) + \exp(-t) \left(A \cos t - B \sin t\right),
+          \end{align*}
+          and hence
+          \[
+              y(t) = - \exp(-t) \left(A \cos t - B \sin t\right) = \exp(-t) \left(B \sin t - A \cos t\right).
+          \]
+
+          When \(t = 0\), \(x = x(0) = B = 1\), \(y = y(0) = -A = 0\). Hence,
+          \[
+              x(t) = \exp(-t) \cos t, y(t) = \exp(-t) \sin t.
+          \]
+
+          The graph of \(y\) against \(t\) looks as follows:
+          \begin{center}
+              \input{\currfiledir 1-diag1}
+          \end{center}
+
+          \(y\) is greatest at the first stationary point of \(y\), as shown in the graph. Note that
+          \[
+              \dot{y} = x - y = \exp(-t) \left(\cos t - \sin t\right),
+          \]
+          and hence
+          \[
+              \dot{y} = 0 \iff \cos t = \sin t \iff \tan t = 1,
+          \]
+          and the smallest positive solution to this is \(t = \frac{\pi}{4}\). The coordinate of the point is hence
+          \[
+              (x, y) = \left(\exp\left(-\frac{\pi}{4}\right) \cdot \frac{\sqrt{2}}{2}, \exp\left(-\frac{\pi}{4}\right) \cdot \frac{\sqrt{2}}{2}\right).
+          \]
+
+          Similarly, the graph of \(x\) against \(t\) looks as follows:
+          \begin{center}
+              \input{\currfiledir 1-diag2}
+          \end{center}
+
+          \(x\) is smallest at the first stationary point of \(x\), as shown in the graph. Note that
+          \[
+              \dot{x} = -x - y = -\exp(-t) \left(\cos t + \sin t\right),
+          \]
+          and hence
+          \[
+              \dot{x} = 0 \iff \cos t = - \sin t \iff \tan t = -1,
+          \]
+          and the smallest positive solution to this is \(t = \frac{3\pi}{4}\). The coordinate of the point is hence
+          \[
+              (x, y) = \left(- \exp\left(-\frac{3\pi}{4}\right) \cdot \frac{\sqrt{2}}{2}, \exp\left(-\frac{3\pi}{4}\right) \cdot \frac{\sqrt{2}}{2}\right).
+          \]
+
+          Without the \(\exp(-t)\) factor, the \(x\)-\(y\) graph will simply be a circle, and with this factor, it will be a spiral with exponentially decreasing radius. This is the polar curve \(r = \exp(-\theta)\). Hence, the \(x\)-\(y\) graph looks as follows.
+
+          \begin{center}
+              \input{\currfiledir 1-diag3}
+          \end{center}
+
+    \item Since \(\dot{x} = -x\), we must have \(x(t) = A \exp(-t)\), and since \(x(0) = 1\), we have \(A = 1\) and \(x(t) = \exp(-t)\).
+
+          We have
+          \[
+              \dot{y} = \exp(-t) - y,
+          \]
+          and hence
+          \[
+              \dot{y} + y = \exp(-t).
+          \]
+
+          Multiplying both sides by \(\exp(t)\), we have
+          \[
+              e^t \dot{y} + e^t y = 1,
+          \]
+          and hence
+          \[
+              \DiffFrac{ye^t}{t} = 1,
+          \]
+          which gives
+          \[
+              ye^t = t + B,
+          \]
+          and hence
+          \[
+              y = \exp(-t) (t + B).
+          \]
+
+          Since \(y = 0\) when \(t = 0\), we must have \(B = 0\), and hence
+          \[
+              y = t \exp(-t).
+          \]
+
+          Note that
+          \[
+            \DiffFrac{y}{t} = \exp(-t) - t \exp(-t),
+          \]
+          and hence \(\DiffFrac{y}{t} = 0\) when \(t = 1\), which is when
+          \[
+            (x, y) = \left(e^{-1}, e^{-1}\right).
+          \]
+
+          Note that
+          \[
+            \DiffFrac{x}{y} = - \exp(-t),
+          \]
+          and hence \(\DiffFrac{x}{t} = 0\) when \(t = 0\), which is when
+          \[
+            (x, y) = (1, 0),
+          \]
+          and the tangent to the curve at this point will be vertical.
+
+          Hence, the graph will look as follows:
+          \begin{center}
+            \input{\currfiledir 1-diag4}
+          \end{center}
+\end{enumerate}

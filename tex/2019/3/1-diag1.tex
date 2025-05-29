@@ -1,0 +1,15 @@
+\begin{tikzpicture}[trig format=rad]
+    \draw[->] (-0.5, 0) -- (2.25*pi + 0.5, 0) node [right] {\(t\)};
+    \draw[->] (0, -3.5) -- (0, 3.5) node [above] {\(y\)};
+    \draw[dashed, smooth, samples=200, domain=0:2.25*pi] plot (\x, {3*exp(-\x)}) node [above right] {\(y = \exp(-t)\)};
+    \draw[dashed, smooth, samples=200, domain=0:2.25*pi] plot (\x, {-3*exp(-\x)}) node [below right] {\(y = -\exp(-t)\)};
+    \draw[smooth, samples=200, domain=0:2.25*pi] plot (\x, {3*exp(-\x)*sin(\x)});
+    \node at (0, 3) [left] {\(1\)};
+    \node at (0, -3) [left] {\(-1\)};
+    \node at (0, 0) [below left] {\(O\)};
+    \node at (0, 0) [above left] {\(y = \exp(-t) \sin t\)};
+    \node at (pi/2, 0) [below] {\(\frac{\pi}{2}\)};
+    \node at (pi, 0) [below] {\(\pi\)};
+    \node at (3*pi/2, 0) [below] {\(\frac{3\pi}{2}\)};
+    \node at (2*pi, 0) [below] {\(2\pi\)};
+\end{tikzpicture}
