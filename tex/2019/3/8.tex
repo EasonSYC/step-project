@@ -1,2 +1,205 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item W.L.O.G. let the origin be the centre of the rectangle \(ABCD\) (and let \(ABCD\) lie on the \(x\)-\(y\) plane). We adjust the scale of the axis, and we let \(V(0, 0, 1)\) and \(A(-\mu, -\nu, 0)\), we have \(B(\mu, -\nu, 0)\), \(C(\mu, \nu, 0)\) and \(D(-\mu, \nu, 0)\). Let \(\mu, \nu > 0\).
+
+          Let \(M\) be the midpoint of \(AB\) and \(N\) be the midpoint of \(BC\). We must have \(M(0, -\nu, 0)\) and \(N(\mu, 0, 0)\).
+
+          The angle between the face \(AVB\) and the base \(ABCD\) must be the angle between \(\bvect{MO}\) and \(\bvect{MV}\). Hence,
+          \[
+              \cos \alpha = \frac{\bvect{MO} \cdot \bvect{MV}}{\abs*{\bvect{MO}} \abs*{\bvect{MV}}}.
+          \]
+
+          Note that
+          \[
+              \bvect{MO} = \begin{pmatrix}
+                  0   \\
+                  \nu \\
+                  0
+              \end{pmatrix},
+              \bvect{MV} = \vect{v} - \vect{m} = \begin{pmatrix}
+                  0   \\
+                  \nu \\
+                  1
+              \end{pmatrix},
+          \]
+          and hence
+          \[
+              \cos \alpha = \frac{\nu^2}{\nu \cdot \sqrt{\nu^2 + 1}} = \frac{\nu}{\sqrt{\nu^2 + 1}},
+          \]
+          which gives
+          \[
+              \cos^2 \alpha \nu^2 + \cos^2 \alpha = \nu^2,
+          \]
+          and hence
+          \[
+              \sin^2 \alpha \nu^2 = \cos^2 \alpha,
+          \]
+          which gives
+          \[
+              \nu = \cot \alpha.
+          \]
+
+          Similarly,
+          \[
+              \mu = \cot \beta.
+          \]
+
+          A vector perpendicular to \(AVB\) can be
+          \begin{align*}
+              \bvect{VA} \times \bvect{VB} & = \begin{pmatrix}
+                                                   -\mu \\
+                                                   -\nu \\
+                                                   -1
+                                               \end{pmatrix}
+              \times
+              \begin{pmatrix}
+                  \mu  \\
+                  -\nu \\
+                  -1
+              \end{pmatrix}                                                                  \\
+                                           & = \begin{vmatrix}
+                                                   \ihat & \jhat & \khat \\
+                                                   - \mu & -\nu  & -1    \\
+                                                   \mu   & -\nu  & -1
+                                               \end{vmatrix}                          \\
+                                           & = \begin{pmatrix}
+                                                   0      \\
+                                                   -2 \mu \\
+                                                   2\mu \nu
+                                               \end{pmatrix}                                 \\
+                                           & = \begin{pmatrix}
+                                                   0             \\
+                                                   -2 \cot \beta \\
+                                                   2 \cot \alpha \cot \beta.
+                                               \end{pmatrix}                       \\
+                                           & = -\frac{2\cot\beta}{\sin \alpha} \begin{pmatrix}
+                                                                                   0            \\
+                                                                                   -\sin \alpha \\
+                                                                                   \cos \alpha
+                                                                               \end{pmatrix},
+          \end{align*}
+          and so
+          \[
+              \begin{pmatrix}
+                  0             \\
+                  - \sin \alpha \\
+                  \cos \alpha
+              \end{pmatrix}
+          \]
+          is a unit vector perpendicular to \(AVB\).
+
+          Similarly,
+          \begin{align*}
+              \bvect{VB} \times \bvect{VC} & = \begin{pmatrix}
+                                                   \mu   \\
+                                                   - \nu \\
+                                                   - 1
+                                               \end{pmatrix}
+              \times
+              \begin{pmatrix}
+                  \mu \\
+                  \nu \\
+                  -1
+              \end{pmatrix}                                                                   \\
+                                           & = \begin{vmatrix}
+                                                   \ihat & \jhat & \khat \\
+                                                   \mu   & -\nu  & -1    \\
+                                                   \mu   & \nu   & -1
+                                               \end{vmatrix}                           \\
+                                           & = \begin{pmatrix}
+                                                   2 \nu \\
+                                                   0     \\
+                                                   2 \mu \nu
+                                               \end{pmatrix}                                  \\
+                                           & = \begin{pmatrix}
+                                                   2 \cot \alpha \\
+                                                   0             \\
+                                                   2 \cot \alpha \cot \beta
+                                               \end{pmatrix}                         \\
+                                           & = \frac{2 \cot \alpha}{\sin \beta} \begin{pmatrix}
+                                                                                    \sin \beta \\
+                                                                                    0          \\
+                                                                                    \cos \beta
+                                                                                \end{pmatrix},
+          \end{align*}
+          and hence
+          \[
+              \begin{pmatrix}
+                  \sin \beta \\
+                  0          \\
+                  \cos \beta
+              \end{pmatrix}
+          \]
+          is a unit vector perpendicular to \(BVC\).
+
+          The acute angle between \(AVB\) and \(BVC\), \(\theta\), satisfies that
+          \[
+              \cos \theta = \begin{pmatrix}
+                  0             \\
+                  - \sin \alpha \\
+                  \cos \alpha
+              \end{pmatrix} \cdot \begin{pmatrix}
+                  \sin \beta \\
+                  0          \\
+                  \cos \beta
+              \end{pmatrix} = \cos \alpha \cos \beta,
+          \]
+          as desired.
+
+    \item Notice that
+          \begin{align*}
+              \cos \phi & = \frac{\bvect{BV} \cdot \bvect{BO}}{\abs*{\bvect{BV}} \cdot \abs*{\bvect{BO}}}           \\
+                        & = \frac{\begin{pmatrix}
+                                          -\mu \\
+                                          \nu  \\
+                                          1
+                                      \end{pmatrix} \cdot \begin{pmatrix}
+                                                              -\mu \\
+                                                              \nu  \\
+                                                              0
+                                                          \end{pmatrix}}{\sqrt{\mu^2 + \nu^2 + 1} \sqrt{\mu^2 + \nu^2}} \\
+                        & = \sqrt{\frac{\mu^2 + \nu^2}{\mu^2 + \nu^2 + 1}},
+          \end{align*}
+          and hence
+          \[
+              \sin \phi = \sqrt{1 - \cos^2 \phi} = \sqrt{\frac{1}{\mu^2 + \nu^2 + 1}},
+          \]
+          which means
+          \[
+              \cot \phi = \sqrt{\mu^2 + \nu^2},
+          \]
+          and hence
+          \[
+              \cot^2 \phi = \mu^2 + \nu^2 = \cot^2 \alpha + \cot^2 \beta,
+          \]
+          as desired.
+
+          Notice that
+          \begin{align*}
+              \cos^2 \phi & = \frac{\mu^2 + \nu^2}{\mu^2 + \nu^2 + 1}                                                                                                                               \\
+                          & = \frac{\cot^2 \alpha + \cot^2 \beta}{\cot^2 \alpha + \cot^2 \beta + 1}                                                                                                 \\
+                          & = \frac{\cos^2 \alpha \sin^2 \beta  + \cos^2 \beta \sin^2 \alpha}{\cos^2 \alpha \sin^2 \beta + \cos^2 \beta \sin^2 \alpha + \sin^2 \beta \sin^2 \alpha}                 \\
+                          & = \frac{\cos^2 \alpha (1 - \cos^2 \beta) + \cos^2 \beta (1 - \cos^2 \alpha)}{(\cos^2 \alpha + \sin^2 \alpha)(\cos^2 \beta + \sin^2 \beta) - \cos^2 \alpha \cos^2 \beta} \\
+                          & = \frac{\cos^2 \alpha + \cos^2 \beta - 2 \cos^2\alpha \cos^2\beta}{1 - \cos^2 \alpha \cos^2 \beta}                                                                      \\
+                          & = \frac{\cos^2 \alpha + \cos^2 \beta - 2 \cos^2\theta}{1 - \cos^2\theta}.
+          \end{align*}
+
+          Since \((\cos \alpha - \cos \beta)^2 = \cos^2 \alpha + \cos^2 \beta - 2 \cos \theta \geq 0\), we have \(\cos^2 \alpha + \cos^2 \beta \geq 2 \cos \theta\), and hence
+          \[
+              \cos^2 \phi = \frac{\cos^2 \alpha + \cos^2 \beta - 2 \cos^2\theta}{1 - \cos^2\theta} \geq \frac{2 \cos \theta - 2 \cos^2 \theta}{1 - \cos^2 \theta}.
+          \]
+
+          Notice that
+          \begin{align*}
+              \cos^2 \phi & \geq \frac{2 \cos \theta - 2 \cos^2 \theta}{1 - \cos^2 \theta}               \\
+                          & = \frac{2 \cos \theta (1 - \cos \theta)}{(1 - \cos \theta)(1 + \cos \theta)} \\
+                          & = \frac{2 \cos \theta}{1 + \cos \theta}                                      \\
+                          & = \frac{2}{1 + \cos \theta} \cos \theta                                      \\
+                          & > \frac{2}{1 + 1} \cos \theta                                                \\
+                          & = \cos \theta                                                                \\
+                          & > \cos^2 \theta,
+          \end{align*}
+          since \(\theta\) is acute, \(0 < \cos \theta < 1\).
+
+          This means \(\cos^2 \phi > \cos^2 \theta\), and since \(\theta, \phi\) are acute, this must mean that \(\phi < \theta\), since \(\cos \phi, \cos \theta\) are both positive, and \(\cos \phi > \cos \theta\).
+\end{enumerate}

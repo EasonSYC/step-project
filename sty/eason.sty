@@ -95,11 +95,20 @@
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 
+% Vectors
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\bvect}[1]{\overrightarrow{#1}}
+
+\DeclareMathSymbol{\ii}{\mathalpha}{letters}{"10}
+\DeclareMathSymbol{\jj}{\mathalpha}{letters}{"11}
+
+\newcommand{\ihat}{\vect{\hat{\ii}}}
+\newcommand{\jhat}{\vect{\hat{\jj}}}
+\newcommand{\khat}{\vect{\hat{k}}}
+
 % Other Math Symbols
 \DeclareMathOperator{\modulo}{mod}
 
-\newcommand{\vect}[1]{\mathbf{#1}}
-\newcommand{\bvect}[1]{\overrightarrow{#1}}
 \newcommand{\divides}{\mid}
 \newcommand{\notdivides}{\nmid}
 \newcommand{\LHS}{\text{LHS}}
