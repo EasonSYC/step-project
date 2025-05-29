@@ -1,2 +1,117 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item We look at different cases depending on the value of \(n\).
+          \begin{itemize}
+              \item When \(n = 1\), \(P(x) = x - a_1\) has root \(a_1\), and thus is reflective for all \(a_1 \in \RR\).
+              \item When \(n = 2\), \(P(x) = x^2 - a_1 x + a_2\) has root \(a_1, a_2\), and hence by Vieta's Theorem,
+                    \[
+                        a_1 a_2 = a_2, a_1 + a_2 = a_1.
+                    \]
+
+                    This means \(a_2 = 0\) and \(a_1\) can take any real value, and hence
+                    \[
+                        P(x) = x^2 - a_1 x
+                    \]
+                    is reflective for \(a_1 \in \RR\).
+              \item When \(n = 3\), \(P(x) = x^3 - a_1 x^2 + a_2 x - a_3\) has root \(a_1, a_2, a_3\), and hence by Vieta's Theorem,
+                    \[
+                        \left\{
+                        \begin{aligned}
+                            a_1 a_2 a_3                 & = a_3, \\
+                            a_1 a_2 + a_1 a_3 + a_2 a_3 & = a_2, \\
+                            a_1 + a_2 + a_3             & = a_1.
+                        \end{aligned}
+                        \right.
+                    \]
+
+                    The final equation implies that \(a_2 + a_3 = 0\), and hence with the second equation gives that \(a_2 a_3 = a_2\), which means either \(a_2 = a_3 = 0\), or \(a_2 = -1, a_3 = 1\).
+
+                    When \(a_2 = a_3 = 0\), \(a_1\) can take any real value, and when \(a_2 = -1, a_3 = 1\), we must have \(a_1 = -1\).
+
+                    So the degree \(3\) reflective polynomials are
+                    \[
+                        P(x) = x^3 - a_1 x^2
+                    \]
+                    for all \(a_1 \in \RR\), and
+                    \[
+                        P(x) = x^3 + x^2 - x - 1.
+                    \]
+          \end{itemize}
+
+    \item By Vieta's Theorem, we have
+          \[
+              \sum_{i = 1}^{n} a_i = a_1,
+          \]
+          and hence
+          \[
+              \sum_{i = 2}^{n} a_i = 0.
+          \]
+
+          Squaring both sides gives
+          \begin{align*}
+              0 & = \left(\sum_{i = 2}^{n} a_i\right)^2                                           \\
+                & = \sum_{i = 2}^{n} a_i^2 + 2 \sum_{i = 2}^{n - 1} \sum_{j = i + 1}^{n} a_i a_j.
+          \end{align*}
+
+          By Vieta's Theorem, we also have
+          \[
+              \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^{n} a_i a_j = a_2,
+          \]
+          and notice that
+          \begin{align*}
+              2 a_2 & = 2 \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^{n} a_i a_j                              \\
+                    & = 2 \sum_{j = 2}^{n} a_1 a_j + 2 \sum_{i = 2}^{n - 1} \sum_{j = i + 1}^{n} a_i a_j \\
+                    & = 2 a_1 \sum_{i = 2}^{n} a_i + \left(-\sum_{i = 2}^{n} a_i^2\right)                \\
+                    & = 2 a_1 \cdot 0 - \sum_{i = 2}^{n} a_i^2                                           \\
+                    & = -\sum_{i = 2}^{n} a_i^2,
+          \end{align*}
+          as desired.
+
+          For the final part, assume B.W.O.C. that \(n > 3\). By rearrangement, we have
+          \begin{align*}
+              a_2^2 + 2 a_2 + 1 = 1 - \sum_{i = 3}^{n} a_i^2,
+          \end{align*}
+          and the left-hand side is \((a_2 + 1)^2\) which is always non-negative. Hence,
+          \[
+              \sum_{i = 3}^{n} a_i^2 \leq 1.
+          \]
+
+          Since \(a_i\) are all integers, precisely one of the \(a_i\)s for \(3 \leq i \leq n\) is \(\pm 1\), and all the rest are \(0\). Since \(a_n \neq 0\), we conclude that \(a_n = \pm 1\), and \(a_3 = \cdots = a_{n - 1} = 0\).
+
+          But notice from Vieta's Theorem that
+          \[
+              a_n = \prod_{i = 1}^{n} a_i = 0
+          \]
+          since \(a_3\) must be \(0\), which leads to a contradiction.
+
+          Hence, we must have \(n \leq 3\).
+
+    \item The reflective polynomials for \(n \leq 3\) are
+          \begin{itemize}
+              \item \(P(x) = x - a_1\) for \(a_1 \in \ZZ\),
+              \item \(P(x) = x^2 - a_1 x\) for \(a_1 \in \ZZ\),
+              \item \(P(x) = x^3 - a_1 x^2\) for \(a_1 \in \ZZ\), and
+              \item \(P(x) = x^3 + x^2 - x - 1\).
+          \end{itemize}
+
+          For \(n > 3\), we must have \(a_n = 0\), and hence
+          \begin{align*}
+              P(x) & = x^n - a_1 x^{n - 1} + a_2 x^{n - 2} - \cdots + (-1)^{n - 1} a_{n - 1} x                     \\
+                   & = x \left(x^{n - 1} - a_2 x^{n - 2} + a_2 x^{n - 3} - \cdots + (-1)^{n - 1} a_{n - 1}\right).
+          \end{align*}
+
+          Let
+          \[
+              Q(x) = x^{n - 1} - a_2 x^{n - 2} + a_2 x^{n - 3} - \cdots + (-1)^{n - 1} a_{n - 1}
+          \]
+
+          If \(P(x)\) is reflective, then the roots to \(P(x)\) are \(a_1, a_2, \ldots, a_{n - 1}, 0\), and hence the roots to \(Q(x)\) are \(a_1, a_2, \ldots, a_{n - 1}\), which shows that \(Q(x)\) is reflective as well.
+
+          This means that an integer-coefficient reflective polynomial with degree \(n > 3\) must be \(x\) multiplied by another integer-coefficient reflective polynomial, and repeating this process, we can conclude it must be some power of \(x\) multiplied by some integer-coefficient reflective polynomial with degree \(n \leq 3\).
+
+          Hence, all integer-coefficient reflective polynomials are
+          \begin{itemize}
+              \item \(P(x) = x^r (x - a_1)\) for \(a_1 \in \ZZ\), \(r \in \ZZ\), \(r \geq 0\), and
+              \item \(P(x) = x^r (x^3 + x^2 - x - 1) = x^2 (x + 1)^2 (x - 1)\) for \(r \in \ZZ\), \(r \geq 0\).
+          \end{itemize}
+\end{enumerate}
