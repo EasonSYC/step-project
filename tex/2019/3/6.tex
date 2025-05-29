@@ -1,2 +1,85 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Notice that the original equation
+\[
+    z z^* - a z^* - a^* z + a a^* - r^2 = 0
+\]
+can be simplified to
+\[
+    (z - a) (z^* - a^*) = r^2,
+\]
+and the left-hand side satisfies
+\[
+    (z - a) (z^* - a^*) = (z - a) (z - a)^* = \abs*{z - a}^2,
+\]
+which means the original equation is
+\[
+    \abs*{z - a}^2 = r^2,
+\]
+and hence
+\[
+    \abs*{z - a} = r.
+\]
+
+This is a circle centred at \(a\) with radius \(r\).
+
+\begin{enumerate}
+    \item Since \(\omega = \frac{1}{z}\), we have \(z = \frac{1}{\omega}\). Hence,
+          \begin{align*}
+              \frac{1}{\omega} \frac{1}{\omega^*} - a \frac{1}{\omega^
+              *} - \frac{1}{\omega} a^* + a a^*                                                                 & = r^2                                                             \\
+              1 - \omega a - \omega^* a^* + a a^* \omega \omega^*                                               & = r^2 \omega \omega^*                                             \\
+              (r^2 - a a^*) \omega \omega^* + \omega a + \omega^* a^*                                           & = 1                                                               \\
+              \omega \omega^* + \frac{a}{r^2 - a a^*} \omega + \frac{a^*}{r^2 - a a^*} \omega^*                 & = \frac{1}{r^2 - a a^*}                                           \\
+              \left(\omega + \frac{a^*}{r^2 - a a^{*}}\right) \left(\omega + \frac{a^*}{r^2 - a a^{*}}\right)^* & = \frac{1}{r^2 - a a^*} + \frac{a a*}{\left(r^2 - a a^*\right)^2} \\
+              \abs*{\omega - \frac{a^*}{a a^{*} - r^2}}^2                                                       & = \frac{r^2}{\left(r^2 - a a^*\right)^2}                          \\
+              \abs*{\omega - \frac{a^*}{a a^{*} - r^2}}                                                         & = \frac{r}{\abs*{r^2 - a a^*}},
+          \end{align*}
+          so \(\omega\) is on a circle \(C'\) with centre \(\frac{a^*}{a a^{*} - r^2}\) and radius \(\frac{r}{\abs*{r^2 - a a^*}}\).
+
+          If \(C\) and \(C'\) are the same circle, we have
+          \[
+              a = \frac{a^*}{a a^{*} - r^2}, r = \frac{r}{\abs*{r^2 - a a^*}}.
+          \]
+
+          The second equation gives \(\abs*{r^2 - a a^*} = 1\), which means \(r^2 - a a^* = \pm 1\).
+
+          \begin{align*}
+              r^2 - a a^*                     & = \pm 1 \\
+              r^2 - \abs*{a}^2                & = \pm 1 \\
+              \left(\abs*{a}^2 - r^2\right)^2 & = 1,
+          \end{align*}
+          as desired.
+
+          When \(r^2 - a a^* = 1\), \(a = - a^*\), and hence \(a\) is pure imaginary. The diagram for this case is as follows:
+          \begin{center}
+              \input{\currfiledir 6-diag1}
+          \end{center}
+
+          When \(r^2 - a a^* = -1\), \(a = a^*\), and hence \(a\) is real. The diagram for this case is as follows:
+          \begin{center}
+              \input{\currfiledir 6-diag2}
+          \end{center}
+
+    \item In the case where \(\omega = \frac{1}{z^*}\), we have \(z = \frac{1}{\omega^*}\), and hence similar to the previous one,
+          \begin{align*}
+              \omega \omega^* + \frac{a}{r^2 - a a^*} \omega^* + \frac{a^*}{r^2 - a a^*} \omega             & = \frac{1}{r^2 - a a^*}                                           \\
+              \left(\omega + \frac{a}{r^2 - a a^{*}}\right) \left(\omega + \frac{a}{r^2 - a a^{*}}\right)^* & = \frac{1}{r^2 - a a^*} + \frac{a a*}{\left(r^2 - a a^*\right)^2} \\
+              \abs*{\omega - \frac{a}{a a^{*} - r^2}}^2                                                     & = \frac{r^2}{\left(r^2 - a a^*\right)^2}                          \\
+              \abs*{\omega - \frac{a}{a a^{*} - r^2}}                                                       & = \frac{r}{\abs*{r^2 - a a^*}},
+          \end{align*}
+          so \(\omega\) is on a circle \(C'\) with centre \(\frac{a}{a a^{*} - r^2}\) and radius \(\frac{r}{\abs*{r^2 - a a^*}}\).
+
+          If they are the same circle, we have
+          \[
+              a = \frac{a}{a a^* - r^2}, r = \frac{r}{\abs{r^2 - a a^*}}.
+          \]
+
+          We still have \(r^2 - a a^* = \pm 1\).
+
+          When \(r^2 - a a^* = 1\), we have \(a = -a\), and \(a = 0\).
+
+          When \(r^2 - a a^* = -1\), we have \(a = a\), and \(a\) can be any complex number satisfying \(\abs*{a} = \sqrt{r^2 + 1}\).
+
+          It is not the case that \(a\) is either real or pure imaginary.
+\end{enumerate}
