@@ -1,2 +1,131 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+First, notice that \(x = 0\) must not be a root to this quartic equation. Therefore, we can divide both sides by \(x^2\), and the original equation is equivalent to
+\[
+    x^2 + \frac{1}{x^2} + a \left(x + \frac{1}{x}\right) + b = 0,
+\]
+and this rearranges to
+\[
+    \left(x + \frac{1}{x}\right)^2 + a \left(x + \frac{1}{x}\right) + (b - 2) = 0.
+\]
+
+Notice that
+\[
+    k + \frac{1}{k} = \frac{1}{k^{-1}} + k^{-1} = k^{-1} + \frac{1}{k^{-1}},
+\]
+so if \(x = k\) satisfies this equation, then \(x = k^{-1}\) also satisfies this equation.
+
+Notice that the range of \(t = x + \frac{1}{x}\) for non-zero real \(x\) is \(t \in (-\infty, -2] \cup [2, \infty)\).
+
+Since it is given that all the roots are real, it must be the case that the quadratic equation
+\[
+    t^2 + at + (b - 2) = 0
+\]
+produces two real roots situated within \((-\infty, -2] \cup [2, \infty)\).
+
+    Notice that for \(t \in (-\infty, -2] \cup [2, \infty)\), the equation
+\[
+    x + \frac{1}{x} = t
+\]
+has precisely two real roots for \(t \neq \pm 2\), and precisely one \(x = \pm 1\) for \(t = \pm 2\).
+
+\begin{enumerate}
+    \item In this case, by the previous analysis, the only possibility is that \(x_1 = x_2 = x_3 = x_4 = \mp 1\). This means that
+          \[
+              x^4 + ax^3 + bx^2 + ax + 1 = (x \pm 1)^4 = x^4 \pm 4x^3 + 6x^2 \pm 4x + 1,
+          \]
+          and hence \((a, b) = (\pm 4, 6)\).
+
+    \item Since there are exactly three distinct roots for \(x\), this means that the one which repeated must be \(x_1 = x_2 = \pm 1\), which leads to \(t_1 = \pm 2\), and those two which does not leads to \(t_2 \neq \pm 2\).
+
+          Putting \(t_1 = \pm 2\) into the quadratic equation in \(t\), we have
+          \[
+              4 \pm 2a + (b - 2) = 0,
+          \]
+          and hence
+          \[
+              b = \mp 2a - 2,
+          \]
+          precisely as desired.
+
+    \item When \(b = 2a - 2\), we have
+          \[
+              t^2 + at + (2a - 4) = 0,
+          \]
+          which solves to \(t_1 = -2\), \(t_2 = - a + 2\).
+
+          For \(x + \frac{1}{x} = t_1 = -2\), this solves to \(x_1 = x_2 = -1\).
+
+          For \(x + \frac{1}{x} = t_2 = -a + 2\), this rearranges to
+          \[
+              x^2 + (a - 2)x + 1 = 0,
+          \]
+          and hence the two roots are
+          \[
+              x_{3, 4} = \frac{-(a - 2) \pm \sqrt{(a - 2)^2 - 4}}{2} = \frac{-a + 2 \pm \sqrt{a^2 - 4a}}{2}
+          \]
+
+    \item We first look at necessary condition. Given the equation has precisely two roots, we have \(b = \pm 2a - 2\), and hence the quadratic equation in \(t\) becomes
+          \[
+              t^2 + at + (\pm 2a - 4) = 0.
+          \]
+
+          \(t_1 = \mp 2\) must be a root, and notice that this factorises to
+          \[
+              t^2 + at + (\pm 2a - 4) = (t \pm 2) (t - (-a \pm 2)),
+          \]
+          and hence the other root is \(t_2 = -a \pm 2\).
+
+          As discussed before, we must have that \(t_2 < -2\) or \(t_2 > 2\) to produce two distinct roots for \(x\), and hence
+          \[
+              -a \pm 2 < -2 \text{ or } -a \pm 2 > 2,
+          \]
+          and hence
+          \[
+              a \mp 2 > 2 \text{ or } a \mp 2 < -2,
+          \]
+          and hence
+          \[
+              a > 2 \pm 2 \text{ or } a < -2 \pm 2.
+          \]
+
+          Therefore, a necessary condition is \(b = \pm 2a - 2\), and \(a \in \left(-\infty, -2 \pm 2\right) \cup \left(2 \pm 2, \infty\right)\).
+
+          We would like to show that this is a sufficient condition as well. If \(b = \pm 2a - 2\) and \(a \in \left(-\infty, -2 \pm 2\right) \cup \left(2 \pm 2, \infty\right)\), we have the quadratic in \(t\) simplifies to
+          \[
+              t^2 + at + (\pm 2a - 4) = (t \pm 2) (t - (-a \pm 2)) = 0.
+          \]
+
+          This gives roots \(t_1 = \mp 2\) which in turn gives \(x_1 = x_2 = \mp 1\), and \(t_2 = -a \pm 2\). In the second case, since
+          \[
+              a \in \left(-\infty, -2 \pm 2\right) \cup \left(2 \pm 2, \infty\right),
+          \]
+          we must have
+          \[
+              a \mp 2 \in \left(-\infty, -2\right) \cup \left(2, \infty\right)
+          \]
+          and hence
+          \[
+              -a \pm 2 \in \left(-\infty, -2\right) \cup \left(2, \infty\right).
+          \]
+
+          This shows that there are two distinct \(x\)s corresponding to \(t_2\), both of which are not equal to \(\pm 1\).
+
+          Hence, in this case, the original equation has \(3\) distinct roots precisely, and
+          \[
+              b = \pm 2a - 2, a \in \left(-\infty, -2 \pm 2\right) \cup \left(2 \pm 2, \infty\right)
+          \]
+          is a necessary and sufficient condition for the original equation to have precisely \(3\) distinct real roots.
+
+          The following is to simplify this to what is written in the mark scheme. \(b = \pm 2a - 2\) is equivalent to \(b + 2 = \pm 2a\), and \((b + 2)^2 = 4a^2\).
+
+          The second part is equivalent to \(a \mp 2 \in \left(-\infty, -2\right) \cup \left(2, \infty\right)\), i.e.
+          \[
+              (a \mp 2)^2  = a^2 \mp 4a + 4 > 4,
+          \]
+          i.e.
+          \[
+              a^2 > \pm 4a = 2 \pm 2a = 2 (b + 2) = 2b + 4,
+          \]
+          precisely what is in the mark scheme.
+\end{enumerate}

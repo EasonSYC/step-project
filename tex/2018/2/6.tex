@@ -1,2 +1,49 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Notice that for \(n \geq 5\), \(n! = 5 \cdot 4! \cdot 6 \cdot 7 \cdots n\), and \(n! = 5k\) for \(k = 4! \cdot 6 \cdot 7 \cdots n > 1\) is an integer.
+
+          Therefore,
+          \[
+              n! + 5 = 5k + 5 = 5 (k + 1)
+          \]
+          is a multiple of two integers greater than \(1\), and hence \(p\) cannot be prime.
+
+          Hence, \(n < 5\).
+
+          If \(n = 1\), \(n! + 5 = 6\) is not prime.
+
+          If \(n = 2\), \(n! + 5 = 7\) is prime. \((n, p) = (2, 7)\) is a solution.
+
+          If \(n = 3\), \(n! + 5 = 11\) is prime. \((n, p) = (3, 11)\) is a solution.
+
+          If \(n = 4\), \(n! + 5 = 29\) is prime. \((n, p) = (4, 29)\) is a solution.
+
+          Therefore, all solutions are \((n, p) = (2, 7), (3, 11)\) and \((4, 29)\).
+
+    \item If \(n \geq 7\), then we have
+          \[
+              m! = 1! \times 3! \times \cdots \times (2n - 1)! > (4n)!
+          \]
+          and hence \(m > 4n\).
+
+          Let \(p\) be some prime number between \(2n\) and \(4n\). Therefore, \(m!\) must include \(p\) as one of its terms, and \(p \divides m! = \RHS\).
+
+          However, on the left-hand side, all the terms are less than \(p\), and since \(p\) is a prime, it must not divide any term in the left-hand side factorial expansion (since every term in the expansion is less than \(p\)), and hence \(p \notdivides \LHS\).
+
+          But since \(\LHS = \RHS\) this is impossible, and we can deduce that \(n < 7\).
+
+          \begin{itemize}
+              \item \(n = 1\), \(\LHS = 1! = 1\) and \((n, m) = (1, 1)\) is a solution.
+              \item \(n = 2\), \(\LHS = 1! \cdot 3! = 3!\) and \((n, m) = (2, 3)\) is a solution.
+              \item \(n = 3\), \(\LHS = 1! \cdot 3! \cdot 5! = 6 \cdot 5! = 6!\) and \((n, m) = (3, 6)\) is a solution.
+              \item \(n = 4\), \(\LHS = 1! \cdot 3! \cdot 5! \cdot 7! = 6! \cdot 7! = 7! \cdot 6! = 7! \cdot (3 \cdot 2 \cdot 5 \cdot 4 \cdot 3 \cdot 2) = 7! \cdot (2 \cdot 4) \cdot (3 \cdot 3) \cdot (2 \cdot 5) = 10!\) and \((n, m) = (4, 10)\) is a solution.
+              \item \(n = 5\), \(\LHS = 1! \cdot 3! \cdot 5! \cdot 7! \cdot 9! = 10! \cdot 9! > 10!\), so if \(m\) exists, \(m > 10\) and \(m \geq 11\). Then \(11 \divides \RHS = \LHS\), but this is impossible since \(11 > 9\), so such \(m\) does not exist.
+              \item \(n = 6\), \(\LHS = 1! \cdot 3! \cdot 5! \cdot 7! \cdot 9! \cdot 11! = 10! \cdot 9! \cdot 11! = 11! \cdot 9! \cdot 10! = 12! \cdot 10! \cdot (9 \cdot 8 \cdot 7 \cdot 5 \cdot 4 \cdot 3) > 12!\), so if \(m\) exists, \(m > 12\) and \(m \geq 13\). Then \(13 \divides \RHS = \LHS\), but this is impossible since \(13 > 11\), and so such \(m\) does not exist.
+          \end{itemize}
+
+          Hence, the only possible solutions are
+          \[
+              (n, m) \in \{(1, 1), (2, 3), (3, 6), (4, 10)\}.
+          \]
+\end{enumerate}

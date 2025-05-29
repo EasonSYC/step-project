@@ -1,2 +1,79 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{center}
+    \input{\currfiledir 2-diag}
+\end{center}
+
+If \(f''(x) < 0\), this means \(f'(x)\) is decreasing, i.e. the gradient of a tangent to the curve \(y = f(x)\) is decreasing. Assume, B.W.O.C., that some \(f(x)\) satisfies this condition but is not convex. This means that there exists some \(a < x_1 < x_2 < b\) and some \(0 < t < 1\) that
+\[
+    t f(x_1) + (1 - t) f(x_2) \geq f(tx_1 + (1 - t) x_2).
+\]
+
+This means that some point on the chord connecting \((x_1, f(x_1))\) and \((x_2, f(x_2))\) is above the graph of the function at that point with \(x\)-coordinate \(t x_1 + (1 - t) x_2\). Hence, the gradient of that function must be less than the gradient of the chord at that point, and since \(f''(x) < 0\), the function must continue to have a gradient of less than this, and hence cannot pass through \((x_2, f(x_2))\).
+
+Hence, this triple of \((x_1, x_2, t)\) does not exist, and the function \(f\) must be concave on \((a, b)\).
+
+\begin{enumerate}
+    \item Let \(x_1 = \frac{2u + v}{3}\) and \(x_2 = \frac{v + 2w}{3}\), and let \(t = \frac{1}{2}\). We can see that \(a < x_1, x_2 < b\) and hence we have
+          \[
+              \frac{1}{2} f(x_1) + \frac{1}{2} f(x_2) \leq f\left(\frac{1}{2} x_1 + \frac{1}{2} x_2\right),
+          \]
+          which gives
+          \[
+              \frac{1}{2} f\left(\frac{2u + v}{3}\right) + \frac{1}{2} f\left(\frac{v + 2w}{3}\right) \leq f\left(\frac{u + v + w}{3}\right).
+          \]
+
+          Let \(x_1 = u\) and \(x_2 = v\), and let \(t = \frac{2}{3}\). We have
+          \[
+              \frac{2}{3} f(u) + \frac{1}{3} f(v) \leq f\left(\frac{2u + v}{3}\right),
+          \]
+          and let \(x_1 = w\), \(x_2 = v\), and let \(t = \frac{2}{3}\), we have
+          \[
+              \frac{2}{3} f(w) + \frac{1}{3} f(v) \leq f\left(\frac{2w + v}{3}\right).
+          \]
+
+          Hence,
+          \begin{align*}
+              f\left(\frac{u + v + w}{3}\right) & \geq \frac{1}{2} f\left(\frac{2u + v}{3}\right) + \frac{1}{2} f\left(\frac{v + 2w}{3}\right)                                                 \\
+                                                & \geq \frac{1}{2} \cdot \left[\frac{2}{3} f(u) + \frac{1}{3} f(v)\right] + \frac{1}{2} \cdot \left[\frac{2}{3} f(w) + \frac{1}{3} f(v)\right] \\
+                                                & = \frac{1}{3} \left[f(u) + f(v) + f(w)\right],
+          \end{align*}
+          which shows exactly what is desired.
+
+    \item Let \(a = 0\) and \(b = \pi\), and let \(f(x) = \sin x\). We aim to show that \(f\) is concave, and notice that
+          \[
+              f''(x) = - \sin x < 0
+          \]
+          for all \(0 < x < \pi\), so it is concave on \((0, \pi)\).
+
+          Angles in a triangle lie within \((0, \pi)\), and they must sum up to \(\pi\). Hence, by applying the previous part, we have
+          \[
+              \sin A + \sin B + \sin C \leq 3\sin \left(\frac{A + B + C}{3}\right) = 3\sin \left(\frac{\pi}{3}\right) = \frac{3 \sqrt{3}}{2},
+          \]
+          as desired.
+
+    \item We keep \(a = 0\) and \(b = \pi\), and let \(f(x) = \ln \sin x\). Note that
+          \[
+              f'(x) = \frac{\cos x}{\sin x} = \cot x,
+          \]
+          and hence
+          \[
+              f''(x) = - \csc^2 x < 0
+          \]
+          which shows that \(f\) is concave on \((0, \pi)\).
+
+          Hence,
+          \begin{align*}
+              \ln (\sin A \sin B \sin C) & = \ln \sin A + \ln \sin B + \ln \sin C           \\
+                                         & \leq 3 \ln \sin \left(\frac{A + B + C}{3}\right) \\
+                                         & = 3 \ln \sin \left(\frac{\pi}{3}\right)          \\
+                                         & = 3 \ln \frac{\sqrt{3}}{2}                       \\
+                                         & = \ln \frac{3 \sqrt{3}}{8}.
+          \end{align*}
+
+          Since \(\ln\) is a strictly increasing function, we can then conclude that
+          \[
+              \sin A \sin B \sin C \leq \frac{3\sqrt{3}}{8},
+          \]
+          as desired.
+\end{enumerate}

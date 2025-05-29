@@ -1,2 +1,58 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Notice that
+          \begin{align*}
+              f'(x) & = - \frac{\sec^2 x}{\left(1 + \tan x\right)^2}      \\
+                    & = - \frac{1}{\cos^2 x \left(1 + \tan x\right)^2}    \\
+                    & = - \frac{1}{\left(\sin x + \cos x\right)^2}        \\
+                    & = - \frac{1}{\sin^2 x + \cos^2 x + 2 \sin x \cos x} \\
+                    & = - \frac{1}{1 + \sin 2x},
+          \end{align*}
+          as desired.
+
+          Since \(0 \leq x < \frac{1}{2}\pi\), \(0 \leq 2x < \pi\), and hence \(0 \leq \sin 2x \leq 1\).
+
+          This means that \(-1 \leq f'(x) \leq -\frac{1}{2}\).
+
+          \(\sin 2x\) increases on \(\left(0, \frac{\pi}{4}\right)\) and decreases on \(\left(\frac{\pi}{4}, \frac{\pi}{2}\right)\).
+
+          Hence, the graph must look as follows.
+
+          \begin{center}
+            \input{\currfiledir 3-diag}
+          \end{center}
+
+    \item If \(y = g(x)\) has rotational symmetry about \((a, b)\), then this means if point \((a + x, b + y)\) is on the graph, then the point \((a - x, b - y)\) is on the graph as well.
+
+          This means that \(g(a + x) + g(a - x) = (b + y) + (b - y) = 2b\), and setting \(x' = a + x\) gives \(g(x') + g(2a - x') = 2b\) gives precisely what is desired.
+
+          On the other hand, if for all \(x\), \(g(x) + g(2a - x) = 2b\), then points \((x, g(x))\) and \((2a - x, g(2a - x))\) on the graph, have midpoint
+          \[
+              \left(\frac{x + (2a - x)}{2}, \frac{g(x) + g(2a - x)}{2}\right) = (a, b)
+          \]
+          is the desired centre of symmetry. This means each point on the graph corresponds to another point on the graph when mirrored through the desired centre of symmetry, showing it has rotational symmetry of order \(2\) about that point, precisely as desired.
+
+          The integral evaluates to zero.
+
+    \item We would like to show that this function has rotational symmetry about the point \(\left(\frac{\pi}{4}, \frac{1}{2}\right)\). Notice that
+          \begin{align*}
+              \LEvalAt{y}{x} + \LEvalAt{y}{2 \cdot \frac{\pi}{4} - x} & = \frac{1}{1 + \tan^k x} + \frac{1}{1 + \tan^k \left(\frac{\pi}{2} - x\right)} \\
+                                                                      & = \frac{1}{1 + \tan^k x} + \frac{1}{1 + \cot^k x}                              \\
+                                                                      & = \frac{1}{1 + \tan^k x} + \frac{\tan^k x}{\tan^k x + 1}                       \\
+                                                                      & = \frac{1 + \tan^k x}{1 + \tan^k x}                                            \\
+                                                                      & = 1                                                                            \\
+                                                                      & = 2 \cdot \frac{1}{2},
+          \end{align*}
+          which shows the rotational symmetry.
+
+          Hence,
+          \begin{align*}
+              \int_{\frac{1}{6}\pi}^{\frac{1}{3}\pi} \frac{1}{1 + \tan^k x} \Diff x & =  \int_{\frac{1}{6}\pi}^{\frac{1}{4}\pi} \LEvalAt{y}{x} \Diff x + \int_{\frac{1}{4}\pi}^{\frac{1}{3}\pi} \LEvalAt{y}{x} \Diff x                \\
+                                                                                    & = \int_{\frac{1}{6}\pi}^{\frac{1}{4}\pi} \LEvalAt{y}{x} \Diff x + \int_{\frac{1}{6}\pi}^{\frac{1}{4}\pi} \LEvalAt{y}{\frac{\pi}{2} - x} \Diff x \\
+                                                                                    & = \int_{\frac{1}{6}\pi}^{\frac{1}{4}\pi} \left[\LEvalAt{y}{x} + \LEvalAt{y}{2 \cdot \frac{\pi}{4} - x}\right] \Diff x                           \\
+                                                                                    & = \int_{\frac{1}{6}\pi}^{\frac{1}{4}\pi} \Diff x                                                                                                \\
+                                                                                    & = \frac{1}{4} \pi - \frac{1}{6}\pi                                                                                                              \\
+                                                                                    & = \frac{1}{12} \pi.
+          \end{align*}
+\end{enumerate}

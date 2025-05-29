@@ -1,2 +1,63 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+Since \(\abs*{MQ} = \mu \abs*{QB}\), we must have \(\abs*{MQ} = \frac{\mu}{1 + \mu} \abs*{MB}\), and hence
+\[
+    \bvect{MQ} = \frac{\mu}{1 + \mu} \bvect{MB},
+\]
+and hence
+\[
+    \vect{q} - \vect{m} = \frac{\mu}{1 + \mu} \left(\vect{b} - \vect{m}\right).
+\]
+
+Similarly,
+\[
+    \vect{q} - \vect{n} = \frac{\nu}{1 + \nu} \left(\vect{a} - \vect{n}\right).
+\]
+
+Since \(\vect{q} = \vect{q}\), we have
+\[
+    \frac{\mu}{1 + \mu} \left(\vect{b} - \vect{m}\right) + \vect{m} = \frac{\nu}{1 + \nu} \left(\vect{a} - \vect{n}\right) + \vect{n},
+\]
+which rearranges to give
+\[
+    \frac{1}{1 + \mu} \vect{m} - \frac{1}{1 + \nu} \vect{n} = \frac{\nu}{1 + \nu} \vect{a} - \frac{\mu}{1 + \mu} \vect{b}.
+\]
+
+Since \(\vect{m}\) is a scalar multiple of \(\vect{a}\) as \(M\) is on the side \(OA\), and \(\vect{n}\) is a scalar multiple of \(\vect{b}\) similarly, and \(\vect{a}\) and \(\vect{b}\) are linearly independent since \(OAB\) forms a triangle, we can conclude that
+\[
+    \vect{m} = \frac{1 + \mu}{1} \cdot \frac{\nu}{1 + \nu} \vect{a},
+\]
+and hence
+\[
+    \vect{m} = \frac{(1 + \mu) \nu}{1 + \nu} \vect{a}.
+\]
+
+Similarly,
+\[
+    \vect{n} = \frac{(1 + \nu) \mu}{1 + \mu} \vect{b}.
+\]
+
+Since \(L\) lies on \(OB\) with \(\abs*{OL} = \lambda \abs*{OB}\), then we have
+\[
+    \vect{l} = \lambda \vect{b},
+\]
+and hence
+\[
+    \bvect{ML} = \vect{l} - \vect{m} = \lambda \vect{b} - \frac{(1 + \mu) \nu}{1 + \nu} \vect{a}.
+\]
+
+Since
+\[
+    \bvect{AN} = \vect{n} - \vect{a} = \frac{(1 + \nu) \mu}{1 + \mu} \vect{b} - \vect{a}.
+\]
+
+\(\bvect{ML}\) is parallel to \(\bvect{AN}\) means that the corresponding scalar vectors for \(\vect{a}\) and \(\vect{b}\) are in ratio (since they are linearly independent), and hence
+\[
+    \lambda : \frac{(1 + \nu) \mu}{1 + \mu} = \left(- \frac{(1 + \mu) \nu}{1 + \nu}\right) : (-1),
+\]
+and hence
+\[
+    \lambda = \frac{(1 + \mu) \nu}{1 + \nu} \cdot \frac{(1 + \nu) \mu}{1 + \mu} = \mu \nu.
+\]
+
+The condition \(\mu \nu < 1\) ensured that \(L\) lies on \(OB\) between \(O\) and \(B\) (i.e. on the side \(OB\)).

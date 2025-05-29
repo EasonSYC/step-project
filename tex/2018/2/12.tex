@@ -1,2 +1,78 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item If \(h\) consecutive heads are thrown, then the person will earn \textsterling \(h\), and the probability of this happening is \(p^h\).
+
+          If this did not happen, then the game must have already ended before reaching \(h\) heads (since there must be a tail), and the person will earn nothing.
+
+          Hence, the expected earning is \(E(h) = h p^h\), which gives
+          \[
+              E(h) = \frac{h N^h}{(N + 1)^h}.
+          \]
+
+          Notice that
+          \[
+              \frac{E(h + 1)}{E(h)} = \frac{(h + 1) N^{h + 1} / (N + 1)^{h + 1}}{h N^h / (N + 1)^h} = \frac{(h + 1) N}{h (N + 1)}.
+          \]
+
+          We have
+          \[
+              \frac{E(h + 1)}{E(h)} - 1 = \frac{(hN + N) - (hN + h)}{hN + h} = \frac{N - h}{hN + h},
+          \]
+          which shows that \(E(h + 1) > E(h)\) when \(h < N\), and \(E(h + 1) < E(h)\) when \(h > N\), and \(E(h + 1) = E(h)\) when \(h = N\).
+
+          This means that \(E(h)\) will increase until \(h = N\), where \(E(N) = E(N + 1)\), and decrease after \(h = N + 1\).
+
+          This means the expected earnings can be maximised when \(h = N\) or \(h = N + 1\), which shows when \(h = N\), the earnings is maximised.
+
+    \item There are two cases: either the person earns \textsterling \(h\) (when there are \(h\) heads thrown before the game ends) with some probability (that we would like to find), or the game ends before there are \(h\) heads thrown.
+
+          To find the probability in the first case, let there be \(t\) cases where a tail appears, and there must be \(h\) cases where a head appears. The final throw must be a head, and the tail must appear singularly (which means any two consecutive tails must have a head in between), which shows that \(0 \leq t \leq h\).
+
+          There are \(h - 1\) heads that are free to 'move', and \(t\) tails have \(t - 1\) gaps in between, which takes away at least \(t - 1\) heads to separate them. The rest of the \(h - t\) heads are free to be within any of the \(t + 1\) spaces that are separated by the \(t\) tails, which is equivalent of choosing \(t\) to be heads from a total \((h - t) + t = h\) remaining throws.
+
+          Therefore, for each \(t\), the number of arrangements there are is
+          \[
+              \binom{h}{t},
+          \]
+          and the probability of this happening is
+          \[
+              p^h \cdot (1 - p)^t.
+          \]
+
+          Therefore, the probability desired is
+          \[
+              \sum_{t = 0}^{h} \binom{h}{t} p^h (1 - p)^t = p^h \sum_{t = 0}^{h} \binom{h}{t} 1^{h - t} (1 - p)^t = p^h (1 + 1 - p)^h = p^h (2 - p)^h,
+          \]
+          and the expected earnings in terms of \(h\) is
+          \[
+              E(h) = h p^h (2 - p)^h = h \left(\frac{N}{N + 1}\right)^h \left(\frac{N + 2}{N + 1}\right)^h = \frac{h N^h (N + 2)^h}{(N + 1)^{2h}}
+          \]
+          as desired.
+
+          When \(N = 2\),
+          \[
+              E(h) = \frac{h 2^h 4^h}{3^{2h}} = \frac{h 2^{3h}}{3^{2h}}.
+          \]
+
+          Notice that
+          \[
+              \frac{E(h + 1)}{E(h)} = \frac{(h + 1) 2^{3h + 3} / 3^{2h + 2}}{h 2^{3h} / 3^{2h}} = \frac{8(h + 1)}{9h},
+          \]
+          and hence
+          \[
+              \frac{E(h + 1)}{E(h)} - 1 = \frac{8 - h}{9h},
+          \]
+          which shows that \(E(h + 1) > E(h)\) when \(h < 8\), and \(E(h + 1) < E(h)\) when \(h > 8\), and \(E(h + 1) = E(h)\) when \(h = 8\).
+
+          This shows that \(E(8) = E(9)\) gives the maximum expected winnings, which is given by
+          \[
+              \frac{8 \cdot 2^{24}}{3^{16}} = \frac{2^{27}}{3^{16}}.
+          \]
+
+          Since \(\log_3 2 \approx 0.63\), we have \(2 \approx 3^{0.63}\), and hence
+          \[
+              \frac{2^{27}}{3^{16}} \approx \frac{3^{27 \cdot 0.63}}{3^{16}} = 3^{27 \cdot 0.63 - 16} = 3^{1.01} \approx 3,
+          \]
+          and this shows that the maximum value of expected winnings is approximately \textsterling 3.
+\end{enumerate}

@@ -1,2 +1,135 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+This setup gives a Markov Chain. Let the column vector \(\vect{x}_n\) represent a state
+\[
+    \vect{x}_n = \begin{pmatrix}
+        A_n \\
+        B_n \\
+        C_n \\
+        D_n
+    \end{pmatrix},
+\]
+and hence we have the components of the column vector must sum to \(1\). The initial state is defined by
+\[
+    \vect{x}_0 = \begin{pmatrix}
+        1 \\
+        0 \\
+        0 \\
+        0
+    \end{pmatrix},
+\]
+and the state transition matrix is
+\[
+    \vect{M} = \begin{pmatrix}
+        1/2 & 1/4 & 0   & 1/4 \\
+        1/4 & 1/2 & 1/4 & 0   \\
+        0   & 1/4 & 1/2 & 1/4 \\
+        1/4 & 0   & 1/4 & 1/2
+    \end{pmatrix}
+    = \frac{1}{4} \begin{pmatrix}
+        2 & 1 & 0 & 1 \\
+        1 & 2 & 1 & 0 \\
+        0 & 1 & 2 & 1 \\
+        1 & 0 & 1 & 2
+    \end{pmatrix},
+\]
+which gives
+\[
+    \vect{x}_{n + 1} = \vect{M} \vect{x}_{n}.
+\]
+
+\begin{enumerate}
+    \item Notice that
+          \[
+              \vect{x}_1 = \vect{M} \vect{x}_0 = \frac{1}{4} \begin{pmatrix}
+                  2 & 1 & 0 & 1 \\
+                  1 & 2 & 1 & 0 \\
+                  0 & 1 & 2 & 1 \\
+                  1 & 0 & 1 & 2
+              \end{pmatrix} \begin{pmatrix}
+                  1 \\
+                  0 \\
+                  0 \\
+                  0
+              \end{pmatrix} = \frac{1}{4} \begin{pmatrix}
+                  2 \\
+                  1 \\
+                  0 \\
+                  1
+              \end{pmatrix},
+          \]
+          and hence \(A_1 = \frac{1}{2}, B_1 = \frac{1}{4}, C_1 = 0, D_1 = \frac{1}{4}\).
+
+          Also,
+          \[
+              \vect{x}_2 = \vect{M} \vect{x}_1 = \frac{1}{4} \begin{pmatrix}
+                  2 & 1 & 0 & 1 \\
+                  1 & 2 & 1 & 0 \\
+                  0 & 1 & 2 & 1 \\
+                  1 & 0 & 1 & 2
+              \end{pmatrix} \cdot \frac{1}{4} \begin{pmatrix}
+                  2 \\
+                  1 \\
+                  0 \\
+                  1
+              \end{pmatrix} = \frac{1}{16} \begin{pmatrix}
+                  6 \\
+                  4 \\
+                  2 \\
+                  4
+              \end{pmatrix} = \frac{1}{8} \begin{pmatrix}
+                  3 \\
+                  2 \\
+                  1 \\
+                  2
+              \end{pmatrix},
+          \]
+          and hence \(A_2 = \frac{3}{8}, B_2 = \frac{1}{4}, C_2 = \frac{1}{8}, D_2 = \frac{1}{4}\).
+
+    \item We claim that \(B_n = D_n\) for all \(n\) by symmetry, and notice that
+          \[
+              B_{n + 1} = \frac{1}{4} \cdot (A_n + 2 B_n + C_n) = \frac{1}{4} \cdot (A_n + B_n + C_n + D_n) = \frac{1}{4},
+          \]
+          and
+          \[
+              D_{n + 1} = \frac{1}{4} \cdot (A_n + C_n + 2 D_n) = \frac{1}{4} \cdot (A_n + B_n + C_n + D_n) = \frac{1}{4},
+          \]
+          so that \(B_n = D_n = \frac{1}{4}\) for all \(n \geq 1\). (For \(n = 0\), \(B_n = D_n = 0\)).
+
+          Hence, for \(n \geq 1\), we have
+          \[
+              A_{n + 1} = \frac{1}{4} (2 A_n + B_n + D_n) = \frac{1}{4} \left(2 A_n + \frac{1}{2}\right) = \frac{1}{2} A_n + \frac{1}{8},
+          \]
+          which means
+          \[
+              A_{n + 1} - \frac{1}{4} = \frac{1}{2} \left(A_n - \frac{1}{4}\right),
+          \]
+          which shows that \(A_n - \frac{1}{4}\) is a geometric sequence with common ratio \(\frac{1}{2}\). The initial term of the geometric sequence is \(A_1 - \frac{1}{4} = \frac{1}{4}\), and hence
+          \[
+              A_n - \frac{1}{4} = \frac{1}{2^{n + 1}},
+          \]
+          which shows \(A_n = \frac{1}{4} + \frac{1}{2^{n + 1}}\) for \(n \geq 1\).
+
+          Also, \(C_n\) has the same inductive relationship as \(A_n\), the only difference being that the initial term is \(C_1 - \frac{1}{4} = -\frac{1}{4}\), and hence
+          \[
+              C_n - \frac{1}{4} = -\frac{1}{2^{n + 1}},
+          \]
+          which shows \(C_n = \frac{1}{4} - \frac{1}{2^{n + 1}}\) for \(n \geq 1\).
+
+          Hence, we have
+          \[
+              \vect{x}_n = \begin{pmatrix}
+                  A_n \\
+                  B_n \\
+                  C_n \\
+                  D_n
+              \end{pmatrix} = \begin{cases}
+                  \left(
+                  1, 0, 0, 0
+                  \right)^\intercal, & n = 0,            \\
+                  \left(
+                  \frac{1}{4} + \frac{1}{2^{n + 1}}, \frac{1}{4}, \frac{1}{4} - \frac{1}{2^{n + 1}}, \frac{1}{4}
+                  \right)^\intercal, & \text{otherwise.}
+              \end{cases}
+          \]
+\end{enumerate}

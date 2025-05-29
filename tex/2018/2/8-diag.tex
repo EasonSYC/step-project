@@ -1,0 +1,8 @@
+\begin{tikzpicture}[scale=0.8]
+    \draw[->] (0, -0.5) -- (0, 5.5) node [above] {\(y\)};
+    \draw[->] (-0.5, 0) -- (15.5, 0) node [right] {\(x\)};
+    \node at (0, 0) [below left] {\(O\)};
+    \draw[dashed] (-0.5, 5) -- (15.5, 5) node [right] {\(y = 1\)};
+    \draw[smooth, samples=200, domain=0:15] plot (\x, {5*(1 - exp((-\x)/2))^2}) node [above left] {\(y = y_1(x)\)};
+    \draw[smooth, samples=200, domain=0:15] plot (\x, {5*(1 - exp((-\x)/3))^3}) node [below] {\(y = y_2(x)\)};
+\end{tikzpicture}

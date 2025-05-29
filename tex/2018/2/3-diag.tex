@@ -1,0 +1,11 @@
+\begin{tikzpicture}[trig format=rad, scale=4]
+    \draw[->] (0, -0.5) -- (0, 1.5) node[above] {\(y\)};
+    \draw[->] (-0.5, 0) -- (0.5 + pi / 2, 0) node[right] {\(x\)};
+    \draw[smooth, samples=200, domain=0:pi/2] plot (\x, {(cos \x)/(cos \x + sin \x)});
+    \filldraw (0, 0) circle (0.5pt) node[below left] {\(O\)};
+    \filldraw (0, 1) circle (0.5pt) node[left] {\(1\)};
+    \draw[dashed] (pi / 4, 0) -- (pi / 4, 0.5) -- (0, 0.5);
+    \node at (pi / 4, 0) [below] {\(\frac{\pi}{4}\)};
+    \node at (0, 0.5) [left] {\(\frac{1}{2}\)};
+    \draw (pi / 2, 0) circle (0.5pt) node[below] {\(\frac{\pi}{2}\)};
+\end{tikzpicture}

@@ -1,2 +1,115 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(v = \sqrt{y}\), we have \(y = v^2\), and hence
+          \[
+              \DiffFrac{y}{t} = 2v \DiffFrac{v}{t},
+          \]
+          and hence the original equation reduces to
+          \[
+              2v \DiffFrac{v}{t} = \alpha v - \beta v^2,
+          \]
+          which gives
+          \[
+              2\DiffFrac{v}{t} = \alpha - \beta v.
+          \]
+
+          Rearranging gives us
+          \[
+              \frac{\Diff v}{\alpha - \beta v} = \frac{\Diff t}{2},
+          \]
+          and hence integrating both sides gives
+          \[
+              -\frac{1}{\beta} \ln\abs*{\alpha - \beta v} = \frac{1}{2} t + C.
+          \]
+
+          Hence,
+          \[
+              \ln \abs*{\alpha - \beta v} = -\frac{\beta t}{2} + C',
+          \]
+          and
+          \[
+              \alpha - \beta v = A \exp\left(- \frac{\beta t}{2}\right),
+          \]
+          and hence
+          \[
+              v = \frac{1}{\beta} \left[\alpha + A \exp\left(- \frac{\beta}{2}\right)\right],
+          \]
+          which means
+          \[
+              y = v^2 = \frac{1}{\beta^2} \left[\alpha + A \exp\left(- \frac{\beta t}{2}\right)\right]^2.
+          \]
+
+          Since \(y = 0\) when \(t = 0\), we have \(A = - \alpha\), and hence
+          \[
+              y_1(t) = \frac{\alpha^2}{\beta^2} \left[1 - \exp\left(- \frac{\beta t}{2}\right)\right]^2.
+          \]
+
+    \item Let \(v = \sqrt[3]{y}\) in this case, and hence \(y = v^3\), we have
+          \[
+              \DiffFrac{y}{t} = 3v^2 \DiffFrac{v}{t},
+          \]
+          and hence the original equation reduces to
+          \[
+              3v^2 \DiffFrac{v}{t} = \alpha v^2 - \beta v^3,
+          \]
+          and hence
+          \[
+              3 \DiffFrac{v}{t} = \alpha - \beta v.
+          \]
+
+          Similar to before, this solves to
+          \[
+              v = \frac{1}{\beta} \left[\alpha + B \exp\left(- \frac{\beta}{3}\right)\right],
+          \]
+          and hence
+          \[
+              y = v^3 = \frac{1}{\beta^3} \left[\alpha + B \exp\left(- \frac{\beta}{3}\right)\right]^3.
+          \]
+
+          Since \(y = 0\) when \(t = 0\), we have \(B = -\alpha\), and hence
+          \[
+              y_2(t) = \frac{\alpha^3}{\beta^3} \left[1 - \exp\left(- \frac{\beta t}{3}\right)\right]^3.
+          \]
+
+    \item Let \(\alpha = \beta = \gamma\). We have
+          \[
+              y_1(t) = \left[1 - \exp\left(- \frac{\gamma t}{2}\right)\right]^2, y_2(t) = \left[1 - \exp\left(- \frac{\gamma t}{3}\right)\right]^3.
+          \]
+
+          For \(t > 0\), we have
+          \[
+              0 > -\frac{\gamma t}{3} > -\frac{\gamma t}{2} > -\infty,
+          \]
+          and since the exponential function is strictly increasing, we have
+          \[
+              1 > \exp\left(-\frac{\gamma t}{3}\right) > \exp\left(-\frac{\gamma t}{2}\right) > 0,
+          \]
+          and hence
+          \[
+              1 > 1 - \exp\left(-\frac{\gamma t}{2}\right) > 1 - \exp\left(-\frac{\gamma t}{3}\right) > 0.
+          \]
+
+          Hence,
+          \[
+              y_1(t) = \left[1 - \exp\left(-\frac{\gamma t}{2}\right)\right]^2 > \left[1 - \exp\left(-\frac{\gamma t}{3}\right)\right]^2 > \left[1 - \exp\left(-\frac{\gamma t}{3}\right)\right]^3 = y_2(t)
+          \]
+          which tells us that the graph of \(y_2\) should lie below the graph of \(y_1\).
+
+          As \(t \to \infty\),
+          \[
+              \exp\left(-\frac{\gamma t}{2}\right), \exp\left(-\frac{\gamma t}{2}\right) \to 0^{+},
+          \]
+          and hence
+          \[
+              y_1(t), y_2(t) \to 1^{-}.
+          \]
+
+          At \(t = 0\), \(y_1(t) = y_2(t) = 0\), and hence by the original differential equation \(y_1'(t) = y_2'(t) = 0\).
+
+          Hence, the graph looks as follows.
+
+          \begin{center}
+              \input{\currfiledir 8-diag}
+          \end{center}
+\end{enumerate}

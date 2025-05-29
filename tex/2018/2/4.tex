@@ -1,2 +1,154 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item By the identity, we have
+          \[
+              \cos x + \cos 4x = 2 \cos \frac{5}{2} x \cos \frac{3}{2}x,
+          \]
+          and
+          \[
+              \cos 2x + \cos 3x = 2 \cos \frac{5}{2}x \cos \frac{1}{2}x.
+          \]
+
+          Hence, we have
+          \[
+              \cos x + 3 \cos 2x + 3 \cos 3x = 2 \cos \frac{5}{2} x \left(\cos \frac{3}{2} x + 3 \cos \frac{1}{2}x\right) = 0.
+          \]
+
+          Hence, either
+          \[
+              \cos \frac{5}{2} x = 0,
+          \]
+          or
+          \[
+              \cos \frac{3}{2} x + 3 \cos \frac{1}{2}x = 0.
+          \]
+
+          In the first case, we have \(\frac{5}{2} x = \frac{1}{2}\pi + k\pi\) for \(k \in \ZZ\), and hence
+          \[
+              x = \frac{1 + 2k}{5} \cdot \pi.
+          \]
+
+          Since \(0 \leq x \leq 2\pi\), we have
+          \[
+              0 \leq \frac{1 + 2k}{5} \leq 2,
+          \]
+          and hence
+          \[
+              0 \leq 1 + 2k \leq 10,
+          \]
+          giving \(k = 0, 1, 2, 3, 4\). Hence, the solutions are
+          \[
+              x = \frac{1}{5} \pi, x = \frac{3}{5} \pi, x = \pi, x = \frac{7}{5} \pi, x = \frac{9}{5}\pi.
+          \]
+
+          In the second case, notice that
+          \begin{align*}
+              \cos 3t & = \cos (2t + t)                                    \\
+                      & = \cos 2t \cos t - \sin 2t \sin t                  \\
+                      & = (\cos^2 t - \sin^2 t) \cos t - 2 \sin^2 t \cos t \\
+                      & = \cos^3 t - 3 \sin^2 \cos t.
+          \end{align*}
+
+          Hence,
+          \[
+              \cos \frac{3}{2}x + 3\cos \frac{1}{2} x = 0 \iff \cos^3 \frac{1}{2}x - 3 \sin^2 \frac{1}{2}x \cos \frac{1}{2}x + 3 \cos \frac{1}{2}x = 0,
+          \]
+          and using the identity \(\sin^2 t + \cos^2 t = 1\), this simplifies to
+          \[
+              \cos^3 \frac{1}{2}x + 3 \cos^3 \frac{1}{2}x = 0,
+          \]
+          which is
+          \[
+              \cos \frac{1}{2}x = 0.
+          \]
+
+          This gives
+          \[
+              \frac{1}{2}x = \frac{\pi}{2} + k\pi
+          \]
+          for \(k \in \ZZ\), and hence
+          \[
+              x = (1 + 2k) \pi.
+          \]
+
+          Since \(0 \leq x \leq 2\pi\), the only \(k\) valid is \(k = 0\), and this solves to \(x = \pi\).
+
+          Hence, all the solutions to this equation is
+          \[
+              x \in \left\{\frac{1}{5} \pi, \frac{3}{5} \pi, \pi, \frac{7}{5} \pi, \frac{9}{5}\pi\right\}.
+          \]
+
+    \item Using the given identity, we have
+          \[
+              \cos (x + y) + \cos (x - y) = 2 \cos x \cos y.
+          \]
+
+          Hence, the original equation simplifies to
+          \[
+              2 \cos x \cos y - \cos 2x = 1.
+          \]
+
+          Using the identity \(\cos 2x = 2 \cos^2 x - 1\), and this gives
+          \[
+              2 \cos x \cos y - (2 \cos^2 x - 1) = 1,
+          \]
+          and hence
+          \[
+              2 \cos x \cos y - 2 \cos^2 x = 0,
+          \]
+          which means
+          \[
+              \cos x (\cos y - \cos x) = 0,
+          \]
+          and hence \(\cos x = 0\) or \(\cos y - \cos x = 0\).
+
+          The first one gives us \(x = \frac{\pi}{2}\) in the range \(x \in [0, \pi]\).
+
+          Since \(\cos\) is one-to-one when restricted to \([0, \pi]\), the second one is equivalent to \(\cos y = \cos x\) which is equivalent to \(x = y\).
+
+          The specific value is \(x = \frac{\pi}{2}\).
+
+    \item Using the identity given, we have
+          \[
+              \cos x + \cos y = 2 \cos \frac{x + y}{2} \cos \frac{x - y}{2},
+          \]
+          and
+          \[
+              \cos (x + y) = 2 \cos^2 \frac{x + y}{2} - 1.
+          \]
+
+          Let \(u = \frac{x + y}{2}\) and \(v = \frac{x - y}{2}\). We have \(0 \leq u \leq \pi\) and \(-\frac{\pi}{2} \leq v \leq \frac{\pi}{2}\), and the original equation simplifies to
+          \[
+              2 \cos u \cos v - 2 \cos^2 u + 1 = \frac{3}{2},
+          \]
+          and hence
+          \[
+              4 \cos u \cos v - 4 \cos^2 u + 2 = 3,
+          \]
+          and
+          \[
+              4 \cos^2 u - 4 \cos u \cos v + 1 = 0.
+          \]
+
+          Since \(1 = \cos^2 v + \sin^2 v\), we have
+          \[
+              4 \cos^2 u - 4 \cos u \cos v + \cos^2 v = - \sin^2 v,
+          \]
+          and hence
+          \[
+              (2 \cos u - \cos v)^2 = - \sin^2 v.
+          \]
+
+          The left-hand side is non-negative, and the right-hand side is non-positive. Hence, the only way for the equal sign to take place is when both sides are zero, which is
+          \[
+              2 \cos u = \cos v, \sin v = 0.
+          \]
+
+          Within this range of \(v\), the only case where \(\sin v = 0\) is when \(v = 0\), and hence \(2 \cos u = 1\), \(\cos u = \frac{1}{2}\), leading to \(u = \frac{\pi}{3}\).
+
+          Hence, \(x = u + v = \frac{\pi}{3}\), and \(y = u - v = \frac{\pi}{3}\), and the only solution is
+          \[
+              (x, y) = \left(\frac{\pi}{3}, \frac{\pi}{3}\right).
+          \]
+\end{enumerate}

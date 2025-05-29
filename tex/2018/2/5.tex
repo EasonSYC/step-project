@@ -1,2 +1,81 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item For \(\abs*{x} < 1\), we have
+          \[
+              \frac{1}{1 + x} = 1 - x + x^2 - x^3 + \cdots = \sum_{t = 0}^{\infty} (-x)^t.
+          \]
+
+          Since \(\ln (1 + x)\) differentiates to \(\frac{1}{1 + x}\), by integration, we have
+          \begin{align*}
+              \ln(1 + x) & = \int \frac{1}{1 + x} \Diff x                             \\
+                         & = \int \sum_{t = 0}^{\infty} (-x)^t \Diff x                \\
+                         & = \sum_{t = 0}^{\infty} (-1)^t \int x^t \Diff x            \\
+                         & = C + \sum_{t = 0}^{\infty} (-1)^t \frac{x^{t + 1}}{t + 1} \\
+                         & = C - \sum_{t = 1}^{\infty} \frac{(-x)^t}{t}.
+          \end{align*}
+
+          Let \(x = 0\), and we see \(\ln (1 + x) = \ln 1 = 0\), and the sum on the right-hand side evaluates to \(0\), and hence \(C = 0\). This gives the Maclaurin expansion for \(\ln(1 + x)\)
+          \[
+              \ln(1 + x) = - \sum_{t = 1}^{\infty} \frac{(-x)^t}{t}.
+          \]
+
+    \item We have
+          \[
+              e^{-ax} = \sum_{t = 0}^{\infty} \frac{(-ax)^t}{t!},
+          \]
+          and hence
+          \begin{align*}
+               & \phantom{=}\int_{0}^{\infty} \frac{(1 - e^{-ax})e^{-x}}{x} \Diff x                              \\
+               & = \int_{0}^{\infty} \frac{-\sum_{t = 1}^{\infty} \frac{(-ax)^t}{t!} \cdot e^{-x}}{x} \Diff x    \\
+               & = \sum_{t = 1}^{\infty} \int_{0}^{\infty} \frac{- (-ax)^t e^{-x}}{t!x} \Diff x                  \\
+               & = \sum_{t = 1}^{\infty} \int_{0}^{\infty} \frac{(-x)^{t - 1} a^t e^{-x}}{t!} \Diff x            \\
+               & = \sum_{t = 1}^{\infty} \frac{(-1)^{t - 1} a^t}{t!} \int_{0}^{\infty} x^{t - 1} e^{-x} \Diff x.
+          \end{align*}
+
+          We aim to find an expression for
+          \[
+              I_t = \int_{0}^{\infty} x^{t} e^{-x} \Diff x.
+          \]
+
+          Using integration by parts, we have
+          \begin{align*}
+              I_t & = \int_{0}^{\infty} x^{t} e^{-x} \Diff x                                          \\
+                  & = - \int_{0}^{\infty} x^{t} \Diff e^{-x}                                          \\
+                  & = - \left[(x^t e^{-x})_{0}^{\infty} - \int_{0}^{\infty} e^{-x} \Diff x^{t}\right] \\
+                  & = t \int_{0}^{\infty} e^{-x} x^{t - 1} \Diff x                                    \\
+                  & = t I_{t - 1},
+          \end{align*}
+          and further noticing that
+          \[
+              I_0 = \int_{0}^{\infty} e^{-x} \Diff x = \left[-e^{-x}\right]_{0}^{\infty} = 1,
+          \]
+          we can see
+          \[
+              I_t = t!,
+          \]
+          and hence
+          \begin{align*}
+               & \phantom{=}\int_{0}^{\infty} \frac{(1 - e^{-ax})e^{-x}}{x} \Diff x                             \\
+               & = \sum_{t = 1}^{\infty} \frac{(-1)^{t - 1} a^t}{t!} \int_{0}^{\infty} x^{t - 1} e^{-x} \Diff x \\
+               & =  \sum_{t = 1}^{\infty} \frac{(-1)^{t - 1} a^t}{t!} (t - 1)!                                  \\
+               & = \sum_{t = 1}^{\infty} \frac{(-1)^{t - 1} a^t}{t}                                             \\
+               & = - \sum_{t = 1}^{\infty} \frac{(-a)^t}{t}                                                     \\
+               & = \ln (1 + a),
+          \end{align*}
+          precisely as desired.
+
+    \item Using a substitution \(x = e^{-u}\), when \(x = 1\), \(u = 0\), and when \(x \to 0^{+}\), \(u \to \infty\). Also,
+          \[
+              \DiffFrac{x}{u} = -e^{-u},
+          \]
+          and hence
+          \begin{align*}
+               & \phantom{=} \int_{0}^{1} \frac{x^p - x^q}{\ln x} \Diff x                                                                                    \\
+               & = \int_{\infty}^{0} \frac{e^{-up} - e^{-uq}}{\ln e^{-u}} \cdot (- e^{-u}) \Diff u                                                           \\
+               & = \int_{\infty}^{0} \frac{\left(e^{-up} - e^{-uq}\right) e^{-u}}{u} \Diff u                                                                 \\
+               & = \int_{0}^{\infty} \frac{\left[\left(1 - e^{-up}\right) + \left(1 - e^{-uq}\right)\right]e^{-u}}{u} \Diff u                                \\
+               & = \int_{0}^{\infty} \frac{\left(1 - e^{-up}\right) e^{-u}}{u} \Diff u - \int_{0}^{\infty} \frac{\left(1 - e^{-uq}\right) e^{-u}}{u} \Diff u \\
+               & = \ln(1 + p) - \ln(1 + q).
+          \end{align*}
+\end{enumerate}
