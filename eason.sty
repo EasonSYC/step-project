@@ -1,0 +1,56 @@
+\ProvidesPackage{eason}
+
+% Packages
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usetikzlibrary{calc}
+% \usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fontawesome5}
+\usepackage{textcomp}
+
+\usepackage{hyperref}
+\usepackage{currfile}
+
+% Text Symbols
+\newcommand{\GitHubHref}[2]{
+    \href{https://github.com/#1/#2}{\faGithub\space #1/#2}
+}
+\newcommand{\tick}{\checkmark}
+
+% Title Page
+\newcommand{\MakeTitlePage}[4]{
+    \begin{titlepage}
+        \begin{center}
+            \LARGE #1
+
+            \bigskip
+            \bigskip
+
+            \Large #2
+
+            \bigskip
+            \bigskip
+
+            \large #3
+
+            \bigskip
+
+            \large #4
+        \end{center}
+    \end{titlepage}
+}
+
+% Macros
+\input{macros.tex}
+\endinput
