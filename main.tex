@@ -14,9 +14,12 @@
 \include{\TexPath/preface}
 \include{\TexPath/progress}
 
-\thispagestyle{footerOnly}
-\etocsetnexttocdepth{1}
-\tableofcontents
+\ifdefined\HCode
+\else
+    \thispagestyle{footerOnly}
+    \etocsetnexttocdepth{1}
+    \tableofcontents
+\fi
 \etocsettocstyle{}{}
 
 \pagestyle{fancy}
