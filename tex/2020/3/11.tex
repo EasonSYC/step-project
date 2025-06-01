@@ -1,2 +1,135 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item Since \(X \sim \Uniform[a, b]\), we must have for the probability density function of \(X\), that
+          \[
+              f_{X}(x) = \frac{1}{b - a}
+          \]
+          for \(x \in [a, b]\), and \(0\) everywhere else. Hence, the cumulative distribution function of \(X\) is
+          \[
+              F_{X}(x) = \begin{cases}
+                  0,                   & x \leq a,         \\
+                  \frac{x - a}{b - a}, & a < x \leq b,     \\
+                  b,                   & \text{otherwise}.
+              \end{cases}
+          \]
+
+          Since \(f\) is bijective and strictly decreasing on \([a, b]\), we must have for \(y \in [a, b]\), that
+          \begin{align*}
+              \Prob(Y \leq y) & = \Prob(f(X) \leq y)                 \\
+                              & = \Prob(X \geq f^{-1}(y))            \\
+                              & = \Prob(X \geq f(y))                 \\
+                              & = 1 - \Prob(X < f(y))                \\
+                              & = 1 - F_{X} (f(y))                   \\
+                              & = 1 - \frac{f(y) - a}{b - a}         \\
+                              & = \frac{(b - a) - (f(y) - a)}{b - a} \\
+                              & = \frac{b - f(y)}{b - a},
+          \end{align*}
+          as desired.
+
+          Hence, by differentiation with respect to \(y\), we have the probability density function of \(Y\) satisfies
+          \[
+              f_{Y}(y) = - \frac{f'(y)}{b - a}.
+          \]
+
+          Hence, by the definition of expectation, we have
+          \begin{align*}
+              \Expt(y^2) & = \int_{a}^{b} f_{Y}(y) y^2 \Diff y                                                                 \\
+                         & = -\frac{1}{b - a} \int_{a}^{b} - f'(y) y^2 \Diff y                                                 \\
+                         & = -\frac{1}{b - a} \int_{a}^{b} y^2 \Diff f(y)                                                      \\
+                         & = \frac{1}{b - a} \left[-\left[y^2 f(y)\right]_{a}^{b} - 2\int_{a}^{b} y f(y) \Diff Y\right]        \\
+                         & = \frac{1}{b - a} \left[- b^2 f(b) + a^2 f(a) + 2\int_{a}^{b} y f(y) \Diff Y\right]                 \\
+                         & = \frac{1}{b - a} \left[\frac{b}{3} (b^3 - a^3) - b^2a + a^2b + 2\int_{a}^{b} y f(y) \Diff x\right] \\
+                         & = \frac{b}{3} \left(b^2 + ab + a^2\right) - ab + \int_{a}^{b} \frac{2xf(x) \Diff x}{b - a}.
+          \end{align*}
+    \item Since \(\frac{1}{Z} + \frac{1}{X} = \frac{1}{c}\), by rearranging, we have
+          \[
+              Z = \frac{1}{\frac{1}{c} - \frac{1}{X}} = \frac{cX}{X - c}.
+          \]
+
+          By given, we have
+          \[
+              c = \frac{ab}{a + b},
+          \]
+          and hence
+          \[
+              c < a, c < b.
+          \]
+
+          Let \(f(x) = \frac{cx}{x - c}\). Notice that
+          \begin{align*}
+              f(a) & = \frac{ac}{a - c}                        \\
+                   & = \frac{a^2b / (a + b)}{a - ab / (a + b)} \\
+                   & = \frac{a^2 b}{a^2 + ab - ab}             \\
+                   & = b,
+          \end{align*}
+          and
+          \begin{align*}
+              f(b) & = \frac{bc}{b - c}                        \\
+                   & = \frac{ab^2 / (a + b)}{b - ab / (a + b)} \\
+                   & = \frac{ab^2}{b^2 + ab - ab}              \\
+                   & = a.
+          \end{align*}
+
+          Also, since
+          \[
+              f(x) = \frac{1}{\frac{x - c}{cx}} = \frac{1}{\frac{1}{c} - \frac{1}{x}},
+          \]
+          as \(x\) strictly increases, \(\frac{1}{x}\) strictly decreases, \(- \frac{1}{x}\) strictly increases, the denominator strictly increases, and hence \(f(x)\) strictly decreases.
+
+          Note that
+          \[
+              \frac{1}{f(x)} + \frac{1}{x} = \frac{1}{c},
+          \]
+          and hence
+          \[
+              \frac{1}{x} + \frac{1}{f^{-1}(x)} = \frac{1}{c},
+          \]
+          which implies
+          \[
+              f(x) = f^{-1}(x).
+          \]
+
+          So \(Z = f(X)\) for this \(f\) satisfying all three conditions above. Hence,
+          \begin{align*}
+              \Expt(Z) & = \int_{a}^{b} f(x) f_{X} (x) \Diff x                                                                          \\
+                       & = \frac{1}{b - a} \int_{a}^{b} \frac{cx \Diff x}{x - c}                                                        \\
+                       & = \frac{1}{b - a} \int_{a}^{b} \left(c + \frac{c^2}{x - c}\right) \Diff x                                      \\
+                       & = \frac{1}{b - a} \left[cx + c^2 \ln \abs*{x - c}\right]_{a}^{b}                                               \\
+                       & = \frac{1}{b - a} \left[\left(cb + c^2 \ln \abs*{b - c}\right) - \left(ca + c^2 \ln \abs*{a - c}\right)\right] \\
+                       & = c + \frac{c^2}{b - a} \ln \abs*{\frac{b - c}{a - c}}                                                         \\
+                       & = c + \frac{c^2}{b - a} \ln \left(\frac{b - c}{a - c}\right),
+          \end{align*}
+          and using the result from the previous part,
+          \begin{align*}
+              \Expt(Z^2) & = -ab + \int_{a}^{b} \frac{2x f(x)}{b - a} \Diff x                                                                                                          \\
+                         & = -ab + \frac{2}{b - a} \cdot \int_{a}^{b} \frac{cx^2}{x - c} \Diff x                                                                                       \\
+                         & = -ab + \frac{2c}{b - a} \cdot \int_{a}^{b} \left(x + c + \frac{c^2}{x - c}\right) \Diff x                                                                  \\
+                         & = -ab + \frac{2c}{b - a} \cdot \left[\frac{x^2}{2} + cx + c^2 \ln \abs*{x - c}\right]_{a}^{b}                                                               \\
+                         & = -ab + \frac{2c}{b - a} \cdot \left[\left(\frac{b^2}{2} + bc + c^2 \ln \abs*{b - c}\right) - \left(\frac{a^2}{2} + ac + c^2 \ln \abs*{a - c}\right)\right] \\
+                         & = -ab + \frac{2c}{b - a} \cdot \left[(b - a) \left(c + \frac{a + b}{2}\right) + c^2 \ln \abs*{\frac{b - c}{a - c}}\right]                                   \\
+                         & = -ab + 2c \left(c + \frac{a + b}{2}\right) + \frac{2c^3}{b - a} \ln \left(\frac{b - c}{a - c}\right)                                                       \\
+                         & = 2c^2 + (a + b)c - ab + \frac{2c^3}{b - a} \ln \left(\frac{b - c}{a - c}\right)                                                                            \\
+                         & = 2c^2 + \frac{2c^3}{b - a} \ln \left(\frac{b - c}{a - c}\right).
+          \end{align*}
+
+          Hence, the variance of \(Z\) satisfies that
+          \begin{align*}
+              \Var(Z) & = \Expt(Z^2) - \Expt(Z)^2                                                                                                                                                                       \\
+                      & = 2c^2 + \frac{2c^3}{b - a} \ln \left(\frac{b - c}{a - c}\right) - \left(c + \frac{c^2}{b - a} \ln \left(\frac{b - c}{a - c}\right)\right)                                                      \\
+                      & = 2c^2 + \frac{2c^3}{b - a} \ln \left(\frac{b - c}{a - c}\right) - c^2 - \frac{2c^3}{b - a} \ln \left(\frac{b - c}{a - c}\right) - \frac{c^4}{(b - a)^2} \ln \left(\frac{b - c}{a - c}\right)^2 \\
+                      & = c^2 - \frac{c^4}{(b - a)^2} \ln \left(\frac{b - c}{a - c}\right)^2.
+          \end{align*}
+
+          Therefore, since the variance of a non-constant random variable is always positive,
+          \begin{align*}
+              c^2                                         & > \frac{c^4}{(b - a)^2} \ln \left(\frac{b - c}{a - c}\right)^2 \\
+              (b - a)^2                                   & > c^2 \ln \left(\frac{b - c}{a - c}\right)^2                   \\
+              \abs*{b - a}                                & > \abs*{c \ln \left(\frac{b - c}{a - c}\right)}                \\
+              \abs*{\ln \left(\frac{b - c}{a - c}\right)} & < \abs*{\frac{b - a}{c}}.
+          \end{align*}
+
+          Notice that since \(b > a\), we must have \(b - c > a - c\), so the natural log on the left-hand side is positive, and the fraction within the absolute value on the right-hand side is positive as well, and hence
+          \[
+              \ln \left(\frac{b - c}{a - c}\right) < \frac{b - a}{c}.
+          \]
+\end{enumerate}
