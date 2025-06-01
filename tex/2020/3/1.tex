@@ -1,2 +1,61 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Using integration by parts, we have
+          \begin{align*}
+              I(a, b) & = \int_{0}^{\frac{\pi}{2}} \cos^a x \cos bx \Diff x                                                                             \\
+                      & = \frac{1}{b} \int_{0}^{\frac{\pi}{2}} \cos^a x \Diff \sin bx                                                                   \\
+                      & = \frac{1}{b} \left[\left(\cos^a x \sin bx\right)_{0}^{\frac{\pi}{2}} - \int_{0}^{\frac{\pi}{2}} \sin bx \Diff \cos^a x \right] \\
+                      & = - \frac{1}{b} \int_{0}^{\frac{\pi}{2}} \sin bx \Diff \cos^a x                                                                 \\
+                      & = \frac{a}{b} \int_{0}^{\frac{\pi}{2}} \sin bx \sin x \cos^{a - 1} x \Diff x.
+          \end{align*}
+
+          Notice that
+          \[
+              \cos (b - 1) x = \cos bx \cos x + \sin bx \sin x,
+          \]
+          and hence
+          \begin{align*}
+              I(a - 1, b - 1) & = \int_{0}^{\frac{\pi}{2}} \cos^{a - 1} x \cos (b - 1)x \Diff x                                                      \\
+                              & = \int_{0}^{\frac{\pi}{2}} \cos^{a - 1} x (\cos bx \cos x + \sin bx \sin x) \Diff x                                  \\
+                              & = \int_{0}^{\frac{\pi}{2}} \cos^a x \cos bx \Diff x + \int_{0}^{\frac{\pi}{2}} \sin bx \sin x \cos^{a - 1} x \Diff x \\
+                              & = I(a, b) + \frac{b}{a} I(a, b)                                                                                      \\
+                              & = \frac{a + b}{a} I(a, b),
+          \end{align*}
+          and hence
+          \[
+              I(a, b) = \frac{a}{a + b} I(a - 1, b - 1),
+          \]
+          as desired.
+
+    \item We look at the base case where \(n = 0\), and we have
+          \begin{align*}
+              \LHS & = \int_{0}^{\frac{\pi}{2}} \cos(2m + 1)x \Diff x                  \\
+                   & = \frac{1}{2m + 1} \left[\sin(2m + 1)x\right]_{0}^{\frac{\pi}{2}} \\
+                   & = \frac{1}{2m + 1} \sin \frac{(2m + 1)\pi}{2}                     \\
+                   & = \frac{(-1)^m}{2m + 1},
+          \end{align*}
+          and
+          \[
+              \RHS = (-1)^m \frac{2^0 0! (2m)! m!}{m!(2m + 1)!} = \frac{(-1)^m}{2m + 1},
+          \]
+          and so \(\LHS = \RHS\), which means this holds for the base case where \(n = 0\).
+
+          Now assume this is true for some \(n = k \geq 0\), i.e.
+          \[
+              I(k, 2m + k + 1) = (-1)^m \frac{2^k k! (2m)! (k + m)!}{m! (2k + 2m + 1)!},
+          \]
+          and we look at the case \(n = k + 1\). Note that
+          \begin{align*}
+              \LHS & = I(k + 1, 2m + k + 2)                                                                                    \\
+                   & = \frac{k + 1}{2m + 2k + 3} I(k, 2m + k + 1)                                                              \\
+                   & = \frac{k + 1}{2m + 2k + 3} (-1)^m \frac{2^k k! (2m)! (k + m)!}{m! (2k + 2m + 1)!}                        \\
+                   & = (-1)^m \frac{2^k k! (2m)! (k + m)! (k + 1)}{m! (2k + 2m + 1)! (2k + 2m + 3)}                            \\
+                   & = (-1)^m \frac{2^k (k + 1)! (2m)! (k + m)! 2 (k + m + 1) }{m! (2k + 2m + 1)! (2k + 2m + 2) (2k + 2m + 3)} \\
+                   & = (-1)^m \frac{2^{k + 1} (k + 1)! (2m)! (k + m + 1)!}{m! (2k + 2m + 3)!}                                  \\
+                   & = (-1)^m \frac{2^{k + 1} (k + 1)! (2m)! [(k + 1) + m]!}{m! (2(k + 1) + 2m + 1)!},
+          \end{align*}
+          which shows the original statement is true for \(n = k + 1\).
+
+          Hence, by the principle of mathematical induction, the original statement is true for any non-negative integers \(n, m\).
+\end{enumerate}
