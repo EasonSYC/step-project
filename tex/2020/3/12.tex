@@ -1,2 +1,184 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item By the definition within the question, we have that \(X, Y \sim \Geometric(p)\), and for \(t \geq 1\),
+          \begin{align*}
+              \Prob(X = t) = \Prob(Y = t) = q^{t - 1} p.
+          \end{align*}
+
+          For \(S = X + Y\), we have for \(s \geq 2\),
+          \begin{align*}
+              \Prob(S = s) & = \Prob(X + Y = s)                                   \\
+                           & = \sum_{t = 1}^{s - 1} \Prob(X = t, Y = s - t)       \\
+                           & = \sum_{t = 1}^{s - 1} \Prob(X = t) \Prob(Y = s - t) \\
+                           & = \sum_{t = 1}^{s - 1} q^{t - 1} p q^{s - t - 1} p   \\
+                           & = \sum_{t = 1}^{s - 1} q^{s - 2} p^2                 \\
+                           & = (s - 1) q^{s - 2} p^2.
+          \end{align*}
+
+          For \(T = \max\{X, Y\}\), we have for \(t \geq 1\),
+          \begin{align*}
+              \Prob(T = t) & = \Prob(X = Y = t) + \Prob(X = t, Y < X) + \Prob(Y = t, X < Y)                 \\
+                           & = \Prob(X = t, Y = t) + 2 \Prob(X = t, Y < X)                                  \\
+                           & = \Prob(X = t) \Prob(Y = t) + 2 \sum_{r = 1}^{t - 1} \Prob(X = t, Y = r)       \\
+                           & = \Prob(X = t) \Prob(Y = t) + 2 \sum_{r = 1}^{t - 1} \Prob(X = t) \Prob(Y = r) \\
+                           & = q^{t - 1} p q^{t - 1}p + 2 q^{t - 1} p \sum_{r = 1}^{t - 1} q^{r - 1} p      \\
+                           & = q^{2t - 2} p^2 + 2 q^{t - 1} p^2 \sum_{r = 1}^{t - 1} q^{r - 1}              \\
+                           & = q^{2t - 2} p^2 + 2 q^{t - 1} p^2 \frac{1 - q^{t - 1}}{1 - q}                 \\
+                           & = q^{2t - 2} p^2 + 2 q^{t - 1} p^2 \frac{1 - q^{t - 1}}{p}                     \\
+                           & = q^{2t - 2} p^2 + 2 q^{t - 1} p (1 - q^{t - 1})                               \\
+                           & = pq^{t - 1} \left(pq^{t - 1} + 2 - 2q^{t - 1}\right)                          \\
+                           & = pq^{t - 1} \left((1 - q)q^{t - 1} + 2 - 2q^{t - 1}\right)                    \\
+                           & = pq^{t - 1} \left(2 + q^t - q^{t - 1}\right)
+          \end{align*}
+
+    \item Since \(U = \abs*{X - Y}\), we have \(U \geq 0\). For \(u \geq 1\), we have
+          \begin{align*}
+              \Prob(U = u) & = \Prob(\abs*{X - Y} = u)                               \\
+                           & = \Prob(X - Y = \pm u)                                  \\
+                           & = 2 \Prob(X - Y = u)                                    \\
+                           & = 2 \sum_{t = 1}^{\infty} \Prob(X = u + t, Y = t)       \\
+                           & = 2 \sum_{t = 1}^{\infty} \Prob(X = u + t) \Prob(Y = t) \\
+                           & = 2 \sum_{t = 1}^{\infty} q^{u + t - 1} p q^{t - 1} p   \\
+                           & = 2 q^u p^2 \sum_{t = 1}^{\infty} q^{2t - 2}            \\
+                           & = 2 q^u p^2 \cdot \frac{1}{1 - q^2}                     \\
+                           & = 2 q^u p^2 \cdot \frac{1}{(1 + q)p}                    \\
+                           & = \frac{2 q^u p}{1 + q},
+          \end{align*}
+          and for \(u = 0\),
+          \begin{align*}
+              \Prob(U = 0) & = \Prob(X = Y)                                    \\
+                           & = \sum_{t = 1}^{\infty} \Prob(X = Y = t)          \\
+                           & = \sum_{t = 1}^{\infty} \Prob(X = t) \Prob(Y = t) \\
+                           & = \sum_{t = 1}^{\infty} q^{t - 1} p q^{t - 1} p   \\
+                           & = p^2 \sum_{t = 1}^{\infty} q^{2t - 2}            \\
+                           & = p^2 \cdot \frac{1}{1 - q^2}                     \\
+                           & = \frac{p}{1 + q}.
+          \end{align*}
+
+          Since \(W = \min\{X, Y\}\), we have \(W \geq 1\). For \(w \geq 1\), we have
+          \begin{align*}
+              \Prob(W = w) & = \Prob(X = Y = w) + \Prob(X = w, Y > X) + \Prob(Y = w, Y < X)                      \\
+                           & = \Prob(X = w, Y = w) + 2\Prob(X = w, Y > X)                                        \\
+                           & = \Prob(X = w) \Prob(Y = w) + 2 \sum_{r = w + 1}^{\infty} \Prob(X = w, Y = r)       \\
+                           & = \Prob(X = w) \Prob(Y = w) + 2 \sum_{r = w + 1}^{\infty} \Prob(X = w) \Prob(Y = r) \\
+                           & = q^{w - 1} p q^{w - 1} p + 2 \sum_{r = w + 1}^{\infty} q^{w - 1} p q^{r - 1} p     \\
+                           & = q^{2w - 2} p^2 + 2 q^{w - 2} p^2 \sum_{r = w + 1}^{\infty} q^r                    \\
+                           & = q^{2w - 2} p^2 + 2 q^{w - 2} p^2 q^{w + 1} \cdot \frac{1}{1 - q}                  \\
+                           & = q^{2w - 2} p^2 + 2 q^{2w - 1} p^2 \cdot \frac{1}{p}                               \\
+                           & = q^{2w - 2} p^2 + 2 q^{2w - 1} p                                                   \\
+                           & = q^{2w - 2} p \left(p + 2q\right)                                                  \\
+                           & = q^{2w - 2} p \left(1 + q\right).
+          \end{align*}
+
+    \item Since \(S = 2\) and \(T = 3\), the maximum of \(X\) and \(Y\) is \(3\), but they sum to \(2\), and this is impossible, so
+          \[
+              \Prob(S = 2, T = 3) = 0.
+          \]
+
+          However,
+          \begin{align*}
+              \Prob(S = 2) \Prob(T = 3) & = (2 - 1) q^{2 - 2} p^2 \cdot p q^{3 - 1} (2 + q^3 - q^{3 - 1}) \\
+                                        & = p^3 q^2 (2 + q^3 - q^2)                                       \\
+                                        & \neq 0                                                          \\
+                                        & = \Prob(S = 2, T = 3),
+          \end{align*}
+          as desired.
+
+    \item \begin{itemize}
+              \item \(U\) and \(W\) are independent. We split this into two cases of \(U\) to consider:
+                    \begin{itemize}
+                        \item When \(U = 0\), \(X = Y\), and hence \(W = X = Y\). In this case,
+                              \[
+                                  \Prob(U = 0, W = w) = \Prob(X = Y = w) = q^{2w - 2} p^2
+                              \]
+                              and notice
+                              \[
+                                  \Prob(U = 0) \Prob(W = w) = \frac{p}{1 + q} \cdot q^{2w - 2} p (1 + q) = p^2 q^{2w - 2},
+                              \]
+                              so
+                              \[
+                                  \Prob(U = 0, W = w) = \Prob(U = 0) \Prob(W = w).
+                              \]
+
+                        \item When \(U = u \neq 0\),
+                              \begin{align*}
+                                  \Prob(U = u, W = w) & = \Prob(X = w, Y = w + u) + \Prob(X = w + u, Y = w) \\
+                                                      & = 2 \Prob(X = w, Y = w + u)                         \\
+                                                      & = 2 \Prob(X = w) \Prob(Y = w + u)                   \\
+                                                      & = 2 q^{w - 1} p q^{w + u - 1} p                     \\
+                                                      & = 2 q^{2w + u - 2} p^2,
+                              \end{align*}
+                              and
+                              \[
+                                  \Prob(U = u) \Prob(W = w) = \frac{2 q^u p}{1 + q} \cdot q^{2w - 2} p (1 + q) = 2 q^{2w + u - 2} p^2,
+                              \]
+                              and so
+                              \[
+                                  \Prob(U = u, W = w) = \Prob(U = u) \Prob(W = w).
+                              \]
+                    \end{itemize}
+
+                    Hence, we can see that \(U\) and \(W\) are independent.
+
+              \item \(U\) and \(S\) are not independent. Consider the case where \(S = 3\) and \(U = 0\). The event \(S = 3, U = 0\) is not possible since \(S = X + Y\) and \(U = \abs*{X - Y}\) must have the same odd-even parity, giving
+                    \[
+                        \Prob(S = 3, U = 0) = 0.
+                    \]
+
+                    On the other hand,
+                    \[
+                        \Prob(S = 3) \Prob(U = 0) = 2 q p^2 \cdot \frac{p}{1 + q} = \frac{2qp^3}{1 + p} \neq 0.
+                    \]
+
+                    This means
+                    \[
+                        \Prob(S = 3, U = 0) \neq \Prob(S = 3) \Prob(U = 0),
+                    \]
+                    and hence \(U\) and \(S\) are not independent.
+              \item \(U\) and \(T\) are not independent. Consider the case where \(U = 1\) and \(T = 1\).  The event \(U = 1, T = 1\) implies that \(X = Y \pm 1\), and that the maximum of \(X\) and \(Y\) is \(1\), and hence \(X = Y = 1\), which is impossible. Hence,
+                    \[
+                        \Prob(U = 1, T = 1) = 0.
+                    \]
+
+                    On the other hand,
+                    \[
+                        \Prob(U = 1) \Prob(T = 1) = \frac{2qp}{1 + q} \cdot p(2 + q - 1) = 2p^2 q \neq 0.
+                    \]
+
+                    This means
+                    \[
+                        \Prob(U = 1, T = 1) \neq \Prob(U = 1) \Prob(T = 1),
+                    \]
+                    and hence \(U\) and \(T\) are not independent.
+              \item \(W\) and \(S\) are not independent. Consider the case where \(W = 2\) and \(S = 2\). On one hand, since \(\min\{X, Y\} = 2\), and \(S = X + Y = \max\{X, Y\} + \min\{X, Y\} = 2\), this means \(\max\{X, Y\} = 0\) which is impossible, and hence
+                    \[
+                        \Prob(W = 2, S = 2) = 0.
+                    \]
+
+                    On the other hand,
+                    \[
+                        \Prob(W = 2) \Prob(S = 2) = q^2 p (1 + q) (1) q^{0} p^2 = p^3 q^2 (1 + q) \neq 0.
+                    \]
+
+                    This means
+                    \[
+                        \Prob(W = 2, S = 2) = \Prob(W = 2) \Prob(S = 2).
+                    \]
+              \item \(W\) and \(T\) are not independent. Consider the case where \(T = 1\) and \(W = 2\). Since \(T = \max\{X, Y\} = 1\) and \(W = \min\{X, Y\} = 2\), the event \(T = 1, W = 2\) is not possible, hence
+                    \[
+                        \Prob(T = 1, W = 2) = 0.
+                    \]
+
+                    On the other hand,
+                    \[
+                        \Prob(T = 1) \Prob(W = 2) = p (2 + q - 1) q^2 p(1 + q) = p^2 q^2 (1 + q)^2 \neq 0.
+                    \]
+
+                    This means
+                    \[
+                        \Prob(T = 1, W = 2) \neq \Prob(T = 1) \Prob(W = 2),
+                    \]
+                    and hence \(W\) and \(T\) are not independent.
+              \item \(S\) and \(T\) are not independent. Counter-example shown in the previous part.
+          \end{itemize}
+\end{enumerate}
