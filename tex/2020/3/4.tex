@@ -1,2 +1,183 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+We first show that \(Q\) lies on \(\Pi\). Notice that
+\begin{align*}
+    \vect{q} \cdot \vect{n} & = \left(\vect{x} - (\vect{x} \cdot \vect{n}) \vect{n}\right) \cdot \vect{n}     \\
+                            & = \vect{x} \cdot \vect{n} - (\vect{x} \cdot \vect{n}) (\vect{n} \cdot \vect{n}) \\
+                            & = \vect{x} \cdot \vect{n} - (\vect{x} \cdot \vect{n}) \abs*{\vect{n}}^2         \\
+                            & = \vect{x} \cdot \vect{n} - \vect{x} \cdot \vect{n}                             \\
+                            & = 0,
+\end{align*}
+so \(Q \in \Pi\).
+
+To show \(PQ\) is perpendicular to \(\Pi\), we show that the vector \(\bvect{PQ}\) is parallel to the normal vector of \(\Pi\), and notice
+\begin{align*}
+    \bvect{PQ} & = \vect{q} - \vect{p}                  \\
+               & = \vect{q} - \vect{x}                  \\
+               & = - (\vect{x} \cdot \vect{n}) \vect{n}
+\end{align*}
+is a scalar multiple of the normal vector \(\vect{n}\), and so is parallel to \(\vect{n}\), and perpendicular to \(\Pi\).
+
+\begin{enumerate}
+    \item The normal vector to this plane is
+          \[
+              \vect{n} = \begin{pmatrix}
+                  a \\
+                  b \\
+                  c
+              \end{pmatrix}.
+          \]
+
+          We first find the projection of \(\ihat\) on \(\Pi\), and the point's position vector is given by
+          \[
+              \ihat - (\ihat \cdot \vect{n}) \vect{n} = \ihat - a \vect{n}.
+          \]
+
+          Hence, the reflection of \(\ihat\) in \(\Pi\) will be the point with position vector
+          \begin{align*}
+              \ihat + 2 \left[\left(\ihat - a \vect{n}\right) - \ihat\right] & = \ihat - 2 \left[a \vect{n}\right] \\
+                                                                             & = \begin{pmatrix}
+                                                                                     1 - 2a^2 \\
+                                                                                     -2ab     \\
+                                                                                     -2ac
+                                                                                 \end{pmatrix}                    \\
+                                                                             & = \begin{pmatrix}
+                                                                                     a^2 + b^2 + c^2 - 2a^2 \\
+                                                                                     -2ab                   \\
+                                                                                     -2ac
+                                                                                 \end{pmatrix}            \\
+                                                                             & = \begin{pmatrix}
+                                                                                     b^2 + c^2 - a^2 \\
+                                                                                     -2ab            \\
+                                                                                     -2ac
+                                                                                 \end{pmatrix},
+          \end{align*}
+          as desired.
+
+          Similarly, the image of \(\jhat\) under \(T\) is
+          \[
+              \begin{pmatrix}
+                  -2ab            \\
+                  a^2 + c^2 - b^2 \\
+                  -2bc
+              \end{pmatrix},
+          \]
+          and the image of \(\khat\) under \(T\) is
+          \[
+              \begin{pmatrix}
+                  -2ac \\
+                  -2bc \\
+                  a^2 + b^2 - c^2
+              \end{pmatrix}.
+          \]
+
+          Hence, the matrix \(\vect{M}\) which represents \(T\) is given by
+          \[
+              \vect{M} = \begin{pmatrix}
+                  b^2 + c^2 - a^2 & -2ab            & -2ac            \\
+                  -2ab            & a^2 + c^2 - b^2 & -2bc            \\
+                  -2ac            & -2bc            & a^2 + b^2 - c^2
+              \end{pmatrix}.
+          \]
+
+    \item Since the elements on the diagonal of \(\vect{M}\) are given by \(1 - 2a^2, 1 - 2b^2, 1 - 2c^2\), we must have
+          \[
+              1 - 2a^2 = 0.64, 1 - 2b^2 = 0.36, 1 - 2c^2 = 0,
+          \]
+          and hence
+          \[
+              a^2 = \frac{9}{50}, b^2 = \frac{8}{25}, c^2 = \frac{1}{2},
+          \]
+          which gives
+          \[
+              a = \pm \frac{3}{5\sqrt{2}}, b = \pm \frac{2 \sqrt{2}}{5}, c = \pm \frac{1}{\sqrt{2}},
+          \]
+          here the \(\pm\) signs do not necessarily match up.
+
+          Since \(-2ab > 0\), \(-2ac > 0\), \(-2bc < 0\), we have \(a\) and \(b\), \(a\) and \(c\) take different signs, and \(b\) and \(c\) take the same sign.
+
+          Hence,
+          \[
+              (a, b, c) = \left(\pm \frac{3}{5 \sqrt{2}}, \mp \frac{2 \sqrt{2}}{5}, \mp \frac{1}{\sqrt{2}}\right).
+          \]
+
+          We verify these triples indeed satisfy the non-diagonal elements as well.
+
+          The Cartesian equation of the plane is therefore given by
+          \begin{align*}
+              ax + by + cz                                                        & = 0  \\
+              \frac{3}{5 \sqrt{2}}x - \frac{2 \sqrt{2}}{5}y - \frac{1}{\sqrt{2}}z & = 0  \\
+              3x - 4y - 5z                                                        & = 0.
+          \end{align*}
+
+    \item The line has equation
+          \[
+              l: \vect{r} = \lambda \vect{n}, \lambda \in \RR.
+          \]
+
+          A rotation about a line through \(\pi\) is simply a 'perpendicular' reflection of the point about the line, i.e. the reflection in the point on the line such that the point and the original point is perpendicular to the line.
+
+          Let the original point be \(P\) with position vector \(\vect{x}\), and let the new point be \(Q\) with position vector \(\lambda \vect{n}\), we must have
+          \[
+              \left(\lambda \vect{n} - \vect{x}\right) \cdot \vect{n} = \lambda \vect{n} \cdot \vect{n} - \vect{x} \cdot \vect{n} = 0,
+          \]
+          which means
+          \[
+              \lambda = \vect{x} \cdot \vect{n},
+          \]
+          and
+          \[
+              \vect{q} = (\vect{x} \cdot \vect{n}) \vect{n}.
+          \]
+
+          Hence, the image of \(P\) under this transformation is
+          \begin{align*}
+              \vect{p} + 2(\vect{q} - \vect{p}) & = 2 \vect{q} - \vect{p}                            \\
+                                                & = 2 (\vect{x} \cdot \vect{n}) \vect{n} - \vect{x}.
+          \end{align*}
+
+          If \(\vect{x} = \ihat\), the image is
+          \[
+              2 a \vect{n} - \ihat = \begin{pmatrix}
+                  2a^2 - 1 \\
+                  2ab      \\
+                  2ac
+              \end{pmatrix} = \begin{pmatrix}
+                  a^2 - b^2 - c^2 \\
+                  2ab             \\
+                  2ac
+              \end{pmatrix}.
+          \]
+
+          Similarly, the image of \(\jhat\) under this transformation is
+          \[
+              \begin{pmatrix}
+                  2ab             \\
+                  b^2 - a^2 - c^2 \\
+                  2bc
+              \end{pmatrix},
+          \]
+          and the image of \(\khat\) under this transformation is
+          \[
+              \begin{pmatrix}
+                  2ac \\
+                  2bc \\
+                  c^2 - a^2 - b^2
+              \end{pmatrix}.
+          \]
+
+          Hence, the matrix which represents this transformation, \(\vect{N}\), is given by
+          \[
+              \vect{N} = \begin{pmatrix}
+                  a^2 - b^2 - c^2 & 2ab             & 2ac              \\
+                  2ab             & b^2 - a^2 - c^2 & 2bc              \\
+                  2ac             & 2bc             & c^2 - a^2 - b^2.
+              \end{pmatrix}
+          \]
+
+    \item Notice that since \(\vect{N} = -\vect{M}\), and \(\vect{M}\) by definition is self-inverse, we have
+          \[
+              \vect{N} \vect{M} = - \vect{M} \vect{M} = - \vect{M}^2 = - \vect{I},
+          \]
+          which is an enlargement of scale factor \((-1)\) with the centre being the origin.
+\end{enumerate}
