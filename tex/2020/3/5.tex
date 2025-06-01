@@ -1,2 +1,93 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+We notice that
+\begin{align*}
+    \RHS & = (x - y) \sum_{r = 1}^{n} x^{n - r} y^{r - 1}                                                  \\
+         & = x \sum_{r = 1}^{n} x^{n - r} y^{r - 1} - y \sum_{r = 1}^{n} x^{n - r} y^{r - 1}               \\
+         & = \sum_{r = 1}^{n} x^{n - r + 1} y^{r - 1} - \sum_{r = 1}^{n} x^{n - r} y^{r}                   \\
+         & = \sum_{r = 0}^{n - 1} x^{n - r} y^r - \sum_{r = 1}^{n} x^{n - r} y^{r}                         \\
+         & = x^n y^0 + \sum_{r = 1}^{n - 1} x^{n - r} y^r - \sum_{r = 1}^{n - 1} x^{n - r} y^{r} - x^0 y^n \\
+         & = x^n - y^n.
+\end{align*}
+
+\begin{enumerate}
+    \item Notice that
+          \begin{align*}
+              f(x) & = x^n \cdot \left(F(x) - \frac{A}{x - k}\right)                  \\
+                   & = x^n \cdot \left(\frac{1}{x^n (x - k)} - \frac{A}{x - k}\right) \\
+                   & = \frac{1}{x - k} - \frac{A x^n}{x - k}                          \\
+                   & = \frac{1 - A x^n}{x - k}.
+          \end{align*}
+
+          Since \(f\) is a polynomial, the numerator must be divisible by the denominator, and hence when \(x = k\), the numerator must be \(0\), which means
+          \[
+              1 - A k^n = 0,
+          \]
+          and hence
+          \[
+              A = \frac{1}{k^n}.
+          \]
+
+          Hence,
+          \[
+              f(x) = \frac{1 - A x^n}{x - k} = \frac{1}{x - k} \left(1 - \left(\frac{x}{k}\right)^n\right),
+          \]
+          as desired.
+
+          Using the identity, we have
+          \begin{align*}
+              f(x) & = \frac{1 - A x^n}{x - k}                                                         \\
+                   & = \frac{1^n - \left(\frac{x}{k}\right)^n}{x - k}                                  \\
+                   & = \frac{1}{k^n} \cdot \frac{k^n - x^n}{x - k}                                     \\
+                   & = \frac{1}{k^n} \cdot \frac{-(x - k) \sum_{r = 1}^{n} k^{n - r} x^{r - 1}}{x - k} \\
+                   & = - \sum_{r = 1}^{n} k^{-r} x^{r - 1},
+          \end{align*}
+          and hence
+          \begin{align*}
+              F(x) & = \frac{A}{x - k} + \frac{f(x)}{x^n}                                            \\
+                   & = \frac{1}{k^n (x - k)} - \frac{\sum_{r = 1}^{n} k^{-r} x^{r - 1}}{x^n}         \\
+                   & = \frac{1}{k^n (x - k)} - \sum_{r = 1}^{n} \frac{1}{k^r x^{n - r + 1}}          \\
+                   & = \frac{1}{k^n (x - k)} - \sum_{r = 1}^{n} \frac{1}{k^{n - r + 1} x^r}          \\
+                   & = \frac{1}{k^n (x - k)} - \frac{1}{k} \sum_{r = 1}^{n} \frac{1}{k^{n - r} x^r},
+          \end{align*}
+          as desired.
+
+    \item Notice that on one hand,
+          \[
+              \DiffOp{x} x^n F(x) = \DiffOp{x} \frac{1}{x - k} = - \frac{1}{(x - k)^2},
+          \]
+          and on the other hand, using the expression above, we have
+          \begin{align*}
+              \DiffOp{x} x^n F(x) & = \DiffOp{x} \left[\frac{x^n}{k^n (x - k)} - \frac{1}{k} \sum_{r = 1}^{n} \frac{x^{n - r}}{k^{n - r}}\right]                        \\
+                                  & = \frac{n x^{n - 1} k^n (x - k) - x^n k^n}{k^{2n} (x - k)^2} - \frac{1}{k} \sum_{r = 1}^{n} \frac{(n - r) x^{n - r - 1}}{k^{n - r}} \\
+                                  & = \frac{n x^{n - 1} (x - k) - x^n}{k^n (x - k)^2} - \sum_{r = 1}^{n} \frac{n - r}{k^{n - r + 1} x^{-n + r + 1}}                     \\
+                                  & = \frac{n x^{n - 1}}{k^n (x - k)} - \frac{x^n}{k^n (x - k)^2} - \sum_{r = 1}^{n} \frac{n - r}{k^{n - r + 1} x^{-n + r + 1}}.
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              -\frac{1}{(x - k)^2}    & = \frac{n x^{n - 1}}{k^n (x - k)} - \frac{x^n}{k^n (x - k)^2} - \sum_{r = 1}^{n} \frac{n - r}{k^{n - r + 1} x^{-n + r + 1}} \\
+              \frac{1}{(x - k)^2}     & = \frac{x^n}{k^n (x - k)^2} - \frac{n x^{n - 1}}{k^n (x - k)} + \sum_{r = 1}^{n} \frac{n - r}{k^{n - r + 1} x^{-n + r + 1}} \\
+              \frac{1}{x^n (x - k)^2} & = \frac{1}{k^n (x - k)^2} - \frac{n}{k^n x (x - k)} + \sum_{r = 1}^{n} \frac{n - r}{k^{n - r + 1} x^{r + 1}},
+          \end{align*}
+          precisely as desired.
+
+    \item Let \(n = 3\) and \(k = 1\), and hence we have
+          \begin{align*}
+              \frac{1}{x^3 (x - 1)^2} & = \frac{1}{(x - 1)^2} - \frac{3}{x (x - 1)} + \sum_{r = 1}^{3} \frac{3 - r}{x^{r + 1}} \\
+                                      & = \frac{1}{(x - 1)^2} - \frac{3}{x - 1} + \frac{3}{x} + \frac{2}{x^2} + \frac{1}{x^3}.
+          \end{align*}
+
+          Hence, we have
+          \begin{align*}
+              \int_{2}^{N} \frac{\Diff x}{x^3 (x - 1)^2} & = \int_{2}^{N} \left[\frac{1}{(x - 1)^2} - \frac{3}{x - 1} + \frac{3}{x} + \frac{2}{x^2} + \frac{1}{x^3}\right] \Diff x                                                   \\
+                                                         & = \left[- \frac{1}{x - 1} - 3 \ln \abs*{x - 1} + 3 \ln \abs*{x} - \frac{2}{x} - \frac{1}{2x^2}\right]_{2}^{N}                                                             \\
+                                                         & = \left(3 \ln \frac{N}{N - 1} - \frac{1}{N - 1} - \frac{2}{N} - \frac{1}{2 N^2}\right) - \left(3 \ln \frac{2}{1} - \frac{1}{1} - \frac{2}{2} - \frac{1}{2 \cdot 4}\right) \\
+                                                         & = \frac{17}{8} - 3 \ln 2 + \left(3 \ln \frac{N}{N - 1} - \frac{1}{N - 1} - \frac{2}{N} - \frac{1}{2 N^2}\right).
+          \end{align*}
+
+          We take the limit as \(N \to \infty\). Since \(\frac{N}{N - 1} = 1 + \frac{1}{N - 1}\), and as \(N \to \infty\), \(\frac{1}{N - 1} \to 0\), this means that \(\ln \frac{N}{N - 1} \to 0\). All the fractions with \(N\) on the denominator also approaches 0. Hence, the limit of this integral as \(N \to \infty\) is
+          \[
+              \int_{2}^{\infty} \frac{\Diff x}{x^3 (x - 1)^2} = \frac{17}{8} - 3 \ln 2.
+          \]
+\end{enumerate}
