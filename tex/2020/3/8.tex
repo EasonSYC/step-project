@@ -1,2 +1,131 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item It is not difficult to see that the terms in the sequence are all positive. Consecutive pairs of terms with the first one having odd index in the sequence are \(u_{2k + 1}\) and \(u_{2k + 2}\) for \(k \geq 1\) (the case where \(k = 0\) is excluded due to the first pair being separately considered). We have
+          \begin{align*}
+              u_{2k + 1} - u_{2k + 2} & = (u_k + u_{k + 1}) - u_{k + 1} \\
+                                      & = u_k                           \\
+                                      & > 0,
+          \end{align*}
+          so \(u_{2k + 1} > u_{2k + 2}\).
+
+          Consider the terms \(u_{2k}\) and \(u_{2k + 1}\) for \(k \geq 1\), which is consecutive pairs of terms with the first one having even index. We notice
+          \begin{align*}
+              u_{2k + 1} - u_{2k} & = (u_k + u_{k + 1}) - u_k \\
+                                  & = u_{k + 1}               \\
+                                  & > 0,
+          \end{align*}
+          so \(u_{2k + 1} > u_{2k}\).
+
+          As for the first pair \(u_1 = u_2 = 1\), the term with the odd index is not greater than the term of even index.
+
+          Hence, for every pair of consecutive terms of this sequence, except the first pair, the term with odd subscript is larger than the term with even subscript, as desired.
+
+    \item If the two consecutive terms take the form \(u_{2k + 1} = u_k + u_{k + 1}\) and \(u_{2k + 2} = u_{k + 1}\), we have \(u_k = u_{2k + 1} - u_{2k + 2}\). If \(d \divides u_{2k + 1}\) and \(d \divides u_{2k + 2}\), we must have \(d \divides u_k = u_{2k + 1} - u_{2k + 2}\), and \(d \divides u_{k + 1} = u_{2k + 2}\), which are two consecutive terms as well. Notice that \(k + 1 < 2k + 2\) for \(k \geq 1\), so this is some pair before the original pair.
+
+          In the other case where the two consecutive terms take the form \(u_{2k} = u_k\) and \(u_{2k + 1} = u_k + u_{k + 1}\), we have \(u_{k + 1} = u_{2k + 1} - u_{2k}\). If \(d \divides u_{2k}\) and \(d \divides u_{2k + 1}\), we must have \(d \divides u_{k + 1} = u_{2k + 1} - u_{2k}\), and \(d \divides u_k = u_{2k}\), which are two consecutive terms as well. Notice that \(k + 1 < 2k + 1\) for \(k \geq 1\), so this is some pair before the original pair.
+
+          We use the idea of proof by infinite descent in this part. The first two terms \(u_1 = u_2 = 1\) are co-prime, since one is the only common factor they share. Now, assume there exists some pair of consecutive terms in the sequence that are not co-prime, then there is one with the smallest pair of indices.
+
+          If this pair is the first two terms, this is impossible since the first two terms are co-prime. If they are not, by the previous part, there must exist another pair of consecutive terms with smaller indices, which contradicts with this pair being the pair with the smallest indices.
+
+          Hence, such pair of consecutive terms in the sequence being not co-prime does not exist.
+
+    \item We still use the idea of proof by infinite descent here. B.W.O.C assume that two integers appear consecutively in the same order twice. We consider the first pair of consecutive integers appearing twice, with the smallest indices. There are two cases:
+          \begin{itemize}
+              \item The indices where they appear are \(u_{2k}\) and \(u_{2k + 1}\), where \(k \geq 1\). Let
+                    \[
+                        u_{2k} = c, u_{2k + 1} = d,
+                    \]
+                    and hence \(d > c\).
+
+                    Since they must re-appear in the same order, it must be the case that they re-appear at \(u_{2m} = c\) and \(u_{2m + 1} = d\), since the odd-indexed term is always greater than the even-indexed term, and here \(m > n\).
+
+                    Since
+                    \[
+                        u_{2k} = u_k = c, u_{2k + 1} = u_k + u_{k + 1} = d,
+                    \]
+                    we have
+                    \[
+                        u_{k + 1} = d - c,
+                    \]
+                    and similarly
+                    \[
+                        u_{m + 1} = d - c.
+                    \]
+
+                    So \((u_k, u_{k + 1}) = (u_m, u_{m + 1}) = (c, d - c)\). But since \(k \geq 1\), \(2k > k\), and this implies that \(u_{2k}\) and \(u_{2k + 1}\) is not the first pair of consecutive integers appearing twice, hence leading to a contradiction.
+
+              \item The indices where they appear are \(u_{2k - 1}\) and \(u_{2k}\), where \(k \geq 1\). Let
+                    \[
+                        u_{2k - 1} = c, u_{2k} = d,
+                    \]
+                    and hence \(c \geq d\) with the equal sign taking place if and only if \(k = 1\). By similar reasoning, it must be the case for some \(m > k\) that \(u_{2m - 1} = c\) and \(u_{2m} = d\). Since \(m > k \geq 1\), we must have \(c > d\) and hence \(k > 1\). Hence,
+                    \[
+                        u_{2k - 1} = u_{k - 1} + u_k = c, u_{2k} = u_k = d,
+                    \]
+                    implying
+                    \[
+                        u_{k - 1} = u_{2k - 1} - u_{2k} = c - d,
+                    \]
+                    and similarly
+                    \[
+                        u_{m - 1} = c - d.
+                    \]
+
+                    So \((u_{k - 1}, u_k) = (u_{m - 1}, u_m) = (c - d, d)\). But since \(k \geq 1\), \(2k - 1 > k - 1\), and this implies that \(u_{2k - 1}\) and \(u_{2k}\) is not the first pair of consecutive integers appearing twice, hence leading to a contradiction.
+          \end{itemize}
+
+          Both cases lead to a contradiction, so it is not possible for two positive integers to appear consecutively in the same order in two different places in the sequence, as desired.
+
+    \item In the case where \(a > b\), if \(a\) and \(b\) do not occur consecutively with \(b\) following \(a\), then there does not exist a \(k \geq 1\) such that
+          \[
+              u_{2k - 1} = a, u_{2k} = b.
+          \]
+
+          If there exists \(m \geq 2\) such that
+          \[
+              u_{m - 1} = a - b, u_{m} = b,
+          \]
+          then notice
+          \[
+              u_{2m - 1} = u_{m - 1} + u_{m} = a, u_{2m} = u_{m} = b,
+          \]
+          and for \(k = m\) we have \(u_{2k - 1} = a\) and \(u_{2k} = b\). Hence, such \(m\) does not exist, and \(a - b\) and \(b\) are two co-prime positive integers which do not occur consecutively in the sequence with \(b\) following \(a - b\), and whose sum is smaller than \(a + b\).
+
+          Similarly, in the case where \(a < b\), if \(a\) and \(b\) do not occur consecutively with \(b\) following \(a\), then there does not exist a \(k \geq 1\) such that
+          \[
+              u_{2k} = a, u_{2k + 1} = b.
+          \]
+
+          If there exists \(m \geq 1\) such that
+          \[
+              u_{m} = a,  u_{m + 1} = b - a,
+          \]
+          then notice
+          \[
+              u_{2m} = u_{m} = a, u_{2m + 1} = u_{m} + u_{m + 1} = b,
+          \]
+          and for \(k = m\) we have \(u_{2k} = a\) and \(u_{2k + 1} = b\). Hence, such \(m\) does not exist, and \(a\) and \(b - a\) are two co-prime positive integers which do not occur consecutively in the sequence with \(b - a\) following \(a\), and whose sum is smaller than \(a + b\).
+
+    \item Suppose that there is some rational number \(q = \frac{a}{b}\) where \(\gcd(a, b) = 1\), \(a, b > 0\) which is not in the range of \(f\). Let \(a, b\) be such that the sum \(a + b\) is the lowest. Then, there does not exist an integer \(n \geq 1\), such that
+          \[
+              f(n) = \frac{a}{b}.
+          \]
+
+          Since all consecutive terms in the sequence are co-prime, this means there does not exist an integer \(n \geq 1\), such that
+          \[
+              u_n = a, u_{n + 1} = b.
+          \]
+
+          If \(a > b\), then the pair \((a - b, b)\) with a sum less than \(a + b\) must not exist consecutively in the sequence either, which contradicts with that \(a + b\) is the pair with the smallest sum.
+
+          If \(a < b\), then the pair \((b, b - a)\) with a sum less than \(a + b\) must not exist consecutively in the sequence either, which contradicts with that \(a + b\) is the pair with the smallest sum.
+
+          If \(a = b\), then the only possibility is \(a = b = 1\), but \(n = 1\) gives \(u_1 = 1\) and \(u_2 = 1\), so this is not possible.
+
+          Hence, such rational number which is not within the range doesn't exist, and the range of \(f\) is all positive rational numbers.
+
+          Since the fraction representation of a positive rational number is unique (given the numerator and denominator are co-prime and both positive), and all terms in the sequence are positive, consecutive terms are co-prime, and consecutive terms do not appear again in this order, it must be that case that there is at most one pair of consecutive terms that gives the ratio of any positive rational number \(q\), which shows that \(f\) has an inverse.
+
+          Hence, \(f\) has a range of all positive rational numbers, and \(f\) has an inverse, as desired.
+\end{enumerate}
