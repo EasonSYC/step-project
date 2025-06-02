@@ -1,2 +1,126 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item We differentiate with respect to \(x\) on both sides, and we have
+          \[
+              \cosh x + \cosh y \DiffFrac{y}{x} = 0.
+          \]
+
+          If the curve has a stationary point \((x, y)\), we must have \(\DiffFrac{y}{x} = 0\) at that point, and hence
+          \[
+              \cosh x = 0.
+          \]
+
+          This is impossible since the \(\cosh\) function has a range of \([1, +\infty)\), and hence \(C\) has no stationary points. (In fact we must have \(\DiffFrac{y}{x} < 0\).)
+
+          Differentiating this with respect to \(x\) again gives
+          \[
+              \sinh x + \sinh y \left(\DiffFrac{y}{x}\right)^2 + \cosh y \NdiffFrac{2}{y}{x} = 0.
+          \]
+
+          At point \((x, y)\), \(\NdiffFrac{2}{y}{x} = 0\) if and only if
+          \[
+              \sinh x + \sinh y \left(\DiffFrac{y}{x}\right)^2 = 0.
+          \]
+
+          From the previous differentiation, we know that
+          \[
+              \DiffFrac{y}{x} = - \frac{\cosh x}{\cosh y},
+          \]
+          and hence
+          \[
+              \sinh x + \sinh y \cdot \frac{\cosh^2 x}{\cosh^2 y} = 0,
+          \]
+          which gives
+          \[
+              \cosh^2 y \sinh x + \sinh y \cosh^2 x = 0.
+          \]
+
+          Using the identity \(\cosh^2 t = 1 + \sinh^2 t\), we have
+          \[
+              \sinh x + \sinh^2 y \sinh x + \sinh y + \sinh^2 x \sinh y = 0,
+          \]
+          and hence
+          \[
+              (\sinh x + \sinh y)(1 + \sinh x \sinh y) = 0.
+          \]
+
+          Since \(\sinh x + \sinh y = 2k\) and \(k\) is positive, we can conclude that
+          \[
+              1 + \sinh x \sinh y = 0,
+          \]
+          as desired.
+
+          The only-if direction is identical since all steps above are reversible.
+
+          For a point of inflection, we must first have \(\NdiffFrac{y}{x} = 0\), and hence
+          \[
+              \sinh x \sinh y = -1, \sinh x + \sinh y = 2k.
+          \]
+
+          This means that \(\sinh x\) and \(\sinh y\) are roots to the quadratic equation in \(t\)
+          \[
+              t^2 - 2kt - 1 = 0.
+          \]
+
+          This equation solves to
+          \[
+              t_{1, 2} = \frac{2k \pm \sqrt{4k^2 + 4}}{2} = k \pm \sqrt{k^2 + 1}.
+          \]
+
+          Therefore, the points where the second derivative is zero on the curve are
+          \[
+              \left(\arsinh \left(k \pm \sqrt{k^2 + 1}\right), \arsinh \left(k \mp \sqrt{k^2 + 1}\right)\right).
+          \]
+
+    \item If \(x + y = a\) and \(\sinh x + \sinh y = 2k\), we must have \(y = a - x\), and hence
+          \begin{align*}
+              \frac{e^x - e^{-x}}{2} + \frac{e^{a - x} - e^{x - a}}{2} & = 2k       \\
+              e^{2x} - 1 + e^a - e^{2x - a}                            & = 4k e^{x} \\
+              e^{2x} (1 - e^{-a}) - 4k e^{x} + (e^a - 1)               & = 0,
+          \end{align*}
+          as desired.
+
+          Since \(e^x\) is always real, we must have
+          \begin{align*}
+              (-4k)^2 - 4 (1 - e^{-a})(e^a - 1) & = 16k^2 - 4 (e^a - 1 - 1 + e^{-a}) \\
+                                                & = 16k^2 - 4 (2 \cosh a - 2)        \\
+                                                & = 16k^2 + 8 - 8 \cosh a            \\
+                                                & \geq 0,
+          \end{align*}
+          and hence
+          \[
+              \cosh a \leq 2k^2 + 1.
+          \]
+
+          As for the left-hand side inequality, we already know \(\cosh a \geq 1\). \(\cosh a = 1\) if and only if \(a = x + y = 0\), in which case
+          \[
+              \sinh x + \sinh y = \sinh x + \sinh (-x) = 0 \neq 2k,
+          \]
+          since \(2k > 0\).
+
+          Hence, we must have
+          \[
+              1 < \cosh a \leq 2k^2 + 1,
+          \]
+          as desired.
+
+    \item Notice that when \(\cosh a = 2k^2 + 1\), there is precisely one root to the quadratic equation, which means \(x = y\). Hence,
+          \begin{align*}
+              2k^2 + 1 & = \cosh a                           \\
+                       & = \cosh (x + y)                     \\
+                       & = \cosh x \cosh y + \sinh x \sinh y \\
+                       & = \cosh^2 x + \sinh^2 x             \\
+                       & = 1 + 2 \sinh^2 x,
+          \end{align*}
+          which shows that (since \(\sinh x + \sinh y = k\))
+          \[
+              \sinh x = \sinh y = k.
+          \]
+
+          The graph meets the axis at \((0, \arsinh(2k))\) and \((\arsinh(2k), 0)\).
+
+          Hence, the graph must look as follows:
+          \begin{center}
+              \input{\currfiledir 2-diag}
+          \end{center}
+\end{enumerate}

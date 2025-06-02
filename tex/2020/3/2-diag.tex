@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+    \draw[->] (-5.5, 0) -- (5.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -5.5) -- (0, 5.5) node[above] {\(y\)};
+    \draw[smooth, samples=200, domain=-50:50] plot ({asinh(1 + \x)}, {asinh(1 - \x)});
+    \draw[dashed] (-5, -5) -- (5, 5) node[above] {\(y = x\)};
+    \draw[dashed] ({acosh(3) - 5}, 5) -- (5, {acosh(3) - 5}) node[below] {\(x + y = \arcosh (2k^2 + 1)\)};
+    \draw[dashed] (-5, 5) -- (5, -5) node[below] {\(x + y = 0\)};
+    \filldraw ({asinh(1)}, {asinh(1)}) circle (1pt) node[right] {\((\arsinh k, \arsinh k)\)};
+    \filldraw ({asinh(1 + sqrt(2))}, {asinh(1 - sqrt(2))}) circle (1pt) node[below left] {\(\left(\arsinh \left(k + \sqrt{k^2 + 1}\right), \arsinh \left(k - \sqrt{k^2 + 1}\right)\right)\)};
+    \filldraw ({asinh(1 - sqrt(2))}, {asinh(1 + sqrt(2))}) circle (1pt) node[below left] {\(\left(\arsinh \left(k - \sqrt{k^2 + 1}\right), \arsinh \left(k + \sqrt{k^2 + 1}\right)\right)\)};
+    \filldraw (0, {asinh(2)}) circle (1pt) node[above right] {\(\left(0, \arsinh(2k)\right)\)};
+    \filldraw ({asinh(2)}, 0) circle (1pt) node[above right] {\(\left(\arsinh(2k), 0\right)\)};
+\end{tikzpicture}
