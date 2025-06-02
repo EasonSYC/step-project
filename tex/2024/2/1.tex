@@ -1,2 +1,80 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item In the \(n + k\) integers, the first one is \(c\), and the final one is \(c + n + k - 1\).
+
+          In the \(n\) integers, the first one is \(c + n + k\), and the final one is \(c + 2n + k - 1\).
+
+          Hence, the sums are equal if and only if
+          \begin{align*}
+              \frac{(n + k) [c + (c + n + k - 1)]}{2} & = \frac{n [(c + n + k) + (c + 2n + k - 1)]}{2} \\
+              (n + k) (2c + n + k - 1)                & = n (2c + 3n + 2k - 1)                         \\
+              2cn + n^2 + nk - n + 2ck + kn + k^2 - k & = 2cn + 3n^2 + 2kn - 1                         \\
+              2ck + k^2                               & = 2n^2 + k,
+          \end{align*}
+          as desired. All the above steps are reversible.
+
+    \item \begin{enumerate}
+              \item When \(k = 1\), \(2c + 1 = 2n^2 + 1\), and \(c = n^2\).
+
+                    Hence,
+                    \[
+                        (c, n) \in \left\{(t^2, t) \mid t \in \NN\right\},
+                    \]
+                    and \(n\) can take all positive integers.
+
+              \item When \(k = 2\), \(4c + 4 = 2n^2 + 2\), and \(2c = n^2 - 1\).
+
+                    By parity, \(n\) must be odd. Let \(n = 2t - 1\) for \(t \in \NN\), and we have
+                    \[
+                        2c = (2t - 1)^2 - 1 = 4t^2 - 4t,
+                    \]
+                    and hence
+                    \[
+                        c = 2t^2 - 2t.
+                    \]
+
+                    Hence,
+                    \[
+                        (c, n) \in \left\{(2t^2 - 2t, 2t - 1) \mid t \in \NN\right\},
+                    \]
+                    and \(n\) can take all odd positive integers.
+          \end{enumerate}
+
+    \item If \(k = 4\), we have \(8c + 16 = 2n^2 + 4\), and hence \(n^2 = 4c + 6\).
+
+          By considering modulo 4, the only quadratic residues modulo 4 are \(0\) and \(1\), but the right-hand side equation is congruent to \(2\) modulo \(4\).
+
+          Hence, there are no solutions for \(n\) and \(c\).
+
+    \item When \(c = 1\), we have \(2n^2 + k = 2k + k^2\), and hence \(2n^2 = k^2 + k\).
+          \begin{enumerate}
+              \item When \(k = 1\), \(k^2 + k = 2\), and so \((n, k) = (1, 1)\) satisfies the equation.
+
+                    When \(k = 8\), \(k^2 + k = 64 + 8 = 72\), and so \((n, k) = (6, 8)\) satisfies the equation.
+
+              \item Given that \(2N^2 = K^2 + K\), notice that
+                    \begin{align*}
+                        (2{N'}^2) - ({K'}^2 + K') & = 2 (3N + 2K + 1)^2 - (4N + 3K + 1)^2 - (4N + 3K + 1) \\
+                                                  & = 2 (9N^2 + 4K^2 + 1 + 12 NK + 6N + 4K)               \\
+                                                  & \phantom{=} - (16N^2 + 9K^2 + 1 + 24NK + 8N + 6K)     \\
+                                                  & \phantom{=} - (4N + 3K + 1)                           \\
+                                                  & = 2N^2 - K^2 - K                                      \\
+                                                  & = 2N^2 - (K^2 + K)                                    \\
+                                                  & = 2N^2 - 2N^2                                         \\
+                                                  & = 0,
+                    \end{align*}
+                    and this means that
+                    \[
+                        2{N'}^2 = {K'}^2 + K',
+                    \]
+                    and hence
+                    \[
+                        (N', K') = (3N + 2K + 1, 4N + 3K + 1)
+                    \]
+                    is another pair of solution for \((n, k)\).
+
+              \item When \((n, k) = (6, 8)\), \(3n + 2k + 1 = 35\), \(4n + 3k + 1 = 49\), and \((n, k) = (35, 49)\) is also possible.
+
+                    When \((n, k) = (35, 49)\), \(3n + 2k + 1 = 204, 4n + 3k + 1 = 288\), and \((n, k) = (204, 288)\) is also possible.
+          \end{enumerate}
+\end{enumerate}
