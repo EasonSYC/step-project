@@ -1,2 +1,68 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item Let \(k\) represent the point \(K\) in the complex plane, we must have
+          \[
+              k - a = (b - a) \exp\left(- i\frac{\pi}{3}\right),
+          \]
+          and hence
+          \[
+              k = a + (b - a) \exp\left(- i\frac{\pi}{3}\right).
+          \]
+
+          Notice that
+          \[
+              \omega = \exp \left(\frac{i\pi}{6}\right) = \cos \frac{\pi}{6} + i \sin \frac{\pi}{6} = \frac{\sqrt{3}}{2} + i \frac{1}{2},
+          \]
+          and hence
+          \[
+              \omega^* = \frac{\sqrt{3}}{2} - i \frac{1}{2}
+          \]
+
+          Hence, \(g_{ab}\) is given by
+          \begin{align*}
+              g_{ab} & = \frac{a + b + k}{3}                                                                                                                         \\
+                     & = \frac{a + b + a + (b - a) \exp\left(- i\frac{\pi}{3}\right)}{3}                                                                             \\
+                     & = \frac{2a + b + (b - a) \left[\cos \frac{\pi}{3} - i \sin \frac{\pi}{3}\right]}{3}                                                           \\
+                     & = \frac{2a + b + (b - a) \left(\frac{1}{2} - i \frac{\sqrt{3}}{2}\right)}{3}                                                                  \\
+                     & = \frac{\left(\frac{3}{2} + i \frac{\sqrt{3}}{2}\right) a + \left(\frac{3}{2} - i \frac{\sqrt{3}}{2}\right) b}{3}                             \\
+                     & = \frac{1}{\sqrt{3}} \cdot \left[\left(\frac{\sqrt{3}}{2} + i \frac{1}{2}\right) a + \left(\frac{\sqrt{3}}{2} - i \frac{1}{2}\right) b\right] \\
+                     & = \frac{1}{\sqrt{3}} \cdot \left(\omega a + \omega^* b\right),
+          \end{align*}
+          as desired.
+
+    \item \(Q_2\) is a parallelogram if and only if
+          \begin{align*}
+              g_{bc} - g_{ab}                                                                                               & = g_{cd} - g_{da}                                                                                               \\
+              \frac{1}{\sqrt{3}} \left(\omega b + \omega^* c\right) - \frac{1}{\sqrt{3}} \left(\omega a + \omega^* b\right) & = \frac{1}{\sqrt{3}} \left(\omega c + \omega^* d\right) - \frac{1}{\sqrt{3}} \left(\omega d + \omega^* a\right) \\
+              \omega(b - a - c + d)                                                                                         & = \omega^* (d - a - c + b)                                                                                      \\
+              \left(\omega - \omega^*\right) \left[(b - a) - (c - d)\right]                                                 & = 0                                                                                                             \\
+              (b - a) - (c - d)                                                                                             & = 0                                                                                                             \\
+              b - a                                                                                                         & = c - d,
+          \end{align*}
+          which is true if and only if \(Q_1\) is a parallelogram. All the steps above are reversible. In particular, \(\omega - \omega^* \neq 0\) so we can divide by \(\omega - \omega^*\) on both sides.
+
+    \item Notice that
+          \begin{align*}
+              g_{bc} - g_{ab} & = \frac{1}{\sqrt{3}} \left(\omega b + \omega^* c\right) - \frac{1}{\sqrt{3}} \left(\omega a + \omega^* b\right) \\
+                              & = \frac{1}{\sqrt{3}} \left[\omega^* c - \omega a + (\omega - \omega^*) b\right]                                 \\
+                              & = \frac{1}{\sqrt{3}} \left[\omega^* c - \omega a + bi\right],
+          \end{align*}
+          and that
+          \begin{align*}
+              g_{ca} - g_{ab} & = \frac{1}{\sqrt{3}} \left(\omega c + \omega^* a\right) - \frac{1}{\sqrt{3}} \left(\omega a + \omega^* b\right) \\
+                              & = \frac{1}{\sqrt{3}} \left[\omega c + (\omega^* - \omega)a - \omega^* b\right]                                  \\
+                              & = \frac{1}{\sqrt{3}} \left[\omega c - ai - \omega^* b\right].
+          \end{align*}
+
+          Notice that
+          \begin{align*}
+              \frac{\omega^*}{\omega} & = \frac{\exp\left(-\frac{i\pi}{6}\right)}{\exp\left(\frac{i\pi}{6}\right)} = \exp\left(-\frac{i\pi}{3}\right),                        \\
+              \frac{-\omega}{-i}      & = \frac{\omega}{i} = \frac{\exp\left(\frac{i\pi}{6}\right)}{\exp\left(\frac{i\pi}{2}\right)} = \exp\left(-\frac{i\pi}{3}\right),      \\
+              \frac{i}{-\omega^*}     & = \frac{-i}{\omega^*} = \frac{\exp\left(-\frac{i\pi}{2}\right)}{\exp\left(-\frac{i\pi}{6}\right)} = \exp\left(-\frac{i\pi}{3}\right),
+          \end{align*}
+          and hence we can wee
+          \[
+              g_{bc} - g_{ab} = \left(g_{ca} - g_{ab}\right) \exp\left(- \frac{i\pi}{3}\right),
+          \]
+          which means \(G_{BC}\) is the image of \(G_{CA}\) under rotation through \(\frac{\pi}{3}\) clockwise about \(G_{AB}\), and this shows that \(T_2\) is an equilateral triangle.
+\end{enumerate}
