@@ -1,2 +1,159 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item We have
+          \[
+              f_1 (n) = n^2 + 6n + 11 = (n + 3)^2,
+          \]
+          and so
+          \[
+              f_1(\ZZ) = \{(n + 3)^2 + 2 \mid n \in \ZZ\}.
+          \]
+
+          But since if \(n \in \ZZ, n + 3 \in \ZZ\), and if \(n + 3 \in \ZZ, n \in \ZZ\), so
+          \[
+              f_1(\ZZ) = \{(n + 3)^2 + 2 \mid n \in \ZZ\} = \{n^2 + 2 \mid n \in \ZZ\}.
+          \]
+
+          We have \(F_1(\ZZ) = \{n^2 + 2 \mid n \in \ZZ\}\), and so \(f_1(\ZZ) = F_1(\ZZ)\), which shows \(f_1\) and \(F_1\) has the same range/
+
+    \item We have
+          \[
+              g_1(n) = n^2 - 2n + 5 = (n - 1)^2 + 4,
+          \]
+          and so
+          \[
+              g_1(\ZZ) = \{(n - 1)^2 + 4 \mid n \in \ZZ\} = \{n^2 + 4 \mid n \in \ZZ\}.
+          \]
+
+          The quadratic residues modulo \(4\) are \(0\) and \(1\), and so
+          \[
+              f_1(\ZZ) \subseteq \{0 + 2, 1 + 2\} = \{2, 3\} \modulo 4,
+          \]
+          and
+          \[
+              g_1(\ZZ) \subseteq \{0 + 4, 1 + 4\} = \{0, 1\} \modulo 4.
+          \]
+
+          Under modulo \(4\), \(f_1(\ZZ) \cap g_1(\ZZ) \subseteq \{2, 3\} \cap \{0, 1\} = \emptyset\).
+
+          Hence, \(f_1(\ZZ) \cap g_1(\ZZ) = \emptyset\) under modulo \(4\), and hence \(f_1(\ZZ) \cap g_1(\ZZ) = \emptyset\).
+
+    \item We have
+          \[
+              f_2(n) = n^2 - 2n - 6 = (n - 1)^2 - 7,
+          \]
+          and so
+          \[
+              f_2(\ZZ) = \{(n - 1)^2 - 7 \mid n \in \ZZ\} = \{n^2 - 7 \mid n \in \ZZ\}.
+          \]
+
+          Similarly,
+          \[
+              g_2(n) = n^2 - 4n + 2 = (n - 2)^2 - 2,
+          \]
+          and so
+          \[
+              g_2(\ZZ) = \{(n - 2)^2 - 2 \mid n \in \ZZ\} = \{n^2 - 2 \mid n \in \ZZ\}.
+          \]
+
+          So for the intersection, if \(t \in f_2(\ZZ) \cap g_2(\ZZ)\), then there exists \(n_1, n_2 \in \ZZ\),
+          \[
+              t = n_1^2 - 7 = n_2^2 - 2,
+          \]
+          and hence
+          \[
+              n_1^2 - n_2^2 = (n_1 + n_2) (n_1 - n_2) = 5.
+          \]
+
+          So
+          \[
+              (n_1 + n_2, n_1 - n_2) = (\pm 1, \pm 5) \text{ or } (\pm 5, \pm 1),
+          \]
+          and hence
+          \[
+              (n_1, n_2) = (\pm 3, \mp 2) \text{ or } (\pm 3, \pm 2),
+          \]
+          which gives
+          \[
+              t = (\pm 3)^2 - 7 = 2.
+          \]
+
+          Therefore,
+          \[
+              f_2(\ZZ) \cap g_2(\ZZ) = \{2\},
+          \]
+          and \(2\) is the only integer which lies in the intersection of the range of \(f_2\) and \(g_2\).
+
+    \item Since \(p, q \in \RR\), we must have \(p + q, p - q \in \RR\) and hence
+          \begin{align*}
+              (p + q)^2 = p^2 + 2pq + q^2 & \geq 0, \\
+              (p - q)^2 = p^2 - 2pq + q^2 & \geq 0.
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              \frac{3}{4} (p + q)^2 + \frac{1}{4} (p - q)^2 & = \frac{3}{4} \left(p^2 + 2pq + q^2\right) + \frac{1}{4} \left(p^2 - 2pq + q^2\right) \\
+                                                            & = p^2 + pq + q^2                                                                      \\
+                                                            & \geq 0,
+          \end{align*}
+          as desired.
+
+          We have
+          \[
+              f_3(n) = n^3 - 3n^2 + 7n = (n - 1)^3 + 4n + 1 = (n - 1)^3 + 4(n - 1) + 5,
+          \]
+          and so
+          \[
+              f_3(\ZZ) = \{(n - 1)^3 + 4(n - 1) + 5 \mid n \in \ZZ\} = \{n^3 + 4n + 5 \mid n \in \ZZ\}.
+          \]
+
+          We have
+          \[
+              g_3(\ZZ) = \{n^3 + 4n - 6 \mid n \in \ZZ\}.
+          \]
+
+          So if \(t \in f_3(\ZZ) \cap g_3(\ZZ)\), then there exists \(n_1, n_2 \in \ZZ\) such that
+          \[
+              t = n_1^3 + 4 n_1 + 5 = n_2^3 + 4 n_2 - 6.
+          \]
+
+          Hence,
+          \[
+              (n_1^3 - n_2^3) + 4(n_1 - n_2) = (n_1 - n_2) (n_1^2 + n_1 n_2 + n_2^2 + 4) = -11.
+          \]
+
+          Since \(n_1^2 + n_1 n_2 + n_2^2 \geq 0\) by the lemma in the previous part, we have \(n_1^2 + n_1 n_2 + n_2^2 + 4 \geq 4\).
+
+          But \(n_1^2 + n_1 n_2 + n_2^2 + 4 \divides -11\), and so
+          \[
+              n_1^2 + n_1 n_2 + n_2^2 + 4 = 11, n_1 - n_2 = -1.
+          \]
+
+          Putting \(n_2 = n_1 + 1\) into the first equation, we have
+          \begin{align*}
+              n_1^2 + n_1 n_2 + n_2^2 + 4 & = n_1^2 + n_1 (n_1 + 1) + (n_1 + 1)^2 + 4     \\
+                                          & = n_1^2 + n_1^2 + n_1 + n_1^2 + 2 n_1 + 1 + 4 \\
+                                          & = 3 n_1^2 + 3 n_1 + 5                         \\
+                                          & = 11,
+          \end{align*}
+          and hence
+          \[
+              3n_1^2 + 3n_1 - 6 = 3 (n_1 + 2) (n_1 - 1) = 0,
+          \]
+          which gives \(n_1 = -2\) or \(n_1 = 1\), and they correspond to \(n_2 = -1\) or \(n_2 = 2\).
+
+          Hence,
+          \[
+              t = (-1)^3 + 4 (-1) - 6 = -1 - 4 - 6 = -11,
+          \]
+          or
+          \[
+              t = 2^3 + 4 \cdot 2 - 6 = 8 + 8 - 6 = 10.
+          \]
+
+          Hence,
+          \[
+              f_3(\ZZ) \cap g_3(\ZZ) = \{-11, 10\},
+          \]
+          and the integers that lie in the intersection of the ranges are \(-11\) and \(10\).
+\end{enumerate}
