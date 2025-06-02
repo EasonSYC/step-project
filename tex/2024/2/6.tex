@@ -1,2 +1,108 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item We first look at the base case where \(n = 0\), and we have
+          \begin{align*}
+              \RHS = \frac{1}{2^{2 \cdot 0}} \binom{2 \cdot 0}{0} = \frac{1}{2^0} \binom{0}{0} = 1,
+          \end{align*}
+          and \(\LHS = T_0 = 1\). So the desired statement is satisfied for the base case where \(n = 0\).
+
+          Assume the original statement is true for some \(n = k \geq 0\), that
+          \[
+              T_n = \frac{1}{2^{2n}} \binom{2n}{n}.
+          \]
+
+          Consider \(n = k + 1\), we have
+          \begin{align*}
+              T_n & = T_{k + 1}                                                                              \\
+                  & = \frac{2(k + 1) - 1}{2(k + 1)} T_k                                                      \\
+                  & = \frac{2k + 1}{2(k + 1)} \cdot \frac{1}{2^{2k}} \binom{2k}{k}                           \\
+                  & = \frac{(2k + 1) (2k + 2)}{2(k + 1) 2 (k + 1)} \cdot \frac{1}{2^{2k}} \frac{(2k)!}(k!k!) \\
+                  & = \frac{(2k + 2)!}{(k + 1)! (k + 1)!} \cdot \frac{1}{2^{2k + 2}}                         \\
+                  & = \frac{1}{2^{2(k + 1)}} \binom{2 (k + 1)}{k + 1},
+          \end{align*}
+          which is precisely the statement for \(n = k + 1\).
+
+          The original statement is true for \(n = 0\), and given it holds for some \(n = k \geq 0\), it holds for \(n = k + 1\). Hence, by the principle of mathematical induction, the statement
+          \[
+              T_n = \frac{1}{2^{2n}} \binom{2n}{n}
+          \]
+          holds for all integers \(n \geq 0\), as desired.
+
+    \item By Newton's binomial theorem, we have
+          \[
+              (1 - x)^{-\frac{1}{2}} = 1 + \left(- \frac{1}{2}\right) (-x) + \frac{\left(-\frac{1}{2}\right) \left(-\frac{3}{2}\right)}{2!} (-x)^2 + \frac{\left(-\frac{1}{2}\right) \left(-\frac{3}{2}\right) \left(-\frac{5}{2}\right)}{3!} (-x)^3 + \cdots,
+          \]
+          and notice that the negative signs cancels out, and hence
+          \[
+              a_n = \frac{\prod_{k = 1}^{n} \frac{2k - 1}{2}}{n!} = \frac{\prod_{k = 1}^{n}(2k - 1)}{2^n n!}.
+          \]
+
+          Hence, we note that
+          \begin{align*}
+              \frac{a_r}{a_{r - 1}} & = \frac{\prod_{k = 1}^{r} (2k - 1) / (2^r r!)}{\prod_{k = 1}^{r - 1} (2k - 1) / (2^{r - 1} (r - 1)!)} \\
+                                    & = \frac{2r - 1}{2r},
+          \end{align*}
+          and hence
+          \[
+              a_r = \frac{2r - 1}{2r} a_{r - 1}.
+          \]
+
+          Note that \(a_0 = 1\) as well. The sequence \(\{a_n\}_{0}^{\infty}\) and \(\{T_n\}_{0}^{\infty}\) have the same initial term \(a_0 = T_0 = 1\), and they have the same same inductive relationship
+          \[
+              a_n = \frac{2n - 1}{2n} a_{n - 1}, T_n = \frac{2n - 1}{2n} T_{n - 1}.
+          \]
+
+          This shows they are the same sequence, hence
+          \[
+              a_n = T_n
+          \]
+          for all \(n = 0, 1, 2, \cdots\).
+
+    \item By Newton'w binomial theorem,
+          \[
+              (1 - x)^{-\frac{3}{2}} = 1 + \frac{\left(- \frac{3}{2}\right) (-x)}{1!} + \frac{\left(- \frac{3}{2}\right) \left(- \frac{5}{2}\right) (-x)}{2!} + \cdots,
+          \]
+          and so
+          \[
+              b_n = \frac{\prod_{k = 1}^{n} \frac{2k + 1}{2}}{n!} = \frac{\prod_{k = 1}^{n} (2k + 1)}{2^n n!}.
+          \]
+
+          Notice that
+          \begin{align*}
+              \frac{b_n}{a_n} & = \frac{\prod_{k = 1}^{n} (2k + 1) / (2^n n!)}{\prod_{k = 1}^{n} (2k - 1) / 2^n n!} \\
+                              & = \frac{\prod_{k = 1}^{n} (2k + 1)}{\prod_{k = 1}^{n} (2k - 1)}                     \\
+                              & = \frac{\prod_{k = 2}^{n + 1} (2k - 1)}{\prod_{k = 1}^{n} (2k - 1)}                 \\
+                              & = \frac{2(n + 1) - 1}{2 \cdot 1 - 1}                                                \\
+                              & = 2n + 1,
+          \end{align*}
+          and so
+          \begin{align*}
+              b_n & = (2n + 1) a_n                                        \\
+                  & = (2n + 1) \cdot \frac{1}{2^{2n}} \cdot \binom{2n}{n} \\
+                  & = \frac{2n + 1}{2^{2n}} \binom{2n}{n}.
+          \end{align*}
+
+    \item By the binomial expansion, we have
+          \[
+              (1 - x)^{-1} = 1 + x + x^2 + x^3 + \cdots,
+          \]
+          and we have
+          \[
+              (1 - x)^{-\frac{1}{2}} \cdot (1 - x)^{-1} = (1 - x)^{-\frac{3}{2}}.
+          \]
+
+          For a particular term in the series expansion for \((1 - x)^{-\frac{3}{2}}\), say \(b_n\), we must have
+          \[
+              b_n x^n = \sum_{t = 0}^{n} a_t \cdot x^t \cdot 1 \cdot x^{n - t},
+          \]
+          and hence
+          \[
+              b_n = \sum_{t = 0}^{n} a_t,
+          \]
+          which gives
+          \[
+              \frac{2n + 1}{2^{2n}} \binom{2n}{n} = \sum_{r = 0}^{n} \frac{1}{2^{2r}} \binom{2r}{r},
+          \]
+          exactly as desired.
+\end{enumerate}
