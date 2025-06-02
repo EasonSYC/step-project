@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+    \draw[->] (-0.5, 0) -- (10.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -0.5) -- (0, {e^(1/e) + 0.5}) node[above] {\(y\)};
+    \draw[smooth, samples=200, domain=0.01:10] plot (\x, {\x ^ (1 / \x)});
+    \draw (0, 0) circle (2pt) node[below left] {\(O\)};
+    \filldraw (e, {e^(1/e)}) circle (1pt) node[above] {\(\left(e, e^{\frac{1}{e}}\right)\)};
+    \draw[dashed] (-0.25, 1) -- (10.25, 1) node[right] {\(y = 1\)};
+\end{tikzpicture}
