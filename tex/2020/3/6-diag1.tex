@@ -1,0 +1,8 @@
+\begin{tikzpicture}[trig format=rad, scale=4]
+    \draw[->] (-pi/4 - 0.5, 0) -- (pi/4 + 0.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -0.5) -- (0, 2.5) node[above] {\(y\)};
+    \draw[smooth, samples=200, domain=-pi/4:pi/4] plot (\x, {cos(\x) + sqrt(cos(2*\x))});
+    \filldraw (0, 2) circle (0.25pt) node[above right] {\(2\)};
+    \draw[dashed] (pi/4, -0.25) -- (pi/4, 2) node[above] {\(x = \frac{\pi}{4}\)};
+    \draw[dashed] (-pi/4, -0.25) -- (-pi/4, 2) node[above] {\(x = -\frac{\pi}{4}\)};
+\end{tikzpicture}

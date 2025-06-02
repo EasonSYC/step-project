@@ -1,2 +1,65 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Note that this function has symmetry about the \(y\)-axis since \(\cos\) is an even function.
+
+          When \(x = 0\), \(y = 1 + \sqrt{1} = 2\). When \(x = \pm \frac{\pi}{4}\), \(y = \frac{1}{\sqrt{2}}\).
+
+          We investigate the gradient:
+          \begin{align*}
+              \DiffFrac{y}{x} & = - \sin x - 2 \sin 2x \cdot \frac{1}{2} \cdot \frac{1}{\sqrt{\cos 2x}} \\
+                              & = - \sin x - \frac{\sin 2x}{\sqrt{\cos 2x}},
+          \end{align*}
+          so \(\DiffFrac{y}{x}\) takes opposite sign as \(x\), which means that \(y\) is decreasing when \(x > 0\), and \(y\) is increasing when \(x < 0\), and \(x = 0\) gives a maximum.
+
+          Also, note that
+          \[
+              \lim_{x \to \frac{\pi}{4}^{-}} \DiffFrac{y}{x} = -\infty, \lim_{x \to -\frac{\pi}{4}^{+}} \DiffFrac{y}{x} = \infty,
+          \]
+          which means the tangent to the graph at those points are vertical.
+
+          Hence, the graph looks as follows:
+          \begin{center}
+              \input{\currfiledir 6-diag1}
+          \end{center}
+
+    \item The graph looks as follows.
+          \begin{center}
+              \input{\currfiledir 6-diag2}
+          \end{center}
+
+    \item By solving the quadratic, we have
+          \[
+              r = \frac{2\cos \theta \pm \sqrt{4 \cos^2 \theta - 4 \sin^2 \theta}}{2} = \cos \theta \pm \sqrt{\cos 2 \theta}.
+          \]
+
+          Hence, at \(\theta = \pm \frac{1}{4}\pi, r = \frac{1}{\sqrt{2}}\).
+
+          When \(r\) is small, we must have that \(r = \cos \theta - \sqrt{\cos 2 \theta}\) and \(\theta\) is small, and
+          \begin{align*}
+              -2r \cos \theta + \sin^2 \theta & \approx 0                                   \\
+              r                               & \approx \frac{\sin^2 \theta}{2 \cos \theta} \\
+              r                               & \approx \frac{1}{2} \sin \theta \tan \theta \\
+              r                               & \approx \frac{1}{2} \theta^2,
+          \end{align*}
+          as desired.
+
+          The curve will look as follows. At \(\theta = \pm \frac{1}{4}\pi\), the curve is tangent to the lines. At \(r = 0\), the curves are tangent to the initial line.
+          \begin{center}
+              \input{\currfiledir 6-diag3}
+          \end{center}
+
+          The area between \(C_2\) and \(\theta = 0\) above the line is given by
+          \begin{align*}
+              A & = \frac{1}{2} \int_{0}^{\frac{\pi}{4}} \left[\left(\cos \theta + \sqrt{\cos 2\theta}\right)^2 -  \left(\cos \theta - \sqrt{\cos 2\theta}\right)^2\right]\Diff \theta \\
+                & = \frac{1}{2} \int_{0}^{\frac{\pi}{4}} 4 \cos \theta \sqrt{\cos 2\theta} \Diff \theta                                                                                \\
+                & = 2 \int_{0}^{\frac{\pi}{4}} \cos \theta \sqrt{\cos 2\theta} \Diff \theta                                                                                            \\
+                & = 2 \int_{0}^{\frac{\pi}{4}} \cos \theta \sqrt{1 - 2 \sin^2 \theta} \Diff \theta                                                                                     \\
+                & = 2 \int_{0}^{\frac{\pi}{4}} \sqrt{1 - 2 \sin^2 \theta} \Diff \sin \theta                                                                                            \\
+                & = 2 \int_{0}^{\frac{1}{\sqrt{2}}} \sqrt{1 - 2x^2} \Diff x                                                                                                            \\
+                & = \sqrt{2} \int_{0}^{1} \sqrt{1 - y^2} \Diff y                                                                                                                       \\
+                & = \sqrt{2} \cdot \frac{\pi}{4}                                                                                                                                       \\
+                & = \frac{\pi}{2 \sqrt{2}},
+          \end{align*}
+          as desired, the final integral being because this is \(\frac{1}{4}\) of the area of the unit circle, which is \(\pi\).
+\end{enumerate}

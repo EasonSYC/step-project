@@ -1,0 +1,8 @@
+\begin{tikzpicture}[trig format=rad, scale=2]
+    \draw[->] (0, 0) -- (2.5, 0) node[right] {\(\theta = 0\)};
+    \draw[smooth, samples=200, domain=-pi/4:pi/4] ({-pi/4} : {1/sqrt(2)}) -- plot (\x : {cos(\x) + sqrt(cos(2*\x))}) -- ({pi/4} : {1/sqrt(2)});
+    \draw[smooth, samples=200, domain=-pi/4:pi/4] ({-pi/4} : {1/sqrt(2)}) -- plot (\x : {cos(\x) - sqrt(cos(2*\x))}) -- ({pi/4} : {1/sqrt(2)});
+    \draw[dashed] (0, 0) -- (2, 2) node[above right] {\(\theta = \frac{\pi}{4}\)};
+    \draw[dashed] (0, 0) -- (2, -2) node[below right] {\(\theta = -\frac{\pi}{4}\)};
+    \filldraw (2, 0) circle (0.5pt) node[above right] {\(2\)};
+\end{tikzpicture}
