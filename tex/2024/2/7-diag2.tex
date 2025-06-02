@@ -1,0 +1,28 @@
+\begin{tikzpicture}[scale=2]
+    \draw[->] (-2.5, 0) -- (2.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -1.5) -- (0, 1.5) node[above] {\(y\)};
+
+    \draw[smooth, samples=200, domain={0.25}:{65/64}] plot ({sqrt(2 - \x + sqrt(65/16 - 4*\x))}, {sqrt(\x)}) -- ({sqrt(2 - (65/64) + sqrt(65/16 - 4*(65/64)))}, {sqrt(65/64)});
+    \draw[smooth, samples=200, domain={0.25}:{65/64}] plot ({sqrt(2 - \x + sqrt(65/16 - 4*\x))}, {-sqrt(\x)}) -- ({sqrt(2 - (65/64) + sqrt(65/16 - 4*(65/64)))}, -{sqrt(65/64)});
+    \draw[smooth, samples=200, domain={0.25}:{65/64}] plot ({sqrt(2 - \x - sqrt(65/16 - 4*\x))}, {sqrt(\x)}) -- ({sqrt(2 - (65/64) - sqrt(65/16 - 4*(65/64)))}, {sqrt(65/64)});
+    \draw[smooth, samples=200, domain={0.25}:{65/64}] plot ({sqrt(2 - \x - sqrt(65/16 - 4*\x))}, {-sqrt(\x)}) -- ({sqrt(2 - (65/64) - sqrt(65/16 - 4*(65/64)))}, -{sqrt(65/64)});
+    \draw[smooth, samples=200, domain={0.25}:{65/64}] plot ({-sqrt(2 - \x + sqrt(65/16 - 4*\x))}, {sqrt(\x)}) -- ({-sqrt(2 - (65/64) + sqrt(65/16 - 4*(65/64)))}, {sqrt(65/64)});
+    \draw[smooth, samples=200, domain={0.25}:{65/64}] plot ({-sqrt(2 - \x + sqrt(65/16 - 4*\x))}, {-sqrt(\x)}) -- ({-sqrt(2 - (65/64) + sqrt(65/16 - 4*(65/64)))}, -{sqrt(65/64)});
+    \draw[smooth, samples=200, domain={0.25}:{65/64}] plot ({-sqrt(2 - \x - sqrt(65/16 - 4*\x))}, {sqrt(\x)}) -- ({-sqrt(2 - (65/64) - sqrt(65/16 - 4*(65/64)))}, {sqrt(65/64)});
+    \draw[smooth, samples=200, domain={0.25}:{65/64}] plot ({-sqrt(2 - \x - sqrt(65/16 - 4*\x))}, {-sqrt(\x)}) -- ({-sqrt(2 - (65/64) - sqrt(65/16 - 4*(65/64)))}, -{sqrt(65/64)});
+
+    \draw[smooth, samples=200, domain=0:{0.25}] plot ({sqrt(2 - \x + sqrt(65/16 - 4*\x))}, {sqrt(\x)});
+    \draw[smooth, samples=200, domain=0:{0.25}] plot ({sqrt(2 - \x + sqrt(65/16 - 4*\x))}, {-sqrt(\x)});
+    \draw[smooth, samples=200, domain=0:{0.25}] plot ({-sqrt(2 - \x + sqrt(65/16 - 4*\x))}, {sqrt(\x)});
+    \draw[smooth, samples=200, domain=0:{0.25}] plot ({-sqrt(2 - \x + sqrt(65/16 - 4*\x))}, {-sqrt(\x)});
+
+    \filldraw ({0.5*sqrt(8+sqrt(65))}, 0) circle (0.5pt) node [below right] {\(\frac{1}{2} \sqrt{8 + \sqrt{65}}\)};
+    \filldraw ({-0.5*sqrt(8+sqrt(65))}, 0) circle (0.5pt) node [below left] {\(-\frac{1}{2} \sqrt{8 + \sqrt{65}}\)};
+    \filldraw (0, 0.5) circle (0.5pt) node [below right] {\(\frac{1}{2}\)};
+    \filldraw (0, -0.5) circle (0.5pt) node [above right] {\(-\frac{1}{2}\)};
+
+    \filldraw ({3*sqrt(7)/8}, {sqrt(65)/8}) circle (0.5pt) node [above] {\(\left(\frac{3\sqrt{7}}{8}, \frac{\sqrt{65}}{7}\right)\)};
+    \filldraw ({3*sqrt(7)/8}, {-sqrt(65)/8}) circle (0.5pt) node [below] {\(\left(\frac{3\sqrt{7}}{8}, -\frac{\sqrt{65}}{7}\right)\)};
+    \filldraw ({-3*sqrt(7)/8}, {sqrt(65)/8}) circle (0.5pt) node [above] {\(\left(-\frac{3\sqrt{7}}{8}, \frac{\sqrt{65}}{7}\right)\)};
+    \filldraw ({-3*sqrt(7)/8}, {-sqrt(65)/8}) circle (0.5pt) node [below] {\(\left(-\frac{3\sqrt{7}}{8}, -\frac{\sqrt{65}}{7}\right)\)};
+\end{tikzpicture}

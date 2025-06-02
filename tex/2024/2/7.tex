@@ -1,2 +1,113 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item In this case, we have either \(y^2 + (x - 1)^2 = 1\) (giving a circle with radius \(1\) centred at \((1, 0)\)), or \(y^2 + (x + 1)^2 = 1\) (giving a circle with radius \(1\) centred at \((-1, 0)\)).
+          \begin{center}
+              \input{\currfiledir 7-diag1}
+          \end{center}
+
+    \item At \(y = k\), we have
+          \begin{align*}
+              [(x - 1)^2 + (k^2 - 1)] [(x + 1)^2 + (k^2 - 1)]                                      & = \frac{1}{16} \\
+              (x - 1)^2 (x + 1)^2 + (k^2 - 1) [(x - 1)^2 + (x + 1)^2] + (k^2 - 1)^2 - \frac{1}{16} & = 0            \\
+              (x^2 - 1)^2 + 2 (k^2 - 1) (x^2 + 1) + (k^4 - 2k^2 + 1) - \frac{1}{16}                & = 0            \\
+              x^4 - 2x^2 + 1 + 2 (k^2 - 1) x^2 + 2 (k^2 - 1) + (k^4 - 2k^2 + 1) - \frac{1}{16}     & = 0            \\
+              x^4 + 2 (k^2 - 2) x^2 + k^4 - \frac{1}{16}                                           & = 0,
+          \end{align*}
+          as desired.
+
+          By completing the square, we have
+          \begin{align*}
+              (x^2 + (k^2 - 2))^2 + k^4 - \frac{1}{16} - (k^2 - 2)^2 & = 0                     \\
+              (x^2 + (k^2 - 2))^2                                    & = \frac{65}{16} - 4k^2.
+          \end{align*}
+
+          \begin{itemize}
+              \item If \(4k^2 > \frac{65}{16}\), i.e. \(k^2 > \frac{65}{64}\), the right-hand side is negative, so there will be no intersections.
+
+              \item If \(4k^2 = \frac{65}{16}\), i.e. \(k^2 = \frac{65}{64}\), we have
+                    \[
+                        x^2 + (k^2 - 2) = 0,
+                    \]
+                    and hence
+                    \[
+                        x^2 = 2 - k^2 = 2 - \frac{65}{64} = \frac{63}{64},
+                    \]
+                    giving
+                    \[
+                        x = \pm \frac{3\sqrt{7}}{8}.
+                    \]
+
+                    There will be two intersections.
+
+              \item If \(4k^2 < \frac{65}{16}\), i.e. \(k^2 < \frac{65}{64}\), we have
+                    \[
+                        x^2 + (k^2 - 2) = \pm \sqrt{\frac{65}{16} - 4k^2},
+                    \]
+                    and hence
+                    \[
+                        x^2 = 2 - k^2 \pm \sqrt{\frac{65}{16} - 4k^2}.
+                    \]
+
+                    The case where
+                    \begin{align*}
+                        x^2 & = 2 - k^2 + \sqrt{\frac{65}{16} - 4k^2} \\
+                            & > 2 - k^2                               \\
+                            & > 2 - \frac{65}{64}                     \\
+                            & = \frac{63}{64}                         \\
+                            & > 0
+                    \end{align*}
+                    always gives two solutions for \(x\).
+
+                    \begin{itemize}
+                        \item If \(2 - k^2 - \sqrt{\frac{65}{16} - 4k^2} < 0\),
+                              \begin{align*}
+                                  2 - k^2 - \sqrt{\frac{65}{16} - 4k^2} & < 0              \\
+                                  \sqrt{\frac{65}{16} - 4k^2}           & > 2 - k^2        \\
+                                  \frac{65}{16} - 4k^2                  & > k^4 - 4k^2 + 4 \\
+                                  k^4                                   & < \frac{1}{16}   \\
+                                  k^2                                   & < \frac{1}{4},
+                              \end{align*}
+                              there are no solutions for the case where the minus sign is taken.
+                        \item If \(2 - k^2 - \sqrt{\frac{65}{16} - 4k^2} = 0\), \(k^2 = \frac{1}{4}\), the minus sign produce precisely one solution \(x = 0\), giving \(3\) intersections in total.
+                        \item If \(2 - k^2 - \sqrt{\frac{65}{16} - 4k^2} < 0\), \(k^2 > \frac{1}{4}\), the minus sign will produce two additional roots, hence giving \(4\) intersections in total.
+                    \end{itemize}
+          \end{itemize}
+
+          To summarise, the number of intersections with the line \(y = k\) for each positive value of \(k\) is
+          \[
+              \text{number of intersections} = \begin{cases}
+                  0, & k^2 > \frac{65}{64}, k > \frac{\sqrt{65}}{8},                             \\
+                  2, & k^2 = \frac{65}{64}, k = \frac{\sqrt{65}}{8},                             \\
+                  4, & \frac{1}{4} < k^2 < \frac{65}{64}, \frac{1}{2} < k < \frac{\sqrt{65}}{8}, \\
+                  3, & k^2 = \frac{1}{4}, k = \frac{1}{2},                                       \\
+                  2, & k^2 < \frac{1}{4}, 0 < k < \frac{1}{2}.
+              \end{cases}
+          \]
+
+    \item When the point on \(C_2\) has the greatest possible \(y\)-coordinate, the two points have \(x\)-coordinates
+          \[
+              x = \pm \frac{3\sqrt{7}}{8},
+          \]
+          and on \(C_1\) has
+          \[
+              x = \pm 1.
+          \]
+
+          Since \(3 \sqrt{7} = \sqrt{63} < \sqrt{64} = 8\), we must have \(\frac{3\sqrt{7}}{8} < 1\), meaning those on \(C_2\) are closer to the \(y\)-axis than those on \(C_1\).
+
+    \item If both are negative, then the distance from \((x, y)\) to \((1, 0)\) and \((-1, 0)\) are both less than \(1\). But this is not possible, since the distance from \((1, 0)\) to \((-1, 0)\) is \(2\), which means the sum of the distances from \((x, y)\) to those points has to be at least \(2\).
+
+          Therefore, since the product of those two terms are positive for \(C_2\), and they cannot be both negative, they must both be positive, and hence the distance from \((x, y)\) to \((1, 0)\) and \((-1, 0)\) are both more than \(1\), meaning all points on \(C_2\) lies outside the two circles that make up \(C_1\), which shows that \(C_2\) lies entirely outside \(C_1\).
+
+    \item \(C_2\) is symmetric about both the \(x\)-axis and the \(y\)-axis.
+
+          When \(x = 0\), \(y^4 = \frac{1}{16}\), and hence \(y = \pm \frac{1}{2}\).
+
+          When \(y = 0\), \(x^2 = 2 + \frac{\sqrt{65}}{16}\), and hence \(x = \pm \sqrt{2 + \frac{\sqrt{65}}{{4}}} = \pm \frac{1}{2} \sqrt{8 + \sqrt{65}}\).
+
+          Hence, the graph looks as follows.
+          \begin{center}
+              \input{\currfiledir 7-diag2}
+          \end{center}
+\end{enumerate}
