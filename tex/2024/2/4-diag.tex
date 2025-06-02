@@ -1,0 +1,13 @@
+\begin{tikzpicture}[scale=0.9]
+    \coordinate (O) at (0, 0);
+    \coordinate (X) at (3, 0);
+    \coordinate (Y) at (1, {sqrt(3)});
+    \coordinate (B) at (9, {3 * sqrt(3)});
+    \draw[->] (O) -- (X) node[right] {\(X\)};
+    \draw[->] (O) -- (B);
+    \draw[->] (O) -- (Y) node[above right] {\(Y\)};
+    \node at (1.5, 0) [below] {\(\vect{x}\)};
+    \node at (0.5, {sqrt(3) / 2}) [above left] {\(\vect{y}\)};
+    \node at (4.5, {1.5 * sqrt(3)}) [below right] {\(\vect{b}\)};
+    \draw[dashed] (-3, {-sqrt(3)}) -- (12, {4*sqrt(3)});
+\end{tikzpicture}

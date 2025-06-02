@@ -1,2 +1,150 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item \begin{enumerate}
+              \item We first show that \(\vect{b}\) lies in the plane \(XOY\). Since \(\vect{b}\) is a linear combination of \(\vect{x}\) and \(\vect{y}\), it must lie in the plane containing \(\vect{x} = \bvect{OX}\) and \(\vect{y} = \bvect{OY}\), which is the plane \(XOY\).
+
+                    Let \(\alpha\) be the angle between \(\vect{b}\) and \(\vect{x}\), and let \(\beta\) be the angle between \(\vect{b}\) and \(\vect{y}\), where \(0 \leq \alpha, \beta \leq \pi\).
+
+                    We have
+                    \begin{align*}
+                        \cos \alpha & = \frac{\vect{b} \cdot \vect{x}}{\abs*{\vect{b}} \abs*{\vect{x}}}                                                                                              \\
+                                    & = \frac{1}{\abs*{\vect{b}}} \cdot \frac{\left(\abs*{\vect{x}} \vect{y} + \abs*{\vect{y}} \vect{x}\right) \cdot \vect{x}}{\abs*{\vect{x}}}                      \\
+                                    & = \frac{1}{\abs*{\vect{b}}} \cdot \frac{\abs*{\vect{x}} \cdot \left(\vect{x} \cdot \vect{y}\right) + \abs*{\vect{y}} \cdot \abs*{\vect{x}}^2}{\abs*{\vect{x}}} \\
+                                    & = \frac{1}{\abs*{\vect{b}}} \cdot \left(\vect{x} \cdot \vect{y} + \abs*{\vect{x}} \cdot \abs*{\vect{y}}\right).
+                    \end{align*}
+
+                    Similarly,
+                    \[
+                        \cos \beta = \frac{1}{\abs*{\vect{b}}} \cdot \left(\vect{x} \cdot \vect{y} + \abs*{\vect{x}} \cdot \abs*{\vect{y}}\right) = \cos \alpha.
+                    \]
+
+                    Since the \(\cos\) function is one-to-one on \([0, \pi]\), we must have \(\alpha = \beta\).
+
+                    Since \(\vect{x} \cdot \vect{y} = \abs*{\vect{x}} \cdot \abs*{\vect{y}} \cdot \cos \theta\) where \(\theta\) is the angle between \(\vect{x}\) and \(\vect{y}\), we have \(\vect{x} \cdot \vect{y} \geq - \abs*{\vect{x}} \abs*{\vect{y}}\), and since \(\theta \neq \pi\) (since \(OXY\) are non-collinear), we have \(\vect{x} \cdot \vect{y} > - \abs*{\vect{x}} \abs*{\vect{y}}\), and hence \(\cos \alpha = \cos \beta > 0\).
+
+                    This shows that both angles are less than \(\frac{\pi}{2} = 90\degree\).
+
+                    Hence, the three conditions
+                    \begin{itemize}
+                        \item \(\vect{b}\) lies in the plane \(OXY\),
+                        \item the angle between \(\vect{b}\) and \(\vect{x}\) is equal to the angle between \(\vect{b}\) and \(\vect{y}\),
+                        \item both angles are less than \(\frac{\pi}{2} = 90\degree\)
+                    \end{itemize}
+                    are all satisfied, and we can conclude that \(\vect{b}\) is a bisecting vector for the plane \(OXY\).
+
+                    \begin{center}
+                        \input{\currfiledir 4-diag}
+                    \end{center}
+
+                    All bisecting vectors must lie on the line containing \(\vect{b}\) (the dashed line on the diagram), and hence a scalar multiple of \(\vect{b}\).
+
+                    Furthermore, since both angles must be less than \(\frac{\pi}{2}\), it must not on the opposite as where \(\vect{b}\) is situated, and hence it must be a positive multiple of \(\vect{b}\).
+
+              \item If \(B\) lies on \(XY\), then \(\vect{OB} = \mu \vect{x} + (1 - \mu) \vect{y}\) must be a convex combination of \(\vect{x}\) and \(\vect{y}\), and hence
+                    \[
+                        \lambda\left(\abs*{\vect{x}} \vect{y} + \abs*{\vect{y}} \vect{x}\right) = \mu \vect{x} + (1 - \mu) \vect{y}.
+                    \]
+
+                    Since \(O\), \(X\) and \(Y\) are not collinear, we must have \(\vect{x}\) and \(\vect{y}\) are linearly independent, and hence \(\lambda \abs*{\vect{y}} = \mu\) and \(\lambda \abs*{\vect{x}} = 1 - \mu\), hence giving
+                    \[
+                        \lambda = \frac{1}{\abs*{\vect{x}} + \abs*{\vect{y}}}
+                    \]
+
+                    We therefore have
+                    \begin{align*}
+                        \frac{XB}{BY} & = \frac{\abs*{\bvect{OB} - \vect{x}}}{\abs*{\vect{y} - \bvect{OB}}}                                                                                                                                                                                                                                                                             \\
+                                      & = \frac{\abs*{\frac{\abs*{\vect{x}}}{\abs*{\vect{x}} + \abs*{\vect{y}}} \vect{y} + \frac{\abs*{\vect{y}}}{\abs*{\vect{x}} + \abs*{\vect{y}}} \vect{y} \vect{x} - \vect{x}}}{\abs*{\frac{\abs*{\vect{x}}}{\abs*{\vect{x}} + \abs*{\vect{y}}} \vect{y} + \frac{\abs*{\vect{y}}}{\abs*{\vect{x}} + \abs*{\vect{y}}} \vect{y} \vect{x} - \vect{y}}} \\
+                                      & = \frac{\abs*{\frac{\abs*{\vect{x}}}{\abs*{\vect{x}} + \abs*{\vect{y}}} \left(\vect{y} - \vect{x}\right)}}{\abs*{\frac{\abs*{\vect{y}}}{\abs*{\vect{x}} + \abs*{\vect{y}}} \left(\vect{x} - \vect{y}\right)}}                                                                                                                                   \\
+                                      & = \frac{\frac{\abs*{\vect{x}}}{\abs*{\vect{x}} + \abs*{\vect{y}}} \cdot \abs*{\vect{y} - \vect{x}}}{\frac{\abs*{\vect{y}}}{\abs*{\vect{x}} + \abs*{\vect{y}}} \cdot \abs*{\vect{x} - \vect{y}}}                                                                                                                                                 \\
+                                      & = \frac{\abs*{\vect{x}}}{\abs*{\vect{y}}},
+                    \end{align*}
+                    which means
+                    \[
+                        XB : BY = \abs*{\vect{x}} : \abs*{\vect{y}},
+                    \]
+                    which is precisely the angle bisector theorem.
+
+              \item Considering the dot product,
+                    \begin{align*}
+                        \bvect{OB} \cdot \bvect{XY} & = \lambda \vect{b} \cdot \left(\vect{y} - \vect{x}\right)                                                                                                                                                            \\
+                                                    & = \lambda \left(\abs*{\vect{x}} \vect{y} + \abs*{\vect{y}} \vect{x}\right) \cdot \left(\vect{y} - \vect{x}\right)                                                                                                    \\
+                                                    & = \lambda \left[\abs*{\vect{x}} \cdot \vect{y} \cdot \vect{y} + \abs*{\vect{y}} \cdot \vect{x} \cdot \vect{y} - \abs*{\vect{x}} \cdot \vect{x} \cdot \vect{y} - \abs*{\vect{y}} \cdot \vect{x} \cdot \vect{x}\right] \\
+                                                    & = \lambda \left[\abs*{\vect{x}} \cdot \abs*{\vect{y}}^2 + \left[\abs*{\vect{y}} - \abs*{\vect{x}}\right] \vect{x} \cdot \vect{y} - \abs*{\vect{y}} \cdot \abs*{\vect{x}}^2\right]                                    \\
+                                                    & = \lambda \left(\abs*{\vect{y}} - \abs*{\vect{x}}\right) \left(\abs*{\vect{x}} \abs*{\vect{y}} + \vect{x} \cdot \vect{y}\right)                                                                                      \\
+                                                    & = 0.
+                    \end{align*}
+
+                    Since \(O, X, Y\) are not collinear, \(\vect{x} \cdot \vect{y} > - \abs*{\vect{x}} \abs*{\vect{y}}\), and hence \(\abs*{\vect{x}} \abs*{\vect{y}} + \vect{x} \cdot \vect{y} > 0\).
+
+                    Also, \(\lambda = \frac{1}{\abs*{\vect{x}} + \abs*{\vect{y}}} \neq 0\).
+
+                    So it must be the case that \(\abs*{\vect{x}} - \abs*{\vect{y}} = 0\), which means \(\abs*{\vect{x}} = \abs*{\vect{y}}\).
+
+                    Hence, \(OX = OY\), and triangle \(OXY\) is isosceles.
+          \end{enumerate}
+
+    \item Let \(\vect{u}\), \(\vect{v}\) and \(\vect{w}\) be the bisecting vectors for \(QOR\), \(ROP\) and \(POQ\) respectively, and let \(\vect{p} = \bvect{OP}\), \(\vect{q} = \bvect{OQ}\), \(\vect{r} = \bvect{OR}\).
+
+          Let \(i, j, k\) be some arbitrary positive real constant.
+
+          From the question, we have
+          \[
+              \left\{
+              \begin{aligned}
+                  \vect{u} & = i \left(\abs*{\vect{q}} \vect{r} + \abs*{\vect{r}} \vect{q}\right), \\
+                  \vect{v} & = j \left(\abs*{\vect{r}} \vect{p} + \abs*{\vect{p}} \vect{r}\right), \\
+                  \vect{w} & = k \left(\abs*{\vect{p}} \vect{q} + \abs*{\vect{q}} \vect{p}\right). \\
+              \end{aligned}
+              \right.
+          \]
+
+          Considering a pair of dot-product, we have
+          \begin{align*}
+              \vect{u} \cdot \vect{v} & = ij \cdot \left(\abs*{\vect{q}} \abs*{\vect{r}} \vect{r} \cdot \vect{p} + \abs*{\vect{p}} \abs*{\vect{q}} \vect{r} \cdot \vect{r} + \abs*{\vect{r}} \abs*{\vect{r}} \vect{p} \cdot \vect{q} + \abs*{\vect{r}} \abs*{\vect{p}} \vect{q} \cdot \vect{r}\right) \\
+                                      & = ij \abs*{\vect{r}} \left(\abs*{\vect{q}} \vect{r} \cdot \vect{q} + \abs*{\vect{p}} \vect{r} \cdot \vect{q} + \abs*{\vect{p}} \abs*{\vect{q}} \abs*{\vect{r}} + \abs*{\vect{r}} \vect{p} \cdot \vect{q}\right)                                               \\
+                                      & = ij \abs*{\vect{r}}^2 \abs*{\vect{p}} \abs*{\vect{q}} \left(\cos \ang*{\vect{p}, \vect{r}} + \cos \ang*{\vect{r}, \vect{q}} + \cos \ang*{\vect{p}, \vect{q}} + 1\right),
+          \end{align*}
+          where \(\ang*{\vect{a}, \vect{b}}\) denotes the angle between \(\vect{a}\) and \(\vect{b}\), in \([0, \pi]\).
+
+          Denote
+          \[
+              t = \cos \ang*{\vect{p}, \vect{r}} + \cos \ang*{\vect{r}, \vect{q}} + \cos \ang*{\vect{q}, \vect{p}} + 1,
+          \]
+          and hence
+          \[
+              \left\{
+              \begin{aligned}
+                  \vect{u} \cdot \vect{v} & = ij \abs*{\vect{r}}^2 \abs*{\vect{p}} \abs*{\vect{q}} t, \\
+                  \vect{u} \cdot \vect{w} & = ik \abs*{\vect{r}} \abs*{\vect{p}} \abs*{\vect{q}}^2 t, \\
+                  \vect{v} \cdot \vect{w} & = jk \abs*{\vect{r}} \abs*{\vect{p}}^2 \abs*{\vect{q}} t.
+              \end{aligned}
+              \right.
+          \]
+
+          Since \(i, j, k > 0\), and \(\abs*{\vect{p}}, \abs*{\vect{q}}, \abs*{\vect{r}} > 0\) since none of \(P, Q, R\) are at \(O\), we must have
+          \[
+              \sgn (\vect{u} \cdot \vect{v}) = \sgn (\vect{u} \cdot \vect{w}) = \sgn (\vect{v} \cdot \vect{w}) = \sgn t,
+          \]
+          where \(\sgn: \RR \to \{-1, 0, -1\}\) is the sign function defined as
+          \[
+              \sgn x = \begin{cases}
+                  1,  & x > 0, \\
+                  0,  & x = 0, \\
+                  -1, & x < 0.
+              \end{cases}
+          \]
+
+          But the sign of a dot product also corresponds to the angle between two non-collinear non-zero vectors, since this resembles the sign of the cosine of the angle between them:
+          \begin{align*}
+              \sgn \vect{a} \cdot \vect{b} & = \sgn \abs*{\vect{a}} \abs*{\vect{b}} \cos \ang*{\vect{a}, \vect{b}} \\
+                                           & = \sgn \cos \ang*{\vect{a}, \vect{b}}                                 \\
+                                           & = \begin{cases}
+                                                   1,  & \ang{a, b} \text{ is acute},       \\
+                                                   0,  & \ang{a, b} \text{ is right-angle}, \\
+                                                   -1, & \ang{a, b} \text{ is obtuse}.
+                                               \end{cases}
+          \end{align*}
+
+          This means the angles between \(\vect{u}\) and \(\vect{v}\), \(\vect{u}\) and \(\vect{w}\), \(\vect{v}\) and \(\vect{w}\) must all be acute, obtuse, or right angles. This is exactly what is desired, and finishes our proof.
+\end{enumerate}
