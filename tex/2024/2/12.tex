@@ -1,2 +1,83 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item Let \(X_i\) be the number that the \(i\)th player receives, and let Ada be the first player. We have
+          \begin{align*}
+              \Prob(X_1 = a, X_2 > X_1, X_3 > X_1, \cdots, X_k > X_1) & = \Prob(X_1 = a, X_2 > a, X_3 > a, \cdots, X_k > a)                              \\
+                                                                      & = \Prob(X_1 = a) \Prob(X_2 > a) \Prob(X_3 > a) \cdots \Prob(X_k > a)             \\
+                                                                      & = \frac{1}{n} \cdot \frac{n - a}{n} \cdot \frac{n - a}{n} \cdots \frac{n - a}{n} \\
+                                                                      & = \frac{(n - a)^{k - 1}}{n^k}.
+          \end{align*}
+
+          Hence, the probability of Ada winning this is
+          \begin{align*}
+              \Prob(X_2 > X_1, X_3 > X_1, \cdots, X_k > X_1) & = \sum_{a = 1}^{n - 1} \Prob(X_1 = a, X_2 > X_1, X_3 > X_1, \cdots, X_k > X_1) \\
+                                                             & = \sum_{a = 1}^{n - 1} \frac{(n - a)^{k - 1}}{n^k}                             \\
+                                                             & = \frac{1}{n^k} \sum_{a = 1}^{n - 1} a^{k - 1},
+          \end{align*}
+          and the probability of there being a winner is the sum of the probabilities of each player winning, which are all equal to the probability of Ada winning by symmetry, and hence is equal to
+          \[
+              k \cdot \frac{1}{n^k} \sum_{a = 1}^{n - 1} a^{k - 1} = \frac{k}{n^k} \sum_{a = 1}^{n - 1} a^{k - 1}.
+          \]
+
+          If \(k = 4\), then this probability is given by
+          \begin{align*}
+              \Prob & = \frac{4}{n^4} \sum_{a = 1}^{n - 1} a^3      \\
+                    & = \frac{4}{n^4} \cdot \frac{(n - 1)^2 n^2}{4} \\
+                    & = \frac{(n - 1)^2}{n^2},
+          \end{align*}
+          precisely as desired.
+
+    \item Similarly, let \(X_i\) be the number that the \(i\)th player receives, and let Ada be the first player, and Bob be the second player. We have
+          \begin{align*}
+               & \phantom{=} \Prob(X_1 = a, X_2 = a + d + 1, X_1 < X_3 < X_2, \cdots, X_1 < X_k < X_2)                \\
+               & = \Prob(X_1 = a, X_2 = a + d + 1, a < X_3 < a + d + 1, \cdots, a < X_k < a + d + 1)                  \\
+               & = \Prob(X_1 = a) \Prob(X_2 = a + d + 1) \Prob(a < X_3 < a + d + 1) \cdots \Prob(a < X_k < a + d + 1) \\
+               & = \frac{1}{n} \cdot \frac{1}{n} \cdot \frac{d}{n} \cdots \frac{d}{n}                                 \\
+               & = \frac{d^{k - 2}}{n^k}.
+          \end{align*}
+
+          Hence, the probability that both Ada and Bob winning this is
+          \begin{align*}
+               & \phantom{=} \Prob(X_1 < X_3 < X_2, \cdots, X_1 < X_k < X_2)                                                               \\
+               & = \sum_{d = 1}^{n - 2} \sum_{a = 1}^{n - d - 1} \Prob(X_1 = a, X_2 = a + d + 1, X_1 < X_3 < X_2, \cdots, X_1 < X_k < X_2) \\
+               & = \sum_{d = 1}^{n - 2} \sum_{a = 1}^{n - d - 1} \frac{d^{k - 2}}{n^k}                                                     \\
+               & = \sum_{d = 1}^{n - 2} \frac{(n - d - 1) d^{k - 2}}{n^k}                                                                  \\
+               & = \frac{1}{n^k} \sum_{d = 1}^{n - 2} (n - d - 1) d^{k - 2}                                                                \\
+               & = \frac{1}{n^k} \left[(n - 1) \sum_{d = 1}^{n - 2} d^{k - 2} - \sum_{d = 1}^{n - 2} d^{k - 1}\right].
+          \end{align*}
+
+          Hence, the probability that there are two winners in this game is the sum of the probabilities of each ordered pair of players winning (since there is one winning by having a bigger number, and one winning by having a smaller number), and hence is equal to
+          \[
+              2 \cdot \binom{k}{2} \cdot \frac{1}{n^k} \left[(n - 1) \sum_{d = 1}^{n - 2} d^{k - 2} - \sum_{d = 1}^{n - 2} d^{k - 1}\right].
+          \]
+
+          When \(k = 4\), the probability is
+          \begin{align*}
+              \Prob & = 2 \cdot \binom{4}{2} \cdot \frac{1}{n^4} \left[(n - 1) \sum_{d = 1}^{n - 2} d^{2} - \sum_{d = 1}^{n - 2} d^{3}\right] \\
+                    & = 2 \dot 6 \cdot \frac{1}{n^4} \left[\frac{(n - 1) (n - 2) (n - 1) (2n - 3)}{6} - \frac{(n - 2)^2 (n - 1)^2}{4}\right]  \\
+                    & = 12 \cdot \frac{1}{n^4} \cdot (n - 1)^2 (n - 2) \left[\frac{2 (2n - 3) - 3 (n - 2)}{12}\right]                         \\
+                    & = \frac{(n - 1)^2 (n - 2)}{n^4} \cdot n                                                                                 \\
+                    & = \frac{(n - 2) (n - 1)^2}{n^3}.
+          \end{align*}
+
+          The probability of there being a winner due to having the biggest number (denote this event as \(B\)), is the same as there being a winner due to having the lowest number (denote this event as \(L\)), which are both equal to the answer to the first part of the question:
+          \begin{align*}
+              \Prob(B) = \Prob(L) = \frac{(n - 1)^2}{n^2}.
+          \end{align*}
+
+          The event of having two winners is \(B, L\) and the event of having precisely one winner is \(B, \bar{L}\) or \(L, \bar{B}\). By the inclusion-exclusion principle, the probability of having precisely one winner is given by
+          \begin{align*}
+              \Prob & = \Prob(B) + \Prob(L) - 2 \Prob(B, L)                                  \\
+                    & = 2 \cdot \frac{(n - 1)^2}{n^2} - 2 \cdot \frac{(n - 2)(n - 1)^2}{n^3} \\
+                    & = \frac{2 (n - 1)^2}{n^3} \cdot \left[n - (n - 2)\right]               \\
+                    & = \frac{4 (n - 1)^2}{n^3}.
+          \end{align*}
+
+          This probability is smaller than \(\Prob(B, L)\), if and only if
+          \begin{align*}
+              \frac{4(n - 1)^2}{n^3} & < \frac{(n - 2) (n - 1)^2}{n^3} \\
+              4                      & < n - 2                         \\
+              n                      & > 6,
+          \end{align*}
+          and hence the minimum value of \(n\) for this is \(7\).
+\end{enumerate}
