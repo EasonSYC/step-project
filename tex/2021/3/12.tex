@@ -1,2 +1,198 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item Let \(X_i\) be the outcome of player \(i\) in a die roll. Then we have
+          \[
+              X_{ij} = \begin{cases}
+                  1, & X_i = X_j,    \\
+                  0, & X_i \neq X_j.
+              \end{cases}
+          \]
+
+          Hence, we have
+          \begin{align*}
+              \Prob(X_{ij} = 1) & = \Prob(X_i = X_j)                               \\
+                                & = \sum_{n = 1}^{6} \Prob(X_i = X_j = n)          \\
+                                & = \sum_{n = 1}^{6} \Prob(X_i = n) \Prob(X_j = n) \\
+                                & = \sum_{n = 1}^{6} \frac{1}{6} \cdot \frac{1}{6} \\
+                                & = 6 \cdot \frac{1}{6} \cdot \frac{1}{6}          \\
+                                & = \frac{1}{6},
+          \end{align*}
+          and hence \(\Prob(X_{ij} = 0) = 1 - \frac{1}{6} = \frac{5}{6}\). Furthermore,
+          \[
+              \Expt\left(X_{ij}\right) = \frac{1}{6} \cdot 1 = \frac{1}{6},
+          \]
+          and hence
+          \[
+              \Var\left(X_{ij}\right) = \Expt\left(X_{ij}^2\right) - \left(X_{ij}\right)^2 = \frac{1}{6} \cdot 1 - \left(\frac{1}{6}\right)^2 = \frac{5}{36}.
+          \]
+
+          For any \(1 \leq i < j < k \leq n\), we have
+          \begin{align*}
+              \Prob(X_{ij} = 1, X_{jk} = 1) & = \Prob(X_i = X_j, X_j = X_k)                                      \\
+                                            & = \Prob(X_i = X_j = X_k)                                           \\
+                                            & = \sum_{n = 1}^{6} \Prob(X_i = X_j = X_k = n)                      \\
+                                            & = \sum_{n = 1}^{6} \Prob(X_i = n) \Prob(X_j = n) \Prob(X_k = n)    \\
+                                            & = \sum_{n = 1}^{6} \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{1}{6} \\
+                                            & = 6 \cdot \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{1}{6}          \\
+                                            & = \frac{1}{36}                                                     \\
+                                            & = \Prob(X_{ij} = 1) \Prob(X_{jk} = 1),
+          \end{align*}
+          \begin{align*}
+              \Prob(X_{ij} = 1, X_{jk} = 0) & = \Prob(X_i = X_j, X_j \neq X_k)                                                   \\
+                                            & = \sum_{n = 1}^{6} \sum_{m \neq n} \Prob(X_i = X_j = n, X_k = m)                   \\
+                                            & = \sum_{n = 1}^{6} \sum_{m \neq n} \Prob(X_i = n) \Prob(X_j = n) \Prob(X_k = m)    \\
+                                            & = \sum_{n = 1}^{6} \sum_{m \neq n} \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{1}{6} \\
+                                            & = 6 \cdot 5 \cdot \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{1}{6}                  \\
+                                            & = \frac{5}{36}                                                                     \\
+                                            & =  \Prob(X_{ij} = 1) \Prob(X_{jk} = 0),
+          \end{align*}
+          \begin{align*}
+              \Prob(X_{ij} = 0, X_{jk} = 1) & = \Prob(X_i \neq X_j, X_j = X_k)                                                   \\
+                                            & = \sum_{n = 1}^{6} \sum_{m \neq n} \Prob(X_i = m, X_j = X_k = m)                   \\
+                                            & = \sum_{n = 1}^{6} \sum_{m \neq n} \Prob(X_i = m) \Prob(X_j = n) \Prob(X_k = n)    \\
+                                            & = \sum_{n = 1}^{6} \sum_{m \neq n} \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{1}{6} \\
+                                            & = 6 \cdot 5 \cdot \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{1}{6}                  \\
+                                            & = \frac{5}{36}                                                                     \\
+                                            & = \Prob(X_{ij} = 0) \Prob(X_{jk} = 1),
+          \end{align*}
+          and
+          \begin{align*}
+              \Prob(X_{ij} = 0, X_{jk} = 0) & = \Prob(X_i \neq X_j, X_j \neq X_k)                                                                \\
+                                            & = \sum_{n = 1}^{6} \sum_{m \neq n} \sum_{l \neq n} \Prob(X_i = m, X_j = n, X_k = l)                \\
+                                            & = \sum_{n = 1}^{6} \sum_{m \neq n} \sum_{l \neq n} \Prob(X_i = m) \Prob(X_j = n) \Prob(X_k = l)    \\
+                                            & = \sum_{n = 1}^{6} \sum_{m \neq n} \sum_{l \neq n} \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{1}{6} \\
+                                            & = 6 \cdot 5 \cdot 5 \cdot \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{1}{6}                          \\
+                                            & = \frac{25}{36}                                                                                    \\
+                                            & = \Prob(X_{ij} = 0) \Prob(X_{jk} = 0).
+          \end{align*}
+
+          Hence, \(X_{ij}\) and \(X_{jk}\) are independent, and therefore \(X_{12}\) is independent of \(X_{23}\).
+
+          Similarly, for \(0 \leq i < j < k \leq n\), we have \(X_{ij}\) is independent of \(X_{ik}\), and \(X_{ik}\) is independent of \(X_{jk}\). Furthermore, for \(0 \leq i < j \leq n\) and \(0 \leq k < p \leq n\), where none of \(i, j, k, l\) are equal, we have \(X_{ij}\) is independent of \(X_{kl}\) since the outcomes are completely irrelevant and independent.
+
+          Hence, \(X_{ij}\) s are pairwise independent. Let \(X\) be the total score:
+          \[
+              X = \sum_{0 \leq i < j \leq n} X_{ij}
+          \]
+          and hence we have
+          \begin{align*}
+              \Expt(X) & = \Expt \left(\sum_{0 \leq i < j \leq n} X_{ij}\right) \\
+                       & = \sum_{0 \leq i < j \leq n} \Expt\left(X_{ij}\right)  \\
+                       & = \sum_{0 \leq i < j \leq n} \cdot \frac{1}{6}         \\
+                       & = \binom{n}{2} \cdot \frac{1}{6}                       \\
+                       & = \frac{n (n - 1)}{12},
+          \end{align*}
+          and
+          \begin{align*}
+              \Var(X) & = \Var \left(\sum_{0 \leq i < j \leq n} X_{ij}\right) \\
+                      & = \sum_{0 \leq i < j \leq n} \Var\left(X_{ij}\right)  \\
+                      & = \sum_{0 \leq i < j \leq n} \cdot \frac{5}{36}       \\
+                      & = \binom{n}{2} \cdot \frac{5}{36}                     \\
+                      & = \frac{5 n (n - 1)}{72},
+          \end{align*}
+
+    \item Define
+          \[
+              Y = \sum_{i = 1}^{m} Y_i,
+          \]
+          and hence
+          \[
+              \Expt(Y) = \Expt\left(\sum_{i = 1}^{m} Y_i\right) = \sum_{i = 1}^{m} \Expt(Y_i) = 0.
+          \]
+
+          Hence,
+          \begin{align*}
+              \Var(Y) & = \Expt\left(Y^2\right) - \Expt(Y)^2                                                                                \\
+                      & = \Expt \left(\left(\sum_{i = 1}^{m} Y_i\right)^2\right)                                                            \\
+                      & = \Expt \left(\sum_{i = 1}^{m} Y_i^2 + \sum_{i \neq j} Y_i Y_j\right)                                               \\
+                      & = \Expt \left(\sum_{i = 1}^{m} Y_i^2 + 2 \sum_{1 \leq i < j \leq m} Y_i Y_j\right)                                  \\
+                      & = \Expt \left(\sum_{i = 1}^{m} Y_i^2 + 2 \sum_{i = 1}^{m - 1} \sum_{j = i + 1}^{m} Y_i Y_j\right)                   \\
+                      & = \sum_{i = 1}^{m} \Expt\left(Y_i^2\right) + 2 \sum_{i = 1}^{m - 1} \sum_{j = i + 1}^{m} \Expt\left(Y_i Y_j\right),
+          \end{align*}
+          as desired.
+
+    \item By definition, we have
+          \[
+              Z_{ij} = \begin{cases}
+                  1,  & X_i = X_j \text{ is even}, \\
+                  -1, & X_i = X_j \text{ is odd},  \\
+                  0,  & X_i \neq X_j.
+              \end{cases}
+          \]
+
+          Hence, we have \(\Prob(Z_{ij} = 0) = \Prob(X_{ij} = 0) = \frac{5}{6}\), and
+          \begin{align*}
+              \Prob(Z_{ij} = 1) = \Prob(Z_{ij} = -1) & = \frac{1}{2} \left(1 - \Prob(Z_{ij} = 0)\right) \\
+                                                     & = \frac{1}{2} \left(1 - \Prob(X_{ij} = 0)\right) \\
+                                                     & = \frac{1}{2} \left(1 - \frac{5}{6}\right)       \\
+                                                     & = \frac{1}{12},
+          \end{align*}
+          which means \(\Expt\left(Z_{ij}\right) = 0\).
+
+          Consider \(Z_{12} = 1\) and \(Z_{23} = -1\). If \(Z_{12} = 1\) and \(Z_{23} = -1\), this means \(X_1 = X_2\) are both even, and \(X_2 = X_3\) are both odd. This is impossible, and hence
+          \[
+              \Prob(Z_{12} = 1, Z_{23} = -1) = 0.
+          \]
+
+          On the other hand,
+          \[
+              \Prob(Z_{12} = 1) \Prob(Z_{23} = -1) = \frac{1}{12} \cdot \frac{1}{12} = \frac{1}{144} \neq 0,
+          \]
+          and so \(Z_{12}\) and \(Z_{23}\) are not independent.
+
+          Notice that \(X_{ij} = Z_{ij}^2\) and so \(\Expt\left(Z_{ij}^2\right) = \Expt(X_{ij}) = \frac{1}{6}\).
+
+          We can say for \(1 \leq i < j \leq n\) and \(1 \leq k < l \leq n\), where none of \(i, j, k, l\) are equal, since \(X_i, X_j, X_k\) and \(X_l\) are independent, we must have \(Z_{ij}\) is independent of \(Z_{kl}\), and hence
+          \[
+              \Expt\left(Z_{ij} Z_{kl}\right) = \Expt\left(Z_{ij}\right) \Expt\left(Z_{kl}\right) = 0.
+          \]
+
+          However, for \(1 \leq i < j < k \leq n\), we have
+          \[
+              \Prob(Z_{ij} Z_{jk} = -1) = \Prob(Z_{ij} = 1, Z_{jk} = -1) + \Prob(Z_{ij} = -1, Z_{jk} = 1) = 0.
+          \]
+
+          For the event \(Z_{ij} Z_{jk} = 1\), it must be \(Z_{ij} = Z_{jk} = \pm 1\), which is the event \(X_{ij} = X_{jk} = 1\), and hence
+          \[
+              \Prob(Z_{ij} Z_{jk} = 1) = \Prob(X_{ij} = X_{jk} = 1) = \Prob(X_{ij} = 1) \Prob(X_{jk} = 1) = \frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}.
+          \]
+
+          Hence, the only remaining case is \(Z_{ij} Z_{jk} = 0\) which gives
+          \[
+              \Prob(Z_{ij} Z_{jk} = 0) = 1 - \frac{1}{36} = \frac{35}{36},
+          \]
+          and hence
+          \[
+              \Expt\left(Z_{ij} Z_{jk}\right) = \frac{1}{36}.
+          \]
+
+          Let \(Z\) be the total score
+          \[
+              Z = \sum_{1 \leq i < j \leq n} Z_{ij},
+          \]
+          and hence
+          \[
+              \Expt(Z) = \Expt\left(\sum_{1 \leq i < j \leq n} Z_{ij}\right) = \sum_{1 \leq i < j \leq n} \Expt\left(Z_{ij}\right) = 0.
+          \]
+
+          For the variance, the second part of the sum consists of the non-repeating pairwise products of \(Z_{ij}\) and \(Z_{kl}\) for \(1 \leq i, j, k, l \leq n\), \(i < j\) and \(k < l\), and finally for non-repeating, \(i < k\) or \(i = k\) and \(j < l\). Let the indices be \(1 \leq i < j < k \leq n\), and the pairs must be one of the following three
+          \[
+              \left(Z_{ij}, Z_{ik}\right), \left(Z_{ij}, Z_{jk}\right), \left(Z_{ik}, Z_{jk}\right)
+          \]
+          and hence there are
+          \[
+              3 \cdot \binom{n}{3} = \frac{n (n - 1) (n - 2)}{2}
+          \]
+          such pairs.
+
+          Hence,
+          \begin{align*}
+              \Var(Z) & = \sum_{1 \leq i < j \leq n} \Expt \left(Z_{ij}^2\right) + 2 \cdot \frac{n (n - 1) (n - 2)}{2} \cdot \frac{1}{36} \\
+                      & = \binom{n}{2} \cdot \frac{1}{6} + \frac{n (n - 1) (n - 2)}{36}                                                   \\
+                      & = \frac{n (n - 1)}{12} + \frac{n (n - 1) (n - 2)}{36}                                                             \\
+                      & = \frac{n (n - 1)}{36} \cdot \left[3 + (n - 2)\right]                                                             \\
+                      & = \frac{n (n - 1)}{36} (n + 1)                                                                                    \\
+                      & = \frac{n (n^2 - 1)}{36},
+          \end{align*}
+          as desired.
+\end{enumerate}
