@@ -1,2 +1,196 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item For the first row/component in \(\ihat\),
+          \begin{align*}
+              \begin{pmatrix}
+                  1 & -x & x
+              \end{pmatrix}
+              \begin{pmatrix}
+                  a \\ b \\ c
+              \end{pmatrix} & = 1 \cdot a + (-x) \cdot b + x \cdot c       \\
+                              & = a + \frac{-ab}{b - c} = \frac{ac}{b - c} \\
+                              & = a + \frac{ac - ab}{b - c}                \\
+                              & = a + (-a)                                 \\
+                              & = 0,
+          \end{align*}
+          and this is similar for the remaining row and components. Hence, we have
+          \[
+              \begin{pmatrix}
+                  1  & -x & x  \\
+                  y  & 1  & -y \\
+                  -z & z  & 1
+              \end{pmatrix}
+              \begin{pmatrix}
+                  a \\
+                  b \\
+                  c
+              \end{pmatrix}
+              = \begin{pmatrix}
+                  0 \\
+                  0 \\
+                  0
+              \end{pmatrix}
+          \]
+          as desired.
+
+          If the matrix
+          \[
+              \begin{pmatrix}
+                  1  & -x & x  \\
+                  y  & 1  & -y \\
+                  -z & z  & 1
+              \end{pmatrix}
+          \]
+          is invertible, then we must have
+          \[
+              \begin{pmatrix}
+                  a \\
+                  b \\
+                  c
+              \end{pmatrix}
+              =
+              \begin{pmatrix}
+                  1  & -x & x  \\
+                  y  & 1  & -y \\
+                  -z & z  & 1
+              \end{pmatrix}^{-1} \begin{pmatrix}
+                  0 \\
+                  0 \\
+                  0
+              \end{pmatrix}
+              = \begin{pmatrix}
+                  0 \\
+                  0 \\
+                  0
+              \end{pmatrix}
+          \]
+          which is impossible, since \(a\), \(b\) and \(c\) are distinct.
+
+          Hence, this matrix is not invertible, and it must have a zero-determinant, meaning
+          \begin{align*}
+              0 & = \det \begin{pmatrix}
+                             1  & -x & x  \\
+                             y  & 1  & -y \\
+                             -z & z  & 1
+                         \end{pmatrix}                                                                                                                     \\
+                & = 1 \cdot 1 \cdot 1 + (-x) \cdot (-y) \cdot (-z) + x \cdot y \cdot z - 1 \cdot (-y) \cdot z - (-x) \cdot y \cdot 1 - x \cdot 1 \cdot (-z) \\
+                & = 1 - xyz + xyz + yz + xy + xz                                                                                                            \\
+                & = xy + yz + zx + 1,
+          \end{align*}
+          and hence
+          \[
+              xy + yz + zx = -1.
+          \]
+
+          Since \((x + y + z)^2 \geq 0\), we have
+          \begin{align*}
+              0 & \leq (x + y + z)^2                                                                      \\
+                & = x^2 + y^2 + z^2 + 2 (xy + yz + zx)                                                    \\
+                & = \frac{a^2}{(b - c)^2} + \frac{b^2}{(c - a)^2} + \frac{c^2}{(a - b)^2} + 2 \cdot (-1),
+          \end{align*}
+          and hence
+          \[
+              \frac{a^2}{(b - c)^2} + \frac{b^2}{(c - a)^2} + \frac{c^2}{(a - b)^2} \geq 2,
+          \]
+          as desired.
+
+    \item Consider the matrix
+          \[
+              \begin{pmatrix}
+                  -2 & x  & x   \\
+                  y  & -2 & y   \\
+                  z  & z  & -2,
+              \end{pmatrix}
+          \]
+          and for the first row/component in \(\ihat\),
+          \begin{align*}
+              \begin{pmatrix}
+                  -2 & x & x
+              \end{pmatrix}
+              \begin{pmatrix}
+                  a \\
+                  b \\
+                  c
+              \end{pmatrix}
+               & = (-2) a + bx + cx   \\
+               & = (-2) a + (b + c) x \\
+               & = (-2) a + 2a        \\
+               & = 0,
+          \end{align*}
+          and similarly in the second and third rows/components, and hence
+          \[
+              \begin{pmatrix}
+                  -2 & x  & x   \\
+                  y  & -2 & y   \\
+                  z  & z  & -2,
+              \end{pmatrix}
+              \begin{pmatrix}
+                  a \\
+                  b \\
+                  c
+              \end{pmatrix}
+              =
+              \begin{pmatrix}
+                  0 \\
+                  0 \\
+                  0
+              \end{pmatrix}.
+          \]
+
+          By similar argument as before, this matrix must have a zero determinant as well, and hence
+          \begin{align*}
+              0 & = \det \begin{pmatrix}
+                             -2 & x  & x   \\
+                             y  & -2 & y   \\
+                             z  & z  & -2,
+                         \end{pmatrix}                                             \\
+                & = (-2) (-2) (-2) + x y z + x y z - (-2) y z - x y (-2) - x (-2) z \\
+                & = -8 + 2xyz + 2xy + 2yz + 2zx,
+          \end{align*}
+          and hence
+          \[
+              xyz + xy + yz + zx = 4,
+          \]
+          as desired.
+
+          Hence, consider
+          \[
+              (x + 1) (y + 1) (z + 1) = xyz + xy + yz + zx + x + y + z + 1 = 5 + x + y + z.
+          \]
+
+          Since \(a, b, c\) are all positive real numbers, \(x, y, z\) are as well, and hence \(x + y + z > 0\), giving
+          \[
+              (x + 1) (y + 1) (z + 1) > 5,
+          \]
+          which means
+          \[
+              \frac{2a + b + c}{b + c} \cdot \frac{a + 2b + c}{a + c} \cdot \frac{a + b + 2c}{a + b} > 5,
+          \]
+          and hence
+          \[
+              (2a + b + c) (a + 2b + c) (a + b + 2c) > 5 (b + c) (c + a) (a + b)
+          \]
+          as desired.
+
+          Furthermore, notice that
+          \begin{align*}
+              x + y + z & = \frac{2a}{b + c} + \frac{2b}{c + a} + \frac{2c}{a + b}             \\
+                        & > \frac{2a}{a + b + c} + \frac{2b}{a + b + c} + \frac{2c}{a + b + c} \\
+                        & = \frac{2(a + b + c)}{a + b + c}                                     \\
+                        & = 2.
+          \end{align*}
+
+          Hence,
+          \[
+              (x + 1) (y + 1) (z + 1) > 7,
+          \]
+          which means
+          \[
+              \frac{2a + b + c}{b + c} \cdot \frac{a + 2b + c}{a + c} \cdot \frac{a + b + 2c}{a + b} > 7,
+          \]
+          and hence
+          \[
+              (2a + b + c) (a + 2b + c) (a + b + 2c) > 7 (b + c) (c + a) (a + b)
+          \]
+          as desired.
+\end{enumerate}
