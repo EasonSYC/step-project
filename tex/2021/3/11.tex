@@ -1,2 +1,86 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item From the definitions, \(X \sim \Exponential(\lambda)\), and \(Y = \floor*{X}\).
+
+          Hence, for \(n \geq 0\),
+          \begin{align*}
+              \Prob(Y = n) & = \Prob(\floor*{X} = n)                                 \\
+                           & = \Prob(n \leq X < n + 1)                               \\
+                           & = \int_{n}^{n + 1} f(x) \Diff x                         \\
+                           & = \int_{n}^{n + 1} \lambda \cdot e^{-\lambda x} \Diff x \\
+                           & = \left[- e^{-\lambda x}\right]_{n}^{n + 1}             \\
+                           & = - e^{-\lambda (n + 1)} + e^{-\lambda n}               \\
+                           & = e^{-n\lambda} \left(1 - e^{-\lambda} \right),
+          \end{align*}
+          as desired.
+
+    \item Since \(Z = X - Y\), we know that \(Z = \{X\}\) where \(\{x\}\) stands for the fractional part of \(x\).
+
+          Hence, for \(0 \leq z \leq 1\), we have
+          \begin{align*}
+              \Prob(Z < z) & = \Prob(\{X\} < z)                                                            \\
+                           & = \Prob(X - Y < z)                                                            \\
+                           & = \sum_{n = 0}^{\infty} \Prob(X < Y + z, Y = n)                               \\
+                           & = \sum_{n = 0}^{\infty} \Prob(n \leq X < n + z)                               \\
+                           & = \sum_{n = 0}^{\infty} \int_{n}^{n + z} \lambda \cdot e^{-\lambda x} \Diff x \\
+                           & = \sum_{n = 0}^{\infty} \left[- e^{-\lambda x}\right]_{n}^{n + z}             \\
+                           & = \sum_{n = 0}^{\infty} \left[- e^{-\lambda (n + z)} + e^{-\lambda n}\right]  \\
+                           & = \sum_{n = 0}^{\infty} e^{-n\lambda} \left(1 - e^{-\lambda z} \right)        \\
+                           & = \left(1 - e^{-\lambda z} \right) \sum_{n = 0}^{\infty} e^{-n\lambda}        \\
+                           & = \left(1 - e^{-\lambda z} \right) \cdot \frac{1}{1 - e^{-\lambda}}           \\
+                           & = \frac{1 - e^{-\lambda z}}{1 - e^{-\lambda}},
+          \end{align*}
+          as desired.
+
+    \item It must be the case that \(0 \leq Z < 1\), and the cumulative distribution function of \(Z\) is given by, for \(0 \leq z \leq 1\),
+          \[
+              F_{Z}(z) = \frac{1 - e^{-\lambda z}}{1 - e^{-\lambda}}.
+          \]
+
+          By differentiating with respect to \(z\), we get the probability density function of \(Z\) is given by, for \(0 \leq z \leq 1\),
+          \begin{align*}
+              f_{Z}(z) & = F'_{Z}(z)                                                                  \\
+                       & = \DiffOp{z} \frac{1 - e^{-\lambda z}}{1 - e^{-\lambda}}                     \\
+                       & = \frac{1}{1 - e^{-\lambda}} \cdot \left(\lambda \cdot e^{-\lambda z}\right) \\
+                       & = \frac{\lambda e^{-\lambda z}}{1 - e^{-\lambda}},
+          \end{align*}
+          and zero everywhere else.
+
+          Hence, the expectation is given by
+          \begin{align*}
+              \Expt(Z) & = \int_{0}^{1} z f_{Z} (z) \Diff z                                                                                                        \\
+                       & = \int_{0}^{1} \frac{\lambda z e^{-\lambda z}}{1 - e^{-\lambda}} \Diff z                                                                  \\
+                       & = \frac{\lambda}{1 - e^{-\lambda}} \int_{0}^{1} z e^{-\lambda z} \Diff z                                                                  \\
+                       & = - \frac{1}{1 - e^{-\lambda}} \int_{0}^{1} z \Diff e^{-\lambda z}                                                                        \\
+                       & = - \frac{1}{1 - e^{-\lambda}} \left[\left(z e^{-\lambda z}\right)_{0}^{1} - \int_{0}^{1} e^{-\lambda z} \Diff z\right]                   \\
+                       & = - \frac{1}{1 - e^{-\lambda}} \left[z e^{-\lambda z} + \frac{e^{-\lambda z}}{\lambda}\right]_{0}^{1}                                     \\
+                       & = - \frac{1}{1 - e^{-\lambda}} \left[\left(e^{-\lambda} + \frac{e^{-\lambda}}{\lambda}\right) - \left(0 + \frac{1}{\lambda}\right)\right] \\
+                       & = \frac{\frac{1}{\lambda} - \frac{e^{-\lambda}}{\lambda} - e^{-\lambda}}{1 - e^{-\lambda}}                                                \\
+                       & = \frac{1 - e^{-\lambda} - \lambda e^{-\lambda}}{\lambda \left(1 - e^{-\lambda}\right)}.
+          \end{align*}
+
+    \item Since \(0 \leq z_1 < z_2 \leq 1\), we have \(n \leq n + z_1 < n + z_2 \leq n + 1\), and hence
+          \begin{align*}
+              \Prob(Y = n, z_1 < Z < z_2) & = \Prob(Y = n, z_1 < X - Y < z_2)                                  \\
+                                          & = \Prob(n + z_1 < X < n + z_2)                                     \\
+                                          & = \int_{n + z_1}^{n + z_2} \lambda \cdot e^{-\lambda x}            \\
+                                          & = \left[- e^{-\lambda x}\right]_{n + z_1}^{n + z_2}                \\
+                                          & = e^{-\lambda (n + z_1)} - e^{-\lambda (n + z_2)}                  \\
+                                          & = e^{-\lambda n} \left[e^{-\lambda z_1} - e^{-\lambda z_2}\right].
+          \end{align*}
+
+          On the other hand, notice
+          \begin{align*}
+              \Prob(Y = n) \Prob(z_1 < Z < z_2) & = \Prob(Y = n) \left(\Prob(Z < z_2) - \Prob(Z - z_1)\right)                                                                                          \\
+                                                & = (1 - e^{-\lambda}) e^{-n\lambda} \cdot \left[\frac{1 - e^{-\lambda z_2}}{1 - e^{-\lambda}} -  \frac{1 - e^{-\lambda z_1}}{1 - e^{-\lambda}}\right] \\
+                                                & = e^{- n \lambda} \left[\left(1 - e^{-\lambda z_2}\right) - \left(1 - e^{-\lambda z_1}\right)\right]                                                 \\
+                                                & = e^{-n \lambda} \left[e^{-\lambda z_1} - e^{-\lambda z_2}\right].
+          \end{align*}
+
+          Hence, we have
+          \[
+              \Prob(Y = n, z_1 < Z < z_2) = \Prob(Y = n) \Prob(z_1 < Z < z_2),
+          \]
+          and we can conclude that \(Y\) and \(Z\) are independent.
+\end{enumerate}
