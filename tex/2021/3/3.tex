@@ -1,2 +1,81 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item Notice that
+          \begin{align*}
+              \LHS & = \frac{1}{2} \left(I_{n + 1} + I_{n - 1}\right)                                                                                   \\
+                   & = \frac{1}{2} \left(\int_{0}^{\beta} (\sec x + \tan x)^{n + 1} \Diff x + \int_{0}^{\beta} (\sec x + \tan x)^{n - 1} \Diff x\right) \\
+                   & = \frac{1}{2} \int_{0}^{\beta} (\sec x + \tan x)^{n - 1} \left[(\sec x + \tan x)^2 + 1\right] \Diff x                              \\
+                   & = \frac{1}{2} \int_{0}^{\beta} (\sec x + \tan x)^{n - 1} \left(\sec^2 x + \tan^2 x + 2 \sec x \tan x + 1\right) \Diff x            \\
+                   & = \frac{1}{2} \int_{0}^{\beta} (\sec x + \tan x)^{n - 1} \cdot 2\left(\sec^2 x + \sec x \tan x\right) \Diff x                      \\
+                   & = \int_{0}^{\beta} (\sec x + \tan x)^{n - 1} \Diff (\sec x + \tan x)                                                               \\
+                   & = \frac{1}{n} \left[\left(\sec x + \tan x\right)^{n}\right]_{0}^{\beta}                                                            \\
+                   & = \frac{1}{n} \left(\left(\sec \beta + \tan \beta\right)^{n} - \left(\sec 0 + \tan 0\right)^{n}\right)                             \\
+                   & = \frac{1}{n} \left(\left(\sec \beta + \tan \beta\right)^{n} - 1 \right)                                                           \\
+                   & = \RHS,
+          \end{align*}
+          as desired.
+
+          To show the final part, we would like to show that
+          \[
+              I_n < \frac{1}{2} \left(I_{n + 1} + I_{n - 1}\right) = \frac{1}{n} \left(\left(\sec \beta + \tan \beta\right)^{n} - 1 \right),
+          \]
+          which is equivalent to showing
+          \[
+              I_{n + 1} + I_{n - 1} - 2 I_n > 0.
+          \]
+
+          \begin{align*}
+               & \phantom{=} I_{n + 1} + I_{n - 1} - 2 I_n                                                                                                                    \\
+               & = \int_{0}^{\beta} (\sec x + \tan x)^{n + 1} \Diff x + \int_{0}^{\beta} (\sec x + \tan x)^{n - 1} \Diff x - 2 \int_{0}^{\beta} (\sec x + \tan x)^{n} \Diff x \\
+               & = \int_{0}^{\beta} \left(\sec x + \tan x\right)^{n - 1} \left(2 \sec^2 x + 2 \sec x \tan x - 2 \sec x - 2 \tan x\right)                                      \\
+               & = \int_{0}^{\beta} \left(\sec x + \tan x\right)^{n - 1} \left(\sec^2 x + \tan^2 x + 2 \sec x \tan x - 2 \sec x - 2 \tan x + 1 \right)                        \\
+               & = \int_{0}^{\beta} \left(\sec x + \tan x\right)^{n - 1} \left[\left(\sec x + \tan x\right)^2 - 2 \left(\sec x + 2 \tan x\right) + 1\right]                   \\
+               & = \int_{0}^{\beta} \left(\sec x + \tan x\right)^{n - 1} \left(\left(\sec x + \tan x\right) - 1\right)^2.
+          \end{align*}
+
+          For \(0 \leq x < \frac{\pi}{2}\), \(\sec x > 0, \tan x > 0\), and so \(\sec x + \tan x > 0\), \(\left(\sec x + \tan x\right)^{n - 1} > 0\).
+
+          Also, \(\sec x = \frac{1}{\cos x} > \frac{1}{1} = 1\), and hence \(\sec x + \tan x - 1 > 0\), so \(\left(\left(\sec x + \tan x\right) - 1\right)^2 > 0\).
+
+          Hence, the integrand is greater than \(0\) on \((0, \beta) \subseteq \left(0, \frac{\pi}{2}\right)\).
+
+          This shows that the desired equation is greater than \(0\), and hence, we have the desired inequality as desired.
+
+    \item Notice that
+          \begin{align*}
+              \frac{1}{2} \left(J_{n + 1} + J_{n - 1}\right) & = \frac{1}{2} \int_{0}^{\beta} (\sec x \cos \beta + \tan x)^{n - 1} \left[\left(\sec x \cos \beta + \tan x\right)^2 + 1\right] \Diff x                     \\
+                                                             & = \frac{1}{2} \int_{0}^{\beta} (\sec x \cos \beta + \tan x)^{n - 1} \left[\sec^2 x \cos^2 \beta + \tan^2 x + 2 \sec x \tan x \cos \beta + 1\right] \Diff x \\
+                                                             & = \frac{1}{2} \int_{0}^{\beta} (\sec x \cos \beta + \tan x)^{n - 1} \left(\sec^2 x \cos^2 \beta + \sec^2 x + 2 \sec x \tan x \cos \beta \right) \Diff x    \\
+                                                             & = \frac{1}{2} \int_{0}^{\beta} (\sec x \cos \beta + \tan x)^{n - 1} \left(2 \sec^2 x - \sec^2 x \sin^2 \beta + 2 \sec x \tan x \cos \beta \right) \Diff x  \\
+                                                             & = \int_{0}^{\beta} (\sec x \cos \beta + \tan x)^{n - 1} \left(\sec^2 x + \sec x \tan x \cos \beta\right) \Diff x                                           \\
+                                                             & \phantom{=} - \frac{\sin^2 \beta}{2} \int_{0}^{\beta} (\sec x \cos \beta + \tan x)^{n - 1} \sec^2 x \Diff x.
+          \end{align*}
+
+          The first part of the integral integrates similarly:
+          \begin{align*}
+               & \phantom{=} \int_{0}^{\beta} (\sec x \cos \beta + \tan x)^{n - 1} \left(\sec^2 x + \sec x \tan x \cos \beta\right) \Diff x \\
+               & = \int_{0}^{\beta} (\sec x \cos \beta + \tan x)^{n - 1} \Diff \left(\sec x \cos \beta + \tan x\right)                      \\
+               & = \frac{1}{n} \left[\left(\sec x \cos \beta + \tan x\right)^{n}\right]_{0}^{\beta}                                         \\
+               & = \frac{1}{n} \left[\left(\sec \beta \cos \beta + \tan \beta\right)^n - \left(\sec 0 \cos \beta + \tan 0\right)^n\right]   \\
+               & = \frac{1}{n} \left[(1 + \tan \beta)^n - \cos^n \beta\right].
+          \end{align*}
+
+          The second part of the integral has a positive integrand over \((0, \beta)\), and hence the integral is positive, which means
+          \begin{align*}
+              \frac{1}{2} \left(J_{n + 1} + J_{n - 1}\right) & > \int_{0}^{\beta} (\sec x \cos \beta + \tan x)^{n - 1} \left(\sec^2 x + \sec x \tan x \cos \beta\right) \Diff x \\
+                                                             & = \frac{1}{n} \left[(1 + \tan \beta)^n - \cos^n \beta\right].
+          \end{align*}
+
+          We would like to show that \(J_{n + 1} + J_{n - 1} - 2 J_{n} > 0\) similar as before to show the final result. Note that
+          \begin{align*}
+               & \phantom{=} J_{n + 1} + J_{n - 1} - 2 J_{n}                                                                                                                                       \\
+               & = \int_{0}^{\beta} \left(\sec x \cos \beta + \tan x\right)^{n - 1} \left[\left(\sec x \cos \beta + \tan x\right)^2 + 1 - 2 \left(\sec x \cos \beta + \tan x\right)\right] \Diff x \\
+               & = \int_{0}^{\beta} \left(\sec x \cos \beta + \tan x\right)^{n - 1} \left[(\sec x \cos \beta + \tan x) - 1\right]^2 \Diff x                                                        \\
+               & > 0,
+          \end{align*}
+          and hence \(J_{n} < \frac{1}{2} \left(J_{n + 1} + J_{n - 1}\right)\), which shows
+          \[
+              J_{n} < \frac{1}{n} \left((1 + \tan \beta)^{n} - \cos^{n} \beta\right),
+          \]
+          as desired.
+\end{enumerate}
