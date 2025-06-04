@@ -1,2 +1,68 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item By using the chain rule, we have
+          \begin{align*}
+              \DiffFrac{y}{x} & = \frac{\Diff y / \Diff t}{\Diff x / \Diff t}               \\
+                              & = \frac{12 \cos t - 12 \sin^2 t \cos t}{12 \cos^2 t \sin t} \\
+                              & = \frac{\cos t - \sin^2 t \cos t}{\cos^2 t \sin t}          \\
+                              & = \frac{1 - \sin^2 t}{\cos t \sin t}                        \\
+                              & = \frac{\cos^2 t}{\cos t \sin t}                            \\
+                              & = \frac{\cos t}{\sin t}                                     \\
+                              & = \cot t.
+          \end{align*}
+
+          Hence, at \(t = \phi\), the normal of this curve has gradient \(- \tan \phi\), and hence it has equation
+          \begin{align*}
+              y - \left(12 \sin \phi - 4 \sin^3 \phi\right)                  & = - \tan \phi \left(x - \left(-4 \cos^3 \phi\right)\right)                   \\
+              y - 12 \sin \phi + 4 \sin^3 \phi                               & =  - \tan \phi x - 4 \cos^3 \phi \tan \phi                                   \\
+              \cos \phi y - 12 \sin \phi \cos \phi + 4 \sin^3 \phi \cos \phi & = - \sin \phi x - 4 \cos^3 \phi \sin \phi                                    \\
+              \sin \phi x + \cos \phi y                                      & = 12 \sin \phi \cos \phi - 4 \sin^3 \phi \cos \phi - 4 \cos^3 \phi \sin \phi \\
+              \sin \phi x + \cos \phi y                                      & = 4 \sin \phi \cos \phi \left(3 - \sin^2 \phi - \cos^2 \phi\right)           \\
+              \sin \phi x + \cos \phi y                                      & = 8 \sin \phi \cos \phi.
+          \end{align*}
+
+          The curve \(x^{\frac{2}{3}} + y^{\frac{2}{3}} = 4\) can be parametrised as \(x = 8 \cos^3 t\) and \(y = 8 \sin^3 t\):
+          \begin{align*}
+              x^{\frac{2}{3}} + y^{\frac{2}{3}} & = \left(8 \cos^3 t\right)^{\frac{2}{3}} + \left(8 \sin^3 t\right)^{\frac{2}{3}} \\
+                                                & = 4 \cos^2 t + 4 \sin^2 t                                                       \\
+                                                & = 4.
+          \end{align*}
+
+          Hence, the gradient of the tangent at a point is
+          \begin{align*}
+              \DiffFrac{y}{x} & = \frac{\Diff y / \Diff t}{\Diff x / \Diff t}    \\
+                              & = \frac{24 \sin^2 t \cos t}{-24 \cos^2 t \sin t} \\
+                              & = - \tan t,
+          \end{align*}
+          and the equation of the tangent at the point \(t = \phi\) is
+          \begin{align*}
+              y - 8 \sin^3 \phi                     & = - \tan \phi \left(x - 8 \cos^3 \phi\right)                   \\
+              \cos \phi y - 8 \sin^3 \phi \cos \phi & = - \sin \phi x + 8 \cos^3 \phi \sin \phi                      \\
+              \sin \phi x + \cos \phi y             & = 8 \sin \phi \cos \phi \left(\sin^2 \phi + \cos^2 \phi\right) \\
+              \sin \phi x + \cos \phi y             & = 8 \sin \phi \cos \phi,
+          \end{align*}
+          which shows the normal to the original curve is the tangent to this new curve at \((8 \cos^3 \phi, 8 \sin^3 \phi)\).
+
+    \item By using the chain rule, we have
+          \begin{align*}
+              \DiffFrac{y}{x} & = \frac{\Diff y / \Diff t}{\Diff x / \Diff t}                     \\
+                              & = \frac{\cos t - \cos t + t \sin t}{- \sin t + \sin t + t \cos t} \\
+                              & = \frac{t \sin t}{t \cos t}                                       \\
+                              & = \tan t.
+          \end{align*}
+
+          Hence, at \(t = \phi\), the normal of this curve has gradient \(- \cot \phi\), and hence it has equation
+          \begin{align*}
+              y - \left(\sin \phi - \phi \cos \phi\right)          & = - \cot \phi \left(x - \left(\cos \phi + \phi \sin \phi\right)\right) \\
+              \sin \phi y - \sin^2 \phi + \phi \sin \phi \cos \phi & = - \cos \phi x + \cos^2 \phi + \phi \sin \phi \cos \phi               \\
+              \cos \phi x + \sin \phi y                            & = \sin^2 \phi + \cos^2 \phi                                            \\
+              \cos \phi x + \sin \phi y                            & = 1.
+          \end{align*}
+
+          The distance of this normal to the origin is
+          \[
+              \frac{\abs*{\cos \phi \cdot 0 + \sin \phi \cdot 0 - 1}}{\sqrt{\cos^2 \phi + \sin^2 \phi}} = 1,
+          \]
+          which is a constant, and hence this curve is tangent to the unit circle \(x^2 + y^2 = 1\).
+\end{enumerate}
