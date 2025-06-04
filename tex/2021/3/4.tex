@@ -1,2 +1,101 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(\theta\) is the angle between \(\vect{a}\) and \(\vect{b}\), we have
+          \[
+              \cos \theta = \frac{\vect{a} \cdot \vect{b}}{\abs*{\vect{a}} \abs*{\vect{b}}} = \vect{a} \cdot \vect{b}.
+          \]
+
+          Let \(\lambda\) be the angle between \(\vect{m}\) and \(\vect{a}\). Hence,
+          \begin{align*}
+              \cos \lambda & = \frac{\vect{a} \cdot \vect{m}}{\abs*{\vect{a}} \abs*{\vect{m}}}                     \\
+                           & = \frac{\vect{a} \cdot \frac{1}{2} \left(\vect{a} + \vect{b}\right)}{\abs*{\vect{m}}} \\
+                           & = \frac{\vect{a} \cdot \left(\vect{a} + \vect{b}\right)}{\abs*{\vect{a} + \vect{b}}}  \\
+                           & = \frac{1 + \vect{a} \cdot \vect{b}}{\abs*{\vect{a} + \vect{b}}}                      \\
+                           & = \frac{1 + \cos \theta}{\abs*{\vect{a} + \vect{b}}}.
+          \end{align*}
+
+          Similarly, let \(\mu\) be the angle between \(\vect{m}\) and \(\vect{b}\), and we must have
+          \[
+              \cos \lambda = \cos \mu = \frac{1 + \cos \theta}{\abs*{\vect{a} + \vect{b}}}.
+          \]
+
+          Since \(0 \leq \lambda, \mu \leq \pi\), and \(\cos\) is one-to-one when restricted to \([0, \pi]\), we must have \(\lambda = \mu\), which shows that \(\vect{m}\) bisects the angle between \(\vect{a}\) and \(\vect{b}\).
+
+    \item We must have \(\cos \alpha = \vect{a} \cdot \vect{c}\), and \(\cos \beta = \vect{b} \cdot \vect{c}\).
+
+          By definition of the projection, we have
+          \begin{align*}
+              \vect{a}_1 & = \vect{a} - \left(\vect{a} \cdot \vect{c}\right) \vect{c} \\
+                         & = \vect{a} - \cos \alpha \vect{c},
+          \end{align*}
+          and hence
+          \begin{align*}
+              \vect{a}_1 \cdot \vect{c} & = \vect{a} \cdot \vect{c} - \cos \alpha \vect{c} \cdot \vect{c} \\
+                                        & = \cos \alpha - \cos \alpha                                     \\
+                                        & = 0,
+          \end{align*}
+          as desired.
+
+          Notice that
+          \begin{align*}
+              \abs*{\vect{a}_1}^2 & = \vect{a}_1 \cdot \vect{a}_1                                                                             \\
+                                  & = \left(\vect{a} - \cos \alpha \vect{c}\right) \cdot \left(\vect{a} - \cos \alpha \vect{c}\right)         \\
+                                  & = \vect{a} \cdot \vect{a} - 2 \cos \alpha \vect{a} \cdot \vect{c} + \cos^2 \alpha \vect{c} \cdot \vect{c} \\
+                                  & = 1 - 2 \cos^2 \alpha + \cos^2 \alpha                                                                     \\
+                                  & = 1 - \cos^2 \alpha                                                                                       \\
+                                  & = \sin^2 \alpha.
+          \end{align*}
+
+          Since \(\abs*{a_1} \geq 0\), and \(0 < \alpha < \frac{\pi}{2}\), \(\sin \alpha > 0\), we must have
+          \[
+              \abs*{\vect{a}_1} = \abs*{\sin \alpha} = \sin \alpha.
+          \]
+
+          The angle \(\phi\) is given by
+          \begin{align*}
+              \cos \phi & = \frac{\vect{a}_1 \cdot \vect{b}_1}{\abs*{\vect{a}_1} \abs*{\vect{b}_1}}                                                                                                      \\
+                        & =  \frac{\left(\vect{a} - \cos \alpha \vect{c}\right) \cdot \left(\vect{b} - \cos \beta \vect{c}\right)}{\sin \alpha \sin \beta}                                               \\
+                        & = \frac{\vect{a} \cdot \vect{b} - \cos \alpha \vect{b} \cdot \vect{c} - \cos \beta \vect{a} \cdot \vect{c} + \cos \alpha \cos \beta \vect{c} \vect{c}}{\sin \alpha \sin \beta} \\
+                        & = \frac{\cos \theta - \cos \alpha \cos \beta - \cos \beta \cos \alpha + \cos \beta \cos \alpha}{\sin \alpha \sin \beta}                                                        \\
+                        & = \frac{\cos \theta - \cos \alpha \cos \beta}{\sin \alpha \sin \beta}.
+          \end{align*}
+
+    \item By definition of a projection, we have
+          \begin{align*}
+              \vect{m}_1 & = \vect{m} - (\vect{m} \cdot \vect{c}) \vect{c}                                                                                    \\
+                         & = \frac{1}{2} \left(\vect{a} + \vect{b}\right) - \left(\frac{1}{2} \left(\vect{a} + \vect{b}\right) \cdot \vect{c}\right) \vect{c} \\
+                         & = \frac{1}{2} \left(\vect{a} + \vect{b}\right) - \left(\frac{1}{2} \left(\cos \alpha + \cos \beta\right)\right) \vect{c}           \\
+                         & = \frac{1}{2} \left(\vect{a}_1 + \vect{b}_1\right).
+          \end{align*}
+
+          Let \(\nu\) be the angle between \(\vect{m}_1\) and \(\vect{a}_1\), we have
+          \begin{align*}
+              \cos \nu & = \frac{\vect{m}_1 \cdot \vect{a}_1}{\abs*{\vect{m}_1} \abs*{\vect{a}_1}}                                                          \\
+                       & = \frac{\frac{1}{2} \left(\vect{a}_1 + \vect{b}_1\right) \cdot \vect{a}_1}{\frac{1}{2} \abs*{\vect{a}_1 + \vect{b}_1} \sin \alpha} \\
+                       & = \frac{\vect{a}_1 \cdot \vect{a}_1 + \vect{b}_1 \cdot \vect{a}_1}{\abs*{\vect{a}_1 + \vect{b}_1} \sin \alpha}                     \\
+                       & = \frac{\sin^2 \alpha + \cos \phi \sin \alpha \sin \beta}{\abs*{\vect{a}_1 + \vect{b}_1} \sin \alpha}                              \\
+                       & = \frac{\sin^2 \alpha + \cos \theta - \cos \alpha \cos \beta}{\abs*{\vect{a}_1 + \vect{b}_1} \sin \alpha}.
+          \end{align*}
+
+          Similarly, let \(\tau\) be the angle between \(\vect{m}_1\) and \(\vect{b}_1\), we have
+          \[
+              \cos \tau = \frac{\sin^2 \beta + \cos \theta - \cos \alpha \cos \beta}{\abs*{\vect{a}_1 + \vect{b}_1} \sin \beta}.
+          \]
+
+          Since \(0 \leq \nu, \tau \leq \pi\), \(\nu = \tau\) if and only if
+          \begin{align*}
+              \cos \nu                                                                                                & = \cos \tau                                                                                             \\
+              \frac{\sin^2 \alpha + \cos \theta - \cos \alpha \cos \beta}{\abs*{\vect{a}_1 + \vect{b}_1} \sin \alpha} & = \frac{\sin^2 \beta + \cos \theta - \cos \alpha \cos \beta}{\abs*{\vect{a}_1 + \vect{b}_1} \sin \beta} \\
+              \sin \beta \left(\sin^2 \alpha + \cos \theta - \cos \alpha \cos \beta\right)                            & = \sin \alpha \left(\sin^2 \beta + \cos \theta - \cos \alpha \cos \beta\right)                          \\
+              \sin \alpha \sin \beta (\sin \alpha - \sin \beta) + \cos \alpha \cos \beta (\sin \alpha - \sin \beta)   & = \cos \theta (\sin \alpha - \sin \beta)                                                                \\
+              (\sin \alpha \sin \beta + \cos \alpha \cos \beta) (\sin \alpha - \sin \beta)                            & = \cos \theta (\sin \alpha - \sin \beta)                                                                \\
+              \left(\cos (\alpha - \beta) - \cos \theta\right) (\sin \alpha - \sin \beta)                             & = 0.
+          \end{align*}
+
+          This is if and only if \(\sin \alpha = \sin \beta\), or \(\cos \theta = \cos (\alpha - \beta)\).
+
+          Since \(0 < \alpha, \beta < \frac{\pi}{2}\), and \(\sin\) is one-to-one when restricted to \(\left(0, \frac{\pi}{2}\right)\), the first condition is true if and only if \(\alpha = \beta\).
+
+          Hence, \(\vect{m}_1\) bisects the angle between \(\vect{a}_1\) and \(\vect{b}_1\) if and only if \(\alpha = \beta\) or \(\cos \theta = \cos (\alpha - \beta)\), as desired.
+\end{enumerate}
