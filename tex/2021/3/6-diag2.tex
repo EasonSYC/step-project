@@ -1,0 +1,20 @@
+\begin{tikzpicture}[trig format=rad]
+    \draw[->] (-5.5, 0) -- (5.5, 0) node[right] {\(x\)};
+    \draw[->] (0, {-3*pi/4 - 0.5}) -- (0, {pi/4 + 0.5}) node[above] {\(y\)};
+    \node at (0, 0) [below left] {\(O\)};
+    \draw (-5, pi/4) -- ({1/sqrt(3)}, {pi/4});
+    \draw ({1/sqrt(3)}, {-3*pi/4}) -- ({sqrt(3)}, {-3*pi/4});
+    \draw ({sqrt(3)}, {pi/4}) -- ({5}, {pi/4});
+    \draw[dotted] ({1/sqrt(3)}, {pi/4}) -- ({sqrt(3)}, {pi/4});
+    \draw[dotted] (0, {-3*pi/4}) -- ({1/sqrt(3)}, {-3*pi/4});
+    \draw[dotted] ({1/sqrt(3)}, {-3*pi/4}) -- ({1/sqrt(3)}, {pi/4});
+    \draw[dotted] ({sqrt(3)}, {-3*pi/4}) -- ({sqrt(3)}, {pi/4});
+    \draw ({1/sqrt(3)}, {pi/4}) circle (1.5pt);
+    \draw ({1/sqrt(3)}, {-3*pi/4}) circle (1.5pt);
+    \draw ({sqrt(3)}, {pi/4}) circle (1.5pt);
+    \draw ({sqrt(3)}, {-3*pi/4}) circle (1.5pt);
+    \node at (0, {pi/4}) [below left] {\(\beta - \alpha\)};
+    \node at (0, {-3*pi/4}) [left] {\(\beta - \alpha - \pi\)};
+    \node at ({1/sqrt(3)}, 0) [below] {\(\tan \alpha\)};
+    \node at ({sqrt(3)}, 0) [below] {\(\tan \beta\)};
+\end{tikzpicture}

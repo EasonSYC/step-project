@@ -1,0 +1,15 @@
+\begin{tikzpicture}[trig format=rad]
+    \draw[->] (-0.5, 0) -- ({2*pi+0.5}, 0) node[right] {\(x\)};
+    \draw[->] (0, -5.5) -- (0, 5.5) node[above] {\(y\)};
+    \node at (0, 0) [below left] {\(O\)};
+    \draw[thick] (0, 0) -- ({pi/2}, 0);
+    \draw[thick] ({3*pi/2}, 0) -- ({2*pi}, 0);
+    \draw ({pi/2}, 0) circle (1.5pt) node[below left] {\(\frac{\pi}{2}\)};
+    \draw ({3*pi/2}, 0) circle (1.5pt) node[below right] {\(\frac{3\pi}{2}\)};
+    \draw[smooth, samples=200, domain={pi/2+0.05}:{3*pi/2-0.05}] plot (\x, {ln(-tan(\x)-sec(\x))});
+    \filldraw (0, 0) circle (1pt);
+    \filldraw ({pi}, 0) circle (1pt) node[below] {\(\pi\)};
+    \filldraw ({2*pi}, 0) circle (1pt) node[below] {\(2\pi\)};
+    \draw[dashed] ({pi/2}, -5) -- ({pi/2}, 5);
+    \draw[dashed] ({3*pi/2}, -5) -- ({3*pi/2}, 5);
+\end{tikzpicture}

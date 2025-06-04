@@ -1,2 +1,107 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item By multiplying by \(\cot \alpha\) on top and bottom of the fraction, we have
+          \begin{align*}
+              f_{\alpha}(x) & = \arctan \left(\frac{x + \cot \alpha}{1 - x \cot \alpha}\right)                                                           \\
+                            & = \arctan \left(\frac{x + \tan \left(\frac{\pi}{2} - \alpha\right)}{1 - x \tan \left(\frac{\pi}{2} - \alpha\right)}\right) \\
+                            & = \arctan \tan \left(\arctan x + \frac{\pi}{2} - \alpha\right).
+          \end{align*}
+
+          Since \(\arctan x \in \left(-\frac{\pi}{2}, \alpha\right) \cup \left(\alpha, \frac{\pi}{2}\right)\), we have
+          \[
+              \arctan x + \frac{\pi}{2} - \alpha \in \left(-\alpha, \frac{\pi}{2}\right) \cup \left(\frac{\pi}{2}, \pi - \alpha\right).
+          \]
+
+          Hence, we can simplify this to
+          \begin{align*}
+              f_{\alpha}(x) & = \arctan \tan \left(\arctan x + \frac{\pi}{2} - \alpha\right) \\
+                            & = \begin{cases}
+                                    \arctan x + \frac{\pi}{2} - \alpha, & x < \tan \alpha, \\
+                                    \arctan x - \frac{\pi}{2} - \alpha, & x > \tan \alpha.
+                                \end{cases}
+          \end{align*}
+
+          Hence, by differentiating with respect to \(x\), the constants differentiate to \(0\), and hence
+          \begin{align*}
+              f'_{\alpha}(x) & = \DiffOp{x} \arctan x \\
+                             & = \frac{1}{1 + x^2},
+          \end{align*}
+          as desired.
+
+          The graph consists of \(2\) branches of \(\arctan\), as the simplified expressions suggests. We have the following limiting behaviours of \(f_{\alpha}\):
+          \begin{align*}
+              \lim_{x \to -\infty} f_{\alpha} (x)         & = \lim_{x \to -\infty} \arctan x + \frac{\pi}{2} - \alpha = -\alpha, \\
+              \lim_{x \to \tan \alpha^{-}} f_{\alpha} (x) & = \frac{\pi}{2},                                                     \\
+              \lim_{x \to \tan \alpha^{+}} f_{\alpha} (x) & = -\frac{\pi}{2},                                                    \\
+              \lim_{x \to \infty} f_{\alpha} (x)          & = \lim_{x \to \infty} \arctan x - \frac{\pi}{2} - \alpha = -\alpha,
+          \end{align*}
+          which shows that \(f_{\alpha}\) has a horizontal asymptote with equation \(y = -\alpha\).
+
+          For the intersection with the \(y\)-axis,
+          \[
+              f_{\alpha} (0) = \arctan 0 + \frac{\pi}{2} - \alpha = \frac{\pi}{2} - \alpha,
+          \]
+          and for the intersection with the \(x\)-axis,
+          \[
+              f_{\alpha} (x) = 0 \iff x \tan \alpha + 1 = 0\iff x = - \cot \alpha.
+          \]
+
+          The graph looks as follows.
+
+          \begin{center}
+              \input{\currfiledir 6-diag1}
+          \end{center}
+
+          The domain of this new graph is \(x \in \RR \setminus \{\tan \alpha, \tan \beta\}\). By considering the functions in the different corresponding ranges, we have
+          \[
+              f_{\alpha} (x) - f_{\beta}(x) = \begin{cases}
+                  \left(\arctan(x) + \frac{\pi}{2} - \alpha\right) - \left(\arctan(x) + \frac{\pi}{2} - \beta\right) = \beta - \alpha,       & x < \tan \alpha,              \\
+                  \left(\arctan(x) - \frac{\pi}{2} - \alpha\right) - \left(\arctan(x) + \frac{\pi}{2} - \beta\right) = \beta - \alpha - \pi, & \tan \alpha < x < \tan \beta, \\
+                  \left(\arctan(x) - \frac{\pi}{2} - \alpha\right) - \left(\arctan(x) - \frac{\pi}{2} - \beta\right) = \beta - \alpha,       & \tan \beta < x.
+              \end{cases}
+          \]
+
+          Hence, the graph looks as follows.
+
+          \begin{center}
+              \input{\currfiledir 6-diag2}
+          \end{center}
+
+    \item By differentiation, we have
+          \begin{align*}
+              g'(x) & = \frac{1}{1 - \sin^2 x} \cos x - \frac{1}{\sqrt{1 + \tan^2 x}} \sec^2 x                                 \\
+                    & = \frac{\cos x}{\cos^2 x} - \frac{\sec^2 x}{\abs*{\sec x}}                                               \\
+                    & = \sec x - \abs*{\sec x}                                                                                 \\
+                    & = \begin{cases}
+                            \sec x - \sec x = 0,            & 0 \leq x < \frac{1}{2}\pi \text{ or } \frac{3}{2} \pi < x \leq 2\pi, \\
+                            \sec x - (- \sec x) = 2 \sec x, & \frac{1}{2}\pi < x < \frac{3}{2}\pi,
+                        \end{cases}
+          \end{align*}
+          since \(\sec x\) takes the same sign as \(\cos x\), which is negative when \(\frac{1}{2}\pi < x < \frac{3}{2}\pi\), and positive when \(0 \leq x < \frac{1}{2}\pi\) or \(\frac{3}{2} \pi < x \leq 2\pi\) within the range.
+
+          For \(\frac{1}{2} \pi < x < \frac{3}{2}\pi\), we must have
+          \[
+              g(x) = \ln \abs*{\tan x + \sec x} + C = \ln \left(- \tan x - \sec x\right) + C,
+          \]
+          and by verifying
+          \[
+              g(\pi) = \artanh (0) - \arsinh (0) = 0,
+          \]
+          we can see \(C = 0\).
+
+          Hence, for \(0 \leq x < \frac{1}{2}\pi\) and \(\frac{3}{2} \pi < x \leq 2\pi\) respectively, \(g(x)\) is constant, and notice that
+          \[
+              g(0) = g(2\pi) = 0,
+          \]
+          and hence
+          \[
+              g(x) = \begin{cases}
+                  \ln \left(- \tan x - \sec x\right), & \frac{1}{2} \pi < x < \frac{3}{2}\pi,                            \\
+                  0,                                  & 0 \leq x < \frac{1}{2}\pi \text{ or } \frac{3}{2} \pi \leq 2\pi.
+              \end{cases}
+          \]
+
+          \begin{center}
+              \input{\currfiledir 6-diag3}
+          \end{center}
+\end{enumerate}
