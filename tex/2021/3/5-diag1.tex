@@ -1,0 +1,20 @@
+\begin{tikzpicture}[trig format=rad, scale=1.5]
+    \draw[->] (0, 0) -- (3.5, 0) node[right] {\(\theta = 0\)};
+    \draw[smooth, samples=200, domain={-acos(-1/4)}:{acos(-1/4)}] plot (\x:{1/2 + 2 * cos(\x)});
+    \draw[smooth, samples=200, domain={-pi}:pi] plot (\x:{2 + cos(2 * \x)});
+    \draw[dotted] (0, 0) -- ({-acos(-1/4)} : 3.5) node[below left] {\(\theta = -\arccos \left(-\frac{1}{4}\right)\)};
+    \draw[dotted] (0, 0) -- ({acos(-1/4)} : 3.5) node[below left] {\(\theta = \arccos \left(-\frac{1}{4}\right)\)};
+    \draw[dotted] (0, 0) -- (-3.5, 0) node[left] {\(\theta = \pi\)};
+    \draw[dotted] (0, 0) -- (0, 3.5) node[above] {\(\theta = \frac{\pi}{2}\)};
+    \draw[dotted] (0, 0) -- (0, -3.5) node[below] {\(\theta = -\frac{\pi}{2}\)};
+    \filldraw (0, 0) circle (1pt) node[left] {\(O\)};
+    \filldraw (0 : {5/2}) circle (1pt) node[below left] {\(\left(\frac{5}{2}, 0\right)\)};
+    \filldraw (0 : 3) circle (1pt) node[below right] {\(\left(3, 0\right)\)};
+    \filldraw ({pi} : 3) circle (1pt) node[below left] {\(\left(3, \pi\right)\)};
+    \filldraw ({pi/2} : 0.5) circle (1pt) node[below right] {\(\left(\frac{1}{2}, \frac{\pi}{2}\right)\)};
+    \filldraw ({-pi/2} : 0.5) circle (1pt) node[above right] {\(\left(\frac{1}{2}, -\frac{\pi}{2}\right)\)};
+    \filldraw ({pi/2} : 1) circle (1pt) node[above] {\(\left(1, \frac{\pi}{2}\right)\)};
+    \filldraw ({-pi/2} : 1) circle (1pt) node[below] {\(\left(1, -\frac{\pi}{2}\right)\)};
+    \filldraw ({pi/3} : {3/2}) circle (1pt) node[below right] {\(\left(\frac{3}{2}, \frac{\pi}{3}\right)\)};
+    \filldraw ({-pi/3} : {3/2}) circle (1pt) node[above right] {\(\left(\frac{3}{2}, -\frac{\pi}{3}\right)\)};
+\end{tikzpicture}
