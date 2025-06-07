@@ -1,2 +1,64 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item Notice that
+          \begin{align*}
+              z & = \frac{\exp(i\theta) + \exp(i\phi)}{\exp(i\theta) - \exp(i\phi)}                                                                           \\
+                & = \frac{\exp(i\theta) + \exp(i\phi)}{\exp(i\theta) - \exp(i\phi)} \cdot \frac{\exp(-i\theta) - \exp(-i\phi)}{\exp(-i\theta) - \exp(-i\phi)} \\
+                & = \frac{1 + \exp(i\phi - i\theta) - \exp(i\theta - i\phi) - 1}{1 - \exp(i \theta - i \phi) - \exp(i \phi - i \theta) + 1}                   \\
+                & = \frac{\exp(i(\phi - \theta)) - \exp(-i(\phi - \theta))}{2 - \exp(- i (\phi - \theta)) - \exp(i (\phi - \theta))}                          \\
+                & = \frac{2i \sin (\phi - \theta)}{2 - 2 \cos (\phi - \theta)}                                                                                \\
+                & = \frac{i\sin (\phi - \theta)}{1 - \cos (\phi - \theta)}                                                                                    \\
+                & = \frac{i \cdot 2 \sin \frac{\phi - \theta}{2} \cos \frac{\phi - \theta}{2}}{1 - (1 - 2 \sin^2 \frac{\phi - \theta}{2})}                    \\
+                & = \frac{2i \sin \frac{\phi - \theta}{2} \cos \frac{\phi - \theta}{2}}{2 \sin^2 \frac{\phi - \theta}{2}}                                     \\
+                & = i \cot \frac{\phi - \theta}{2},
+          \end{align*}
+          as desired.
+
+          The modulus of \(z\) is \(\abs*{\cot \frac{\phi - \theta}{2}}\). The argument of \(z\) is \(\pm \frac{\pi}{2}\).
+
+    \item Let \(a = \exp(i \alpha)\), and \(b = \exp(i \beta)\), where \(a - b \neq 2n\pi\) for integer \(n\) (this ensures that \(A\) and \(B\) are distinct). We must have \(x = a + b = \exp(i\alpha) + \exp (i \beta)\), and \(b - a = \exp(i \beta) - \exp(i \alpha)\).
+
+          The vectors representing the two complex numbers are perpendicular, if and only if their argument differ by \(\pm \frac{\pi}{2}\), if and only if their ratio has argument \(\pm \frac{\pi}{2}\). Notice that the ratios
+          \begin{align*}
+              \frac{OX}{AB} & = \frac{a + b}{b - a}                                                 \\
+                            & = \frac{\exp (i\alpha) + \exp(i\beta)}{\exp(i\beta) - \exp(i \alpha)}
+          \end{align*}
+          takes the same form as \(z\) before, and hence has argument \(\pm \frac{\pi}{2}\). This hence means \(OX\) is perpendicular to \(AB\).
+
+    \item Similarly, let \(a = \exp(i \alpha)\), \(b = \exp(i \beta)\), and \(c = \exp(i \gamma)\), where no pair of \(\alpha, \beta\) and \(\gamma\) differ by some multiple of \(2\pi\) (which ensures that \(A, B, C\) are distinct points).
+
+          If \(H\) is the orthocentre of triangle \(ABC\), then
+          \[
+              h = a + b + c = \exp (i \alpha) + \exp (i \beta) + \exp (i \gamma),
+          \]
+          and hence
+          \[
+              AH = h - a = b + c = \exp (i \beta) + \exp (i \gamma),
+          \]
+          \[
+              BC = c - b = \exp (i \gamma) - \exp (i \beta).
+          \]
+
+          If \(h \neq a\), then \(AH = b + c \neq 0\), then the angle between \(AH\) and \(BC\) is given by the argument of the ratio of the complex numbers representing them, and notice
+          \[
+              \frac{AH}{BC} = \frac{\exp (i \beta) + \exp (i \gamma)}{\exp (i \gamma) - \exp (i \beta)},
+          \]
+          which takes the same form of \(z\) in the first part. Hence, the argument of this must be \(\pm \frac{\pi}{2}\) since \(b + c \neq 0\), which shows that \(AH\) is perpendicular to \(BC\).
+
+          This means that either \(h = a\), or \(AH\) is perpendicular to \(BC\), as desired.
+
+    \item Similarly, let \(a = \exp(i \alpha)\), \(b = \exp(i \beta)\), \(c = \exp(i \gamma)\) and \(d = \exp(i \delta)\), where no pair of \(\alpha\), \(\beta\), \(\gamma\) and \(\delta\) differ by some multiple of \(2\pi\) (which ensures that \(A, B, C, D\) are distinct points). Hence,
+          \[
+              q = b + c + d = \exp(i \beta) + \exp(i \gamma) + \exp(i \delta),
+          \]
+          and the midpoint of \(AQ\), \(M\), represented by complex number \(m\), is given by
+          \[
+              m = \frac{a + b + c + d}{2}.
+          \]
+
+          By symmetry, the midpoint of \(BR\), \(CS\) and \(DP\) must also be \(M\).
+
+          This means that by an enlargement of scale factor \(-1\) about \(M\), \(A\) will be transformed to \(Q\), \(B\) to \(R\), \(C\) to \(S\), and \(D\) to \(P\).
+
+          Hence, \(ABCD\) is transformed to \(PQRS\) by an enlargement of scale factor \(-1\), with centre of enlargement being \(\frac{a + b + c + d}{4}\), the midpoint of \(AQ\).
+\end{enumerate}
