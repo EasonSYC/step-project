@@ -1,2 +1,243 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item Let
+          \[
+              \vect{M} = \begin{pmatrix}
+                  a & b \\ c & d
+              \end{pmatrix},
+              \vect{N} = \begin{pmatrix}
+                  e & f \\ g & h
+              \end{pmatrix},
+          \]
+          and hence we have
+          \[
+              \tr \vect{M} = a + d, \tr \vect{N} = e + h.
+          \]
+
+          Notice that
+          \[
+              \vect{M} \vect{N} = \begin{pmatrix}
+                  ae + bg & af + bh \\ ce + dg & cf + dh
+              \end{pmatrix},
+              \vect{N} \vect{M} = \begin{pmatrix}
+                  ae + cf & be + df \\ ag + ch & bg + dh
+              \end{pmatrix},
+          \]
+          which means
+          \[
+              \tr(\vect{M} \vect{N}) = ae + bg + cf + dh, \tr(\vect{N} \vect{M}) = ae + cf + bg + dh,
+          \]
+          and hence \(\tr (\vect{M} \vect{N}) = \tr (\vect{N} \vect{M})\) as desired.
+
+          We also have
+          \[
+              \vect{M} + \vect{N} = \begin{pmatrix}
+                  a + e & b + f \\ c + g & d + h
+              \end{pmatrix},
+          \]
+          meaning \(\tr(\vect{M} + \vect{N}) = a + e + d + h = (a + d) + (e + h) = \tr \vect{M} + \tr \vect{N}\).
+
+    \item We have \(\det \vect{M} = ad - bc\), and hence
+          \[
+              \DiffOp{t} \det \vect{M} = \dot{a} d + a \dot{d} - \dot{b} c - b \dot{c}.
+          \]
+
+          Hence,
+          \[
+              \LHS = \frac{1}{ad - bd} \left(\dot{a} d + a \dot{d} - \dot{b} c - b \dot{c}\right).
+          \]
+
+          On the other hand,
+          \[
+              \DiffFrac{\vect{M}}{t} = \begin{pmatrix}
+                  \dot{a} & \dot{b} \\ \dot{c} & \dot{d}
+              \end{pmatrix},
+              \vect{M}^{-1} = \frac{1}{ad - bc} \begin{pmatrix}
+                  d & -b \\ -c & a
+              \end{pmatrix},
+          \]
+          and hence
+          \begin{align*}
+              \vect{M}^{-1} \DiffFrac{\vect{M}}{t} & = \frac{1}{ad - bc} \begin{pmatrix}
+                                                                             d & -b \\ -c & a
+                                                                         \end{pmatrix} \begin{pmatrix}
+                                                                                           \dot{a} & \dot{b} \\ \dot{c} & \dot{d}
+                                                                                       \end{pmatrix}                                         \\
+                                                   & = \frac{1}{ad - bc} \begin{pmatrix}
+                                                                             \dot{a} d - b \dot{c} & \dot{b} d - b \dot{d} \\ -\dot{a}c + a\dot{c} & -\dot{b}c + a\dot{d}
+                                                                         \end{pmatrix}.
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              \RHS & = \tr \left(\vect{M}^{-1} \DiffFrac{\vect{M}}{t}\right)                        \\
+                   & = \frac{1}{ad - bc} \left(\dot{a} d - b \dot{c} - \dot{b} c + a\dot{d}\right)  \\
+                   & = \frac{1}{ad - bc} \left(\dot{a} d + a \dot{d} - b \dot{c} - \dot{b} c\right) \\
+                   & = \LHS,
+          \end{align*}
+          as desired.
+
+    \item \(\det \vect{M} \neq 0\) since \(\vect{M}\) is non-singular, and hence left-multiplying by \(\vect{M}^{-1}\) on both sides gives us
+          \[
+              \vect{M}^{-1} \DiffFrac{\vect{M}}{t} = \vect{N} - \vect{M}^{-1} \vect{N} \vect{M}.
+          \]
+
+          Taking trace on both sides, we have
+          \begin{align*}
+              \frac{1}{\det \vect{M}} \DiffOp{t} \det \vect{M} & = \tr \left(\vect{M}^{-1} \DiffFrac{\vect{M}}{t}\right)                        \\
+                                                               & = \tr \left(\vect{N} - \vect{M}^{-1} \vect{N} \vect{M}\right)                  \\
+                                                               & = \tr \vect{N} - \tr \left(\vect{M}^{-1} \vect{N} \vect{M}\right)              \\
+                                                               & = \tr \vect{N} - \tr \left(\left(\vect{M}^{-1} \vect{N}\right) \vect{M}\right) \\
+                                                               & = \tr \vect{N} - \tr \left(\vect{M} \left(\vect{M}^{-1} \vect{N}\right)\right) \\
+                                                               & = \tr \vect{N} - \tr \left(\left(\vect{M} \vect{M}^{-1}\right) \vect{N}\right) \\
+                                                               & = \tr \vect{N} - \tr \left(\vect{I} \vect{N}\right)                            \\
+                                                               & = \tr \vect{N} - \tr \vect{N}                                                  \\
+                                                               & = 0.
+          \end{align*}
+
+          Hence, \(\DiffOp{t} \det \vect{M} = 0\), which means \(\det \vect{M}\) is a constant independent of \(t\).
+
+          Directly taking trace on both sides, we have
+          \begin{align*}
+              \tr \DiffFrac{\vect{M}}{t} & = \tr (\vect{M} \vect{N} - \vect{N} \vect{M})       \\
+                                         & = \tr (\vect{M} \vect{N}) - \tr (\vect{N} \vect{M}) \\
+                                         & = 0,
+          \end{align*}
+          and note
+          \[
+              \tr \DiffFrac{\vect{M}}{t} = \DiffOp{t} \tr \vect{M},
+          \]
+          and hence
+          \[
+              \DiffOp{t} \tr \vect{M} = 0,
+          \]
+          meaning \(\tr \vect{M}\) is a constant independent of \(t\).
+
+          Notice that
+          \[
+              \tr \left(\vect{M}^2\right) = \tr \left[\begin{pmatrix}
+                      a & b \\ c & d
+                  \end{pmatrix}\begin{pmatrix}
+                      a & b \\ c & d
+                  \end{pmatrix}\right] = a^2 + bc + bc + d^2 = a^2 + 2bc + d^2.
+          \]
+
+          Since \(\tr \vect{M}\) and \(\det \vect{M}\) are both independent of \(t\), we must have
+          \begin{align*}
+              (\tr \vect{M})^2 - 2 \det \vect{M} & = (a + d)^2 - 2 (ad - bc)     \\
+                                                 & = a^2 + 2ad + d^2 - 2ad + 2bc \\
+                                                 & = a^2 + 2bc + d^2             \\
+                                                 & = \tr \left(\vect{M}^2\right)
+          \end{align*}
+          is independent of \(t\) as well.
+
+          Let
+          \[
+              \vect{M} = \begin{pmatrix}
+                  A + x & b \\ c & D - x
+              \end{pmatrix},
+          \]
+          the diagonal ones being so since the trace is independent of \(t\). Here, \(x\) is a function of \(t\).
+
+          By differentiating,
+          \[
+              \DiffFrac{\vect{M}}{t} = \begin{pmatrix}
+                  \dot{x} & \dot{b} \\ \dot{c} & -\dot{x}
+              \end{pmatrix},
+          \]
+          and the right-hand side satisfies
+          \begin{align*}
+              \vect{M} \vect{N} - \vect{N} \vect{M} & = \begin{pmatrix}
+                                                            A + x & b \\ c & D - x
+                                                        \end{pmatrix}
+              \begin{pmatrix}
+                  t & t \\ & t
+              \end{pmatrix}
+              - \begin{pmatrix}
+                    t & t \\ & t
+                \end{pmatrix}
+              \begin{pmatrix}
+                  A + x & b \\ c & D - x
+              \end{pmatrix}                                                \\
+                                                    & = \begin{pmatrix}
+                                                            t (A + x) & (A + x) t + bt \\
+                                                            ct        & ct + (D - x) t
+                                                        \end{pmatrix}
+              -
+              \begin{pmatrix}
+                  t (A + x) + ct & bt + t(D - x) \\
+                  ct             & t(D - x)
+              \end{pmatrix}                                       \\
+                                                    & =\begin{pmatrix}
+                                                           -ct & (A - D + 2x)t \\
+                                                           0   & ct.
+                                                       \end{pmatrix}
+          \end{align*}
+
+          Comparing the components, we see that \(\dot{c} = 0\), meaning that \(c\) is a constant: \(c = C\).
+
+          Hence, \(\dot{x} = -Ct\), which solves to \(x = -\frac{Ct^2}{2}\), since \(x = 0\) when \(t = 0\).
+
+          This means
+          \[
+              \dot{b} = (A - D + 2x) t = (A - D - Ct^2)t,
+          \]
+          and hence
+          \[
+              b = \frac{(A - D) t^2}{2} - \frac{Ct^4}{4} + B
+          \]
+          since \(b = B\) when \(t = 0\).
+
+          Hence,
+          \[
+              \vect{M} = \begin{pmatrix}
+                  A - Ct^2 / 2 & (A - D) t^2 / 2 - Ct^4 / 4 \\
+                  C            & D + Ct^2 / 2
+              \end{pmatrix}
+          \]
+          is the solution given the conditions.
+
+    \item By rearranging, we have
+          \[
+              \vect{N} = \vect{M}^{-1} \DiffFrac{\vect{M}}{t}.
+          \]
+
+          Hence, let
+          \[
+              \vect{M} = \begin{pmatrix}
+                  1 + e^t & \\ & 1 - e^t
+              \end{pmatrix},
+          \]
+          we have
+          \[
+              \tr \vect{M} = 2
+          \]
+          which is non-zero and independent of \(t\).
+
+          Hence,
+          \[
+              \vect{M}^{-1} = \frac{1}{1 - e^{2t}} \begin{pmatrix}
+                  1 - e^t & \\ & 1 + e^t
+              \end{pmatrix},
+              \DiffFrac{\vect{M}}{t} = \begin{pmatrix}
+                  e^t & \\ & -e^t
+              \end{pmatrix},
+          \]
+          so
+          \begin{align*}
+              \vect{N} & = \frac{1}{1 - e^{2t}} \begin{pmatrix}
+                                                    1 - e^t & \\ & 1 + e^t
+                                                \end{pmatrix}
+              \begin{pmatrix}
+                  e^t & \\ & -e^t
+              \end{pmatrix}                                                       \\
+                       & = \frac{1}{1 - e^{2t}} \begin{pmatrix}
+                                                    e^t (1 - e^t) & \\ & -e^t (1 + e^t)
+                                                \end{pmatrix},
+          \end{align*}
+          which gives
+          \[
+              \tr \vect{N} = \frac{e^{2t}}{e^{2t} - 1}
+          \]
+          which is clearly non-zero.
+\end{enumerate}
