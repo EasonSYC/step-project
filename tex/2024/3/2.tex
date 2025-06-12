@@ -1,2 +1,169 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item \begin{enumerate}
+              \item We have
+                    \[
+                        \sqrt{4x^2 - 8x + 64} \leq \abs*{x + 8} \iff 0 \leq 4x^2 - 8x + 64 \leq (x + 8)^2.
+                    \]
+
+                    The left inequality can be simplified as follows:
+                    \begin{align*}
+                        4x^2 - 8x + 64 & \geq 0  \\
+                        x^2 - 2x + 16  & \geq 0  \\
+                        (X - 1)^2 + 15 & \geq 0,
+                    \end{align*}
+                    which is always true.
+
+                    The right inequality can be simplified as follows:
+                    \begin{align*}
+                        4x^2 - 8x + 64 & \leq (x + 8)^2      \\
+                        4x^2 - 8x + 64 & \leq x^2 + 16x + 64 \\
+                        3x^2 - 24 x    & \leq 0              \\
+                        x (x - 8)      & \leq 0,
+                    \end{align*}
+                    which solves to \(0 \leq x \leq 8\).
+
+                    Hence, the solution to the original inequality is \(x \in [0, 8]\).
+
+              \item WE have
+                    \[
+                        \sqrt{4x^2 - 8x + 64} \leq \abs*{3x - 8} \iff 0 \leq 4x^2 - 8x + 64 \leq (3x - 8)^2.
+                    \]
+
+                    The left inequality is always true from the previous part.
+
+                    The right inequality can be simplified as follows:
+                    \begin{align*}
+                        4x^2 - 8x + 64 & \leq (3x - 8)^2      \\
+                        4x^2 - 8x + 64 & \leq 9x^2 - 48x + 64 \\
+                        5x^2 - 40x     & \geq 0               \\
+                        x (x - 8)      & \geq 0,
+                    \end{align*}
+                    which solves to \(x \leq 0\) or \(x \geq 8\).
+
+                    Hence, the solution to the original inequality is \(x \in (-\infty, 0] \cup [8, \infty)\).
+          \end{enumerate}
+
+    \item \begin{enumerate}
+              \item We have
+                    \begin{align*}
+                        \left(\sqrt{4x^2 - 8x + 64} + 2(x - 1)\right)f(x) & = \left(\sqrt{4x^2 - 8x + 64}\right)^2 - [2 (x - 1)]^2      \\
+                                                                          & = \left(4x^2 - 8x + 64\right) - 4 \left(x^2 - 2x + 1\right) \\
+                                                                          & = \left(4x^2 - 8x + 64\right) - \left(4x^2 - 8x + 4\right)  \\
+                                                                          & = 60.
+                    \end{align*}
+
+                    Hence,
+                    \[
+                        f(x) = \frac{60}{\sqrt{4x^2 - 8x + 64} + 2 (x - 1)}.
+                    \]
+
+                    As \(x \to \infty\), \(\sqrt{4x^2 - 8x + 64} \to \infty\), \(2 (x - 1) \to \infty\).
+
+                    Hence, \(f(x) \to 0\) as \(x \to \infty\).
+
+              \item Let \(f_1(x) = \sqrt{4x^2 - 8x + 64}\), \(f_2(x) = 2 (x - 1)\).
+
+                    \(f_1(0) = \sqrt{64} = 8\), and \(f_2(0) = 2 \cdot (-1) = -2\).
+
+                    We have \(f(x) = f_1(x) - f_2(x) > 0\) from the previous part, and that \(f_1(x)\) is defined for all \(x\) and is always positive.
+
+                    Furthermore,
+                    \[
+                        f_1(x) = 2 \sqrt{x^2 - 2x + 16} = 2 \sqrt{(x - 1)^2 + 15},
+                    \]
+                    and hence \(f_1\) decreases on \((-\infty, 1)\) and increases on \((1, \infty)\), taking a minimum of \(f_1(1) = 2 \sqrt{15}\).
+
+                    In terms of symmetry, we have \(f_1(1 - x) = f_1(1 + x)\) and \(f_2(1 - x) = - f_2(1 + x)\). \(f_2\) is an asymptote to \(f_1\) as \(x \to \infty\), and \(-f_2\) is an asymptote to \(f_1\) as \(x \to -\infty\).
+
+                    Hence, the sketch looks as follows.
+
+                    \begin{center}
+                        \input{\currfiledir 2-diag1}
+                    \end{center}
+          \end{enumerate}
+
+    \item Let \(x = 3\), and we must have \(\sqrt{4 \cdot 9 - 5 \cdot 3 + 4} = \abs*{3m + c}\), and hence \(5 = \abs*{3m + c}\).
+
+          This is only achievable for \(m = \pm 2\) due to the diagram -- the solution set can only be 'one-sided' if on the other side the absolute value is eventually 'parallel' to the curve.
+
+          We let \(m = 2\), and hence \(5 = \abs*{6 + c}\), which gives \(c = -1\) or \(c = -11\).
+
+          We would like to show that the desired value is \(c = -1\), and that \(c = -11\) does not work.
+          \[
+              \sqrt{4x^2 - 5x + 4} \leq \abs*{2x - 1} \iff 0 \leq 4x^2 - 5x + 4 \leq (2x - 1)^2.
+          \]
+
+          The left inequality can be simplified as
+          \[
+              0 \leq 4x^2 - 5x + 4 = \left(2x - \frac{5}{4}\right)^2 + \frac{39}{16},
+          \]
+          and hence is always true.
+
+          The right inequality can be simplified as
+          \begin{align*}
+              4x^2 - 5x + 4 & \leq (2x - 1)^2    \\
+              4x^2 - 5x + 4 & \leq 4x^2 - 4x + 1 \\
+              x             & \geq 3,
+          \end{align*}
+          and hence the solution set to the whole inequality is \(x \geq 3\) as desired.
+
+          On the other hand, for the case of \(c = -11\), we have
+          \[
+              \sqrt{4x^2 - 5x + 4} \leq \abs*{2x - 11} \iff 0 \leq 4x^2 - 5x + 4 \leq (2x - 11)^2,
+          \]
+          and the left inequality is always true by previously. However, the right inequality simplifies as
+          \begin{align*}
+              4x^2 - 5x + 4 & \leq (2x - 11)^2      \\
+              4x^2 - 5x + 4 & \leq 4x^2 - 44x + 121 \\
+              39x           & \leq 117              \\
+              x             & \leq 3,
+          \end{align*}
+          and the inequality is in the wrong direction.
+
+          Hence, a possible value of \(m\) is \(2\), and the corresponding value of \(c\) is \(-1\).
+
+    \item The diagram as follows shows the only possibility of the configuration.
+
+          \begin{center}
+              \input{\currfiledir 2-diag2}
+          \end{center}
+
+          Hence, we must have \(x^2 + px + q = mx + c\) for \(x = -5\) and \(x = 7\), and \(x^2 + px + q = -mx - c\) for \(x = 1\) and \(x = 5\).
+          \[
+              \left\{
+              \begin{aligned}
+                  25 - 5p + q & = -5m + c,    \\
+                  49 + 7p + q & = 7m + c,     \\
+                  1 + p + q   & = - (m + c),  \\
+                  25 + 5p + q & = - (5m + c).
+              \end{aligned}
+              \right.
+          \]
+
+          Subtracting the first equation from the final equation gives \(10 p = -2c\), and hence \(c = -5p\).
+
+          Subtracting the first equation from the second equation gives us \(24 + 12 p = 12 m\), and hence
+          \(m = 2 + p\).
+
+          Putting these into the third equation gives
+          \begin{align*}
+              q & = -m - c - ; - 1            \\
+                & = - (2 + p) - (-5p) - p - 1 \\
+                & = 3p - 3.
+          \end{align*}
+
+          Putting all these into the final equation gives
+          \begin{align*}
+              25 + 5p + (3p - 3) & = - \left[5 (2 + p) + (-5p)\right] \\
+              25 + 8p - 3        & = - (10 + 5p - 5p)                 \\
+              22 + 8p            & = -10                              \\
+              8p                 & = -32                              \\
+              p                  & = -4,
+          \end{align*}
+          and so \(q = -15, m = -2, c = 20\). Hence,
+          \[
+              (p, q, m, c) = (-4, -15, -2, 20).
+          \]
+\end{enumerate}

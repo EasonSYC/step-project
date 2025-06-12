@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \draw[->] (-5.5, 0) -- (7.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -2.5) -- (0, 10.5) node[above] {\(y\)};
+    \draw[smooth, samples=200, domain=-5:7] plot (\x, {sqrt(4*(\x)^2 - 8*(\x) + 64) / 2}) node [above] {\(y = \sqrt{4x^2 - 8x + 64}\)};
+    \draw[smooth, samples=200, domain=-1:7] plot (\x, {(\x - 1)}) node[below] {\(y = 2 (x - 1)\)};
+    \draw[smooth, samples=200, domain=-5:3] plot (\x, {(1 - \x)}) node[right] {\(y = 2(1 - x)\)};
+    \draw[dotted] (0, -1) -- (2, -1) -- (2, 4) -- (0, 4);
+    \draw[dotted] (0, 1) -- (2, 1);
+    \draw[dotted] (1, 0) -- (1, {sqrt(15)}) -- (0, {sqrt(15)});
+    \filldraw (0, -1) circle (0.5pt) node[below right] {\((0, -2)\)};
+    \filldraw (2, 1) circle (0.5pt) node[right] {\((2, 2)\)};
+    \filldraw (0, 4) circle (0.5pt) node[above right] {\((0, 8)\)};
+    \filldraw (2, 4) circle (0.5pt) node[above left] {\((2, 8)\)};
+    \filldraw (1, {sqrt(15)}) circle (0.5pt) node[below] {\(\left(1, 2\sqrt{15}\right)\)};
+    \node at (0, 4) [above left] {\(8\)};
+    \node at (0, {sqrt(15)}) [left] {\(2\sqrt{15}\)};
+    \node at (0, 1) [left] {\(2\)};
+    \node at (0, -1) [left] {\(-2\)};
+    \node at (1, 0) [below] {\(1\)};
+    \node at (2, 0) [below] {\(2\)};
+    \node at (0, 0) [below left] {\(O\)};
+\end{tikzpicture}

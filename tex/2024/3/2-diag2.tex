@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=0.8]
+    \draw[->] (-6.5, 0) -- (9.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -0.5) -- (0, 9.5) node[above] {\(y\)};
+    \node at (0, 0) [below left] {\(O\)};
+    \draw[smooth, samples=200, domain=-6:8] plot (\x, {1/5 * (abs((\x)^2 - 4 * \x - 15))}) node[right] {\(y = \abs*{x^2 + px + q}\)};
+    \draw[dotted, smooth, samples=200, domain={2 - sqrt(19)}:{2 + sqrt(19)}] plot (\x, {1/5 * ((\x)^2 - 4 * \x - 15)});
+    \draw[smooth, samples=200, domain=-6:8] plot (\x, {1/5 * ((-2) * \x + 20)}) node[right] {\(y = mx + c\)};
+    \draw[dotted] (-5, {30/5}) -- (-5, 0) node[below] {\(-5\)};
+    \draw[dotted] (1, {18/5}) -- (1, 0) node[below] {\(1\)};
+    \draw[dotted] (5, {10/5}) -- (5, 0) node[below] {\(5\)};
+    \draw[dotted] (7, {6/5}) -- (7, 0) node[below] {\(7\)};
+\end{tikzpicture}
