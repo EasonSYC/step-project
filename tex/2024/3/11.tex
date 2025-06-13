@@ -1,2 +1,83 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item We notice that
+          \begin{align*}
+              \LHS & = r \binom{2n}{r}                    \\
+                   & = r \cdot \frac{(2n)!}{r! (2n - r)!} \\
+                   & = \frac{(2n)!}{(r - 1)! (2n - r)!},
+          \end{align*}
+          and
+          \begin{align*}
+              \RHS & = (2n + 1 - r) \binom{2n}{2n + 1 - r}                     \\
+                   & = (2n + 1 - r) \cdot \frac{(2n)!}{(r - 1)! (2n + 1 - r)!} \\
+                   & = \frac{(2n)!}{(r - 1)! (2n - r)!}.
+          \end{align*}
+
+          Hence,
+          \[
+              r \binom{2n}{r} = (2n + 1 - r) \binom{2n}{2n + 1 - r}
+          \]
+          as desired.
+
+          Summing this from \(r = n + 1\) to \(2n\), we have
+          \begin{align*}
+              \sum_{r = n + 1}^{2n} r \binom{2n}{r} & = \sum_{r = n + 1}^{2n} (2n + 1 - r) \binom{2n}{2n + 1 - r}                  \\
+                                                    & = \sum_{r = 1}^{n} (2n + 1 - (2n + 1 - r)) \binom{2n}{2n + 1 - (2n + 1 - r)} \\
+                                                    & = \sum_{r = 1}^{n} r \binom{2n}{r},
+          \end{align*}
+          and hence
+          \begin{align*}
+              \sum_{r = 0}^{2n} r \binom{2n}{r} & = \sum_{r = 1}^{2n} r \binom{2n}{r}                                             \\
+                                                & = \sum_{r = 1}^{n} r \binom{2n}{r} + \sum_{r = n + 1}^{2n} r \binom{2n}{r}      \\
+                                                & = \sum_{r = n + 1}^{2n} r \binom{2n}{r} + \sum_{r = n + 1}^{2n} r \binom{2n}{r} \\
+                                                & = 2 \sum_{r = n + 1}^{2n} r \binom{2n}{r},
+          \end{align*}
+          as desired.
+
+    \item For \(n + 1 \leq x \leq 2n\), we have
+          \[
+              \Prob(X = x) = 2 \cdot \frac{\binom{2n}{x}}{2^{2n}}.
+          \]
+
+          For \(x = n\), we have
+          \[
+              \Prob(X = x) = \frac{\binom{2n}{n}}{2^{2n}}.
+          \]
+
+          We have \(n \leq X \leq 2n\), and hence
+          \begin{align*}
+              \Expt(X) & = \sum_{x = n}^{2n} x \Prob(X = x)                                                        \\
+                       & = \frac{n \binom{2n}{n}}{2^{2n}} + \frac{2}{2^{2n}} \sum_{x = n + 1}^{2n} x \binom{2n}{x} \\
+                       & = \frac{n \binom{2n}{n}}{2^{2n}} + 2^{-2n} \sum_{r = 0}^{2n} r \binom{2n}{r}              \\
+                       & = \frac{n \binom{2n}{n}}{2^{2n}} + 2^{-2n} (2n) 2^{2n - 1}                                \\
+                       & = n + \frac{n \binom{2n}{n}}{2^{2n}}                                                      \\
+                       & = n \left(1 + \frac{1}{2^{2n}} \binom{2n}{n}\right)
+          \end{align*}
+          as desired.
+
+    \item First, we have that
+          \[
+              \frac{1}{2^{2n}} \binom{2n}{n} > 0
+          \]
+          for all positive integers \(n\).
+
+          Taking the ratio of two consecutive terms, we have
+          \begin{align*}
+              \frac{\frac{1}{2^{2n}} \binom{2n}{n}}{\frac{1}{2^{2(n + 1)}} \binom{2(n + 1)}{n + 1}} & = \frac{2^{2n + 2} \frac{(2n)!}{n! n!}}{2^{2n} \frac{(2n + 2)!}{(n + 1)! (n + 1)!}} \\
+                                                                                                    & = 4 \cdot \frac{(n + 1)^2}{(2n + 2) (2n + 1)}.
+          \end{align*}
+
+          We have that the following are equivalent:
+          \begin{align*}
+              \frac{1}{2^{2n}} \binom{2n}{n}                                                        & > \frac{1}{2^{2(n + 1)}} \binom{2(n + 1)}{n + 1} \\
+              \frac{\frac{1}{2^{2n}} \binom{2n}{n}}{\frac{1}{2^{2(n + 1)}} \binom{2(n + 1)}{n + 1}} & > 1                                              \\
+              \frac{4 (n + 1)^2}{(2n + 2) (2n + 1)}                                                 & > 1                                              \\
+              4n^2 + 8n + 4                                                                         & > 4n^2 + 6n + 2                                  \\
+              2n + 2                                                                                & > 0
+          \end{align*}
+          and this obviously true for all positive integers \(n\).
+
+          This means that \(\frac{1}{2^{2n}} \binom{2n}{n}\) decreases as \(n\) increases.
+
+    \item The winning is given by \(X - n\), and hence the expected winnings per pound is \(\frac{1}{2^{2n}} \binom{2n}{n}\). This is maximised when \(n = 1\) which gives a value of \(\frac{1}{2}\).
+\end{enumerate}
