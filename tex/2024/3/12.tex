@@ -1,2 +1,81 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item For \(1 \leq r \leq \sqrt{2}\), the diagram looks as follows.
+          \begin{center}
+              \input{\currfiledir 12-diag1}
+          \end{center}
+
+          The angle between the (shallower) radius which just intersects the square and \(x\) axis is given by \(\arccos \frac{1}{r}\), and so is the one steeper and the \(y\)-axis.
+
+          Hence, the cumulative distribution function is given by
+          \begin{align*}
+              \Prob(R \leq r) & = \frac{\text{shaded area}}{1^2}                                                                                                    \\
+                              & = \text{shaded area}                                                                                                                \\
+                              & = \frac{1}{2} \cdot r^2 \cdot \left(\frac{\pi}{2} - 2 \arccos \frac{1}{r}\right) + 2 \cdot \frac{1}{2} \cdot 1 \cdot \sqrt{r^2 - 1} \\
+                              & = \sqrt{r^2 - 1} + \frac{\pi r^2}{4} - r^2 \arccos \frac{1}{r},
+          \end{align*}
+          as desired.
+
+          For \(0 \leq r \leq 1\), the diagram is as follows.
+          \begin{center}
+              \input{\currfiledir 12-diag2}
+          \end{center}
+
+          Hence,
+          \[
+              \Prob(R \leq r) = \text{shaded area} = \frac{\pi r^2}{4}.
+          \]
+
+          Hence, the cumulative distribution function is given by
+          \[
+              \Prob(R \leq r) = \begin{cases}
+                  0,                                                            & r < 0,        \\
+                  \frac{\pi r^2}{4},                                            & 0 \leq r < 1, \\
+                  \sqrt{r^2 - 1} + \frac{\pi r^2}{4} - r^2 \arccos \frac{1}{r}, & 1 \leq r < 2, \\
+                  1,                                                            & 2 \leq r.
+              \end{cases}
+          \]
+
+    \item Let \(f\) be the probability density function of \(R\). Hence, by differentiating, for \(0 \leq r \leq \sqrt{2}\), it is given by
+          \begin{align*}
+              f(r) & = \DiffOp{r} \Prob(R \leq r)                                                                                                                       \\
+                   & = \begin{cases}
+                           \frac{\pi r}{2},                                                                                                       & 0 \leq r \leq 1,        \\
+                           \frac{r}{\sqrt{r^2 - 1}} + \frac{\pi r}{2} - 2r \arccos \frac{1}{r} - \frac{1}{\sqrt{1 - \left(\frac{1}{r}\right)^2}}, & 1 \leq r \leq \sqrt{2},
+                       \end{cases} \\
+                   & = \begin{cases}
+                           \frac{\pi r}{2},                           & 0 \leq r \leq 1,        \\
+                           \frac{\pi r}{2} - 2 r \arccos \frac{1}{r}, & 1 \leq r \leq \sqrt{2}.
+                       \end{cases}
+          \end{align*}
+
+          Hence, the expectation is given by
+          \begin{align*}
+              \Expt(R) & = \int_{0}^{1} r \cdot \frac{\pi r}{2} \Diff r + \int_{1}^{\sqrt{2}} r \cdot \left[\frac{\pi r}{2} - 2r \arccos \frac{1}{r}\right] \Diff r                                                                                                                                                \\
+                       & = \int_{0}^{\sqrt{2}} \frac{\pi r^2}{2} \Diff r - 2 \int_{1}^{\sqrt{2}} r^2 \arccos \frac{1}{r} \Diff r                                                                                                                                                                                   \\
+                       & = \left[\frac{\pi r^3}{6}\right]_{0}^{\sqrt{2}} - \frac{2}{3} \int_{1}^{\sqrt{2}} \arccos \frac{1}{r} \Diff r^3                                                                                                                                                                           \\
+                       & = \frac{2 \sqrt{2} \pi}{6} - \frac{2}{3} \left[\arccos \frac{1}{r} \cdot r^3\right]_{1}^{\sqrt{2}} + \frac{2}{3} \int_{1}^{\sqrt{2}} r^3 \Diff \arccos \frac{1}{r}                                                                                                                        \\
+                       & = \frac{\sqrt{2} \pi}{3} - \frac{2}{3} \cdot \arccos \frac{1}{\sqrt{2}} \cdot 2 \sqrt{2} + \frac{2}{3} \cdot \arccos 1 \cdot 1+ \frac{2}{3} \cdot \int_{1}^{\sqrt{2}} r^3 \cdot \left(- \frac{1}{r^2}\right) \cdot \left(- \frac{1}{\sqrt{1 - \left(\frac{1}{r}\right)^2}}\right) \Diff r \\
+                       & = \frac{\sqrt{2} \pi}{3} - \frac{2}{3} \cdot \frac{\pi}{4} \cdot 2\sqrt{2} + \frac{2}{3} \int_{1}^{\sqrt{2}} r \cdot \frac{r}{\sqrt{r^2 - 1}} \Diff r                                                                                                                                     \\
+                       & = \frac{\sqrt{2} \pi}{3} - \frac{\sqrt{2} \pi}{3} + \frac{2}{3} \int_{1}^{\sqrt{2}} \frac{r^2}{\sqrt{r^2 - 1}} \Diff r                                                                                                                                                                    \\
+                       & = \frac{2}{3} \int_{1}^{\sqrt{2}} \frac{r^2}{\sqrt{r^2 - 1}} \Diff r,
+          \end{align*}
+          as desired.
+
+    \item To integrate this, we let \(r = \cosh t\), and hence \(\DiffFrac{r}{t} = \sinh t\). When \(r = 1\), \(t = 0\). When \(r = \sqrt{2}\), \(t = \ln \left(\sqrt{2} + \sqrt{\sqrt{2}^2 - 1}\right) = \ln (\sqrt{2} + 1)\).
+
+          Hence,
+          \begin{align*}
+              \Expt(R) & = \frac{2}{3} \int_{1}^{\sqrt{2}} \frac{r^2}{\sqrt{r^2 - 1}} \Diff r                                                                                              \\
+                       & = \frac{2}{3} \int_{0}^{\ln (\sqrt{2} + 1)} \frac{\cosh^2 t}{\sinh t} \cdot \sinh t \Diff t                                                                       \\
+                       & = \frac{2}{3} \int_{0}^{\ln (\sqrt{2} + 1)} \cosh^2 t \Diff t                                                                                                     \\
+                       & = \frac{2}{3} \int_{0}^{\ln (\sqrt{2} + 1)} \frac{e^{2t} + e^{-2t} + 2}{4} \Diff t                                                                                \\
+                       & = \frac{1}{2} \left[e^{2t} - e^{-2t}\right]_{0}^{\ln (\sqrt{2} + 1)} + \frac{1}{3} \left[t\right]_{0}^{\ln(\sqrt{2} + 1)}                                         \\
+                       & = \frac{1}{12} \cdot \left[(\sqrt{2} + 1)^2 - (\sqrt{2} + 1)^{-2} - e^{2 \cdot 0} + e^{-2 \cdot 0}\right] + \frac{1}{3} \cdot \left(\ln (\sqrt{2} + 1) - 0\right) \\
+                       & = \frac{1}{2} \left[2 + 1 + 2\sqrt{2} - (\sqrt{2} - 1)^2\right] + \frac{1}{3} \ln (\sqrt{2} + 1)                                                                  \\
+                       & = \frac{1}{2} \cdot 4 \sqrt{2} + \frac{1}{3} \ln (\sqrt{2} + 1)                                                                                                   \\
+                       & = \frac{1}{3} \left(\sqrt{2} + \ln \left(\sqrt{2} + 1\right)\right),
+          \end{align*}
+          as desired.
+\end{enumerate}
