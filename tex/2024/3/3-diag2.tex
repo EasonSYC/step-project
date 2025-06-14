@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+    \draw[->] (-0.5, 0) -- (5.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -3.5) -- (0, 1.5) node[above] {\(y\)};
+    \node at (0, 0) [above left] {\(O\)};
+    \draw[smooth, samples=200, domain=0.05:5] plot (\x, {ln (1 + 1 / \x) - (\x + 0.25) / (\x * (\x + 1))});
+    \draw (0.5, {ln 3 - 1}) circle (0.5pt) node [above right] {\(\left(\frac{1}{2}, \ln 3 - 1\right)\)};
+\end{tikzpicture}

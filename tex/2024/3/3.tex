@@ -1,2 +1,94 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item \begin{enumerate}
+              \item Notice that by partial fractions, we have
+                    \[
+                        \frac{x + c}{x (x + 1)} = \frac{1 - c}{x + 1} + \frac{c}{x}.
+                    \]
+
+                    Hence, by differentiating, we have
+                    \begin{align*}
+                        g'(x) & = \frac{1}{1 + \frac{1}{x}} \cdot \left(- \frac{1}{x^2}\right) + \frac{1 - c}{(x + 1)^2} + \frac{c}{x^2} \\
+                              & = - \frac{1}{x^2 + x} + \frac{1 - c}{(x + 1)^2} + \frac{c}{x^2}                                          \\
+                              & = \frac{- x (x + 1) + (1 - c) x^2 + c (x + 1)^2}{(x + 1)^2 x^2}                                          \\
+                              & = \frac{cx^2 + 2cx + c + x^2 - cx^2 - x^2 - x}{(x + 1)^2 x^2}                                            \\
+                              & = \frac{(2c - 1)x + c}{(x + 1)^2 x^2}.
+                    \end{align*}
+
+                    Given that \(c \geq \frac{1}{2}\), and \(x > 0\), we have \(2c - 1 \geq 0\), and \((2c - 1) x \geq 0\).
+
+                    Hence, the numerator satisfies \((2c - 1)x + c \geq c \geq \frac{1}{2} > 0\), and the denominator is always positive since is a product of squares, and both squares are non-zero since \(x > 0\).
+
+                    We can now conclude that \(g'(x) > 0\) given \(c \geq \frac{1}{2}\) for \(x > 0\), as desired.
+
+              \item If \(0 \leq c < \frac{1}{2}\), \(g'(x) < 0\) if and only if
+                    \begin{align*}
+                        (2c - 1) x + c & < 0                 \\
+                        (1 - 2c) x - c & > 0                 \\
+                        (1 - 2c) x     & > c                 \\
+                        x              & > \frac{c}{1 - 2c},
+                    \end{align*}
+                    and the values of \(x\) are \(x > \frac{c}{1 - 2c}\).
+          \end{enumerate}
+
+    \item \begin{enumerate}
+              \item If \(c = \frac{3}{4} \geq \frac{1}{2}\), we can see that \(g\) is always increasing.
+
+                    As \(x \to \infty\), \(\frac{x + c}{x (x + 1)} \to 0\), \(\ln \left(1 + \frac{1}{x}\right) \to \ln 1 = 0\). Hence, \(g(x) \to 0\).
+
+                    Since \(g\) is increasing it must stay entirely below the \(x\)-axis.
+
+                    The sketch is as follows.
+
+                    \begin{center}
+                        \input{\currfiledir 3-diag1}
+                    \end{center}
+
+              \item If \(c = \frac{1}{4} \in \left[0, \frac{1}{2}\right)\), it must be the case that \(g'(x) > 0\) for \(0 < x < \frac{c}{1 - 2c} = \frac{1}{2}\), and \(g'(x) < 0\) for \(x > \frac{1}{2}\).
+
+                    Hence, \(x = \frac{1}{2}\) is a maximum on the graph, and the corresponding \(y\)-coordinate is \(g\left(\frac{1}{2}\right) = \ln 3 - 1\).
+
+                    Similarly, as \(x \to \infty\), \(g(x) \to 0\).
+
+                    The sketch is as follows.
+
+                    \begin{center}
+                        \input{\currfiledir 3-diag2}
+                    \end{center}
+          \end{enumerate}
+
+    \item We have
+          \begin{align*}
+              f(x)               & = \left(1 + \frac{1}{x}\right)^{x + c}                 \\
+              \ln f(x)           & = (x + c) \ln \left(1 + \frac{1}{x}\right)             \\
+              \frac{f'(x)}{f(x)} & = \ln \left(1 + x\right) - (x + c) \frac{1}{x (x + 1)} \\
+              \frac{f'(x)}{f(x)} & = g(x)                                                 \\
+              f'(x)              & = f(x) g(x).
+          \end{align*}
+
+          \(f(x)\) is positive for \(x > 0\), and hence \(f'(x)\) takes the same sign as \(g(x)\).
+
+          \begin{enumerate}
+              \item If \(c \geq \frac{1}{2}\), \(g\) is increasing and has a limit of \(0\) at infinity. Hence, \(g(x)\) is negative for all \(x > 0\), which means \(f'(x)\) is negative for all \(x > 0\), and hence \(f\) is decreasing.
+              \item If \(0 < c < \frac{1}{2}\), \(g\) is negative first, then increases to a positive value, and remains positive and approaches \(0\) decreasing from above. Hence, \(f'\) is first positive and then negative, so \(f\) must have a turning point.
+              \item If \(c = 0\),
+                    \[
+                        g'(x) = \frac{-x}{(x + 1)^2 x^2} = - \frac{1}{(x + 1)^2 x}
+                    \]
+                    is always negative, and \(\lim_{x \to 0^{+}} g'(x) =-\infty\), \(\lim_{x \to \infty} g'(x) = 0\).
+
+                    We have
+                    \[
+                        g(x) = \ln \left(1 + \frac{1}{x}\right) - \frac{1}{x + 1}.
+                    \]
+
+                    As \(x \to 0^{+}\), \(\frac{1}{x} \to \infty\), so \(\ln \left(1 + \frac{1}{x}\right) \to \infty\), and \(- \frac{1}{x + 1} \to - \frac{1}{1} = -1\). Hence, \(g(x) \to \infty\).
+
+                    As \(x \to \infty\), \(g(x) \to 0\).
+
+                    Since \(g\) is decreasing, it must be the case that \(g\) is always positive.
+
+                    This means that \(f'\) is always positive as well, and hence \(f\) is increasing.
+          \end{enumerate}
+\end{enumerate}

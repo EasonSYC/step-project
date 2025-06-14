@@ -1,0 +1,6 @@
+\begin{tikzpicture}
+    \draw[->] (-0.5, 0) -- (5.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -5.5) -- (0, 0.5) node[above] {\(y\)};
+    \node at (0, 0) [above left] {\(O\)};
+    \draw[smooth, samples=200, domain=0.1:5] plot (\x, {ln (1 + 1 / \x) - (\x + 0.75) / (\x * (\x + 1))});
+\end{tikzpicture}
