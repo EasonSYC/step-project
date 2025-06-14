@@ -1,2 +1,117 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item \begin{enumerate}
+              \item We have
+                    \begin{align*}
+                        \DiffFrac{x - y}{t} & = \DiffFrac{x}{t} - \DiffFrac{y}{t} \\
+                                            & = (-x + 3y + u) - (x + y + u)       \\
+                                            & = -2x + 2y                          \\
+                                            & = -2 (x - y).
+                    \end{align*}
+
+                    This is a differential equation for \(x - y\) in terms of \(t\), and hence it solves to
+                    \[
+                        x - y = A e^{-2t}.
+                    \]
+
+                    If \(x = y = 0\) for some \(t > 0\), then it must be the case that \(A = 0\), giving \(x - y = 0\), and \(x = y\).
+
+                    Therefore, for \(t = 0\), we must also necessarily have \(x_0 = y_0\).
+
+              \item Given that \(x_0 = y_0\), we must have \(x = y\) for all \(t > 0\). Hence,
+                    \begin{align*}
+                        \DiffFrac{x}{t}        & = -x + 3x + u \\
+                        \DiffFrac{x}{t}        & = 2x + u      \\
+                        \frac{\Diff x}{2x + u} & = \Diff t     \\
+                        \ln \abs*{2x + u}      & = 2 t + C     \\
+                        2x + u                 & = A e^{2t}.
+                    \end{align*}
+
+                    Since at \(t = 0\), \(x = x_0\), we must have \(A = 2 x_0 + u\), and hence
+                    \[
+                        2x + u = (2x_0 + u) e^{2t},
+                    \]
+                    and rearranging gives
+                    \[
+                        u = \frac{2 (x_0 e^{2t} - x)}{1 - e^{2t}}.
+                    \]
+
+                    The particle is at origin at time \(t = T > 0\), and hence \(x = y = 0\) for \(t = T\), and hence
+                    \[
+                        u = \frac{2 x_0 e^{2T}}{1 - e^{2T}}.
+                    \]
+
+                    This ensures the particle is at origin as well since this ensures the particle is at \(x = 0\) for \(t = T\), and \(y = x\) so \(y = 0\) as well.
+          \end{enumerate}
+
+    \item \begin{enumerate}
+              \item Consider \(\DiffFrac{x}{t} + \DiffFrac{z}{t} - 2 \DiffFrac{y}{t}\), and we have
+                    \begin{align*}
+                        \DiffFrac{x + z - 2y}{t} & = \DiffFrac{x}{t} + \DiffFrac{z}{t} - 2 \DiffFrac{y}{t} \\
+                                                 & = (4y - 5z + u) + (x - 2y + u) - 2 (x - 2z + u)         \\
+                                                 & = 4y - 5z + u + x - 2y + u - 2x + 4z - 2u               \\
+                                                 & = -x - z + 2y,
+                    \end{align*}
+                    and hence
+                    \[
+                        x + z - 2y = A e^{-t}.
+                    \]
+
+                    Since the particle is at the origin at some time \(t > 0\), we must have \(A = 0\), and hence
+                    \[
+                        x + z - 2y = 0,
+                    \]
+                    which means \(y = \frac{x + z}{2}\) for all time \(t\).
+
+                    At time \(t = 0\), \(y_0 = \frac{x_0 + z_0}{2}\), and so \(y_0\) is the mean of \(x_0\) and \(z_0\).
+
+              \item Since \(2y = x + z\), we must have
+                    \[
+                        \DiffFrac{x}{t} = 2 (x + z) - 5z + u = 2x - 3z + u,
+                    \]
+                    and
+                    \[
+                        \DiffFrac{z}{t} = x - (x + z) + u = -z + u.
+                    \]
+
+                    Hence, considering \(\DiffFrac{x}{t} - \DiffFrac{z}{t}\), we have
+                    \begin{align*}
+                        \DiffFrac{x - z}{t} & = \DiffFrac{x}{t} - \DiffFrac{z}{t} \\
+                                            & = (2x - 3z + u) - (-z + u)          \\
+                                            & = 2 (x - z),
+                    \end{align*}
+                    which gives
+                    \[
+                        x - z = A e^{2t}.
+                    \]
+
+                    Since the particle is at the origin for some \(t > 0\), we must have \(A = 0\). This means \(x = z\) for all \(t\), and further we have \(x = y = z\) for all \(t\) since \(2y = x + z\).
+
+                    At \(t = 0\), this means \(x_0 = y_0 = z_0\) as desired.
+
+              \item Given that \(x_0 = y_0 = z_0\), all previous parts still apply, since the boundary condition of \(2y = x + z\) and \(x = z\) holds for \(t = 0\). Hence, \(x = y = z\) for all \(t\), and
+                    \begin{align*}
+                        \DiffFrac{x}{t}       & = -x + u    \\
+                        \frac{\Diff x}{x - u} & = - \Diff t \\
+                        \ln \abs*{x - u}      & = -t + C    \\
+                        x - u                 & = A e^{-t}.
+                    \end{align*}
+
+                    At \(t = 0\), \(x = x_0\), we must have \(A = x_0 - u\), and hence
+                    \[
+                        x - u = (x_0 - u) e^{-t},
+                    \]
+                    and rearranging gives
+                    \[
+                        u = \frac{x_0 e^{-t} - x}{1 - e^{-t}}.
+                    \]
+
+                    The particle is at origin at a time \(t = T > 0\), and hence \(x = y = z = 0\) for \(t = T\), and hence
+                    \[
+                        u = \frac{x_0 e^{-T}}{1 - e^{-T}} = \frac{x_0}{1 + e^{T}}.
+                    \]
+
+                    This ensures the particle is at origin as well since this ensures the particle is at \(x = 0\) for \(t = T\), and \(x = y = z\), so \(y = z = 0\) as well.
+          \end{enumerate}
+\end{enumerate}
