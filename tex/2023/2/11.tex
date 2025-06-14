@@ -1,2 +1,94 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item For some \(1 \leq i \leq n\), we have
+          \begin{align*}
+              \Prob(Y = x_i) & = \Prob(Y = X_i, Y = X_1) + \Prob(Y = X_i, Y = X_2)                                                   \\
+                             & = \Prob(Y = x_i \mid Y = X_1) \cdot \Prob(Y = X_1) + \Prob(Y = x_i \mid Y = X_2) \cdot \Prob(Y = X_2) \\
+                             & = \Prob(X_1 = x_i) \cdot \Prob(Y = X_1) + \Prob(X_2 = X_i) \cdot \Prob(Y = x_2)                       \\
+                             & = p a_i + q b_i.
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              \Expt(Y) & = \sum_{i = 1}^{n} x_i \Prob(Y = x_i)                     \\
+                       & = \sum_{i = 1}^{n} x_i (p a_i + q b_i)                    \\
+                       & = p \sum_{i = 1}^{n} x_i a_i + q \sum_{i = 1}^{n} x_i b_i \\
+                       & = p \Expt(X_1) + q \Expt(X_2)                             \\
+                       & = p \mu_1 + q \mu_2.
+          \end{align*}
+
+          For the variance, we have
+          \begin{align*}
+              \Expt(Y^2) & = \sum_{i = 1}^{n} x_i^2 \Prob(Y = x_i)                                             \\
+                         & = \sum_{i = 1}^{n} x_i^2 (p a_i + q b_i)                                            \\
+                         & = p \sum_{i = 1}^{n} x_i^2 a_i + q \sum_{i = 1}^{n} x_i^2 b_i                       \\
+                         & = p \Expt(X_1^2) + q \Expt(X_2^2)                                                   \\
+                         & = p \left(\Expt(X_1)^2 + \Var(X_1)\right) + q \left(\Expt(X_2)^2 + \Var(X_2)\right) \\
+                         & = p \left(\mu_1^2 + \sigma_1^2\right) + q \left(\mu_2^2 + \sigma_2^2\right),
+          \end{align*}
+          and hence
+          \begin{align*}
+              \Var(Y) & = \Expt(Y^2) - \Expt(Y)^2                                                                                      \\
+                      & = p \left(\mu_1^2 + \sigma_1^2\right) + q \left(\mu_2^2 + \sigma_2^2\right) - \left(p \mu_1 + q \mu_2\right)^2 \\
+                      & = p \sigma_1^2 + q \sigma_2^2 + p \mu_1^2 + q \mu_2^2 - p^2 \mu_1^2 - q^2 \mu_2^2 - 2pq \mu_1 \mu_2            \\
+                      & = p \sigma_1^2 + q \sigma_2^2 + p (1 - p) \mu_1^2 + q (1 - q) \mu_2^2 - 2pq \mu_1 \mu_2                        \\
+                      & = p \sigma_1^2 + q \sigma_2^2 + pq \mu_1^2 + pq \mu_2^2 - 2pq \mu_1 \mu_2                                      \\
+                      & = p \sigma_1^2 + q \sigma_2^2 + pq \left(\mu_1 - \mu_2\right)^2,
+          \end{align*}
+          as desired.
+
+    \item We have
+          \[
+              \Prob(B = 1) = \frac{1}{2} \cdot \frac{1}{6} + \frac{1}{2} \cdot \frac{5}{6} = \frac{1}{2}.
+          \]
+
+          \(Z_1\) is the sum of \(n\) independent values of \(B\), and counts the number of times when \(B = 1\).
+
+          Hence, \(Z_1 \sim \Binomial\left(n, \frac{1}{2}\right)\).
+
+          Since \(n \gg 1\), we have
+          \[
+              Z_1 \sim \Binomial\left(n, \frac{1}{2}\right) \dot{\sim} \Normal\left(\frac{n}{2}, \frac{n}{4}\right).
+          \]
+
+          The probability of \(Z_1\) being within \(10\) percent of its mean is given by
+          \begin{align*}
+              \Prob\left(\frac{n}{2} - \frac{n}{20} \leq Z_1 \leq \frac{n}{2} + \frac{n}{20}\right) & = \Prob \left(- \frac{\frac{n}{20}}{\frac{\sqrt{n}}{2}} \leq Z \leq \frac{\frac{n}{20}}{\frac{\sqrt{n}}{2}}\right) \\
+                                                                                                    & = \Prob\left(- \frac{\sqrt{n}}{20} \leq Z \leq \frac{\sqrt{n}}{20}\right)
+          \end{align*}
+          where \(Z \sim \Normal(0, 1)\) is the standard normal.
+
+          As \(n \to \infty\), \(- \frac{\sqrt{n}}{20} \to -\infty\), and \(\frac{\sqrt{n}}{20} \to \infty\), and so the probability approaches \(\Prob(-\infty < Z < \infty)\) which is \(1\).
+
+    \item Let \(X_1 \sim \Binomial \left(n, \frac{1}{6}\right)\), and \(X_2 \sim \Binomial \left(n, \frac{5}{6}\right)\). \(Z_2\) has \(\frac{1}{2}\) chance of taking \(X_1\) and \(\frac{1}{2}\) chance of taking \(X_2\).
+
+          We have \(\mu_1 = \frac{n}{6}, \mu_2 = \frac{5n}{6}, \sigma^2_1 = \sigma^2_2 = \frac{5n}{36}\).
+
+          Hence,
+          \[
+              \Expt(Z_2) = \frac{1}{2} \cdot \frac{n}{6} + \frac{1}{2} \cdot \frac{5n}{6} = \frac{n}{2},
+          \]
+          and
+          \[
+              \Var(Z_2) = \frac{1}{2} \cdot \frac{5n}{36} + \frac{1}{2} \cdot \frac{5n}{36} + \frac{1}{4} \left(\frac{n}{6} - \frac{5n}{6}\right)^2 = \frac{n^2}{9} + \frac{5n}{36}.
+          \]
+
+          A normal approximation will not be a good approximation since in this case, \(Z_2\) is bimodal -- it is likely to take values close to \(\frac{n}{6}\) or \(\frac{5n}{6}\), but not near the mean \(\frac{n}{2}\).
+
+          The bounds within \(10\) percent of the mean is \(\frac{n}{2} \pm \frac{n}{20}\). We have
+          \begin{align*}
+              \Prob\left(\frac{n}{2} - \frac{n}{20} \leq Z_2 \leq \frac{n}{2} + \frac{n}{20}\right) & = \frac{1}{2} \Prob\left(\frac{n}{2} - \frac{n}{20} \leq X_1 \leq \frac{n}{2} + \frac{n}{20}
+              \right) + \frac{1}{2} \Prob\left(\frac{n}{2} - \frac{n}{20} \leq X_2 \leq \frac{n}{2} + \frac{n}{20}\right)                                                                                                                     \\
+                                                                                                    & = \frac{1}{2} \Prob\left(\frac{n}{2} - \frac{n}{20} \leq X_1\right) + \frac{1}{2} \Prob\left(X_2 \leq \frac{n}{2} + \frac{n}{20}\right) \\
+                                                                                                    & = \Prob\left(\frac{n}{2} - \frac{n}{20} \leq X_1\right).
+          \end{align*}
+
+          Since \(n\) is large, we have \(X_1 \sim \Binomial \left(n, \frac{1}{6}\right) \dot{\sim} \Normal \left(\frac{n}{6}, \frac{5n}{36}\right)\), and hence
+          \begin{align*}
+              \Prob\left(\frac{n}{2} - \frac{n}{20} \leq X_1\right) & = \Prob\left(Z \geq \frac{\frac{n}{2} - \frac{n}{20} - \frac{n}{6}}{\frac{\sqrt{5n}}{6}}\right) \\
+                                                                    & = \Prob\left(Z \geq \frac{30n - 3n - 10n}{10 \sqrt{5n}}\right)                                  \\
+                                                                    & = \Prob\left(Z \geq \frac{17 \sqrt{n}}{10 \sqrt{5}}\right),
+          \end{align*}
+          and as \(n \to \infty\), \(\frac{17 \sqrt{n}}{10 \sqrt{5}} \to \infty\), and hence the probability tends to \(0\), as desired.
+\end{enumerate}
