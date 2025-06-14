@@ -1,2 +1,296 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+The base case is when \(n = 1\), and we have
+\[
+    \LHS = \begin{pmatrix}
+        F_2 & F_1 \\ F_1 & F_0
+    \end{pmatrix} = \begin{pmatrix}
+        0 + 1 & 1 \\ 1 & 0
+    \end{pmatrix} = \begin{pmatrix}
+        1 & 1 \\ 1 & 0
+    \end{pmatrix},
+\]
+and
+\[
+    \RHS = \vect{Q} = \begin{pmatrix}
+        1 & 1 \\ 1 & 0
+    \end{pmatrix},
+\]
+so \(\LHS = \RHS\) holds for \(n = 1\).
+
+Assume that for some \(n = k \geq 1\), the original statement is true.
+
+For \(n = k + 1\), we have
+\begin{align*}
+    \LHS & = \begin{pmatrix}
+                 F_{k + 1} & F_k \\ F_k & F_{k - 1}
+             \end{pmatrix}       \\
+         & = \begin{pmatrix}
+                 F_k + F_{k - 1} & F_{k - 1} + F_{k - 2} \\
+                 F_{k}           & F_{k - 1}
+             \end{pmatrix} \\
+         & = \begin{pmatrix}
+                 1 & 1 \\ 1 & 0
+             \end{pmatrix}
+    \begin{pmatrix}
+        F_{k} & F_{k - 1} \\ F_{k - 1} & F_{k - 2}
+    \end{pmatrix}        \\
+         & = \vect{Q} \cdot \vect{Q}^k               \\
+         & = \vect{Q}^{k + 1}                        \\
+         & = \RHS.
+\end{align*}
+
+So, the original statement holds for \(n = 1\) base case, and assuming it holds for some \(n = k \geq 1\), it holds for \(n = k + 1\). Hence, by the principle of mathematical induction, for all positive integers \(n\), we have
+\[
+    \begin{pmatrix}
+        F_{n + 1} & F_n \\ F_n & F_{n - 1}
+    \end{pmatrix} = \vect{Q}^n.
+\]
+
+\begin{enumerate}
+    \item We have
+          \[
+              \det \begin{pmatrix}
+                  F_{n + 1} & F_n \\ F_n & F_{n - 1}
+              \end{pmatrix} = F_{n + 1} F_{n - 1} - F_n^2,
+          \]
+          and on the other hand
+          \begin{align*}
+              \det \begin{pmatrix}
+                       F_{n + 1} & F_n \\ F_n & F_{n - 1}
+                   \end{pmatrix} & = \det (\vect{Q}^n)                                      \\
+                                                 & = \det(\vect{Q})^n                       \\
+                                                 & = \left(1 \times 0 - 1 \times 1\right)^n \\
+                                                 & = (-1)^n.
+          \end{align*}
+
+          Hence,
+          \[
+              F_{n + 1} F_{n - 1} - F_n^2 = (-1)^n
+          \]
+          for all positive integers \(n\).
+
+    \item On one hand,
+          \[
+              \vect{Q}^{m + n} = \begin{pmatrix}
+                  F_{m + n + 1} & F_{m + n} \\ F_{m + n} & F_{m + n - 1}
+              \end{pmatrix},
+          \]
+          and on the other hand,
+          \begin{align*}
+              \vect{Q}^{m + n} & = \vect{Q}^m \cdot \vect{Q}^n                         \\
+                               & = \begin{pmatrix}
+                                       F_{m + 1} & F_{m} \\ F_{m} & F_{m - 1}
+                                   \end{pmatrix} \begin{pmatrix}
+                                                     F_{n + 1} & F_{n} \\ F_{n} & F_{n - 1}
+                                                 \end{pmatrix}.
+          \end{align*}
+
+          By comparing the top-right entry, we have \(F_{m + n} = F_{m + 1} F_n + F_m F_{n - 1}\) for all positive integers \(m\) and \(n\).
+
+    \item \begin{align*}
+              \LHS & = \vect{Q}^2                   \\
+                   & = \begin{pmatrix}
+                           1 & 1 \\ 1 & 0
+                       \end{pmatrix}^2              \\
+                   & = \begin{pmatrix}
+                           1 & 1 \\ 1 & 0
+                       \end{pmatrix} \begin{pmatrix}
+                                         1 & 1 \\ 1 & 0
+                                     \end{pmatrix} \\
+                   & = \begin{pmatrix}
+                           2 & 1 \\ 1 & 1
+                       \end{pmatrix}               \\
+                   & = \vect{I} + \begin{pmatrix}
+                                      1 & 1 \\ 1 & 0
+                                  \end{pmatrix}    \\
+                   & = \vect{I} + \vect{Q}          \\
+                   & = \RHS
+          \end{align*}
+          as desired.
+
+          \begin{enumerate}
+              \item On one hand, we have
+                    \begin{align*}
+                        (\vect{I} + \vect{Q})^n & = \sum_{k = 0}^{n} \binom{n}{k} \vect{Q}^{k}                      \\
+                                                & = \sum_{k = 0}^{n} \binom{n}{k} \begin{pmatrix}
+                                                                                      F_{k + 1} & F_k \\ F_k & F_{k - 1}
+                                                                                  \end{pmatrix},
+                    \end{align*}
+                    and on the other hand,
+                    \begin{align*}
+                        (\vect{I} + \vect{Q})^n & = \left(\vect{Q}^2\right)^n                 \\
+                                                & = \vect{Q}^{2n}                             \\
+                                                & = \begin{pmatrix}
+                                                        F_{2n + 1} & F_{2n} \\ F_{2n} & F_{2n - 1}
+                                                    \end{pmatrix}.
+                    \end{align*}
+
+                    Hence, comparing the top-right entry gives us
+                    \[
+                        F_{2n} = \sum_{k = 0}^{n} \binom{n}{k} F_k
+                    \]
+                    as desired.
+
+              \item Notice that,
+                    \begin{align*}
+                        \vect{Q}^3 & = \vect{Q} \cdot \vect{Q}^2                   \\
+                                   & = \vect{Q} \left(\vect{I} + \vect{Q}\right)   \\
+                                   & = \vect{Q} + \vect{Q}^2                       \\
+                                   & = \vect{Q} + \left(\vect{I} + \vect{Q}\right) \\
+                                   & = \vect{I} + 2 \vect{Q}.
+                    \end{align*}
+
+                    Hence, on one hand, we have
+                    \begin{align*}
+                        \left(\vect{I} + 2 \vect{Q}\right)^n & = \sum_{k = 0}^{n} \binom{n}{k} \left(2\vect{Q}\right)^k              \\
+                                                             & = \sum_{k = 0}^{n} \binom{n}{k} 2^k \vect{Q}^k                        \\
+                                                             & = \sum_{k = 0}^{n} \binom{n}{k} 2^k \begin{pmatrix}
+                                                                                                       F_{k + 1} & F_k \\ F_k & F_{k - 1}
+                                                                                                   \end{pmatrix},
+                    \end{align*}
+                    and on the other hand,
+                    \begin{align*}
+                        \left(\vect{I} + 2 \vect{Q}\right)^n & = \left(\vect{Q}^3\right)^n                 \\
+                                                             & = \vect{Q}^{3n}                             \\
+                                                             & = \begin{pmatrix}
+                                                                     F_{3n + 1} & F_{3n} \\ F_{3n} & F_{3n - 1}
+                                                                 \end{pmatrix}.
+                    \end{align*}
+
+                    Comparing the top-right entry gives us
+                    \[
+                        F_{3n} = \sum_{k = 0}^{n} \binom{n}{k} 2^{k} F_k.
+                    \]
+
+                    Also,
+                    \begin{align*}
+                        \vect{Q}^{3n} & = \vect{Q}^n \cdot \vect{Q}^{2n}                          \\
+                                      & = \vect{Q}^{n} \sum_{k = 0}^{n} \binom{n}{k} \vect{Q}^{k} \\
+                                      & = \sum_{k = 0}^{n} \binom{n}{k} \vect{Q}^{n + k}.
+                    \end{align*}
+
+                    Hence,
+                    \[
+                        \begin{pmatrix}
+                            F_{3n + 1} & F_{3n} \\ F_{3n} & F_{3n - 1}
+                        \end{pmatrix} = \sum_{k = 0}^{n} \binom{n}{k} \begin{pmatrix}
+                            F_{n + k + 1} & F_{n + k} \\ F_{n + k} & F_{n + k - 1}
+                        \end{pmatrix},
+                    \]
+                    and comparing the top-right entry gives us
+                    \[
+                        F_{3n} = \sum_{k = 0}^{n} \binom{n}{k} F_{n + k}
+                    \]
+                    as desired.
+
+              \item Consider \(\vect{P} = \vect{I} - \vect{Q}\), we have
+                    \[
+                        \vect{P} = \vect{I} - \vect{Q} = \begin{pmatrix}
+                            1 & 0 \\ 0 & 1
+                        \end{pmatrix} - \begin{pmatrix}
+                            1 & 1 \\ 1 & 0
+                        \end{pmatrix} = \begin{pmatrix}
+                            0 & -1 \\ -1 & 1
+                        \end{pmatrix} = \begin{pmatrix}
+                            F_0 & - F_1 \\ - F_1 & F_2
+                        \end{pmatrix}.
+                    \]
+
+                    We experiment \(\vect{P}^n\) for small \(n\)s.
+
+                    \begin{align*}
+                        \vect{P}^2 & = \begin{pmatrix}
+                                           0 & -1 \\ -1 & 1
+                                       \end{pmatrix} \begin{pmatrix}
+                                                         0 & -1 \\ -1 & 1
+                                                     \end{pmatrix} = \begin{pmatrix}
+                                                                         1 & -1 \\ -1 & 2
+                                                                     \end{pmatrix}, \\
+                        \vect{P}^3 & = \begin{pmatrix}
+                                           0 & -1 \\ -1 & 1
+                                       \end{pmatrix} \begin{pmatrix}
+                                                         1 & -1 \\ -1 & 2
+                                                     \end{pmatrix} = \begin{pmatrix}
+                                                                         1 & -2 \\ -2 & 3
+                                                                     \end{pmatrix}, \\
+                        \vect{P}^4 & = \begin{pmatrix}
+                                           0 & -1 \\ -1 & 1
+                                       \end{pmatrix} \begin{pmatrix}
+                                                         1 & -2 \\ -2 & 3
+                                                     \end{pmatrix} = \begin{pmatrix}
+                                                                         2 & -3 \\ -3 & 5
+                                                                     \end{pmatrix}.
+                    \end{align*}
+
+                    We claim that
+                    \[
+                        \vect{P}^n = \begin{pmatrix}
+                            F_{n - 1} & - F_n \\ - F_n & F_{n + 1}
+                        \end{pmatrix}
+                    \]
+                    and we aim to show this by induction on \(n\).
+
+                    The base case where \(n = 1\) is already shown above. Assume that this statement is true for some \(n = k \geq 1\), for \(n = k + 1\),
+                    \begin{align*}
+                        \LHS & = \vect{P}^{k + 1}                                        \\
+                             & = \vect{P} \cdot \vect{P}^k                               \\
+                             & = \begin{pmatrix}
+                                     0 & -1 \\ -1 & 1
+                                 \end{pmatrix} \begin{pmatrix}
+                                                   F_{k - 1} & -F_k \\ -F_k & F_{k + 1}
+                                               \end{pmatrix}       \\
+                             & = \begin{pmatrix}
+                                     F_k & - F_{k + 1} \\ - F_{k - 1} - F_k & F_k + F_{k + 1}
+                                 \end{pmatrix} \\
+                             & = \begin{pmatrix}
+                                     F_k & - F_{k + 1} \\ - F_{k + 1} & F_{k + 2}
+                                 \end{pmatrix}             \\
+                             & = \RHS.
+                    \end{align*}
+
+                    So the claim is true for the base case \(n = 1\). Given it is true for some \(n = k\), it is true for \(n = k + 1\). Hence, by the principle of mathematical induction, this statement is true for all positive integers \(n\).
+
+                    This means, we have
+                    \[
+                        (\vect{I} - \vect{Q})^n = \begin{pmatrix}
+                            F_{n - 1} & - F_n \\ - F_n & F_{n + 1}
+                        \end{pmatrix},
+                    \]
+                    and hence
+                    \begin{align*}
+                        \vect{Q}^n (\vect{I} - \vect{Q})^n & = \begin{pmatrix}
+                                                                   F_{n + 1} & F_n \\ F_n & F_{n - 1}
+                                                               \end{pmatrix} \begin{pmatrix}
+                                                                                 F_{n - 1} & -F_n \\ -F_n & F_{n + 1}
+                                                                             \end{pmatrix}             \\
+                                                           & = \begin{pmatrix}
+                                                                   F_{n + 1} F_{n - 1} - F_n^2 & \\ & F_{n + 1} F_{n - 1} - F_n^2
+                                                               \end{pmatrix} \\
+                                                           & = (-1)^n \vect{I}.
+                    \end{align*}
+
+                    On the other hand, using the binomial theorem, we also have
+                    \begin{align*}
+                        \vect{Q}^n (\vect{I} - \vect{Q})^n & = \vect{Q}^n \sum_{k = 0}^{n} \binom{n}{k} (-\vect{Q})^k     \\
+                                                           & = \vect{Q}^n \sum_{k = 0}^{n} \binom{n}{k} (-1)^k \vect{Q}^k \\
+                                                           & = \sum_{k = 0}^{n} \binom{n}{k} (-1)^k \vect{Q}^{n + k},
+                    \end{align*}
+                    and so
+                    \[
+                        (-1)^n \begin{pmatrix}
+                            1 & \\ & 1
+                        \end{pmatrix} = \sum_{k = 0}^{n} \binom{n}{k} (-1)^k \begin{pmatrix}
+                            F_{n + k + 1} & F_{n + k} \\ F_{n + k} & F_{n + k - 1}
+                        \end{pmatrix}.
+                    \]
+
+                    By comparing the top-right entry, we have
+                    \begin{align*}
+                        0              & = \sum_{k = 0}^{n} \binom{n}{k} (-1)^k F_{n + k}       \\
+                        (-1)^n \cdot 0 & = \sum_{k = 0}^{n} \binom{n}{k} (-1)^{n + k} F_{n + k} \\
+                        0              & = \sum_{k = 0}^{n} \binom{n}{k} (-1)^{n + k} F_{n + k}
+                    \end{align*}
+                    as desired.
+          \end{enumerate}
+\end{enumerate}
