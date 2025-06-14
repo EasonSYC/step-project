@@ -1,2 +1,70 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item \begin{enumerate}
+              \item If \(n\) is odd, then \(p\) must be negative when either \(x \gg 0\) or \(x \ll 0\), for a sufficiently large \(\abs*{x}\), since the leading term (term with \(x^n\)) will be sufficiently large at this point. Since \(p(x) > 0\), \(n\) must be even. Furthermore, the leading term coefficient must be positive.
+
+                    For \(0 \leq k \leq n\), \(p^{(k)} (x)\) is an \(n - k\) degree polynomial. Hence, \(q\) is also a degree \(n\) polynomial, with a positive leading term coefficient. This means when \(\abs*{x}\) is sufficiently large, the leading term will be sufficiently positive and \(q\) will be positive.
+
+              \item We would like to show that \(q(x) - q'(x) = p(x)\), and we have
+                    \begin{align*}
+                        q(x) - q'(x) & = \sum_{k = 0}^{n} p^{(k)} (x) - \DiffOp{x} \sum_{k = 0}^{n} p^{(k)} (x) \\
+                                     & = \sum_{k = 0}^{n} p^{(k)} (x) - \sum_{k = 0}^{n} p^{(k + 1)} (x)        \\
+                                     & = \sum_{k = 0}^{n} p^{(k)} (x) - \sum_{k = 1}^{n + 1} p^{(k)} (x)        \\
+                                     & = p^{(0)} (x) - p^{(n + 1)} (x)                                          \\
+                                     & = p(x) - 0                                                               \\
+                                     & = p(x),
+                    \end{align*}
+                    as desired.
+          \end{enumerate}
+
+    \item \begin{enumerate}
+              \item If \(q'(x) = 0\) for some \(x\), then \(0 = p(x) - q(x)\), giving \(p(x) = q(x)\) for that point. This means \(p(x)\) and \(q(x)\) will meet at that point, proving precisely \(p(x)\) and \(q(x)\) meet at every stationary point of \(y = q(x)\).
+
+                    This means \(q\) has all local minimums being positive, since they must be stationary points, situated on \(p\) as well, being positive.
+
+                    Since \(q\) is an even-degree polynomial, it must also be the case that one of the local minimums is a global minimum, which is positive.
+
+                    Hence, \(q\) is always positive, and \(q(x) > 0\) for all \(x\).
+
+              \item By differentiating, we have
+                    \begin{align*}
+                        \DiffFrac{e^{-x} q(x)}{x} & = e^{-x} q'(x) - e^{-x} q(x) \\
+                                                  & = e^{-x} (q'(x) - q(x))      \\
+                                                  & = - e^{-x} p(x).
+                    \end{align*}
+
+                    We have \(e^{-x} > 0\) and \(p(x) > 0\) for all \(x\), which means the gradient is always negative, which shows that \(e^{-x} q(x)\) is decreasing.
+
+                    For sufficiently large \(x\), \(q(x) > 0\), and hence \(e^{-x} q(x) > 0\) for sufficiently large \(x\).
+
+                    Since this function is decreasing, we can conclude that \(e^{-x} q(x) > 0\) for all \(x\), and since \(e^{-x}\) is always positive, it must be the case that \(q(x) > 0\) for all \(x\).
+
+              \item Let the upper bound of the integral be \(N\). Using integration by parts, we have
+                    \begin{align*}
+                        \int_{0}^{N} p(x + t) e^{-t} \Diff t & = - \int_{0}^{N} p(x + t) \Diff e^{-t}                                        \\
+                                                             & = - \left[p(x + t) e^{-t}\right]_{0}^{N} + \int_{0}^{N} e^{-t} \Diff p(x + t) \\
+                                                             & = p(x) - p(x + N) e^{-N} + \int_{0}^{N} p'(x + t) e^{-t} \Diff t.
+                    \end{align*}
+
+                    Let \(N \to \infty\), \(e^{-N} p(x + N) \to 0\) since an exponential dominates a polynomial. Hence,
+                    \[
+                        \int_{0}^{\infty} p(x + t) e^{-t} \Diff t = p(x) + \int_{0}^{\infty} p^{(1)} (x + t) e^{-t} \Diff t
+                    \]
+                    as desired.
+
+                    Repeating this process, we have
+                    \begin{align*}
+                        \int_{0}^{\infty} p(x + t) e^{-t} \Diff t & = p(x) + \int_{0}^{\infty} p^{(1)} (x + t) e^{-t} \Diff t                                          \\
+                                                                  & = p(x) + p^{(1)} (x) + \int_{0}^{\infty} p^{(2)} (x + t) e^{-t} \Diff t                            \\
+                                                                  & = \cdots                                                                                           \\
+                                                                  & = p(x) + p^{(1)} (x) + \cdots + p^{(n)} (x) + \int_{0}^{\infty} p^{(n + 1)} (x + t) e^{-t} \Diff t \\
+                                                                  & = \sum_{k = 0}^{n} p^{(k)}(x) + \int_{0}^{\infty} 0 \Diff t                                        \\
+                                                                  & = q(x) + 0                                                                                         \\
+                                                                  & = q(x),
+                    \end{align*}
+                    as desired.
+
+                    Since the integrand of this integral is positive for all \(t \geq 0\), the integral must evaluate to a positive value, and hence \(q(x) > 0\) for all \(x\) as desired.
+          \end{enumerate}
+\end{enumerate}
