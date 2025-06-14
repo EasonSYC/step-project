@@ -1,2 +1,83 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Let the tetrahedron be \(OABC\), and let \(\abs*{OA} = a, \abs*{OB} = b, \abs*{OC} = c, \abs*{BC} = d, \abs*{AC} = e, \abs*{AB} = f\).
+
+          This tetrahedron is isosceles, if and only if \(a = d, b = e,\) and \(c = f\).
+
+          The perimeter of the face \(OAB\) is \(a + b + f\), of face \(OBC\) is \(b + c + d\), of face \(OAC\) is \(a + c + e\), and of face \(ABC\) is \(d + e + f\).
+
+          If the tetrahedron is isosceles, \(a = d, b = e\) and \(c = f\), then all the faces have perimeter \(a + b + c\) and are equal.
+
+          If all faces have equal perimeter, then comparing the perimeters of faces \(OAB\), \(OBC\) and \(OAC\), \(a + f = c + d\), \(b + f = c + e\), \(b + d = a + e\).
+
+          Hence, \(a - d = b - e = c - f\). Let the difference be \(t\), and \(a = d + t, b = e + t, c = f + t\).
+
+          Comparing the perimeter of face \(OAB\) and face \(ABC\) this time, we have \((d + t) + (e + t) = d + e\), which gives \(t = 0\).
+
+          Hence, \(a = d\), \(b = e\), \(c = f\), and the tetrahedron is isosceles.
+
+    \item Applying the cosine rule in triangle \(OBC\), we have
+          \[
+              \abs*{\vect{a}}^2 = \abs*{\vect{b}}^2 + \abs*{\vect{c}}^2 - 2 \abs*{\vect{b}} \abs*{\vect{c}} \cos \angle COB
+          \]
+          and using the dot-product formula
+          \[
+              \vect{b} \cdot \vect{c} = \abs*{\vect{b}} \abs*{\vect{c}} \cos \angle COB,
+          \]
+          rearranging gives us
+          \[
+              2 \vect{b} \cdot \vect{c} = \abs*{\vect{b}}^2 + \abs*{\vect{c}}^2 - \abs*{\vect{a}}^2.
+          \]
+
+          Similarly, we have
+          \begin{align*}
+              2 \vect{a} \cdot \vect{b} & = \abs*{\vect{a}}^2 + \abs*{\vect{b}}^2 - \abs*{\vect{c}}^2, \\
+              2 \vect{a} \cdot \vect{c} & = \abs*{\vect{a}}^2 + \abs*{\vect{c}}^2 - \abs*{\vect{b}}^2.
+          \end{align*}
+
+          Summing these two, we get
+          \begin{align*}
+              2 \vect{a} \cdot \vect{b} + 2 \vect{a} \cdot \vect{c} & = 2 \abs*{\vect{a}}^2 \\
+              \vect{a} \cdot \vect{b} + \vect{a} \cdot \vect{c}     & = \abs*{\vect{a}}^2   \\
+              \vect{a} \cdot \left(\vect{b} + \vect{c}\right)       & = \abs*{\vect{a}}^2.
+          \end{align*}
+
+    \item Let \(\vect{g}\) be the position vector for \(G\). \(\abs*{OG} = \abs*{\vect{g}} = \frac{1}{4} \abs*{\vect{a} + \vect{b} + \vect{c}}\).
+
+          Consider the distance between \(A\) and \(G\).
+          \begin{align*}
+              \abs*{AG} & = \abs*{\bvect{AG}}                                      \\
+                        & = \abs*{\vect{g} - \vect{a}}                             \\
+                        & = \frac{1}{4} \abs*{- 3 \vect{a} + \vect{b} + \vect{c}}.
+          \end{align*}
+
+          We want to show that \(\abs*{\vect{a} + \vect{b} + \vect{c}} = \abs*{- 3 \vect{a} + \vect{b} + \vect{c}}\). The following are equivalent
+
+          \begin{align*}
+              \abs*{\vect{a} + \vect{b} + \vect{c}}                                                                                                         & = \abs*{- 3 \vect{a} + \vect{b} + \vect{c}}                                                                                                       \\
+              \abs*{\vect{a} + \vect{b} + \vect{c}}^2                                                                                                       & = \abs*{- 3 \vect{a} + \vect{b} + \vect{c}}^2                                                                                                     \\
+              \abs*{\vect{a}}^2 + \abs*{\vect{b}}^2 + \abs*{\vect{c}}^2 + 2 \vect{a} \cdot \vect{b} + 2 \vect{a} \cdot \vect{c} + 2 \vect{b} \cdot \vect{c} & = 9 \abs*{\vect{a}}^2 + \abs*{\vect{b}}^2 + \abs*{\vect{c}}^2 - 6 \vect{a} \cdot \vect{b} - 6 \vect{a} \cdot \vect{c} + 2 \vect{b} \cdot \vect{c} \\
+              8 \vect{a} \cdot \vect{b} + 8 \vect{a} \cdot \vect{c}                                                                                         & = 8 \abs*{\vect{a}}^2                                                                                                                             \\
+              \vect{a} \cdot \left(\vect{b} + \vect{c}\right)                                                                                               & = \abs*{\vect{a}}^2
+          \end{align*}
+          and this is true from the previous part.
+
+          Hence, \(\abs*{OG} = \abs*{AG}\). By symmetry, \(\abs*{OG} = \abs*{AG} = \abs*{BG} = \abs*{CG}\) and hence \(G\) is equidistant from all four vertices of the tetrahedron.
+
+    \item Notice that
+          \begin{align*}
+              \abs*{\vect{a} - \vect{b} - \vect{c}}^2 & = \abs*{\vect{a}}^2 + \abs*{\vect{b}}^2 + \abs*{\vect{c}}^2 - 2 \vect{a} \cdot \vect{b} - 2 \vect{a} \cdot \vect{c} + 2 \vect{b} \cdot \vect{c}            \\
+                                                      & = \abs*{\vect{a}}^2 + \abs*{\vect{b}}^2 + \abs*{\vect{c}}^2 - 2 \abs*{\vect{a}}^2 + \left(\abs*{\vect{b}}^2 + \abs*{\vect{c}}^2 - \abs*{\vect{a}}^2\right) \\
+                                                      & = -2 \abs*{\vect{a}}^2 + 2 \abs*{\vect{b}}^2 + 2 \abs*{\vect{c}}^2                                                                                         \\
+                                                      & = 2 \left(\abs*{\vect{b}}^2 + \abs*{\vect{c}}^2 - \abs*{\vect{a}}^2\right)                                                                                 \\
+                                                      & = 4 \vect{b} \cdot \vect{c},
+          \end{align*}
+          and since the left-hand side is a square, it is non-negative, which means the dot product is non-negative.
+
+          Hence, \(\cos \angle BOC \geq 0\), which means it must not be obtuse. By symmetry, this means none of the angles are obtuse.
+
+          If one of them is a right angle, say \(\angle BOC\), then the dot product evaluates to \(0\), which must mean \(\abs*{\vect{a} - \vect{b} - \vect{c}} = 0\).
+
+          Hence, \(\vect{a} = \vect{b} + \vect{c}\), which means \(A\) lies in the plane containing \(O, B, C\). This will not be a tetrahedron, and hence no angles can be right angles.
+\end{enumerate}
