@@ -1,2 +1,91 @@
 \Question{\currfilebase}
-\WorkInProgress
+\begin{enumerate}
+    \item If \(x = \frac{1}{t}\), we have
+          \[
+              \DiffFrac{x}{t} = - \frac{1}{t^2}
+          \]
+          and hence
+          \[
+              \Diff x = - \frac{\Diff t}{t^2}.
+          \]
+
+          Hence,
+          \begin{align*}
+              \int_{a}^{b} \frac{\Diff x}{\left(1 + x^2\right)^{\frac{3}{2}}} & = \int_{a^{-1}}^{b^{-1}} \frac{- \Diff t}{t^2 \left(1 + \frac{1}{t^2}\right)^{\frac{3}{2}}}  \\
+                                                                              & = \int_{a^{-1}}^{b^{-1}} \frac{-t \Diff t}{t^3 \left(1 + \frac{1}{t^2}\right)^{\frac{3}{2}}} \\
+                                                                              & = \int_{a^{-1}}^{b^{-1}} \frac{-t \Diff t}{\left(1 + t^2\right)^{\frac{3}{2}}}
+          \end{align*}
+          as desired.
+
+    \item We have
+          \[
+              \int_{a^{-1}}^{b^{-1}} \frac{-t \Diff t}{\left(1 + t^2\right)^{\frac{3}{2}}} = \left[\left(1 + t^2\right)^{-\frac{1}{2}}\right]_{a^{-1}}^{b^{-1}}.
+          \]
+
+          \begin{enumerate}
+              \item \begin{align*}
+                        \int_{\frac{1}{2}}^{2} \frac{\Diff x}{\left(1 + x^2\right)^{\frac{3}{2}}} & = \int_{2}^{\frac{1}{2}} \frac{-t \Diff t}{\left(1 + t^2\right)^{\frac{3}{2}}}                                  \\
+                                                                                                  & = \left[\left(1 + t^2\right)^{- \frac{1}{2}}\right]_{2}^{\frac{1}{2}}                                           \\
+                                                                                                  & = \left(1 + \left(\frac{1}{2}\right)^2\right)^{-\frac{1}{2}} - \left(1 + \left(2\right)^2\right)^{-\frac{1}{2}} \\
+                                                                                                  & = \frac{1}{\sqrt{\frac{5}{4}}} - \frac{1}{\sqrt{5}}                                                             \\
+                                                                                                  & = \frac{2}{\sqrt{5}} - \frac{1}{\sqrt{5}}                                                                       \\
+                                                                                                  & = \frac{1}{\sqrt{5}}.
+                    \end{align*}
+
+              \item Notice that the integrand is even, we have
+                    \begin{align*}
+                        \int_{-2}^{2} \frac{\Diff x}{\left(1 + x^2\right)^{\frac{3}{2}}} & = 2 \int_{0}^{2} \frac{\Diff x}{\left(1 + x^2\right)^{\frac{3}{2}}}                                           \\
+                                                                                         & = 2 \lim_{u \to 0^{+}} \int_{u}^{2} \frac{\Diff x}{\left((1 + x^2)\right)^{\frac{3}{2}}}                      \\
+                                                                                         & = 2 \lim_{u \to 0^{+}} \int_{\frac{1}{u}}^{\frac{1}{2}} \frac{-t \Diff t}{\left(1 + t^2\right)^{\frac{3}{2}}} \\
+                                                                                         & = 2 \lim_{u \to \infty} \int_{u}^{\frac{1}{2}} \frac{-t \Diff t}{\left(1 + t^2\right)^{\frac{3}{2}}}          \\
+                                                                                         & = 2 \lim_{u \to \infty} \left[\left(1 + t^2\right)^{-\frac{1}{2}}\right]_{u}^{2}                              \\
+                                                                                         & = 2 \cdot \left(\frac{2}{\sqrt{5}} - \lim_{u \to \infty} \frac{1}{\sqrt{1 + u^2}}\right)                      \\
+                                                                                         & = 2 \cdot \left(\frac{2}{\sqrt{5}} - 0\right)                                                                 \\
+                                                                                         & = \frac{4}{\sqrt{5}}.
+                    \end{align*}
+          \end{enumerate}
+
+    \item \begin{enumerate}
+              \item Starting from the left, we have
+                    \begin{align*}
+                        \int_{\frac{1}{2}}^{2} \frac{\Diff x}{\left(1 + x^2\right)^2} & = \int_{2}^{\frac{1}{2}} \frac{- \frac{1}{t^2} \Diff t}{\left(1 + \frac{1}{t^2}\right)^2}             \\
+                                                                                      & = \int_{\frac{1}{2}}^{2} \frac{\frac{1}{t^2} \cdot t^4 \Diff t}{t^4 \left(1 + \frac{1}{t^2}\right)^2} \\
+                                                                                      & = \int_{\frac{1}{2}}^{2} \frac{t^2 \Diff t}{\left(1 + t^2\right)^2},
+                    \end{align*}
+                    and therefore the first equal sign is true.
+
+                    As for the second equal sign, we notice that
+                    \begin{align*}
+                        \int_{\frac{1}{2}}^{2} \frac{\Diff x}{\left(1 + x^2\right)^2} + \int_{\frac{1}{2}}^{2} \frac{x^2\Diff x}{\left(1 + x^2\right)^2} & = \int_{\frac{1}{2}}^{2} \frac{\left(1 + x^2\right) \Diff x}{\left(1 + x^2\right)^2} \\
+                                                                                                                                                         & = \int_{\frac{1}{2}}^{2} \frac{\Diff x}{1 + x^2},
+                    \end{align*}
+                    which means that
+                    \[
+                        \int_{\frac{1}{2}}^{2} \frac{\Diff x}{\left(1 + x^2\right)^2} = \int_{\frac{1}{2}}^{2} \frac{x^2 \Diff x}{\left(1 + x^2\right)^2} = \frac{1}{2} \int_{\frac{1}{2}}^{2} \frac{\Diff x}{1 + x^2}.
+                    \]
+
+                    Hence,
+                    \begin{align*}
+                        \int_{\frac{1}{2}}^{2} \frac{\Diff x}{\left(1 + x^2\right)^2} & = \frac{1}{2} \int_{\frac{1}{2}}^{2} \frac{\Diff x}{1 + x^2}                 \\
+                                                                                      & = \frac{1}{2} \left[\arctan x\right]_{\frac{1}{2}}^{2}                       \\
+                                                                                      & = \frac{1}{2} \arctan 2 - \frac{1}{2} \arctan \frac{1}{2}                    \\
+                                                                                      & = \frac{1}{2} \arctan 2 - \frac{1}{2} \left(\frac{\pi}{2} - \arctan 2\right) \\
+                                                                                      & = \arctan 2 - \frac{\pi}{4}.
+                    \end{align*}
+              \item Let \(x = \frac{1}{u}\), we have \(\Diff x = - \frac{1}{u^2} \Diff u\).
+
+                    Let the integral be \(I\), and we have
+                    \begin{align*}
+                        I & = \int_{\frac{1}{2}}^{2} \frac{1 - x}{x \left(1 + x^2\right)^{\frac{1}{2}}} \Diff x                                                   \\
+                          & = \int_{\frac{1}{2}}^{2} \frac{1 - \frac{1}{u}}{\frac{1}{u} \left(1 + \frac{1}{u^2}\right)^{\frac{1}{2}}} \cdot \frac{1}{u^2} \Diff u \\
+                          & = \int_{\frac{1}{2}}^{2} \frac{u - 1}{u^2 \left(1 + \frac{1}{u^2}\right)^{\frac{1}{2}}} \Diff u                                       \\
+                          & = \int_{\frac{1}{2}}^{2} \frac{u - 1}{u \left(1 + u^2\right)^{\frac{1}{2}}} \Diff u                                                   \\
+                          & = -I.
+                    \end{align*}
+
+                    This therefore means
+                    \[
+                        I = \int_{\frac{1}{2}}^{2} \frac{1 - x}{x \left(1 + x^2\right)^{\frac{1}{2}}} \Diff x = 0.
+                    \]
+          \end{enumerate}
+\end{enumerate}
