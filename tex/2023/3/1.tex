@@ -1,2 +1,75 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item The line through \(P\) and \(Q\) has gradient
+          \[
+              \frac{aq^2 - ap^2}{2aq - 2ap} = \frac{q^2 - p^2}{2 (q - p)} = \frac{p + q}{2},
+          \]
+          and so it has equation
+          \begin{align*}
+              y - ap^2 & = \frac{1}{2} (p + q) (x - 2ap)             \\
+              y        & = \frac{1}{2} (p + q) x + ap^2 - ap^2 - apq \\
+              y        & = \frac{1}{2} (p + q) x - apq.
+          \end{align*}
+
+          The line is tangent to the circle with centre \((0, 3a)\) and radius \(2a\), if and only if its distance from \((0, 3a)\) is \(2a\).
+
+          The line has equation
+          \[
+              2y - (p + q) x + 2apq = 0
+          \]
+          and hence the distance is
+          \begin{align*}
+              d & = \frac{\abs*{2 \cdot 3a - (p + q) \cdot 0 + 2apq}}{\sqrt{2^2 + (p + q)^2}} \\
+                & = \frac{\abs*{6a + 2apq}}{\sqrt{4 + p^2 q^2 + 6pq + 5}}                     \\
+                & = \frac{\abs*{2a (3 + pq)}}{\sqrt{(pq + 3)^2}}                              \\
+                & = \frac{2a \abs*{3 + pq}}{\abs*{3 + pq}}                                    \\
+                & = 2a,
+          \end{align*}
+          and so the distance from \(l\) to \((0, 3a)\) is \(2a\) as desired.
+
+    \item We rearrange the condition to an equation in \(q\)
+          \begin{align*}
+              p^2 + 2pq + q^2                                       & = p^2 q^2 + 6pq + 5 \\
+              \left(p^2 - 1\right) q^2 + 4pq + \left(5 - p^2\right) & = 0,
+          \end{align*}
+          and since \(p^2 \neq 1\), this must be a quadratic.
+
+          We examine the discriminant, \(\Delta\):
+          \begin{align*}
+              \Delta & = (4p)^2 - 4 \left(p^2 - 1\right) \left(5 - p^2\right) \\
+                     & = 16p^2 - 4\left(-p^4 - 5 + 6p^2\right)                \\
+                     & = 4p^4 - 8p^2 + 20                                     \\
+                     & = 4 \left(p^4 - 4p^2 + 5\right)                        \\
+                     & = 4 \left[\left(p^2 - 2\right)^2 + 1\right]            \\
+                     & \geq 4 \cdot 1                                         \\
+                     & = 4                                                    \\
+                     & > 0,
+          \end{align*}
+          and so \(\Delta > 0\), meaning there will be two distinct real values of \(q\) satisfying the condition.
+
+          By Vieta's Theorem, we have \(q_1 + q_2 = - \frac{4p}{p^2 - 1}\), and \(q_1 q_2 = \frac{5 - p^2}{p^2 - 1}\).
+
+    \item Notice that
+          \[
+              \left(q_1 + q_2\right)^2 = \frac{16p^2}{\left(p^2 - 1\right)^2},
+          \]
+          and
+          \begin{align*}
+              q_1^2 q_2^2 + 6 q_1 q_2 + 5 & = \frac{\left(5 - p^2\right)^2}{\left(p^2 - 1\right)^2} + \frac{6 \cdot \left(5 - p^2\right)}{\left(p^2 - 1\right)} + 5          \\
+                                          & = \frac{\left(5 - p^2\right)^2 + 6 \left(5 - p^2\right) \left(p^2 - 1\right) + 5 \left(p^2 - 1\right)^2}{\left(p^2 - 1\right)^2} \\
+                                          & = \frac{25 - 10p^2 + p^4 - 6p^4 + 36 p^2 - 30 + 5p^4 - 10p^2 + 5}{\left(p^2 - 1\right)^2}                                        \\
+                                          & = \frac{16 p^2}{\left(p^2 - 1\right)^2},
+          \end{align*}
+          and so \(\left(q_1 + q_2\right)^2 = q_1^2 q_2^2 + 6 q_1 q_2 + 5\).
+
+          Let \(P\left(2ap, ap^2\right)\) for some \(p \neq 1\), and let the corresponding solutions to the condition be \(q_1, q_2\). Define the points \(Q_1 \left(2aq_1, aq_1^2\right)\) and \(Q_2 \left(2aq_2, aq_2^2\right)\).
+
+          The previous part of the question shows that \(Q_1\) and \(Q_2\) exists and are distinct.
+
+          The first part ensures that \(PQ_1\) and \(PQ_2\) are tangents to the circle.
+
+          But since \(q_1\) and \(q_2\) satisfies the conditions as well, we must have \(Q_1 Q_2\) being a tangent to the circle as well.
+
+          Hence, triangle \(P Q_1 Q_2\) has all vertices on \(x^2 = 4ay\), and that all three sides are tangent to the desired circle.
+\end{enumerate}
