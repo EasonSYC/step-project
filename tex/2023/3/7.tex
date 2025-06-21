@@ -1,2 +1,86 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Let \(u = \sqrt{x}\), we have \(x = u^2\), and hence \(\Diff x = 2u \Diff u\).
+
+          When \(x = 0, u = 0\), and when \(x = 1, u = 1\).
+
+          Therefore,
+          \begin{align*}
+              \int_{0}^{1} f\left(\sqrt{x}\right)\Diff x & = \int_{0}^{1} f(u) \cdot 2u \Diff u \\
+                                                         & = 2 \int_{0}^{1} u f(u) \Diff u      \\
+                                                         & = 2 \int_{0}^{1} x f(x) \Diff x.
+          \end{align*}
+
+    \item We have
+          \begin{align*}
+              \int_{0}^{1} \left(g(x)\right)^2 \Diff x & = \int_{0}^{1} g\left(\sqrt{x}\right) \Diff x - \frac{1}{3} \\
+                                                       & = 2 \int_{0}^{1} x g(x) \Diff x - \int_{0}^{1} x^2 \Diff x,
+          \end{align*}
+          and hence
+          \begin{align*}
+              \int_{0}^{1} \left[\left(g(x)\right)^2 - 2x g(x) + x^2\right] \Diff x & = 0  \\
+              \int_{0}^{1} \left(g(x) - x\right)^2 \Diff x                          & = 0.
+          \end{align*}
+
+          We have \(\left(g(x) - x\right)^2 \geq 0\) for all \(0 \leq x \leq 1\), and since \(g\) is continuous, we must have \(g(x) - x = 0\) for all \(0 \leq x \leq 1\) for the integral to evaluate to \(0\).
+
+          Hence, \(g(x) = x\) for \(0 \leq x \leq 1\).
+
+    \item Using integration by parts, we have
+          \begin{align*}
+              \int_{0}^{1} h(x) \Diff x & = \left[x h(x)\right]_{0}^{1} - \int_{0}^{1} x \Diff h(x)    \\
+                                        & = 1 \cdot h(1) - 0 \cdot h(0) - \int_{0}^{1} x h'(x) \Diff x \\
+                                        & = h(1) - \int_{0}^{1} x h'(x) \Diff x.
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              \int_{0}^{1} \left(h'(x)\right)^2 \Diff x & = 2h(1) - 2 \int_{0}^{1} h(x) \Diff x - \frac{1}{3}                         \\
+                                                        & = 2 h(1) - 2 \left[h(1) - \int_{0}^{1} x h'(x) \Diff x\right] - \frac{1}{3} \\
+                                                        & = 2 \int_{0}^{1} x h'(x) \Diff x - \frac{1}{3}                              \\
+                                                        & = 2 \int_{0}^{1} x h'(x) \Diff x - \int_{0}^{1} x^2 \Diff x.
+          \end{align*}
+
+          Therefore, similar to the previous part, we have \(h'(x) = x\) for \(0 \leq x \leq 1\), and hence \(h(x) = \frac{x^2}{2} + h(0) = \frac{x^2}{2}\) for \(0 \leq x \leq 1\).
+
+    \item First, we notice that
+          \begin{align*}
+              \int_{0}^{1} e^{-ax} \Diff x & = - \frac{1}{a} \left[e^{-ax}\right]_{0}^{1}  \\
+                                           & = - \frac{1}{a} \cdot \left[e^{-a} - 1\right] \\
+                                           & = - \frac{e^{-a}}{a} + \frac{1}{a}.
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              \int_{0}^{1} e^{ax} \left(k(x)\right)^2 \Diff x                                           & = 2 \int_{0}^{1} k(x) \Diff x - \int_{0}^{1} e^{-ax} \Diff x + \frac{1}{a} - \frac{1}{a^2} - \frac{1}{4} \\
+              \int_{0}^{1} \left[e^{ax} \left(k(x)\right)^2 - 2 k(x) + e^{-ax}\right] \Diff x           & = - \frac{1}{a^2} + \frac{1}{a} - \frac{1}{4}                                                            \\
+              \int_{0}^{1} e^{-ax} \left[e^{2ax} \left(k(x)\right)^2 - 2 e^{ax} k(x) + 1\right] \Diff x & = - \left(\frac{1}{a} - \frac{1}{2}\right)^2                                                             \\
+              \int_{0}^{1} e^{-ax} \left(e^{ax} k(x)- 1\right)^2 \Diff x                                & = - \left(\frac{1}{a} - \frac{1}{2}\right)^2.
+          \end{align*}
+
+          Since \(e^{-ax} > 0\), and \(\left(e^{ax} k(x) - 1\right)^2 \geq 0\), the integrand must be non-negative, and hence
+          \[
+              \int_{0}^{1} e^{-ax} \left(e^{ax} k(x)- 1\right)^2 \Diff x \geq 0,
+          \]
+          meaning
+          \[
+              \left(\frac{1}{a} - \frac{1}{2}\right)^2 \leq 0.
+          \]
+
+          However, since this is a square, it is non-negative, and it must be the case that \(\left(\frac{1}{a} - \frac{1}{2}\right)^2 = 0\), giving \(\frac{1}{a} = \frac{1}{2}\), and hence \(a = 2\).
+
+          Therefore,
+          \[
+              \int_{0}^{1} e^{-ax} \left(e^{ax} k(x)- 1\right)^2 \Diff x = 0,
+          \]
+          and since the integrand is continuous and non-negative over the interval, it must be zero everywhere for \(0 \leq x \leq 1\), and hence
+          \[
+              e^{ax} k(x) - 1 = 0,
+          \]
+          giving
+          \[
+              k(x) = e^{-ax} = e^{-2x}
+          \]
+          for \(0 \leq x \leq 1\).
+\end{enumerate}
