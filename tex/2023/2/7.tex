@@ -1,2 +1,82 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Let \(z = a + ib\) and \(\abs*{z} = \sqrt{a^2 + b^2}\). Let \(w = c + id\) and \(\abs*{w} = \sqrt{c^2 + d^2}\).
+
+          We have \(zw = (ac - bd) + (bc + ad) i\), and hence
+          \begin{align*}
+              \abs*{zw} & = \sqrt{(ac - bd)^2 + (bc + ad)^2}                             \\
+                        & = \sqrt{a^2 c^2 + b^2 d^2 - 2abcd + b^2 c^2 + a^2 d^2 + 2abcd} \\
+                        & = \sqrt{a^2 c^2 + b^2 d^2 + b^2 c^2 + a^2 d^2}                 \\
+                        & = \sqrt{\left(a^2 + b^2\right) \left(c^2 + d^2\right)}         \\
+                        & = \sqrt{a^2 + b^2} \sqrt{c^2 + d^2}                            \\
+                        & = \abs*{z} \abs*{w}
+          \end{align*}
+          as desired.
+
+    \item Let \(z = 2 + i\) and \(w = 10 + 11i\), we have \(\abs*{z} = \sqrt{5}\) and \(\abs*{w} = \sqrt{221}\).
+
+          Multiplying them gives us \(zw = (2 \times 10 - 1 \times 11) + (10 \times 1 + 2 \times 11) i = 9 + 32 i\).
+
+          We have \(\abs*{zw} = \abs*{z} \abs*{w}\), and hence \(\sqrt{9^2 + 32^2} = \sqrt{5 \times 221}\).
+
+          This means \(9^2 + 32^2 = 5 \times 221\), and hence a possible pair is \((h, k) = (9, 32)\).
+
+    \item We have \(8045 = 5 \times 1609 = \left(1^2 + 2^2\right) \left(40^2 + 3^2 \right)\).
+
+          Let \(z = 2 + i, w = 3 + 40 i\), \(zw = (2 \times 3 - 1 \times 40) + (2 \times 40 + 3 \times 1) i = -34 + 83i\).
+
+          Since \(\abs*{zw} = \abs*{z} \abs*{w}\), we must have
+          \begin{align*}
+              34^2 + 83^2 & = \left(1^2 + 2^2\right) \times \left(40^3 + 3^2\right) \\
+                          & = 5 \times 1609                                         \\
+                          & = 8045,
+          \end{align*}
+          and hence \((m, n) = (34, 83)\) is a possible pair of solution.
+
+    \item We notice that \(36\) is a square number, and
+          \begin{align*}
+              36 \times 50805 & = 6^2 \left(102^2 + 201^2\right)      \\
+                              & = 6^2 \cdot 102^2 + 6^2 \cdot 201^2   \\
+                              & = (6 \times 102)^2 + (6 \times 201)^2 \\
+                              & = 612^2 + 1206^2.
+          \end{align*}
+
+          Hence, \((p, q) = (612, 1206)\) is a possible pair of solution.
+
+    \item First, we observe that \(1002082 = 1002001 + 81 = 1001^2 + 9^2\), and hence similar to the previous part, we have
+          \begin{align*}
+              25 \times 1002082 & = 5^2 \left(9^2 + 1001^2\right)                            \\
+                                & = \left(5 \times 9\right)^2 + \left(5 \times 1001\right)^2 \\
+                                & = 45^2 + 5005^2,
+          \end{align*}
+          and \((r, s) = (45, 5005)\) is a possible pair of solution.
+
+          Furthermore, since \(1002082 = 1001^2 + 9^2\), and \(5^2 = 4^2 + 3^2\), consider \(z = 3 + 4i\), \(w = 1001 + 9i\), we have
+          \begin{align*}
+              zw & = (3 \times 1001 - 4 \times 9) + (4 \times 1001 + 3 \times 9) i \\
+                 & = (3003 - 36) + (4004 + 27) i                                   \\
+                 & = 2967 + 4031 i,
+          \end{align*}
+          and \((r, s) = (2967, 4031)\) is a possible pair of solution since \(\abs*{zw} = \abs*{z} \abs*{w}\).
+
+          Similarly, \(z = 4 + 3i\) and \(w = 1001 + 9i\) gives
+          \begin{align*}
+              zw & = (4 \times 1001 - 3 \times 9) + (3 \times 1001 + 4 \times 9) i \\
+                 & = (4004 - 27) + (3003 + 36) i                                   \\
+                 & = 3977 + 3039 i,
+          \end{align*}
+          and therefore \((R, s) = (3039, 3977)\) is another possible pair of solution.
+
+    \item We have \(109 = 100 + 9 = 10^2 + 3^2\), and let \(z = 10 + 3i\), \(w = t + ui\), we examine the linear system of equations
+          \[
+              \left\{
+              \begin{aligned}
+                  10t - 3u & = 1001, \\
+                  3t + 10u & = 6.
+              \end{aligned}
+              \right.
+          \]
+
+          This solves to \(t = 92\) and \(u = -27\). But since \((-27)^2 = 27^2\), we must have \((t. u) = (92, 27)\) satisfies the desired equation.
+\end{enumerate}
