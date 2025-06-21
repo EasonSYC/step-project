@@ -1,2 +1,131 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Let
+          \[
+              f(t) = \frac{2t}{1 - t^2}.
+          \]
+
+          By the double angle formula for \(\tan\), we have
+          \[
+              f(\tan \theta) = \tan 2\theta.
+          \]
+
+          Since \(y = f(x)\), we have \(y = f(\tan \alpha) = \tan 2 \alpha\). Similarly, \(z = f(y) = \tan 4 \alpha\), and \(x = f(z) = \tan 8 \alpha\).
+
+          But since \(x = x\), we must have \(\tan \alpha = \tan 8 \alpha\), and there must be some \(k \in \ZZ\) such that
+          \[
+              \alpha + k\pi = 8 \alpha,
+          \]
+          i.e.
+          \[
+              \alpha = \frac{k\pi}{7}.
+          \]
+
+          Since \(-\frac{1}{2}\pi < \alpha < \frac{1}{2}\pi\) for the substitution, we have
+          \[
+              \alpha = -\frac{3}{7}\pi, -\frac{2}{7}\pi, -\frac{1}{7}\pi, 0, \frac{1}{7}\pi, \frac{2}{7}\pi, \frac{3}{7}\pi,
+          \]
+          and hence
+          \[
+              (\alpha, 2\alpha, 4\alpha) = \left(0, 0, 0\right), \left(\pm \frac{1}{7}\pi, \pm \frac{2}{7}\pi, \pm \frac{4}{7}\pi\right), \left(\pm \frac{2}{7}\pi, \pm \frac{4}{7}\pi, \pm \frac{8}{7}\pi\right), \left(\pm \frac{3}{7}\pi, \pm \frac{6}{7}\pi, \pm \frac{12}{7}\pi\right),
+          \]
+          which means
+          \[
+              (x, y, z) = \left(\tan 0, \tan 0, \tan 0\right),
+          \]
+          or
+          \[
+              (x, y, z) = \left(\tan \pm \frac{1}{7} \pi, \tan \pm \frac{2}{7}\pi, \tan \pm \frac{4}{7}\pi\right) = \left(\tan \pm \frac{1}{7} \pi, \tan \pm \frac{2}{7}\pi, \tan \mp \frac{3}{7}\pi\right),
+          \]
+          or
+          \[
+              (x, y, z) = \left(\tan \pm \frac{2}{7}\pi, \tan \pm \frac{4}{7}\pi, \tan \pm \frac{8}{7}\pi\right) = \left(\tan \pm \frac{2}{7}\pi, \tan \mp \frac{3}{7}\pi, \tan \pm \frac{1}{7}\pi\right),
+          \]
+          or
+          \[
+              (x, y, z) = \left(\tan \pm \frac{3}{7}\pi, \tan \pm \frac{6}{7}\pi, \tan \pm \frac{12}{7}\pi\right) = \left(\tan \pm \frac{3}{7}\pi, \tan \mp \frac{1}{7}\pi, \tan \mp \frac{2}{7}\pi\right).
+          \]
+
+    \item Let
+          \[
+              g(t) = \frac{3t - t^3}{1 - 3t^2}.
+          \]
+
+          The triple angle formula for \(\tan\) is given by
+          \begin{align*}
+              \tan 3\theta & = \frac{\tan \theta + \tan 2\theta}{1 - \tan \theta \tan 2\theta}                                                       \\
+                           & = \frac{\tan \theta + \frac{2 \tan \theta}{1 - \tan^2 \theta}}{1 - \tan \theta \frac{2 \tan \theta}{1 - \tan^2 \theta}}
+                           & = \frac{\tan \theta (1 - \tan^2 \theta) + 2 \tan \theta}{(1 - \tan^2 \theta) - \tan \theta (2 \tan \theta)}             \\
+                           & = \frac{3 \tan \theta - \tan^3 \theta}{1 - 3 \tan^2 \theta},
+          \end{align*}
+          and hence
+          \[
+              g (\tan \theta) = \tan 3 \theta.
+          \]
+
+          Let \(x = \tan \alpha\) for \(-\frac{\pi}{2} < \alpha < \frac{\pi}{2}\). We must have \(y = \tan 3\alpha\), \(z = \tan 9 \alpha\) and \(x = \tan 27 \alpha\).
+
+          There must exist some \(k \in \ZZ\) such that
+          \[
+              \alpha + k \pi = 27 \alpha,
+          \]
+          and hence
+          \[
+              \alpha = \frac{k\pi}{26}.
+          \]
+
+          It must be the case that \(-13 < k < 13\), and this leads to \(-12 \leq k \leq 12\). These all lead to distinct values of \(x\).
+
+          We already have \(\alpha \neq t\pi + \frac{\pi}{2}\) for any \(t \in \ZZ\).
+
+          We still verify that \(2\alpha \neq t\pi + \frac{\pi}{2}\). We have that
+          \begin{align*}
+              2 \alpha - \frac{\pi}{2} & = \frac{k\pi}{13} - \frac{\pi}{2} \\
+                                       & = \frac{(2k - 13)\pi}{26}.
+          \end{align*}
+
+          \(2k - 13\) cannot be a multiple of \(13\) apart from \(k = 0\) (in which case it is still not a multiple of \(26\)), hence not of \(26\), and hence \(2\alpha \neq t\pi + \frac{\pi}{2}\).
+
+          A similar reasoning applies for \(4\alpha\):
+          \begin{align*}
+              4 \alpha - \frac{\pi}{2} & = \frac{2k\pi}{13} - \frac{\pi}{2} \\
+                                       & = \frac{(4k - 13)\pi}{26}.
+          \end{align*}
+
+          \(4k - 13\) cannot be a multiple of \(13\) apart from \(k = 0\) (in which case it is still not a multiple of \(26\)), hence not of \(26\), and hence \(4\alpha \neq t\pi + \frac{\pi}{2}\).
+
+          Therefore, all \(25\) values of \(k\) leads to pairs of solutions for \((x, y, z)\), and they must all be distinct (since \(x\)s) are distinct.
+
+          Therefore, there are \(25\) pairs of distinct real solutions to the simultaneous solutions.
+
+    \item \begin{enumerate}
+              \item Let \(h(t) = 2t^2 - 1\). Notice that by the cosine double angle formula,
+                    \[
+                        h(\cos \theta) = \cos 2\theta.
+                    \]
+
+                    If \(\abs*{x}, \abs*{y}, \abs*{z} \leq 1\), let \(x = \cos \alpha\) for \(0 \leq \alpha \leq \pi\). We must have \(y = \cos 2\alpha, z = \cos 4\alpha\), and \(x = \cos 8 \alpha\), leading to \(\cos \alpha = \cos 8 \alpha\).
+
+                    Hence, we must have, for \(k \in \ZZ\), that
+                    \[
+                        8\alpha = 2k\pi \pm \alpha,
+                    \]
+                    which gives
+                    \[
+                        \alpha = \frac{2k\pi}{7}
+                    \]
+                    or
+                    \[
+                        \alpha = \frac{2k\pi}{9}.
+                    \]
+
+                    Therefore, we have
+                    \[
+                        \alpha = 0, \frac{2\pi}{7}, \frac{4\pi}{7}, \frac{6\pi}{7}, \frac{2\pi}{9}, \frac{4\pi}{9}, \frac{6\pi}{9}, \frac{8\pi}{9}
+                    \]
+                    which gives \(8\) pairs of solutions for \((x, y, z)\).
+
+              \item We have \(x = h^3(x)\), and hence \(x\) satisfies a polynomial with degree \(8\). Hence, there are at most \(8\) distinct real roots for \(x\), and since there are \(8\) of them for which \(\abs*{x} \leq 1\), it must be the case that they are all of them. Hence, all solutions to the equations satisfy \(\abs*{x}, \abs*{y}, \abs*{z} \leq 1\).
+          \end{enumerate}
+\end{enumerate}
