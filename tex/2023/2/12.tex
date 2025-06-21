@@ -1,2 +1,151 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item We first consider the event \(Y \leq t\).
+
+          \begin{align*}
+              Y \leq t & \iff \max \left\{X_1, X_2, \ldots, X_n\right\} \leq t \\
+                       & \iff X_1, X_2, \ldots, X_n \leq t                     \\
+                       & \iff X_1 \leq t, X_2 \leq t, \cdots, X_n \leq t.
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              \Prob(Y \leq t) & = \Prob(X_1 \leq t, X_2 \leq t, \cdots, X_n \leq t)           \\
+                              & = \Prob(X_1 \leq t) \Prob(X_2 \leq t) \cdot \Prob(X_n \leq t) \\
+                              & = \left[\Prob(X_1 \leq t)\right]^n
+          \end{align*}
+          as desired.
+
+          We first find the cumulative distribution function of \(X\), \(F\). For \(0 \leq x \leq \pi\),
+          \begin{align*}
+              F(x) & = \int_{0}^{x} f(t) \Diff t                 \\
+                   & = \frac{1}{2} \int_{0}^{x} \sin t \Diff t   \\
+                   & = - \frac{1}{2} \left[\cos t\right]_{0}^{x} \\
+                   & = \frac{1}{2} \left(1 - \cos x\right).
+          \end{align*}
+
+          Now, let \(G\) be the cumulative distribution function of \(Y\). We have \(0 \leq Y \leq \pi\). For \(0 \leq y \leq \pi\),
+          \begin{align*}
+              G(y) & = \Prob(Y \leq y)                                    \\
+                   & = \left[\Prob(X_1 \leq y)\right]^n                   \\
+                   & = \left[F(y)\right]^n                                \\
+                   & = \left[\frac{1}{2} \left(1 - \cos y\right)\right]^n
+                   & = \frac{1}{2^n} \left(1 - \cos y\right)^n.
+          \end{align*}
+
+          Hence, the probability density function of \(Y\), \(g\), is given by
+          \begin{align*}
+              g(y) & = G'(y)                                                                    \\
+                   & = \frac{1}{2^n} \cdot n \cdot \sin x \cdot \left(1 - \cos X\right)^{n - 1} \\
+                   & = \frac{n \sin x \left(1 - \cos X\right)^{n - 1}}{2^n}
+          \end{align*}
+          for \(0 \leq t \leq \pi\), and \(0\) otherwise.
+
+    \item \(m(n)\) is such that
+          \begin{align*}
+              G(m(n))                                    & = \frac{1}{2}                                   \\
+              \frac{1}{2^n} \left(1 - \cos m(n)\right)^n & = \frac{1}{2}                                   \\
+              \left(1 - \cos m(n)\right)^n               & = 2^{n - 1}                                     \\
+              1 - \cos m(n)                              & = 2^{\frac{n - 1}{n}}                           \\
+              \cos m(n)                                  & = 1 - 2^{1 - \frac{1}{n}}                       \\
+              m(n)                                       & = \arccos \left(1 - 2^{1 - \frac{1}{n}}\right).
+          \end{align*}
+
+          As \(n\) increases, \(\frac{1}{n}\) decreases, \(1 - \frac{1}{n}\) increases, \(2^{1 - \frac{1}{n}}\) increases, \(1 - 2^{1 - \frac{1}{n}}\) increases, and so \(m(n)\) increases. \(m(n) \to \pi\) as \(n \to \infty\).
+
+    \item By definition, we have
+          \begin{align*}
+              \mu(n) & = \Expt(Y)                                                                                                                                                   \\
+                     & = \int_{0}^{\pi} \frac{n}{2^n} x \sin x \left(1 - \cos x\right)^{n - 1} \Diff x                                                                              \\
+                     & = \frac{1}{2^n} \int_{0}^{\pi} x \cdot n \sin x \left(1 - \cos x\right)^{n - 1} \Diff x                                                                      \\
+                     & = \frac{1}{2^n} \int_{0}^{\pi} x \cdot \left(1 - \cos x\right)^n \Diff x                                                                                     \\
+                     & = \frac{1}{2^n} \left[x \left(1 - \cos x \right)^{n}\right]_{0}^{\pi} - \frac{1}{2^n} \int_{0}^{\pi} \left(1 - \cos x\right)^{n} \Diff x                     \\
+                     & = \frac{1}{2^n} \left[\pi \cdot \left(1 + 1 \right)^n - 0 \cdot \left(1 - 1\right)^n\right] - \frac{1}{2^n} \int_{0}^{\pi} \left(1 - \cos x\right)^n \Diff x \\
+                     & = \frac{1}{2^n} \cdot \pi \cdot 2^n - \frac{1}{2^n} \int_{0}^{\pi} \left(1 - \cos x\right)^n \Diff x                                                         \\
+                     & = \pi - \frac{1}{2^n} \int_{0}^{\pi} \left(1 - \cos x \right)^n \Diff x.
+          \end{align*}
+
+          \begin{enumerate}
+              \item By taking difference of two consecutive terms of \(\mu(n)\), we have
+                    \begin{align*}
+                        \mu(n + 1) - \mu(n) & = \left[\pi - \frac{1}{2^{n + 1}} \int_{0}^{\pi} \left(1 - \cos x \right)^{n + 1} \Diff x\right] - \left[\pi - \frac{1}{2^{}} \int_{0}^{\pi} \left(1 - \cos x \right)^{n} \Diff x\right] \\
+                                            & = \frac{1}{2^n} \int_{0}^{\pi} \left(1 - \cos x\right)^n \Diff x - \frac{1}{2^{n + 1}} \int_{0}^{\pi} \left(1 - \cos x\right)^{n + 1} \Diff x                                            \\
+                                            & = \frac{1}{2^{n + 1}} \int_{0}^{\pi} \left[2 \left(1 - \cos x\right)^{n} - \left(1 - \cos x\right)^{n + 1}\right] \Diff x                                                                \\
+                                            & = \frac{1}{2^{n + 1}} \int_{0}^{\pi} \left(1 - \cos x\right)^{n} \left[2 - \left(1 - \cos x\right)\right] \Diff x                                                                        \\
+                                            & = \frac{1}{2^{n + 1}} \int_{0}^{\pi} \left(1 - \cos x\right)^{n} \left(1 + \cos x\right) \Diff x.
+                    \end{align*}
+
+                    For \(0 < x < \pi\), we have \(0 < \cos x < 1\), and so the integrand is positive on the interval.
+
+                    Hence, \(\mu(n + 1) - \mu(n) > 0\), and \(\mu(n + 1) > \mu(n)\), and hence \(\mu(n)\) increases with \(n\).
+
+              \item On one hand, we have
+                    \[
+                        m(2) = \arccos \left(1 - 2^{1 - \frac{1}{2}}\right) = \arccos \left(1 - \sqrt{2}\right).
+                    \]
+
+                    On the other hand,
+                    \begin{align*}
+                        \mu(2) & = \pi - \frac{1}{4} \int_{0}^{\pi} \left(1 - \cos x\right)^2 \Diff x                                                                               \\
+                               & = \pi - \frac{1}{4} \int_{0}^{\pi} \left(1 - 2 \cos x + \cos^2 x\right) \Diff x                                                                    \\
+                               & = \pi - \frac{1}{4} \int_{0}^{\pi} \left(1 - 2 \cos x + \frac{\cos 2x + 1}{2}\right) \Diff x                                                       \\
+                               & = \pi - \frac{1}{4} \int_{0}^{\pi} \left(\frac{3}{2} - 2 \cos x + \frac{1}{2} \cos 2x\right) \Diff x                                               \\
+                               & = \pi - \frac{1}{4} \left(\frac{3}{2} x - 2 \sin x + \frac{1}{4} \sin 2x\right)_{0}^{\pi}                                                          \\
+                               & = \pi - \frac{1}{4} \left[\frac{3}{2} \left(\pi - x\right) - 2 \left(\sin \pi - \sin 0\right) + \frac{1}{4} \left(\sin 2\pi - \sin 0\right)\right] \\
+                               & = \pi - \frac{1}{4} \cdot \frac{3}{2} \pi                                                                                                          \\
+                               & = \frac{5}{8} \pi.
+                    \end{align*}
+
+                    We want to show that
+                    \[
+                        \left(0 < \frac{1}{2}\pi < \right) \frac{5}{8} \pi < \arccos \left(1 - \sqrt{2}\right) \left(< \pi\right),
+                    \]
+                    and this is equivalent to showing that
+                    \[
+                        \cos \frac{5}{8}\pi > 1 - \sqrt{2}.
+                    \]
+
+                    We first notice that \(\cos \frac{5}{8}\pi = \cos \left(\frac{1}{2}\pi + \frac{1}{8}\pi\right)\), and notice that \(\cos \left(\frac{1}{8}\pi \right)\) is such that
+                    \[
+                        2 \cos^2 \left(\frac{1}{8} \pi\right) - 1 = \cos \left(2 \cdot \frac{1}{8}\pi\right) = \cos \frac{\pi}{4} = \frac{1}{\sqrt{2}},
+                    \]
+                    and hence
+                    \[
+                        2 \cos^2 \frac{\pi}{8} = 1 + \frac{1}{\sqrt{2}} = \frac{2 + \sqrt{2}}{2},
+                    \]
+                    meaning
+                    \[
+                        \cos \frac{\pi}{8} = \sqrt{\frac{2 + \sqrt{2}}{4}} = \frac{\sqrt{2 + \sqrt{2}}}{2}.
+                    \]
+
+                    Therefore,
+                    \[
+                        \sin^2 \frac{\pi}{8} = 1 - \frac{2 + \sqrt{2}}{4} = \frac{2 - \sqrt{2}}{4}
+                    \]
+                    and hence
+                    \[
+                        \sin \frac{\pi}{8} = \frac{\sqrt{2 - \sqrt{2}}}{2}.
+                    \]
+
+                    Hence,
+                    \begin{align*}
+                        \cos \frac{5}{8}\pi & = \cos \left(\frac{1}{2} \pi + \frac{1}{8} \pi\right)                                 \\
+                                            & = \cos \frac{1}{2}\pi \cos \frac{1}{8}\pi - \sin \frac{1}{2} \pi \sin \frac{1}{8} \pi \\
+                                            & = 0 - \sin \frac{1}{8} \pi                                                            \\
+                                            & = -\frac{\sqrt{2 - \sqrt{2}}}{2}.
+                    \end{align*}
+
+                    Finally, we have the following being equivalent:
+                    \begin{align*}
+                        \cos \frac{5}{8}\pi                  & > 1 - \sqrt{2}                  \\
+                        (0>) - \frac{\sqrt{2 - \sqrt{2}}}{2} & > 1 - \sqrt{2}                  \\
+                        \sqrt{2} - 1                         & > \frac{\sqrt{2 - \sqrt{2}}}{2} \\
+                        2 + 1 - 2 \sqrt{2}                   & > \frac{2 - \sqrt{2}}{4}        \\
+                        12 - 8 \sqrt{2}                      & > 2 - \sqrt{2}                  \\
+                        7 \sqrt{2}                           & < 10                            \\
+                        49 \cdot 2 = 98                      & < 100
+                    \end{align*}
+                    is true, and hence \(\mu(2) < m(2)\) as desired.
+          \end{enumerate}
+\end{enumerate}
