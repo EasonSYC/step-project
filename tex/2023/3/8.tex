@@ -1,2 +1,200 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item By differentiating, we have
+          \[
+              f'(x) = e^{-x} - x e^{-x} = e^{-x} - f(x),
+          \]
+          and
+          \[
+              f''(x) = -e^{-x} - f'(x).
+          \]
+
+          Hence,
+          \begin{align*}
+              \NdiffFrac{2}{y}{x} + 2 \DiffFrac{y}{x} + y & = f''(x) + 2f'(x) + f(x)                         \\
+                                                          & = -e^{-x} - f'(x) + f'(x) + e^{-x} - f(x) + f(x) \\
+                                                          & = 0
+          \end{align*}
+          as desired.
+
+          Evaluating \(y\) and \(y'\) at \(x = 0\) gives us
+          \[
+              \LEvalAt{y}{x = 0} = f(0) = 0 \cdot e^{-0} = 0
+          \]
+          and
+          \[
+              \LEvalAt{y'}{x = 0} = f'(0) = e^{-0} - f(0) = 1 - 0 = 1.
+          \]
+
+          For the final part, we factorise \(f'(x)\) to get \(f'(x) = (1 - x) e^{-x}\).
+
+          \(e^{-x} > 0\) for all \(x\). Therefore, for \(x \leq 1\), \(1 - x \geq 0\), and hence \(f'(x) \geq 0\).
+
+    \item We let \(g_1(x) = f(x) = x e^{-x}\), and we can immediately see that this differential equation is satisfied by \(x \leq 1\).
+
+          For \(y = g_2(x)\) where \(x \geq 1\), we notice \(g_2(1) = g_1(1) = 1 \cdot e^{-1} = \frac{1}{e}\), and \(g_2'(1) = g_1'(1) = f'(1) = e^{-1} - f(1) = \frac{1}{e} - \frac{1}{e} = 0\).
+
+          If \(g_2'(x) \geq 0\) for \(x \geq 1\), then \(g_2\) and \(g_1\) satisfies the same differential equation and boundary conditions (at \(x = 1\)), which means they are the same solution.
+
+          However, this is impossible since \(g_1'(x) < 0\) for \(x > 1\).
+
+          Therefore, it must be the case that \(g_2'(x) \leq 0\) for \(x \geq 1\), and hence we have \(g_2''(x) - 2 g_2'(x) + g_2(x) = 0\) as our differential equation.
+
+          The characteristic equation solves to \(\lambda_{1, 2} = 1\), and hence the general solution to \(g_2\) is \(g_2(x) = (A + Bx) e^{x}\).
+
+          By differentiating, we have
+          \[
+              g_2'(x) = B e^x + (A + Bx) e^x = B e^x + g_2(x).
+          \]
+
+          Considering the boundary conditions, we first have \(g_2(1) = \frac{1}{e}\), meaning that \((A + B) e = \frac{1}{e}\), and hence \(A + B = e^{-2}\).
+
+          We have as well \(g_2'(1) = 0\), and hence \(0 = B \cdot e + \frac{1}{e}\), giving us \(B = - e^{-2}\).
+
+          Therefore,  \(A = 2 e^{-2}\), and hence
+          \begin{align*}
+              g_2(x) & = \left(2 e^{-2} - e^{-2} x\right) e^x \\
+                     & = e^{-2} (2 - x) e^x                   \\
+                     & = (2 - x) e^{x - 2}.
+          \end{align*}
+
+    \item We notice that \(g_2(x) = g_1(2 - x)\), and hence \(g_2 (1 + x) = g_1 (1 - x)\). This means they are symmetric about the line \(x = 1\).
+
+    \item We first consider the range that \(x\) is in. We replace \(x\) with \(c - x\) to acquire
+          \begin{align*}
+              r \leq c - x \leq s & \iff -r \geq -c + x \geq -s     \\
+                                  & \iff -r + c \geq x \geq -s + c  \\
+                                  & \iff -s + c \leq x \leq -r + c.
+          \end{align*}
+
+          In other words,
+          \[
+              x \in [-s + c, -r + c] \iff c - x \in [r, s].
+          \]
+
+          If \(y = k(c - x)\), then we have \(y' = (-1) \cdot k'(c - x)\), and \(y'' = (-1)^2 \cdot k''(c - x) = k''(c - x)\).
+
+          Therefore,
+          \begin{align*}
+              \NdiffFrac{2}{y}{x} - p \DiffFrac{y}{x} + qy & = k''(c - x) + p k'(c - x) + q k (c - x) \\
+                                                           & = k''(t) + p k'(t) + q k(t)
+          \end{align*}
+          for \(t = c - x \in [r, s]\).
+
+          Since \(y = k(x)\) is a solution to the original differential equation for \(r \leq x \leq s\), we must have \(k''(t) + p k'(t) + q k(t) = 0\), and therefore \(y = k (c - x)\) satisfies the new differential equation for \(-s + c \leq x \leq -r + c\).
+
+    \item By differentiating \(h\), we have
+          \[
+              h'(x) = - e^{-x} \sin x + e^{-x} \cos x = e^{-x} (\cos x - \sin x).
+          \]
+
+          Therefore,
+          \begin{align*}
+              h'\left(\frac{1}{4}\pi\right) & = e^{-\frac{1}{4}\pi} \left(\cos \frac{\pi}{4} - \sin \frac{\pi}{4}\right)  \\
+                                            & = e^{-\frac{1}{4} \pi} \left(\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2}\right) \\
+                                            & = 0.
+          \end{align*}
+
+          Similarly,
+          \[
+              h'\left(-\frac{3}{4}\pi\right) = e^{\frac{3}{4}\pi} \left(-\frac{\sqrt{2}}{2} - \left(-\frac{\sqrt{2}}{2}\right)\right) = 0.
+          \]
+
+          For \(x \in \left[- \frac{3}{4}\pi, \frac{1}{4}\pi\right]\), the differential equation satisfied by \(h\) without the absolute value sign is
+          \[
+              \NdiffFrac{2}{y}{x} + 2 \DiffFrac{y}{x} + 2y = 0
+          \]
+          since \(h'(x) \geq 0\).
+
+          \begin{enumerate}
+              \item Let \(c = \frac{\pi}{2}\). For \(x \in \left[\frac{\pi}{2} - \frac{\pi}{4}, \frac{\pi}{2} + \frac{3\pi}{4}\right] = \left[\frac{\pi}{4}, \frac{5\pi}{4}\right]\), by the previous lemma, \(y = h\left(\frac{\pi}{2} - x\right)\) must be a solution to
+                    \[
+                        \NdiffFrac{2}{y}{x} - 2 \DiffFrac{y}{x} + 2y = 0.
+                    \]
+
+                    Notice that
+                    \[
+                        y' = -h' \left(\frac{\pi}{2} - x\right),
+                    \]
+                    and that \(x \in \left[\frac{\pi}{4}, \frac{5\pi}{4}\right] \iff \frac{\pi}{2} - x \in \left[-\frac{3\pi}{4}, \frac{\pi}{4}\right]\), and hence \(h'\left(\frac{\pi}{2} - x\right) \geq 0\), which means \(y' \leq 0\).
+
+                    Therefore, in \(x \in \left[\frac{1}{4}\pi, \frac{5}{4}\pi\right]\), \(y = h \left(\frac{\pi}{2} - x\right)\) satisfies
+                    \[
+                        \NdiffFrac{2}{y}{x} + 2 \abs*{\DiffFrac{y}{x}} + 2y = 0,
+                    \]
+                    which is the original differential equation.
+
+
+                    We show next that this is continuously differentiable at \(x = \frac{1}{4}\pi\).
+
+                    It is continuous since
+                    \[
+                        h\left(\frac{1}{4}\pi\right) = h\left(\frac{\pi}{2} - \frac{1}{4}\pi\right) = h \left(\frac{1}{4}\pi\right).
+                    \]
+
+                    We have \(\LEvalAt{h'(x)}{x = \frac{1}{4}\pi} = 0\), and
+                    \[
+                        \LEvalAt{-h'\left(\frac{\pi}{2} - x\right)}{x = \frac{1}{4}\pi} = - h'\left(\frac{\pi}{4}\right) = 0,
+                    \]
+                    so it is continuously differentiable at \(\frac{1}{4}\pi\).
+
+                    Hence,
+                    \begin{align*}
+                        y & = h\left(\frac{\pi}{2} - x\right)                           \\
+                          & = e^{x - \frac{\pi}{2}} \sin \left(\frac{\pi}{2} - x\right) \\
+                          & = e^{x - \frac{\pi}{2}} \cos x,
+                    \end{align*}
+                    for \(x \in \left[\frac{1}{4}\pi, \frac{5}{4}\pi\right]\).
+
+              \item As shown above, for \(x \in \left[\frac{1}{4}\pi, \frac{5}{4}\pi\right]\), \(y = h\left(\frac{\pi}{2} - x\right)\) satisfies
+                    \[
+                        \NdiffFrac{2}{y}{x} - 2 \DiffFrac{y}{x} + 2y = 0.
+                    \]
+
+                    Let \(c = \frac{5\pi}{2}\). For \(x \in \left[\frac{5\pi}{2} - \frac{5}{4}\pi, \frac{5\pi}{2} - \frac{1}{4}\pi\right] = \left[\frac{5}{4}\pi, \frac{9}{4}\pi\right]\),
+                    \[
+                        y = h\left(\frac{\pi}{2} - \left(\frac{5\pi}{2} - x\right)\right) = h(x - 2\pi)
+                    \]
+                    satisfies
+                    \[
+                        \NdiffFrac{2}{y}{x} + 2 \DiffFrac{y}{x} + 2y = 0.
+                    \]
+
+                    We have
+                    \[
+                        y' = h'(x - 2\pi) = h' \left(\frac{\pi}{2} - \left(\frac{5\pi}{2} - x\right)\right),
+                    \]
+                    and \(x \in \left[\frac{5}{4}\pi, \frac{9}{4}\pi\right] \iff \frac{5}{2}\pi - x \in \left[\frac{1}{4}\pi, \frac{5}{4}\pi\right]\), and this therefore means \(h' \left(\frac{\pi}{2} - \left(\frac{\pi}{2} - x\right) \right) \geq 0\).
+
+                    Hence, in \(x \in \left[\frac{5}{4}\pi, \frac{9}{4}\pi\right]\), \(y = h(x - 2\pi)\) satisfies
+                    \[
+                        \NdiffFrac{2}{y}{x} + 2 \abs*{\DiffFrac{y}{x}} + 2y = 0.
+                    \]
+
+                    We show next that this is continuously differentiable at \(x = \frac{5}{4}\pi\).
+
+                    It is continuous since
+                    \[
+                        h \left(\frac{\pi}{2} - \frac{5}{4}\pi\right) = h \left(- \frac{3}{4}\pi\right) = h \left(\frac{5}{4}\pi - 2\pi\right).
+                    \]
+
+                    We have
+                    \[
+                        \LEvalAt{h'\left(\frac{\pi}{2} - x\right)}{x = \frac{5}{4} \pi} = - \LEvalAt{h'(x)}{x = - \frac{3}{4} \pi} = -0 = 0,
+                    \]
+                    and
+                    \[
+                        \LEvalAt{h'(x - 2\pi)}{x = \frac{5}{4}\pi} = \LEvalAt{h'(x)}{x = -\frac{3}{4}\pi} = 0,
+                    \]
+                    and so it is continuously differentiable at \(x = \frac{5}{4}\pi\).
+
+                    Therefore,
+                    \begin{align*}
+                        y & = h (x - 2\pi)                             \\
+                          & = e^{-x + 2\pi} \sin \left(x - 2\pi\right) \\
+                          & = e^{2\pi - x} \sin x
+                    \end{align*}
+                    for \(x \in \left[\frac{5}{4}\pi, \frac{9}{4}\pi\right]\).
+          \end{enumerate}
+\end{enumerate}
