@@ -9,14 +9,13 @@
     \MakeTitlePage{\Title}{\SubTitle}{\Author}{\Date}
 \end{titlepage}
 
-\pagestyle{footerOnly}
+\pagestyle{plain}
 \include{\TexPath/copyright}
 \include{\TexPath/preface}
 \include{\TexPath/progress}
 
 \ifdefined\HCode
 \else
-    \thispagestyle{footerOnly}
     \etocsetnexttocdepth{1}
     \tableofcontents
 \fi
