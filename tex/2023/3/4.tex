@@ -1,2 +1,152 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Consider \(z = \exp(i \theta)\). On one hand, we have
+          \[
+              z^{2n + 1} = \exp(i (2n + 1) \theta) = \cos (2n + 1) \theta + i \sin (2n + 1) \theta
+          \]
+          and on the other hand,
+          \begin{align*}
+              z^{2n + 1} & = (\cos \theta + i \sin \theta)^{2n + 1}                                                      \\
+                         & = \sum_{k = 0}^{2n + 1} \binom{2n + 1}{k} \cos^{2n + 1 - k} \theta \sin^{k} \theta \cdot i^k.
+          \end{align*}
+
+          Taking the real part on both sides, we notice that even \(k\)s produce a real term for the sum, and odd \(k\)s produce an imaginary term for the sum. Hence,
+          \begin{align*}
+              \cos (2n + 1) \theta & = \sum_{r = 0}^{n} \binom{2n + 1}{2r} \cos^{2n + 1 - 2r} \theta \sin^{2r} \theta \cdot i^{2r}       \\
+                                   & = \sum_{r = 0}^{n} \binom{2n + 1}{2r} \cos^{2n + 1 - 2r} \theta \sin^{2r} \theta \cdot (-1)^{r}     \\
+                                   & = \sum_{r = 0}^{n} \binom{2n + 1}{2r} \cos^{2n + 1 - 2r} \theta \left(- \sin^2 \theta\right)^{r}    \\
+                                   & = \sum_{r = 0}^{n} \binom{2n + 1}{2r} \cos^{2n + 1 - 2r} \theta \left(\cos^2 \theta - 1\right)^{r},
+          \end{align*}
+          as desired.
+
+    \item From the previous part, we can conclude that for \(-1 \leq x \leq 1\), we have
+          \[
+              p(x) = 1 + \sum_{r = 0}^{n} \binom{2n + 1}{2r} x^{2n + 1 - 2r} \left(x^2 - 1\right)^{r}
+          \]
+          and this must be the expression for \(p(x)\) for all real numbers \(x\).
+
+          Further simplification yields
+          \begin{align*}
+              p(x) & = 1 + \sum_{r = 0}^{n} \binom{2n + 1}{2r} x^{2n + 1 - 2r} \sum_{k = 0}^{r} \binom{r}{k} x^{2k} (-1)^{r - k} \\
+                   & = 1 + \sum_{r = 0}^{n} \sum_{k = 0}^{r} \binom{2n + 1}{2r} \binom{r}{k} (-1)^{r - k} x^{2n + 1 + 2k - 2r}.
+          \end{align*}
+
+          For the coefficient of \(x^{2n + 1}\), it must be the case that \(k = r\) for the contribution of the coefficient, and hence it is equal to
+          \begin{align*}
+              \sum_{r = 0}^{n} \binom{2n + 1}{2r} \binom{r}{r} (-1)^{r - r} = \sum_{r = 0}^{n} \binom{2n + 1}{2r}.
+          \end{align*}
+
+          We consider the expansion of \((1 + t)^{2n + 1}\). By the binomial theorem, we have
+          \[
+              (1 + t)^{2n + 1} = \sum_{r = 0}^{2n + 1} \binom{2n + 1}{r} t^r = \sum_{r = 0}^{n} \binom{2n + 1}{2r} t^{2r} + \sum_{r = 0}^{n} \binom{2n + 1}{2r + 1} t^{2r + 1}.
+          \]
+
+          Let \(t = 1\), and we have
+          \[
+              2^{2n + 1} = \sum_{r = 0}^{n} \binom{2n + 1}{2r} + \sum_{r = 0}^{n} \binom{2n + 1}{2r + 1}.
+          \]
+
+          Let \(t = -1\), and we have
+          \[
+              0 = \sum_{r = 0}^{n} \binom{2n + 1}{2r} (-1)^{2r} + \sum_{r = 0}^{n} \binom{2n + 1}{2r + 1} (-1)^{2r + 1}
+          \]
+          and hence
+          \[
+              0 = \sum_{r = 0}^{n} \binom{2n + 1}{2r} - \sum_{r = 0}^{n} \binom{2n + 1}{2r + 1}.
+          \]
+
+          Let \(A = \sum_{r = 0}^{n} \binom{2n + 1}{2r}\), and \(B = \sum_{r = 0}^{n} \binom{2n + 1}{2r + 1}\). We have \(A + B = 2^{2n + 1}\) and \(A - B = 0\), giving \(A = B = 2^{2n}\).
+
+          Therefore, the coefficient of \(x^{2n + 1}\) in the polynomial \(p(x)\) is \(A\), which is \(2^{2n}\) as desired.
+
+    \item We recall that
+          \[
+              p(x) = 1 + \sum_{r = 0}^{n} \sum_{k = 0}^{r} \binom{2n + 1}{2r} \binom{r}{k} (-1)^{r - k} x^{2n + 1 + 2k - 2r}.
+          \]
+
+          For \(2n + 1 + 2k - 2r = 2n - 1\), it must be the case that \(k = r - 1\), and therefore the coefficient is given by
+          \[
+              \sum_{r = 0}^{n} \binom{2n + 1}{2r} \binom{r}{r - 1} (-1)^{r - (r - 1)} = - \sum_{r = 0}^{n} r \binom{2n + 1}{2r}.
+          \]
+
+          What remains is to show that
+          \[
+              \sum_{r = 0}^{n} r \binom{2n + 1}{2r} = (2n + 1) 2^{2n - 2}.
+          \]
+
+          Notice that from the definition of the binomial coefficient
+          \begin{align*}
+              \sum_{r = 0}^{n} r \binom{2n + 1}{2r} & = \frac{1}{2} \sum_{r = 1}^{n} 2r \binom{2n + 1}{2r}                           \\
+                                                    & = \frac{1}{2} \sum_{r = 1}^{n} 2r \cdot \frac{(2n + 1)!}{(2n + 1 - 2r)! (2r)!} \\
+                                                    & = \frac{1}{2} \sum_{r = 1}^{n} \frac{(2n + 1)!}{(2n + 1 - 2r)! (2r - 1)!}      \\
+                                                    & = \frac{2n + 1}{2} \sum_{r = 1}^{n} \frac{(2n)!}{(2n + 1 - 2r)! (2r - 1)!}     \\
+                                                    & = \frac{2n + 1}{2} \sum_{r = 1}^{n} \binom{2n}{2r - 1}                         \\
+                                                    & = \frac{2n + 1}{2} \sum_{r = 0}^{n - 1} \binom{2n}{2r + 1}.
+          \end{align*}
+
+          Similar to the previous part, consider
+          \[
+              (1 + t)^{2n} = \sum_{r = 0}^{2n} \binom{2n}{r} t^r = \sum_{r = 0}^{n} \binom{2n}{2r} t^{2r} + \sum_{r = 0}^{n - 1} \binom{2n}{2r + 1} t^{2r + 1}.
+          \]
+
+          Let \(t = 1\), and we have
+          \[
+              2^{2n} = \sum_{r = 0}^{n} \binom{2n}{2r} + \sum_{r = 0}^{n - 1} \binom{2n}{2r + 1}.
+          \]
+
+          Let \(t = -1\), and we have
+          \[
+              2^{2n} = \sum_{r = 0}^{n} \binom{2n}{2r} - \sum_{r = 0}^{n - 1} \binom{2n}{2r + 1}.
+          \]
+
+          Therefore, we have
+          \[
+              \sum_{r = 0}^{n - 1} \binom{2n}{2r + 1} = 2^{2n - 1}.
+          \]
+
+          Hence,
+          \begin{align*}
+              \frac{2n + 1}{2} \sum_{r = 0}^{n - 1} \binom{2n}{2r + 1} & = \frac{2n + 1}{2} \cdot 2^{2n - 1} \\
+                                                                       & = (2n + 1) 2^{2n - 2},
+          \end{align*}
+          and therefore the coefficient is given by \(- (2n + 1) 2^{2n - 2}\), as desired.
+
+    \item The coefficient of \(x^n\) in \(q(x)\) must be \(2^{n}\) (to contribute to the \(x^{2n + 1}\) term in \(p(x)\)).
+
+          Let \(a_k\) be the coefficient of \(x^k\) in \(q(x)\).
+
+          The term \(x^{2n}\) in \(p(x)\) has zero as its coefficient, since \(2n + 1 + 2k - 2r\) is always odd. It must be given by \(x\) multiplied by some term with power \(x^{2n - 1}\) in \(q(x)^2\), which is \(x^{n} \cdot x^{n - 1}\) or \(x^{n - 1} \cdot x^{n}\), or \(1\) multiplied by some term with power \(x^{2n}\), which must be \(x^n \cdot x^n\). Therefore,
+          \[
+              0 = 2 a_n a_{n - 1} + a_n^2,
+          \]
+          and hence
+          \[
+              a_{n - 1} = - \frac{a_n}{2} = - 2^{n - 1}.
+          \]
+
+          The term \(x^{2n - 1}\) in \(p(x)\) is given by \(x\) multiplied by some term with power \(x^{2n - 2}\) in \(q(x)^2\), which is \(x^{n} \cdot x^{n - 2}\), \(x^{n - 1} \cdot x^{n - 1}\) or \(x^{n - 2} \cdot x^{n}\), or \(1\) multiplied by some term with power \(x^{2n - 1}\) in \(q(x)^2\), which is \(x^{n} \cdot x^{n - 1}\) or \(x^{n - 1} \cdot x^{n}\). Therefore,
+          \[
+              - (2n + 1) 2^{2n - 2} = 2 a_{n} a_{n - 2} + a_{n - 1}^2 + 2 a_{n} a_{n - 1},
+          \]
+          and hence
+          \[
+              - (2n + 1) 2^{2n - 2} = 2 \cdot 2^n \cdot a_{n - 2} + 2^{2n - 2} - 2 \cdot 2^{n} \cdot 2^{n - 1},
+          \]
+          which means
+          \[
+              - (2n + 1) 2^{n - 3} = a_{n - 2} + 2^{n - 3} - 2^{n - 1}.
+          \]
+
+          Hence,
+          \begin{align*}
+              a_{n - 2} & = 2^{n - 1} - 2^{n - 3} - (2n + 1) 2^{n - 3} \\
+                        & = 2^{n - 1} - (1 + (2n + 1)) 2^{n - 3}       \\
+                        & = 2^{n - 1} - (2n + 2) 2^{n - 3}             \\
+                        & = 2^{n - 1} - 2 (n + 1) 2^{n - 3}            \\
+                        & = 2^{n - 1} - (n + 1) 2^{n - 2}              \\
+                        & = (2 - (n + 1)) 2^{n - 2}                    \\
+                        & = (1 - n) 2^{n - 2},
+          \end{align*}
+          which means the coefficient of \(x^{n - 2}\) in \(q(x)\) is \(2^{n - 2} (1 - n)\), as desired.
+\end{enumerate}
