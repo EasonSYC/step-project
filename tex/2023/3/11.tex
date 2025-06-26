@@ -1,2 +1,127 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{align*}
+    \sum_{k = 1}^{N} \frac{k + 1}{k!} \cdot x^k & = \sum_{k = 1}^{N} \frac{k}{k!} \cdot x^k + \sum_{k = 1}^{N} \frac{x^k}{k!}                        \\
+                                                & = \sum_{k = 1}^{N} \frac{1}{(k - 1)!} \cdot x^k + \sum_{k = 0}^{N} \frac{x^k}{k!} - \frac{x^0}{0!} \\
+                                                & = \sum_{k = 0}^{N - 1} \frac{1}{k!} \cdot x^{k + 1} + \sum_{k = 0}^{N} \frac{x^k}{k!} - 1          \\
+                                                & = x \sum_{k = 0}^{N - 1} \frac{x^k}{k!} + \sum_{k = 0}^{N} \frac{x^k}{k!} - 1.
+\end{align*}
+
+We let \(N \to \infty\). Using the Maclaurin Expansion for \(e^x\), we have
+\[
+    \sum_{k = 0}^{\infty} \frac{x^k}{k!} = e^x,
+\]
+and hence
+\[
+    \sum_{k = 1}^{\infty} \frac{k + 1}{k!} \cdot x^k = x e^x + e^x - 1 = (x + 1) e^x - 1.
+\]
+
+\begin{enumerate}
+    \item We have \(Y \sim \Poisson(n)\). Let \(X_k\) be the outcome of a \(k\)-sided die, i.e. \(X_k \sim \Uniform(k)\). WE must have \(1 \leq X_k \leq k\). The random variable \(D\) can be defined as
+          \[
+              D = \begin{cases}
+                  0,   & Y = 0, \\
+                  X_k, & Y = k.
+              \end{cases}
+          \]
+
+          \begin{enumerate}
+              \item \begin{align*}
+                        \Prob(D = 0) & = \Prob(Y = 0)                \\
+                                     & = e^{-n} \cdot \frac{n^0}{0!} \\
+                                     & = e^{-n}.
+                    \end{align*}
+
+              \item For \(d \geq 1\), we have
+                    \begin{align*}
+                        \Prob(D = d) & = \sum_{k = d}^{\infty} \Prob(X_k = d, Y = k)                                       \\
+                                     & = \sum_{k = d}^{\infty} \Prob(X_k = d) \Prob(Y = k)                                 \\
+                                     & = \sum_{k = d}^{\infty} \frac{1}{k} \cdot e^{-n} \cdot \frac{n^k}{k!}               \\
+                                     & = \sum_{k = d}^{\infty} \left(\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n}\right).
+                    \end{align*}
+
+                    Hence,
+                    \begin{align*}
+                        \Expt(D) & = \sum_{d = 0}^{\infty} d \Prob(D = d)                                                                                   \\
+                                 & = \sum_{d = 1}^{\infty} d \Prob(D = d)                                                                                   \\
+                                 & = \sum_{d = 1}^{\infty} \left[d \sum_{k = d}^{\infty} \left(\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n}\right)\right].
+                    \end{align*}
+
+                    This summation is for
+                    \[
+                        d \cdot \left(\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n}\right)
+                    \]
+                    over the set
+                    \begin{align*}
+                        (d, k) & \in \{(n, m) \mid n \geq 1, m \geq n\} \\
+                               & = \{(n, m) \mid 1 \leq n \leq m\}      \\
+                               & = \{(n, m) \mid m \geq 1, n \leq m\}.
+                    \end{align*}
+
+                    Therefore,
+                    \begin{align*}
+                        \Expt(D) & = \sum_{d = 1}^{\infty} \left[d \sum_{k = d}^{\infty} \left(\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n}\right)\right]   \\
+                                 & = \sum_{(d, k) \in \{(n, m) \mid n \geq 1, m \geq n\}} d \cdot \left(\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n}\right) \\
+                                 & = \sum_{(d, k) \in \{(n, m) \mid m \geq 1, n \leq m\}} d \cdot \left(\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n}\right) \\
+                                 & = \sum_{k = 1}^{\infty} \sum_{d = 1}^{k} d \cdot \left(\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n}\right)               \\
+                                 & = \sum_{k = 1}^{\infty} \left[\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n} \cdot \sum_{d = 1}^{k} d\right].
+                    \end{align*}
+
+              \item \begin{align*}
+                        \Expt(D) & = \sum_{k = 1}^{\infty} \left[\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n} \cdot \sum_{d = 1}^{k} d\right]  \\
+                                 & = \sum_{k = 1}^{\infty} \left[\frac{1}{k} \cdot \frac{n^k}{k!} \cdot e^{-n} \cdot \frac{k (k + 1)}{2}\right] \\
+                                 & = \frac{e^{-n}}{2} \sum_{k = 1}^{\infty} \frac{n^k (k + 1)}{k!}                                              \\
+                                 & = \frac{e^{-n}}{2} \left[(n + 1) \cdot e^n - 1\right]                                                        \\
+                                 & = \frac{1}{2} \left[e^{-n} \cdot (n + 1) \cdot e^{n} - e^{-n}\right]                                         \\
+                                 & = \frac{1}{2} \left[(n + 1) - e^{-n}\right]
+                    \end{align*}
+                    as desired.
+          \end{enumerate}
+
+    \item \(X_k \sim \Poisson(k)\) for \(k = 1, 2, \cdots, n\). Let \(Y_n\) be the outcome of an \(n\)-sided die, i.e. \(Y_n \sim \Uniform(n)\). Therefore, \(Z = X_k\) if \(Y_n = k\).
+
+          \begin{enumerate}
+              \item We have
+                    \begin{align*}
+                        \Prob(Z = 0) & = \sum_{k = 1}^{n} \Prob(X_k = 0, Y_n = k)                                    \\
+                                     & = \sum_{k = 1}^{n} \Prob(X_k = 0) \Prob(Y_n = k)                              \\
+                                     & = \sum_{k = 1}^{n} e^{-k} \cdot \frac{k^0}{0!} \cdot \frac{1}{n}              \\
+                                     & = \frac{1}{n} \cdot \sum_{k = 1}^{n} e^{-k}                                   \\
+                                     & = \frac{1}{n} \cdot \frac{1 - \left(e^{-1}\right)^n}{1 - e^{-1}} \cdot e^{-1} \\
+                                     & = \frac{e^{-1}}{n} \cdot \frac{1 - e^{-n}}{1 - e^{-1}}.
+                    \end{align*}
+
+              \item For \(z \geq 1\), we have
+                    \begin{align*}
+                        \Prob(Z = z) & = \sum_{k = 1}^{n} \Prob(X_k = z, Y_n = k)                       \\
+                                     & = \sum_{k = 1}^{n} \Prob(X_k = z) \Prob(Y_n = k)                 \\
+                                     & = \frac{1}{n} \cdot \sum_{k = 1}^{n} e^{-k} \cdot \frac{k^z}{z!} \\
+                                     & = \frac{1}{nz!} \sum_{k = 1}^{n} e^{-k} k^{z}.
+                    \end{align*}
+
+                    Hence,
+                    \begin{align*}
+                        \Expt(Z) & = \sum_{z = 0}^{\infty} z \Prob(Z = z)                                                                            \\
+                                 & = \sum_{z = 1}^{\infty} z \Prob(Z = z)                                                                            \\
+                                 & = \sum_{z = 1}^{\infty} \left[\frac{1}{n (z - 1)!} \cdot \sum_{k = 1}^{n} e^{-k} \cdot k^Z\right]                 \\
+                                 & = \frac{1}{n} \sum_{z = 1}^{\infty} \left[\frac{1}{(z - 1)!} \sum_{k = 1}^{n} e^{-k} \cdot k^z\right]             \\
+                                 & = \frac{1}{n} \sum_{z = 1}^{\infty} \sum_{k = 1}^{n} \left(\frac{1}{(z - 1)!} \cdot e^{-k} \cdot k^z\right)       \\
+                                 & = \frac{1}{n} \sum_{k = 1}^{n} \sum_{z = 1}^{\infty} \left(\frac{1}{(z - 1)!} \cdot e^{-k} \cdot k^z\right)       \\
+                                 & = \frac{1}{n} \sum_{k = 1}^{n} \left[e^{-k} \cdot k \cdot \sum_{z = 1}^{\infty} \frac{k^{z - 1}}{(z - 1)!}\right] \\
+                                 & = \frac{1}{n} \sum_{k = 1}^{n} \left[e^{-k} \cdot k \cdot \sum_{z = 0}^{\infty} \frac{k^z}{z!}\right]             \\
+                                 & = \frac{1}{n} \sum_{k = 1}^{n} \left[e^{-k} \cdot k \cdot e^{k}\right]                                            \\
+                                 & = \frac{1}{n} \sum_{k = 1}^{n} k                                                                                  \\
+                                 & = \frac{1}{n} \cdot \frac{n (n + 1)}{2}                                                                           \\
+                                 & = \frac{n + 1}{2}.
+                    \end{align*}
+
+                    Therefore, subtracting gives us
+                    \begin{align*}
+                        \Expt(Z) - \Expt(D) & = \frac{n + 1}{2} - \frac{1}{2} \cdot \left(n + 1 - e^{-n}\right) \\
+                                            & = \frac{1}{2} e^{-n}                                              \\
+                                            & > 0.
+                    \end{align*}
+
+                    Therefore, \(\Expt(Z) > \Expt(D)\) as desired.
+          \end{enumerate}
+\end{enumerate}
