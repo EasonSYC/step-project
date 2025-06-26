@@ -1,2 +1,121 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item We consider the distance between \(a \pm sbi\) and \(a + b\). We have
+          \begin{align*}
+              \abs*{(a \pm sbi) - (a + b)} & = \abs*{\pm sbi - b}        \\
+                                           & = \abs*{(-1 \pm si) b}      \\
+                                           & = \abs*{-1 \pm si} \abs*{b} \\
+                                           & = \sqrt{1 + s^2} \abs*{b}
+          \end{align*}
+          is independent of the plus or minus sign. This shows that the distances from points \(a \pm sbi\) to \(a + b\) are equal, and this means that the three points form an isosceles triangle.
+
+          Notice that the midpoint of \(a + sbi\) and \(a - sbi\) is \(a\). Therefore, for any isosceles triangle in the complex plane, the midpoint of the base of the isosceles triangle is represented by the complex number \(a\), and the vector from the midpoint of the base to the top vertex is represented by the complex number \(b\).
+
+          Notice that
+          \[
+              \sqrt{1 + s^2} \abs*{b} = \sqrt{\abs*{b}^2 + (s \abs*{b})^2}
+          \]
+          and this means \(s\) is the ratio of the length of half the base to the length of the height (represented by \(b\)).
+
+          \begin{center}
+              \input{\currfiledir 3-diag1}
+          \end{center}
+
+    \item From the previous part, three points in the complex plane represent an isosceles triangle if and only if they could be represented as \(a + sbi\), \(a - sbi\) and \(a + b\) for some complex \(a, b\) where \(b \neq 0\) and positive real \(s\) (and such representation is unique).
+
+          Let \(z_1, z_2\) and \(z_3\) be the roots of this equation. We notice that from Vieta's Theorem,
+          \[
+              \left\{
+              \begin{aligned}
+                  z_1 + z_2 + z_3             & = 0,  \\
+                  z_1 z_2 + z_1 z_3 + z_2 z_3 & = p,  \\
+                  z_1 z_2 z_3                 & = -q.
+              \end{aligned}
+              \right.
+          \]
+
+          On the other hand,
+          \[
+              z_1 + z_2 + z_3 = (a + sbi) + (a - sbi) + (a + b) = 3a + b,
+          \]
+          \begin{align*}
+              z_1 z_2 + z_1 z_3 + z_2 z_3 & = (a + sbi) (a - sbi) + (a + sbi) (a + b) + (a - sbi) (a + b) \\
+                                          & = a^2 + s^2 b^2 + 2a (a + b)                                  \\
+                                          & = 3a^2 + 2ab + s^2 b^2,
+          \end{align*}
+          and
+          \begin{align*}
+              z_1 z_2 z_3 & = (a + sbi) (a - sbi) (a + b)        \\
+                          & = (a^2 + s^2 b^2) (a + b)            \\
+                          & = a^3 + a^2 b + s^2 a b^2 + s^2 b^3.
+          \end{align*}
+
+          Since \(3a + b = 0\), we have \(b = -3a\), and therefore
+          \begin{align*}
+              p & = 3a^2 + 2ab + s^2 b^2          \\
+                & = 3a^2 + 2a (-3a) + s^2 (-3a)^2 \\
+                & = 3a^2 - 6a^2 + s^2 \cdot 9a^2  \\
+                & = 9 s^2 a^2 - 3 a^2             \\
+                & = 3a^2 \left(3s^2 - 1\right),
+          \end{align*}
+          and
+          \begin{align*}
+              q & = - \left(a^3 + a^2 b + s^2 a b^2 + s^2 b^3\right)             \\
+                & = - \left(a^3 + a^2 (-3a) + s^2 a (-3a)^2 + s^2 (-3a)^3\right) \\
+                & = - \left(a^3 - 3a^3 + 9 s^2 a^3 - 27 s^2 a^3\right)           \\
+                & = - \left(-2 a^3 - 18 s^2 a^3\right)                           \\
+                & = 2a^3 \left(9 s^2 + 1\right).
+          \end{align*}
+
+          Therefore,
+          \begin{align*}
+              \frac{p^3}{q^2} & = \frac{\left(3a^2 \left(3s^2 - 1\right)\right)^3}{\left(2a^3 \left(9 s^2 + 1\right)\right)^2} \\
+                              & = \frac{27 a^6 \left(3s^2 - 1\right)^3}{4 a^6 \left(9 s^2 + 1\right)^2}                        \\
+                              & = \frac{27 \left(3s^2 - 1\right)^3}{4 \left(9 s^2 + 1\right)^2}
+          \end{align*}
+          for this value of \(s\) of the isosceles triangle, showing precisely that such \(s\) does exist.
+
+    \item This function is defined for \(x \neq -\frac{1}{9}\). Within the domain, it is positive for \(x > \frac{1}{3}\) and negative for \(x < \frac{1}{3}\). Therefore, as \(x \to -\frac{1}{9}\), \(y \to -\infty\).
+
+          As \(x \to \pm \infty\), we find the asymptote by long division. We have
+          \begin{align*}
+              y & = \frac{(3x - 1)^3}{(9x + 1)^2}                                                 \\
+                & = \frac{27 x^3 - 27 x^2 + 9x - 1}{81 x^2 + 18 x + 1}                            \\
+                & = \frac{1}{3}x + \frac{-33 x^2 + \frac{26}{3}x - 1}{81 x^2 + 18 x + 1}          \\
+                & = \frac{1}{3}x - \frac{11}{27} + \frac{16 x - \frac{16}{27}}{81 x^2 + 18 x + 1}
+          \end{align*}
+          and hence \(y = \frac{1}{3}x - \frac{11}{27}\) is an asymptote as \(x \to \pm \infty\).
+
+          Differentiating this gives us
+          \begin{align*}
+              y' & = \frac{\left[(3x - 1)^3\right]' (9x + 1)^2 - \left[(9x + 1)^2\right]' (3x - 1)^3}{(9x + 1)^4}         \\
+                 & = \frac{3 \cdot 3 \cdot (3x - 1)^2 (9x + 1)^2 - 2 \cdot 9 \cdot (9x + 1) \cdot (3x - 1)^3}{(9x + 1)^4} \\
+                 & = \frac{9 (3x - 1)^2 (9x + 1) - 18 (3x - 1)^3}{(9x + 1)^3}                                             \\
+                 & = \frac{9 (3x - 1)^2}{(9x + 1)^3} \left[(9x + 1) - 2 (3x - 1)\right]                                   \\
+                 & = \frac{27 (3x - 1)^2 (x + 1)}{(9x + 1)^3}.
+          \end{align*}
+
+          Therefore, \(y' = 0\) if and only if \(x = \frac{1}{3}\) (which is also a zero), or \(x = -1\) (which corresponds to \(y = \frac{(3 \cdot (-1) - 1)^3}{(9 \cdot (-1) + 1)^2} = \frac{-64}{64} = -1\), which is \((-1, -1)\)).
+
+          The \(y\)-intercept is \(-1\).
+
+          Therefore, the graph is as follows.
+
+          \begin{center}
+              \input{\currfiledir 3-diag2}
+          \end{center}
+
+    \item We have shown in part (ii) that such \(s\) exists and could be the corresponding \(s\) for the isosceles triangle represented by the three roots. Therefore, the ratio is real.
+
+          Furthermore,
+          \[
+              \frac{p^3}{q^2} = \frac{27 \left(3 s^2 - 1\right)^3}{4 \left(9 s^2 + 1\right)^2} = \frac{27}{4} \cdot \LEvalAt{\frac{(3x - 1)^3}{(9x + 1)^2}}{x = s^2}.
+          \]
+
+          Therefore, since the minimum of \(y = \frac{(3x - 1)^3}{(9x + 1)^2}\) for \(x \geq 0\) is at \(y = -1\) when \(x = 0\), we must have
+          \[
+              \frac{p^3}{q^2} \geq \frac{27}{4} \cdot (-1) = - \frac{27}{4}
+          \]
+          as desired.
+\end{enumerate}

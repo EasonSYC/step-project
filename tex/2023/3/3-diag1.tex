@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \draw[->] (-0.5, 0) -- (5.5, 0) node[right] {\(\re(z)\)};
+    \draw[->] (0, -0.5) -- (0, 5.5) node[above] {\(\im(z)\)};
+    \coordinate (A) at (5, 5);
+    \coordinate (B1) at (1, 3);
+    \coordinate (B2) at (3, 1);
+    \coordinate (M) at (2, 2);
+    \filldraw (M) circle (1pt) node[below left] {\(a\)};
+    \filldraw (A) circle (1pt) node[above right] {\(a + b\)};
+    \filldraw (B1) circle (1pt) node[left] {\(a + sbi\)};
+    \filldraw (B2) circle (1pt) node[below] {\(a - sbi\)};
+    \draw[dashed] (M) -- (A);
+    \node at (3.5, 3.5) [above left] {\(b\)};
+    \node at (1.5, 2.5) [above right] {\(s \abs*{b}\)};
+    \node at (2.5, 1.5) [above right] {\(s \abs*{b}\)};
+    \draw (A) -- (B1) -- (B2) -- cycle;
+\end{tikzpicture}
