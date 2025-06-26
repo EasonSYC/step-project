@@ -1,0 +1,6 @@
+\begin{tikzpicture}[trig format=rad,scale=0.5]
+    \draw[->] (-10.5, 0) -- (10.5, 0) node[right] {\(x\)};
+    \draw[->] (0, -5.5) -- (0, 5.5) node[above] {\(y\)};
+    \node at (0, 0) [above left] {\(O\)};
+    \draw[smooth, samples=200, domain={-9}:9] plot (\x, {10*(atan(\x) - pi / 2 * tanh(\x))});
+\end{tikzpicture}

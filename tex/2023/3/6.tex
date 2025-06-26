@@ -1,2 +1,106 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item Since \(e^{x} = \sum_{k = 0}^{\infty} \frac{x^k}{k!}\), we have \(e^{-x} = \sum_{k = 0}^{\infty} \frac{(-x)^k}{k!}\), and hence
+          \begin{align*}
+              \cosh^2 x & = \frac{\left(e^x + e^{-x}\right)^2}{4}                                                            \\
+                        & = \frac{e^{2x} + e^{-2x} + 2}{4}                                                                   \\
+                        & = \frac{\sum_{k = 0}^{\infty} \frac{(2x)^k}{k!} + \sum_{k = 0}^{\infty} \frac{(-2x)^k}{k!} + 2}{4} \\
+                        & = \frac{2\sum_{k = 0}^{\infty} \frac{(2x)^{2k}}{k!} + 2}{4}                                        \\
+                        & \geq \frac{2 \cdot \frac{(2x)^{0}}{0!} + 2 \cdot \frac{(2x)^{2}}{2!} + 2}{4}                       \\
+                        & = \frac{4 + 4x^2}{4}                                                                               \\
+                        & = 1 + x^2,
+          \end{align*}
+          so
+          \[
+              \cosh^2 x \geq 1 + x^2.
+          \]
+
+          Since
+          \[
+              \cosh^2 x \geq 1 + x^2 > 0,
+          \]
+          we have
+          \[
+              0 < \frac{1}{1 + x^2} \leq \frac{1}{\cosh^2 x}.
+          \]
+
+          By differentiating, we have
+          \begin{align*}
+              f'(x) & = \frac{1}{1 + x^2} - \frac{1}{\cosh^2 x}  \\
+                    & \geq \frac{1}{1 + x^2} - \frac{1}{1 + x^2} \\
+                    & = 0,
+          \end{align*}
+          which shows \(f'(x) \geq 0\), meaning \(f\) is increasing.
+
+          Notice that \(f'(x) = 0\) if and only if \(x = 0\) (since the equal sign takes if and only if all the remaining even powers of \(x\) sum to zero, which is possible if and only if they are all zero). Also, since both functions are odd, we have \(f(x) = - f(-x)\).
+
+          As \(x \to \pm \infty\), \(f(x) \to \pm \frac{\pi}{2} \mp 1\) respectively.
+
+          \begin{center}
+              \input{\currfiledir 6-diag1}
+          \end{center}
+
+    \item \begin{enumerate}
+              \item We notice that \(g(0) = \arctan 0 - \frac{1}{2} \pi \tanh 0 = 0\), and that as \(x \to \infty\), \(g(x) \to \frac{\pi}{2} - \frac{1}{2}\pi \cdot 1 = 0\) as well.
+
+                    Since \(g\) is not identically zero, it must be the case that it has a stationary point on \((0, \infty)\).
+
+                    Also, notice that \(g\) is odd, so the stationary points come in pairs, and there must be at least two of those.
+
+              \item By differentiating,
+                    \begin{align*}
+                        \DiffOp{x} \left[\left(1 + x^2\right) \sinh x - x \cosh x\right] & = 2x \sinh x + \left(1 + x^2\right) \cosh x - \cosh x - x \sinh x \\
+                                                                                         & = x \sinh x + x^2 \cosh x.
+                    \end{align*}
+
+                    If \(x \geq 0\), then \(\sinh x \geq 0\) and \(\cosh x \geq 0\), and hence the derivative is non-negative, meaning this function is non-decreasing.
+
+                    Therefore, for \(x \geq 0\),
+                    \[
+                        \left(1 + x^2\right) \sinh x - x \cosh x \geq \left(1 + 0^2\right) \sinh 0 - 0 \cdot \cosh 0 = 0
+                    \]
+                    which shows that it is indeed non-negative, as desired.
+
+              \item By differentiating, we have
+                    \[
+                        \DiffOp{x} \frac{\cosh^2 x}{1 + x^2} = \frac{2 \cosh x \sinh x \left(1 + x^2\right) - 2x \cosh^2 x}{\left(1 + x^2\right)^2}.
+                    \]
+
+                    Since the denominator is always positive, showing that it is increasing for \(x \geq 0\) is equivalent to showing that
+                    \begin{align*}
+                        2 \cosh x \sinh x \left(1 + x^2\right) - 2x \cosh^2 x & = 2 \cosh x \left[\sinh x (1 + x^2) - x \cosh x\right]
+                    \end{align*}
+                    is non-negative. From the previous part, the part within the brackets is non-negative, and \(\cosh x \geq 0\). Therefore, the derivative is non-negative, and this is an increasing function.
+
+              \item By differentiating \(g\), we have
+                    \begin{align*}
+                        g'(x) & = \frac{1}{1 + x^2} - \frac{\pi}{2} \cdot \frac{1}{\cosh^2 x}                      \\
+                              & = \frac{2 \cosh^2 x - \pi \left(1 + x^2\right)}{2 \left(1 + x^2\right) \cosh^2 x}.
+                    \end{align*}
+
+                    We first note that \(g'(0) \neq 0\) since the numerator evaluates to \(2 - \pi\).
+
+                    Since \(g\) is odd, the curve has exactly two stationary points if and only if there is exactly one stationary point on \((0, \infty)\).
+
+                    The curve has a stationary point if and only if
+                    \[
+                        2 \cosh^2 x - \pi \left(1 + x^2\right) = 0,
+                    \]
+                    if and only if
+                    \[
+                        \frac{\cosh^2 x}{1 + x^2} = \frac{\pi}{2}.
+                    \]
+
+                    Since the left-hand side is increasing (and non-constant) for \(x \geq 0\), there is at most one solution to this equation for \(x \geq 0\).
+
+                    From part (a), there is at least one stationary point for \(x > 0\).
+
+                    Together, this means that there is precisely one stationary point for \(x > 0\), and therefore \(g\) has precisely two stationary points.
+
+              \item The graph is as follows.
+                    \begin{center}
+                        \input{\currfiledir 6-diag2}
+                    \end{center}
+          \end{enumerate}
+\end{enumerate}
