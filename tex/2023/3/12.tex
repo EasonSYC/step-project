@@ -1,2 +1,67 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item There are \(\binom{2n}{2k}\) ways to select the socks in total.
+
+          All \(2k\) socks must be from different pairs of socks, so we have to select \(2k\) pairs of socks from the \(n\) pairs available, giving us \(\binom{n}{2k}\) options.
+
+          Out of those \(2k\) pairs, one of the two is selected, which gives \(2^{2k}\).
+
+          Therefore, the probability is given by
+          \[
+              \Prob = \frac{\binom{n}{2k} \cdot 2^{2k}}{\binom{2n}{2k}}.
+          \]
+
+    \item There are \(r\) pairs of socks, and \(2k - 2r = 2 (k - r)\) socks that do not form any pairs (single).
+
+          This gives us \(\binom{n}{r}\) to select the \(r\) pairs of socks, \(\binom{n - r}{2(k - r)}\) to select the \(2(k - r)\) pairs from the remaining \(n - r\) pairs. Finally, there is a factor of \(2^{2 (k - r)}\) ways to select one sock out of the \(n - r\) pair.
+
+          Hence,
+          \[
+              \Prob(X_{n, k} = r) = \frac{\binom{n}{r} \binom{n - r}{2 (k - r)} 2^{2 (k - r)}}{\binom{2n}{2k}}
+          \]
+          as desired, for \(0 \leq r \leq k\).
+
+    \item By expanding out the binomial coefficients, we have
+          \begin{align*}
+              \Prob(X_{n, k} = r) & = \frac{\frac{n!}{(n - r)! r!} \cdot \frac{(n - r)!}{(2(k - r))! ((n - r) - 2(k - r))!}}{\frac{(2n)!}{(2k)! (2(n - k))!}} \cdot 2^{2 (k - r)} \\
+                                  & = \frac{n! (2k)! (2(n - k))!}{(2n)! r! (2(k - r))! (n + r - 2k)!} \cdot 2^{2 (k - r)},
+          \end{align*}
+          and hence
+          \begin{align*}
+               & \phantom{=} \Prob(X_{n - 1, k - 1} = r - 1)                                                                                                                          \\
+               & = \frac{(n - 1)! (2 (k - 1))! (2((n - 1) - (k - 1)))!}{(2(n - 1))! (r - 1)! (2((k - 1) - (r - 1)))! ((n - 1) + (r - 1) - 2(k - 1))!} \cdot 2^{2 ((k - 1) - (r - 1))} \\
+               & = \frac{(n - 1)! (2k - 2)! (2(n - k))!}{(2n - 2)! (r - 1)! (2(k - r))! (n + r - 2k)!} \cdot 2^{2 (k - r)}.
+          \end{align*}
+
+          To show that
+          \[
+              r \cdot \Prob(X_{n, k} = r) = \frac{k (2k - 1)}{2n - 1} \cdot \Prob(X_{n - 1, k - 1} = r - 1),
+          \]
+          it is equivalent to showing that
+          \begin{align*}
+              r \cdot \frac{n! (2k)!}{(2n)! r! }               & = \frac{k (2k - 1)}{2n - 1} \cdot \frac{(n - 1)! (2k - 2)! }{(2n - 2)! (r - 1)!} \\
+              r \cdot \frac{n (2k) (2k - 1)}{(2n) (2n - 1) r } & = \frac{k (2k - 1)}{2n - 1}                                                      \\
+              \frac{n (2k)}{2n}                                & = k                                                                              \\
+              2nk                                              & = 2nk
+          \end{align*}
+          which is true.
+
+          Therefore, we have
+          \[
+              r \cdot \Prob(X_{n, k} = r) = \frac{k (2k - 1)}{2n - 1} \cdot \Prob(X_{n - 1, k - 1} = r - 1)
+          \]
+          as desired.
+
+          Therefore, the expectation can be simplified as
+          \begin{align*}
+              \Expt(X_{n, k}) & = \sum_{r = 0}^{k} r \Prob(X_{n, k} = r)                                         \\
+                              & = \sum_{r = 1}^{k} r \Prob(X_{n, k} = r)                                         \\
+                              & = \sum_{r = 1}^{k} \frac{k (2k - 1)}{2n - 1} \Prob(X_{n - 1, k - 1} = r - 1)     \\
+                              & = \frac{k (2k - 1)}{2n - 1} \sum_{r = 1}^{k} \Prob(X_{n - 1, k - 1} = r - 1)     \\
+                              & = \frac{k (2k - 1)}{2n - 1} \sum_{r = 0}^{k - 1} \Prob(X_{n - 1, k - 1} = r - 1) \\
+                              & = \frac{k (2k - 1)}{2n - 1} \cdot 1                                              \\
+                              & = \frac{k (2k - 1)}{2n - 1}
+          \end{align*}
+          since \(0 \leq X_{n, k} \leq k\), \(0 \leq X_{n - 1, k - 1} \leq k - 1\) and that they can only take integer values.
+\end{enumerate}
