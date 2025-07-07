@@ -1,0 +1,16 @@
+\begin{tikzpicture}[trig format=rad]
+    \draw[->] (0, 0) -- (4, 0) node[right] {\(\theta = 0\)};
+    \draw[->] (0, 0) -- (-3, 0) node[left] {\(\theta = \pi\)};
+    \draw[->] (0, -1) -- (0, 5) node[above] {\(\theta = \frac{\pi}{2}\)};
+    \draw[smooth, samples=200, domain=0:pi] plot (\x : {2 * (1 + (sin \x))});
+    \draw[smooth, samples=200, domain=0:pi] plot (\x : {2 + (cos \x)});
+    \filldraw (0, 0) circle (1pt) node[below left] {\(O\)};
+    \node at (3, 0) [below] {\(k + 1\)};
+    \node at (2, 0) [below] {\(k\)};
+    \node at (-1, 0) [below] {\(k - 1\)};
+    \node at (-2, 0) [below] {\(k\)};
+    \node at (0, 4) [above left] {\(2k\)};
+    \node at (0, 2) [above left] {\(k\)};
+    \node at (0, 4) [above right] {\(C_1\)};
+    \node at (3, 0) [above right] {\(C_2\)};
+\end{tikzpicture}

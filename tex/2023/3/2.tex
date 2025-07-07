@@ -1,2 +1,110 @@
 \Question{\currfilebase}
-\WorkInProgress
+
+\begin{enumerate}
+    \item If the two curves meet at \(\theta = \alpha\), then \(\alpha\) must satisfy that
+          \[
+              k (1 + \sin \alpha) = k + \cos \alpha.
+          \]
+
+          Subtracting \(k\) on both sides, we have
+          \[
+              k \sin \alpha = \cos \alpha,
+          \]
+          and since \(k > 1 > 0\), \(\sin \alpha\) and \(\cos \alpha\) cannot be simultaneously zero, they must both be non-zero. Dividing through both sides by \(\cos \alpha\) gives
+          \[
+              k \tan \alpha = 1
+          \]
+          and hence
+          \[
+              \tan \alpha = \frac{1}{k}
+          \]
+          as desired.
+
+          The curves are as follows.
+
+          \begin{center}
+              \input{\currfiledir 2-diag}
+          \end{center}
+
+    \item The area of \(A\) is given by
+          \begin{align*}
+              [A] & = \frac{1}{2} \cdot \int_{0}^{\alpha} \left(k (1 + \sin \theta)\right)^2 \Diff \theta                                                                   \\
+                  & = \frac{k^2}{2} \cdot \int_{0}^{\alpha} \left(1 + 2 \sin \theta + \sin^2 \theta\right) \Diff \theta                                                     \\
+                  & = \frac{k^2}{2} \cdot \int_{0}^{\alpha} \left(1 + 2 \sin \theta + \frac{1 - \cos 2\theta}{2}\right) \Diff \theta                                        \\
+                  & = \frac{k^2}{2} \cdot \left[\frac{3}{2} \cdot \theta - 2 \cos \theta - \frac{1}{4} \sin 2\theta\right]_{0}^{\alpha}                                     \\
+                  & = \frac{k^2}{2} \cdot \left[\left(\frac{3}{2}\alpha - 2 \cos \alpha - \frac{1}{4} \sin 2\alpha\right) - \left(0 - 2 - \frac{1}{4} \cdot 0\right)\right] \\
+                  & = \frac{k^2}{2} \left[\frac{3}{2}\alpha - 2 \cos \alpha - \frac{1}{2} \sin \alpha \cos \alpha + 2\right]                                                \\
+                  & = \frac{k^2}{4} \left(3 \alpha - \sin \alpha \cos \alpha\right) + k^2 \left(1 - \cos \alpha\right).
+          \end{align*}
+
+    \item The area of \(B\) is given by
+          \begin{align*}
+              [B] & = \frac{1}{2} \cdot \int_{\alpha}^{\pi} \left(k + \cos \theta\right)^2 \Diff \theta                                                                                                                            \\
+                  & = \frac{1}{2} \cdot \int_{\alpha}^{\pi} \left(k^2 + 2k \cos \theta + \cos^2 \theta\right) \Diff \theta                                                                                                         \\
+                  & = \frac{1}{2} \cdot \int_{\alpha}^{\pi} \left(k^2 + 2k \cos \theta + \frac{1 + \cos 2\theta}{2}\right) \Diff \theta                                                                                            \\
+                  & = \frac{1}{2} \cdot \left[\left(k^2 + \frac{1}{2}\right)\theta + 2k \sin \theta + \frac{\sin 2\theta}{4}\right]_{\alpha}^{\pi}                                                                                 \\
+                  & = \frac{1}{2} \cdot \left[\left(\left(k^2 + \frac{1}{2}\right)\pi + 2k \cdot 0 + \frac{0}{4}\right) - \left(\left(k^2 + \frac{1}{2}\right)\alpha + 2k \cdot \sin \alpha + \frac{\sin 2\alpha}{4}\right)\right] \\
+                  & = \frac{1}{2} \cdot \left[\left(k^2 + \frac{1}{2}\right) \left(\pi - \alpha\right) - 2k \sin \alpha - \frac{\sin \alpha \cos \alpha}{2}\right]                                                                 \\
+                  & = \frac{1}{4} \cdot \left(2k^2 \pi + \pi - 2k^2 \alpha - \alpha - 4k \sin \alpha - \sin \alpha \cos \alpha\right).
+          \end{align*}
+
+    \item \(T\) is given by
+          \begin{align*}
+              T & = \frac{1}{2} \cdot \int_{0}^{\pi} \left(k + \cos \theta\right)^2 \Diff \theta                                            \\
+                & = \frac{1}{2} \cdot \left[\left(k^2 + \frac{1}{2}\right)\theta + 2k \sin \theta + \frac{\sin 2\theta}{4}\right]_{0}^{\pi} \\
+                & = \frac{1}{4} \cdot \left(2k^2 \pi + \pi - 2k^2 \cdot 0 - 0 - 4k \cdot 0 - 0 \cdot 1\right)                               \\
+                & = \frac{\pi \left(2k^2 + 1\right)}{4}.
+          \end{align*}
+
+          As \(k \to \infty\), \(\frac{1}{k} = \tan \alpha \to 0^{+}\), and therefore,
+          \[
+              \alpha, \sin \alpha, \tan \alpha \approx \frac{1}{k}
+          \]
+          and
+          \[
+              \cos \alpha \approx 1 - \frac{1}{2k^2}.
+          \]
+
+          Therefore, considering only terms with the highest power of \(k\)
+          \begin{align*}
+              [A] & = \frac{k^2}{4} \left(3 \alpha - \sin \alpha \cos \alpha\right) + k^2 \left(1 - \cos \alpha\right)                                                                              \\
+                  & \approx \frac{k^2}{4} \left(3 \left(\frac{1}{k}\right) - \left(\frac{1}{k}\right) \left(1 - \frac{1}{2k^2}\right)\right) + k^2 \left(1 - \left(1 - \frac{1}{2k^2}\right)\right) \\
+                  & = \frac{k^2}{4} \left(\frac{2}{k} + \frac{1}{2k^3} + 1\right)                                                                                                                   \\
+                  & \approx \frac{k}{2},
+          \end{align*}
+          and
+          \begin{align*}
+              [B] & = \frac{1}{4} \cdot \left(2k^2 \pi + \pi - 2k^2 \alpha - \alpha - 4k \sin \alpha - \sin \alpha \cos \alpha\right)                                                 \\
+                  & = \frac{1}{4} \cdot \left(2k^2 \pi + \pi - 2k^2 \cdot \frac{1}{k} - \frac{1}{k} - 4k \cdot \frac{1}{k} - \frac{1}{k} \cdot \left(1 - \frac{1}{2k^2}\right)\right) \\
+                  & = \frac{1}{4} \cdot \left(2k^2 \pi + \pi - 2k - \frac{1}{k} - 4 - \frac{1}{k} + \frac{1}{2k^3}\right)                                                             \\
+                  & \approx \frac{k^2 \pi}{2}.
+          \end{align*}
+
+          Therefore,
+          \[
+              R = [A] + [B] \approx \frac{k^2 \pi}{2}
+          \]
+
+          Hence,
+          \begin{align*}
+              \lim_{k \to \infty} \frac{R}{T} & = \lim_{k \to \infty} \frac{\frac{k^2 \pi}{2}}{\frac{\pi \left(2k^2 + 1\right)}{4}} \\
+                                              & = \lim_{k \to \infty} \frac{2k^2}{2k^2 + 1}                                         \\
+                                              & = 1
+          \end{align*}
+          as desired.
+
+          Similarly, \(S\) is given by
+          \begin{align*}
+              S & = \frac{1}{2} \cdot \int_{0}^{\pi} \left(k (1 + \sin \theta)\right)^2 \Diff \theta                               \\
+                & = \frac{k^2}{2} \cdot \left[\frac{3}{2} \cdot \theta - 2 \cos \theta - \frac{1}{4} \sin 2\theta\right]_{0}^{\pi} \\
+                & = \frac{k^2}{4} \left(3 \pi - \sin \pi \cos \pi\right) + k^2 \left(1 - \cos \pi\right)                           \\
+                & = \frac{k^2}{4} \cdot 3\pi + 2k^2                                                                                \\
+                & = \left(2 + \frac{3\pi}{4}\right) k^2.
+          \end{align*}
+
+          Hence,
+          \begin{align*}
+              \lim_{k \to \infty} \frac{R}{S} & = \lim_{k \to \infty} \frac{\frac{k^2 \pi}{2}}{\left(2 + \frac{3\pi}{4}\right) k^2} \\
+                                              & = \lim_{k \to \infty} \frac{4 \pi}{8 + 3 \pi}.
+          \end{align*}
+\end{enumerate}
