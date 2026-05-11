@@ -17,6 +17,11 @@ thmbox
 pdfpages
 
 make4ht
+luaxml
+tex4ht
+environ
+trimspaces
+
 tocloft
 titlesec
 etoc
