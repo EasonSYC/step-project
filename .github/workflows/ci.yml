@@ -15,21 +15,12 @@ jobs:
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install TeX Live
-        id: install-tex-live
-        run: |
-          sudo apt update
-          sudo apt install -y texlive-latex-extra texlive-fonts-extra texlive-extra-utils
-
-      - name: Install TeX Extras
-        id: install-tex-extras
-        uses: awalsh128/cache-apt-pkgs-action@latest
+        uses: zauguin/install-texlive@v4
         with:
-          packages: |
-            latexmk
-          execute_install_scripts: true
+          package_file: ${{ github.workspace }}/.github/texlive.packages
 
       - name: Create Output Folder
         id: create-output-folder
@@ -89,7 +80,7 @@ jobs:
       
       - name: Upload static files as artifact
         id: upload-webpage
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: webpage/
   
@@ -106,4 +97,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deploy-page
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
