@@ -33,14 +33,14 @@ jobs:
       
       - name: Upload PDF file
         id: upload-pdf
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: PDF
+          archive: false
           path: pdf/latest.pdf
 
       - name: Set up Python
         id: setup-python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.13"
           cache: "pip"

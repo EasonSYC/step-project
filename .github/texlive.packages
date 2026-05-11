@@ -21,6 +21,7 @@ luaxml
 tex4ht
 environ
 trimspaces
+dvisvgm
 
 tocloft
 titlesec
