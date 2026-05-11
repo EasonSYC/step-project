@@ -18,3 +18,5 @@ pdfpages
 
 make4ht
 tocloft
+titlesec
+etoc
